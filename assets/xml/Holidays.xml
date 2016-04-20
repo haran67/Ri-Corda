@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Holidays>
+	<Holiday name="Capodanno">
+		<Month>1</Month>
+		<Day>1</Day>
+	</Holiday>
+    <Holiday name="Epifania">
+        <Month>1</Month>
+        <Day>6</Day>
+    </Holiday>
+    <Holiday name="Easter">
+        <Easter />
+    </Holiday>
+    <Holiday name="Lunedi dell'angelo">
+        <DaysAfterHoliday Holiday="Easter">
+            <Days>1</Days>
+        </DaysAfterHoliday>
+    </Holiday>
+    <Holiday name="25 Aprile">
+        <Month>4</Month>
+        <Day>25</Day>
+    </Holiday>
+    <Holiday name="1 Maggio">
+        <Month>5</Month>
+        <Day>1</Day>
+    </Holiday>
+    <Holiday name="Festa della repubblica">
+        <Month>6</Month>
+        <Day>2</Day>
+    </Holiday>
+    <Holiday name="Assunzione di Maria">
+        <Month>8</Month>
+        <Day>15</Day>
+    </Holiday>
+    <Holiday name="Ognissanti">
+        <Month>11</Month>
+        <Day>1</Day>
+    </Holiday>
+	<Holiday name="Immacolata Concezione">
+		<Month>12</Month>
+		<Day>8</Day>
+	</Holiday>
+	<Holiday name="Natale">
+		<Month>12</Month>
+		<Day>25</Day>
+	</Holiday>
+    <Holiday name="Santo Stefano">
+        <Month>12</Month>
+        <Day>26</Day>
+    </Holiday>
+</Holidays>
+
+

@@ -1,0 +1,40 @@
+/***
+NoUIRangeSlider
+***/
+.noUi-control {
+  margin: 9px 0;
+}
+
+/***
+Color variants
+***/
+.noUi-primary.noUi-connect,
+.noUi-primary .noUi-connect {
+  background: #428bca;
+}
+
+.noUi-info.noUi-connect,
+.noUi-info .noUi-connect {
+  background: #89c4f4;
+}
+
+.noUi-success.noUi-connect,
+.noUi-success .noUi-connect {
+  background: #45b6af;
+}
+
+.noUi-warning.noUi-connect,
+.noUi-warning .noUi-connect {
+  background: #ecbc29;
+}
+
+.noUi-danger.noUi-connect,
+.noUi-danger .noUi-connect {
+  background: #f3565d;
+}
+
+.noUi-default.noUi-connect,
+.noUi-default .noUi-connect {
+  background: #c6c6c6;
+}
+

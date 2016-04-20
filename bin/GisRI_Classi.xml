@@ -1,0 +1,623 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+GisRI_Classi
+</name>
+</assembly>
+<members>
+<member name="T:GisRI_Classi.Oggetti.Permessi_alert_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella PERMESSI_ALERT
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_dipendenti_permessi_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DIPENDENTI_PERMESSI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_ditta_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_DITTA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuto_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Sito_titolarita_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella SITO_TITOLARITA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_stati_sito_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_STATI_SITO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Permessi_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella PERMESSI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Permessi_societa_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella PERMESSI_SOCIETA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Registro_movimenti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REGISTRO_MOVIMENTI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_dipendenti_societa_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DIPENDENTI_SOCIETA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_carico_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_CARICO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_provincia_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_PROVINCIA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_rifiuto_accettazione_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_RIFIUTO_ACCETTAZIONE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_rifiuto_destinazione_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_RIFIUTO_DESTINAZIONE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Permessi_sito_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella PERMESSI_SITO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuto_classi_dettaglio_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTO_CLASSI_DETTAGLIO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Sito_destinazione_autorizzazioni_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella SITO_DESTINAZIONE_AUTORIZZAZIONI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Sito_titolarita_ditte_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella SITO_TITOLARITA_DITTE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_profili_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_PROFILI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_tipologia_autorizzazioni_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_TIPOLOGIA_AUTORIZZAZIONI
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Pagina_Ritorno">
+	<summary>
+ Pagina_Ritorno.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Direct_New">
+	<summary>
+ Direct_New.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Dipendenti_Key">
+	<summary>
+ Dipendenti_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Societa_Gestione_Key">
+	<summary>
+ Societa_Gestione_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Societa_Key">
+	<summary>
+ Societa_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Ditta_Key">
+	<summary>
+ Ditta_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Sito_Key">
+	<summary>
+ Sito_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Rifiuto_Key">
+	<summary>
+ Rifiuto_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Rifiuto_Smaltimento_Key">
+	<summary>
+ Rifiuto_Smaltimento_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Registro_Key">
+	<summary>
+ Registro_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Carico_Key">
+	<summary>
+ Carico_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Scarico_Key">
+	<summary>
+ Scarico_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Messaggio_Key">
+	<summary>
+ Messaggio_Key.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Denominazione">
+	<summary>
+ Denominazione.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto_Messaggi.Messaggio">
+	<summary>
+ Messaggio.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto_Messaggi.Operazione">
+	<summary>
+ Operazione.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto_Messaggi.Casella">
+	<summary>
+ Casella.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto_Griglie.OrderBy">
+	<summary>
+ OrderBy.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto_Griglie.Pagina">
+	<summary>
+ Pagina.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto_Griglie.ElementiXPagina">
+	<summary>
+ ElementiXPagina.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto_Griglie.Stato_Griglia(System.String)">
+	<summary>
+ Stato_Griglia.
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Registro_scarico_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REGISTRO_SCARICO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuto_immagini_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTO_IMMAGINI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_profili_siti_dettagli_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_PROFILI_SITI_DETTAGLI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_unita_misura_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_UNITA_MISURA
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Connesso">
+	<summary>
+ S o N se connessione avvenuta.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Attivo">
+	<summary>
+ S o N se utente abilitato e disabilitato.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.UserName">
+	<summary>
+ User Name dell'utente.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Ad_UserName">
+	<summary>
+ User Name dell'utente in active directory.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Password">
+	<summary>
+ Password.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Tipo_Utente">
+	<summary>
+ Tipologia Itente +=SU.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Siti">
+	<summary>
+ Identificativi dei siti.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Messaggio">
+	<summary>
+ Messaggi ad es per Accesso Errato.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.TokenSessione">
+	<summary>
+ Token di sessione.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Societa_Gestione_Key">
+	<summary>
+ Chiave del societa gestione.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Societa_Key">
+	<summary>
+ Chiave della societa.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Sito_Lavorazione">
+	<summary>
+ Oggetto del sito.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Permessi_Key">
+	<summary>
+ Chiave primaria.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Dipendente_Key">
+	<summary>
+ Chiave dipendente.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Permessi_Funzioni">
+	<summary>
+ Diritti sulle signole funzioni.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Permessi_Pagine">
+	<summary>
+ Diritti sulle signole pagine.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Di_Ditta">
+	<summary>
+ _Di_Ditta.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Di_Societa">
+	<summary>
+ _Di_Societa.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Di_Societa_Gestione">
+	<summary>
+ _Di_Societa_Gestione.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Utente.Data_Scadenza">
+	<summary>
+ data scadenza licenza utente.
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Utente">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati dell'utente.
+ </summary>
+</member><member name="P:GisRI_Classi.Controls.TextData.Data">
+	<summary>
+ Data
+ </summary>
+</member><member name="M:GisRI_Classi.Controls.TextData.Render(System.Web.UI.HtmlTextWriter)">
+	<summary> 
+ Render this control to the output parameter specified.
+ </summary>
+	<param name="output"> The HTML writer to write out to </param>
+</member><member name="T:GisRI_Classi.Controls.TextData">
+	<summary>
+ TextBox per la visualizzazione della Data
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Dipendenti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella DIPENDENTI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuti_caricati_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTI_CARICATI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Societa_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella SOCIETA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_profili_funzioni_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_PROFILI_FUNZIONI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Messaggi_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella MESSAGGI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.ErrorePagina">
+	<summary>
+ Classe per la gestione dell' Errore
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_dipendenti_ditta_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DIPENDENTI_DITTA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuto_classi_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTO_CLASSI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuto_smaltimento_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTO_SMALTIMENTO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_parametri_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_PARAMETRI
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Immagini.Immagine">
+	<summary>
+ File Immagine.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Immagini.Estensione">
+	<summary>
+ Estensione Immagine.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Immagini.Path">
+	<summary>
+ Titolo Path.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Immagini.Url">
+	<summary>
+ Titolo Url.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Immagini.Titolo">
+	<summary>
+ Titolo Immagine.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Immagini.Descrizione">
+	<summary>
+ Descrizione Immagine.
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_smaltimento_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_SMALTIMENTO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_ruolo_aziendale_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_RUOLO_AZIENDALE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_messaggi_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_DITTA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Ditta_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella DITTA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuto_cer_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTO_CER
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_comune_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_COMUNE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Ditta_autorizzazioni_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella DITTA_AUTORIZZAZIONI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_sito_destinazione_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_CARICO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Registro_carico_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REGISTRO_CARICO
+ </summary>
+</member><member name="P:GisRI_Classi.Controls.TextNumero.CifreDecimali">
+	<summary>
+ Numero di cifre decimali 
+ </summary>
+</member><member name="P:GisRI_Classi.Controls.TextNumero.Numero">
+	<summary>
+ Numero
+ </summary>
+</member><member name="P:GisRI_Classi.Controls.TextNumero.Min">
+	<summary>
+ Valore minimo del numero 
+ </summary>
+</member><member name="P:GisRI_Classi.Controls.TextNumero.Max">
+	<summary>
+ Valore massimo del numero
+ </summary>
+</member><member name="M:GisRI_Classi.Controls.TextNumero.Render(System.Web.UI.HtmlTextWriter)">
+	<summary> 
+ Render this control to the output parameter specified.
+ </summary>
+	<param name="output"> The HTML writer to write out to </param>
+</member><member name="T:GisRI_Classi.Controls.TextNumero">
+	<summary>
+ TextBox in grado di accettare solo numeri visualizzando
+ il separatore delle migliaia e dei decimali
+ </summary>
+</member><member name="M:GisRI_Classi.Controls.TextTesto.Render(System.Web.UI.HtmlTextWriter)">
+	<summary> 
+ Render this control to the output parameter specified.
+ </summary>
+	<param name="output"> The HTML writer to write out to </param>
+</member><member name="T:GisRI_Classi.Controls.TextTesto">
+	<summary>
+ TextBox in grado di accettare solo numeri visualizzando
+ il separatore delle migliaia e dei decimali
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.DropDown.Codice">
+	<summary>
+ Codice DDL.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.DropDown.Descrizione">
+	<summary>
+ Descrizione DDL.
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Registro_scarico_riferimenti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REGISTRO_SCARICO_RIFERIMENTI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Sito_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella SITO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Sito_destinazione_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella SITO_DESTINAZIONE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_funzioni_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_FUNZIONI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_rifiuto_imballaggio_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_RIFIUTO_IMBALLAGGIO
+ </summary>
+</member><member name="T:GisRI_Classi.Controls.DDLReadOnly">
+	<summary>
+ DDL per la visualizzazione in readOnly
+ </summary>
+</member><member name="P:GisRI_Classi.Controls.TextOra.Data">
+	<summary>
+ Data
+ </summary>
+</member><member name="M:GisRI_Classi.Controls.TextOra.Render(System.Web.UI.HtmlTextWriter)">
+	<summary> 
+ Render this control to the output parameter specified.
+ </summary>
+	<param name="output"> The HTML writer to write out to </param>
+</member><member name="T:GisRI_Classi.Controls.TextOra">
+	<summary>
+ TextBox per la visualizzazione della Data
+ </summary>
+</member><member name="P:GisRI_Classi.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:GisRI_Classi.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:GisRI_Classi.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="T:GisRI_Classi.Oggetti.Depositi_volumi_per_data_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella DEPOSITI_VOLUMI_PER_DATA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Permessi_societa_gestione_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella PERMESSI_SOCIETA_GESTIONE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuti_stato_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTI_STATO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuto_smaltimento_dettagli_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTO_SMALTIMENTO_DETTAGLI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_profili_siti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_PROFILI_SITI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_regione_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_REGIONE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_tipo_documento_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_TIPO_DOCUMENTO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Depositi_situazione_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella DEPOSITI_SITUAZIONE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Registro_rifiuti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REGISTRO_RIFIUTI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_rifiuto_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_RIFIUTO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuto_stato_fisico_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTO_STATO_FISICO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_rifiuto_deposito_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_RIFIUTO_DEPOSITO
+ </summary>
+</member><member name="T:GisRI_Classi.Controls.BottoneOneShot">
+	<summary>
+ Ha le stesse caratteristiche del controllo Button, in più si disabilita
+ automaticamente lato client non appena viene cliccato.
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_dipendenti_societa_gestione_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DIPENDENTI_SOCIETA_GESTIONE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_codici_cer_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_CODICI_CER
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Permessi_funzioni_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella PERMESSI_FUNZIONI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Sito_stati_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella SITO_STATI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_licenza_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_LICENZA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_sito_attivita_rifiuto_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_SITO_ATTIVITA_RIFIUTO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Produttori_effettivi_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella PRODUTTORI_ATTIVI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Registro_stato_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REGISTRO_STATO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_ditta_tipologia_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DITTA_TIPOLOGIA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_scarico_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_SCARICO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Societa_gestione_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella SOCIETA_GESTIONE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_classi_pericolosita_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_CLASSI_PERICOLOSITA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_tipologia_ditta_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_TIPOLOGIA_DITTA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Depositi_pericolosi_situazione_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella DEPOSITI_PERICOLOSI_SITUAZIONE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Permessi_pagine_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella PERMESSI_PAGINE
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_sito_titolarita_ditte_tipologia_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DITTA_TIPOLOGIA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rifiuti_volume_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella RIFIUTI_VOLUME
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_tipologia_sito_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_TIPOLOGIA_SITO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Produttori_attivi_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella PRODUTTORI_ATTIVI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Documenti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella DOCUMENTI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_alert_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_ALERT
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Tab_rifiuto_stato_fisico_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella TAB_RIFIUTO_STATO_FISICO
+ </summary>
+</member>
+</members>
+</doc>

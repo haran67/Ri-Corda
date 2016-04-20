@@ -1,0 +1,381 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="GisRI.master.vb" Inherits="GisRI_Web.GisRI" %>
+<%@ register tagprefix="telerik" namespace="Telerik.Web.UI" assembly="Telerik.Web.UI" %>
+<%@ Register Assembly="AjaxControls" Namespace="AjaxControls" TagPrefix="asp" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Ri.-C.O.R.D.A. by ambiente sc</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Mesys S.r.l." />
+    <meta name="keyword" content="Rifiuti per ambiente s.c." />
+    <link rel="shortcut icon" href="" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <!--external css-->
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/lineicons/style.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/RadGrid.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/plugins/smoke/themes/ambiente.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/gisri.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/select2.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/style-responsive.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../assets/js/jquery.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
+
+    <script src="../assets/js/chart-master/Chart.js" type="text/javascript"></script>
+	
+    <script src="../assets/plugins/bootstrap-switch/js/bootstrap-switch.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery.dirtyforms/jquery.dirtyforms.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../assets/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/select2/select2_locale_it.js"></script>
+
+    <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../assets/js/utility.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).on('onkeypress', function (e) {
+            if (e.keyCode == 13) { doPrevent = true; }
+            if (doPrevent) {
+                event.preventDefault();
+            }
+        });
+
+        $(document).on('keydown', function (e) {
+            if (e.keyCode === 8) {
+                var doPrevent = false,
+                d = e.srcElement || e.target,
+                tagName = d.tagName.toUpperCase(),
+                type = (d.type ? d.type.toUpperCase() : ""),
+                isEditable = d.contentEditable,
+                isReadOnly = d.readOnly,
+                isDisabled = d.disabled;
+                //alert(tagName);
+                //alert(type);
+                if ((tagName === 'INPUT' && (type === 'TEXT' || type === 'PASSWORD')) || tagName === 'PASSWORD' || tagName === 'TEXTAREA' ||
+                    (tagName === 'DIV' && type === '')) {
+
+                    doPrevent = isReadOnly || isDisabled;
+                }
+                else if (tagName === 'SPAN') {
+
+                    doPrevent = !isEditable;
+                }
+                else {
+
+                    doPrevent = true;
+                }
+            }
+            if (doPrevent) {
+                event.preventDefault();
+            }
+        });
+
+        function initSelect2() {
+            if ($().select2) {
+                $('select.select2me').select2({
+                    placeholder: "Select",
+                    allowClear: true
+                });
+            }
+        }
+        function initMultipleSelect2() {
+            if ($().select2) {
+                $('select[multiple="multiple"]').each(function () {
+                    $('.select2-search-choice').remove();
+                    $(this).on("change", function (e) {
+                        //alert("change val=" + e.val);
+                        PageMethods.SalvaSelect2MultipleValues(e.val, PMSuccess, PMFailure);
+                    })
+                });
+            }
+        }
+
+        
+    </script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="frmPrincipale" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server" EnableScriptGlobalization="true" EnablePageMethods="true"
+            EnableScriptLocalization="true" AsyncPostBackTimeout="3600" ></telerik:RadScriptManager>
+        
+        <section id="container" >
+            <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+            <!--header start-->
+            <header class="header black-bg navbar-fixed-top">
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Abilta/Disabilita menu" style="color:#000;"></div>
+                </div>
+                <!--logo start-->
+                <a class="logo" href="http://www.ambientesc.it" target="_blank"><img src="/assets/img/ambiente.png" 
+				style="margin:4px 7px 5px 5px;">
+                </a> 
+                <a class="logo" id="div_collaudo" runat="server">
+                    <img src="/images/SitoTest.png" height="30" style="margin:0px 7px 6px 5px;" />
+                </a> 
+				<a href="http://www.ambientesc.it"  target="_blank" class="logo" style="color:#000;"><b>Ri.-C.O.R.D.A.</b> </a>
+                <!--logo end-->
+                <div class="nav notify-row" id="top_menu">
+                    <!--  notification start -->
+                    <ul class="nav top-menu" id="ul_messaggi" runat="server">
+                        <!-- inbox dropdown start-->
+                        <li id="header_inbox_bar" class="dropdown" style="display:;">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="index.aspx#" style="height:28px!Important;">
+                                <i class="fa fa-envelope-o" style="padding-top:3px;"></i>
+                                <span class="badge gisri_span_alert">
+                                    <asp:literal ID="ltl_num_msg" runat="server"></asp:literal>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu extended inbox">
+                                <div class="notify-arrow notify-arrow-green"></div>
+                                <li>
+                                    <p class="green">Hai <asp:literal ID="ltl_num_msg_drop" runat="server"></asp:literal> nuovi messaggi</p>
+                                </li>
+                                <asp:Repeater ID="rpt_messaggi" runat="server">
+                                    <ItemTemplate>
+                                        <li>
+                                            <asp:LinkButton ID="btn_messaggio" runat="server" CommandName="GOMSG">
+                                                <span class="photo">
+                                                    <asp:Image ID="img_dipendente" runat="server" />
+                                                </span>
+                                                <span class="subject">
+                                                    <span class="time"><asp:literal ID="ltl_data" runat="server"></asp:literal></span>
+                                                    <br />
+                                                    <span class="from" style="white-space:normal;"><asp:literal ID="ltl_mittente" runat="server"></asp:literal></span>
+                                                </span>
+                                                <span class="message">
+                                                    <asp:literal ID="ltl_oggetto" runat="server"></asp:literal>
+                                                </span>
+                                            </asp:LinkButton>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <li>
+                                    <a href="../Messaggi/Mailbox.aspx">Vedi tutti i messaggi</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- inbox dropdown end -->
+                    </ul>
+                    <!--  notification end -->
+                </div>
+                <asp:UpdatePanel ID="pnl_support" runat="server"><ContentTemplate>
+                <div class="top-menu">
+                    <ul class="nav pull-right top-menu">
+                        <li>
+                            <asp:LinkButton ID="lnk_supporto" CssClass="help" ToolTip="Supporto on line" runat="server" OnClientClick="NewWindows('../Messaggi/Supporto.aspx','_Supporto',600,800,'no'); return false;"><i class="fa fa-life-ring"></i></asp:LinkButton>
+                        </li>
+                        <li><a class="logout" href="../Start/Logout.aspx">Esci</a></li>
+                    </ul>
+                </div>
+                </ContentTemplate></asp:UpdatePanel>
+            </header>
+            <!--header end-->
+      
+            <!-- **********************************************************************************************************************************************************
+            MAIN SIDEBAR MENU
+            *********************************************************************************************************************************************************** -->
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar"  class="nav-collapse ">
+                    <!-- sidebar menu start-->
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <div class="centered img-circle" style="width:60px;height:60px;overflow:hidden; margin: 0 auto;">
+                            <a href="../Start/Profile.aspx">
+                                <asp:Image ID="img_user" runat="server" CssClass=" img-responsive" Width="60" />
+                            </a>
+                        </div>
+                        <h5 class="centered"><asp:Literal ID="ltl_username" runat="server"></asp:Literal></h5>
+                        <asp:Repeater ID="rpt_menu_padre" runat="server">
+                            <ItemTemplate>
+                                <li class="sub-menu">
+                                    <asp:LinkButton ID="btn_funzione" runat="server" CommandName="GO"></asp:LinkButton>
+                                    <asp:HyperLink ID="lnk_funzione" runat="server"></asp:HyperLink>
+                                    <asp:Repeater ID="rpt_menu_figlio" runat="server" OnItemCommand="rpt_menu_figlio_ItemCommand" OnItemDataBound="rpt_menu_figlio_ItemDataBound">
+                                        <HeaderTemplate>
+                                            <ul class="sub">
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <li>
+                                                <asp:LinkButton ID="btn_funzione" runat="server" CommandName="GO"></asp:LinkButton>
+                                            </li>
+                                        </ItemTemplate>
+                                        <FooterTemplate>
+                                            </ul>
+                                        </FooterTemplate>
+                                    </asp:Repeater>              	  	
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>              	  	
+                    </ul>
+                    <!-- sidebar menu end-->
+                </div>
+            </aside>
+            <!--sidebar end-->
+          <!-- **********************************************************************************************************************************************************
+          MAIN CONTENT
+          *********************************************************************************************************************************************************** -->
+          <!--main content start-->
+          <section id="main-content">
+              <section class="wrapper site-min-height">
+                <asp:ContentPlaceHolder ID="body" runat="server">
+                </asp:ContentPlaceHolder>
+                <asp:UpdatePanel ID="upd_master" runat="server">
+                    <ContentTemplate>
+                        <asp:ContentPlaceHolder ID="body_up" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <asp:ModalUpdateProgress ID="ModalUpdateProgress1" runat="server" DisplayAfter="0"
+                    BackgroundCssClass="modalProgressGreyBackground" AssociatedUpdatePanelID="upd_master">
+                    <ProgressTemplate>
+                        <table style="width: 320px; height: 100px; border-style: solid; border-width:5px;
+                            border-color: #1265ab; background-color: White;">
+                            <tr>
+                                <td style="width:10px;">&nbsp;
+                                </td> 
+                                <td style="padding-left:10px; padding-right:10px;">
+                                    <asp:Image ID="imgLogo" runat="server" ImageAlign="AbsMiddle" ImageUrl="..\Favicon\apple-icon-72x72.png"
+                                        Width="32px" />
+                                </td>
+                                <td align="center" valign="middle">
+                                    <asp:Image ID="imgWait" runat="server" ImageAlign="AbsMiddle" ImageUrl="..\Images\wait.gif"
+                                        Width="32px" />
+                                </td>
+                                <td align="center" valign="middle" style="padding-left:10px; padding-right:10px;" >
+                                    Attendere, richiesta in corso...
+                                </td>
+                            </tr>
+                        </table>
+                    </ProgressTemplate>
+                </asp:ModalUpdateProgress>
+		    </section><! --/wrapper -->
+          </section><!-- /MAIN CONTENT -->
+          <!--footer start-->
+          <div style="padding:15px 0;">		  </div>
+          <footer class="site-footer">
+                <div class="text-center">
+                    <a href="http://www.ambientesc.it" style="color:#FFF;">ambiente s.c.</a> | Via Frassina, 21 | 54033 Carrara (MS) |
+					Tel. 0585 855632 | fax 0585 855617 - P. IVA n°: 00262540453
+                    <a href="#" class="go-top" style="margin: 0 20px;">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+          </footer>
+          <!--footer end-->
+        </section>
+
+    </form>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    
+    <script src="../assets/js/jquery.dcjqaccordion.2.7.js" class="include" type="text/javascript" ></script>
+    <script src="../assets/js/jquery.scrollTo.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.sparkline.js" type="text/javascript"></script>
+
+
+    <!--common script for all pages-->
+    <script src="../assets/js/common-scripts.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+
+    <script type="text/javascript" src="../assets/js/google-maps/google-map.js"></script>
+
+    <script type="text/javascript" src="../assets/plugins/smoke/smoke.js"></script>
+    <script type="text/javascript" src="../assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="../assets/plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.it.js"></script>
+
+    <!--script for this page-->
+	<script type="text/javascript" src="../assets/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+	<script type="text/javascript" >
+        $("header.navbar-fixed-top").autoHidingNavbar();
+    </script>
+
+    <script type="text/javascript">
+
+        function pageLoad(sender, args) {
+            $('.date-picker').datepicker({
+                isRTL: false,
+                orientation: "left",
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                language: 'it'
+            });
+        }
+
+        $(document).ready(function () {
+            initSelect2();
+            initMultipleSelect2();
+        });
+
+        function SaveResetScrollPosition(div_ok) {
+            setTimeout("window.scrollTo(0,0)", 0);
+            $("#" + div_ok).effect("pulsate", { times: 5 }, 3000);
+        }
+
+        function BottomScrollPosition(div_ok) {
+            $("html, body").animate({
+                scrollTop:
+                $("#" + div_ok).offset().top
+            }, 1000);
+        }
+
+        jQuery(function ($) {
+            var focusedElementId = "";
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+            prm.add_beginRequest(function (source, args) {
+                var fe = document.activeElement;
+                if (fe != null) {
+                    focusedElementId = fe.id;
+                } else {
+                    focusedElementId = "";
+                }
+                //alert(focusedElementId);
+            });
+
+            prm.add_endRequest(function (source, args) {
+                if (focusedElementId != "") {
+                    $("#" + focusedElementId).focus();
+                    //alert($("#" + focusedElementId));
+                }
+            });
+        });
+    </script>
+
+    <asp:ContentPlaceHolder ID="script" runat="server">
+    </asp:ContentPlaceHolder>
+
+</body>
+</html>

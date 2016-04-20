@@ -1,0 +1,106 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+GisRI_Servizi
+</name>
+</assembly>
+<members>
+<member name="M:GisRI_Servizi.Helpers.GridSettingsPersister.#ctor(Telerik.Web.UI.RadGrid)">
+	<summary> 
+ Initializes an instance of GridSettingsPersister from a RadGrid instance 
+ </summary>
+	<param name="grid">The RadGrid instance to import and exports settings</param>
+</member><member name="M:GisRI_Servizi.Helpers.GridSettingsPersister.#ctor(Telerik.Web.UI.RadGrid,GisRI_Servizi.Helpers.GridSettingsType)">
+	<summary> 
+ Initializes an instance of GridSettingsPersister from a RadGrid instance 
+ and a collection GridSettingsType values 
+ </summary>
+	<param name="grid">The RadGrid instance to import and exports settings</param>
+	<param name="persistedSettingFlags"> 
+ A collection of GridSettingType values specifying the type of grid settings 
+ to import or export 
+ </param>
+</member><member name="P:GisRI_Servizi.Helpers.GridSettingsPersister.Grid">
+	<summary> 
+ The underlyiong RadGrid instance to import or export settings from 
+ </summary>
+</member><member name="P:GisRI_Servizi.Helpers.GridSettingsPersister.PersistedSettingTypes">
+	<summary> 
+ Gets or sets the GridSettingType flags that specify the grid settings to 
+ export or import 
+ </summary>
+</member><member name="M:GisRI_Servizi.Helpers.GridSettingsPersister.SaveSettings">
+	<summary> 
+ Saves the current grid settings and returns the settings serilized to string 
+ </summary>
+</member><member name="M:GisRI_Servizi.Helpers.GridSettingsPersister.GetSavedSettings">
+	<summary> 
+ Saves the current grid settings and retrieves the underlying 
+ GridSettingsCollection instance that contains the grid settings 
+ </summary>
+</member><member name="M:GisRI_Servizi.Helpers.GridSettingsPersister.LoadSettings(System.String)">
+	<summary> 
+ Loads grids settings from a serialized string 
+ </summary>
+	<param name="value">The string that contains the serialized settings</param>
+</member><member name="M:GisRI_Servizi.Helpers.GridSettingsPersister.LoadSettings(System.Byte[])">
+	<summary> 
+ Loads grids settings from a byte array 
+ </summary>
+	<param name="data">The byte array that contains the serialized grid settings</param>
+</member><member name="M:GisRI_Servizi.Helpers.GridSettingsPersister.LoadSettings(GisRI_Servizi.Helpers.GridSettingsCollection)">
+	<summary> 
+ Loads grid settings from a GridSettingsCollection instance 
+ </summary>
+	<param name="savedSettings">The GridSettingsCollection instance to load settings from</param>
+</member><member name="T:GisRI_Servizi.Helpers.GridSettingsPersister">
+	<summary>
+ Imports and exports settings from a RadGrid instance.
+ </summary>
+</member><member name="T:GisRI_Servizi.Helpers.GridSettingsType">
+	<summary> 
+ Enumerates the types of grid settings that can be persisted 
+ </summary>
+</member><member name="M:GisRI_Servizi.Helpers.GridSettingsCollection.ToString">
+	<summary> 
+ Returns the serialized object as string 
+ </summary>
+</member><member name="M:GisRI_Servizi.Helpers.GridSettingsCollection.ToArray">
+	<summary> 
+ Returns the serialized object as byte array 
+ </summary>
+</member><member name="M:GisRI_Servizi.Helpers.GridSettingsCollection.LoadFromSerializedData(System.String)">
+	<summary> 
+ Gets the GridSettingsCollectionInstance from its serialized string data 
+ </summary>
+	<param name="data">The object as serialized string data</param>
+</member><member name="M:GisRI_Servizi.Helpers.GridSettingsCollection.LoadFromSerializedData(System.Byte[])">
+	<summary> 
+ Gets the GridSettingsCollectionInstance from its serialized byte array 
+ </summary>
+	<param name="data">The object as serialized byte array</param>
+</member><member name="T:GisRI_Servizi.Helpers.GridSettingsCollection">
+	<summary> 
+ Represents a collection of grid settings 
+ </summary>
+</member><member name="T:GisRI_Servizi.Helpers.ColumnSettings">
+	<summary> 
+ Represents a collection of grid column settings 
+ </summary>
+</member><member name="P:GisRI_Servizi.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:GisRI_Servizi.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:GisRI_Servizi.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>
