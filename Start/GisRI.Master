@@ -1,4 +1,4 @@
-﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="GisRI.master.vb" Inherits="GisRI_Web.GisRI" %>
+<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="GisRI.master.vb" Inherits="GisRI_Web.GisRI" %>
 <%@ register tagprefix="telerik" namespace="Telerik.Web.UI" assembly="Telerik.Web.UI" %>
 <%@ Register Assembly="AjaxControls" Namespace="AjaxControls" TagPrefix="asp" %>
 
@@ -34,6 +34,7 @@
     <!-- Custom styles for this template -->
     <link href="../assets/css/style.css" rel="stylesheet" />
     <link href="../assets/css/style-responsive.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

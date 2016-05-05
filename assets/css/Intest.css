@@ -1,4 +1,4 @@
-﻿body:after {
+/*body:after {
     content: "";
     position: fixed;
     background: #D00;
@@ -15,4 +15,28 @@ body:after {
 body {
     border-left: 10px solid #D00;
     border-right: 10px solid #D00;  
+}*/
+
+body:after {
+    content: "";
+    position: fixed;
+    box-shadow: inset 0 0 0 10px #D00;
+    background: none;
+    left: 0;
+    right: 0;
+    height: 10px;
+    bottom: 0;
+}
+body:before {
+    content: "";
+    position: fixed;
+    box-shadow: inset 0 0 0 10px #D00;
+    left: 0;
+    right: 0;
+    height: 10px;
+    top: 0;
+}
+body {
+    box-shadow: inset 0 0 0 10px #D00;
+    border: none !important;
 }
