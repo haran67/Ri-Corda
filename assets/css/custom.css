@@ -10,17 +10,22 @@
 .table-inbox-wrap {
     margin: 0;
 }
-header {
-    background-size: cover;
-    background-color: #fff;
-}
-
-.form-login {
+.login .form-login {
     margin: 10% auto 0;
 }
 
 @media (max-width:320px) {
-    
+    header {
+        background-size: cover;
+        background-color: #fff;
+    }
+    .login .form-login {
+        margin: 0 auto ;
+        border-radius: 0;
+    }
+    .login .container {
+        padding: 0;
+    }
     ul.top-menu > li > .logout {
         /* color: #94590b; */
         font-size: 19px;
@@ -98,6 +103,13 @@ header {
 }
 
 @media (max-width: 480px) {
+    .login .form-login {
+        margin: 0 auto ;
+        border-radius: 0;
+    }
+    .login .container {
+        padding: 0;
+    }
     ul.top-menu > li > .logout {
         /* color: #94590b; */
         font-size: 19px;
