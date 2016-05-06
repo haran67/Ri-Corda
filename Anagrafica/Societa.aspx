@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Societa.aspx.vb" Inherits="GisRI_Web.fSocieta" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -116,67 +116,69 @@
                         </div>
                     </div>                            
                 </div> 
-                <telerik:RadGrid ID="RGSocieta" AutoGenerateColumns="False" CssClass="" runat="server"
-                    ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
-                    Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
-                    AllowFilteringByColumn="true" Culture="it-IT">
-                    <GroupingSettings CaseSensitive="false" />
-                    <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
-                    <HeaderStyle CssClass=""></HeaderStyle>
-                    <ItemStyle HorizontalAlign="Left"></ItemStyle>
-                    <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
-                    <FilterItemStyle HorizontalAlign="Left" />
-                    <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="societa_key" AllowMultiColumnSorting="True">
-                        <Columns>
-                            <telerik:GridBoundColumn SortExpression="sc_ragione_sociale" UniqueName="sc_ragione_sociale"
-                                HeaderText="Ragione sociale" DataField="sc_ragione_sociale" HeaderStyle-Width="25%"
-                                AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains" />
-                            <telerik:GridTemplateColumn SortExpression="sc_comune_desc" UniqueName="sc_comune_desc"
-                                HeaderText="Città" DataField="sc_comune_desc" HeaderStyle-Width="15%" AllowFiltering="true"
-                                ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblsc_comune_desc" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="sc_indirizzo" SortExpression="sc_indirizzo"
-                                InitializeTemplatesFirst="false" HeaderStyle-Width="35%" HeaderText="Indirizzo"
-                                AllowFiltering="true" ShowFilterIcon="false" DataField="sc_indirizzo" FilterControlWidth="150px"
-                                AutoPostBackOnFilter="true" CurrentFilterFunction="Contains">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblsc_indirizzo" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridBoundColumn SortExpression="sc_piva" UniqueName="sc_piva" HeaderText="P.Iva"
-                                DataField="sc_piva" HeaderStyle-Width="5%" AllowFiltering="false"
-                                ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
-                            <telerik:GridBoundColumn SortExpression="sc_albo_numero" UniqueName="sc_albo_numero"
-                                HeaderText="Albo N." DataField="sc_albo_numero" HeaderStyle-Width="10%" AllowFiltering="false" 
-                                ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
-                            <telerik:GridTemplateColumn SortExpression="sc_albo_del" UniqueName="sc_albo_del"
-                                HeaderText="Albo del" DataField="sc_albo_del" HeaderStyle-Width="10%" AllowFiltering="false"
-                                ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
-                                <ItemTemplate>
-                                    <asp:Label ID="lblsc_sc_albo_del" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
-                                HeaderStyle-Width="1%" AllowFiltering="false">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
-                                        CommandName="SCHEDA">
-                                                <i class=" fa fa-edit"></i>&nbsp;SCHEDA</i>
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" />
-                            </telerik:GridTemplateColumn>
-                        </Columns>
-                    </MasterTableView>
-                    <ClientSettings EnableRowHoverStyle="true">
-                        <Selecting AllowRowSelect="false" />
-                    </ClientSettings>
-                </telerik:RadGrid>
+                <div class="overflow">
+                    <telerik:RadGrid ID="RGSocieta" AutoGenerateColumns="False" CssClass="" style="width:100% !important" runat="server"
+                        ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
+                        Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
+                        AllowFilteringByColumn="true" Culture="it-IT">
+                        <GroupingSettings CaseSensitive="false" />
+                        <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
+                        <HeaderStyle CssClass=""></HeaderStyle>
+                        <ItemStyle HorizontalAlign="Left"></ItemStyle>
+                        <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
+                        <FilterItemStyle HorizontalAlign="Left" />
+                        <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="societa_key" AllowMultiColumnSorting="True">
+                            <Columns>
+                                <telerik:GridBoundColumn SortExpression="sc_ragione_sociale" UniqueName="sc_ragione_sociale"
+                                    HeaderText="Ragione sociale" DataField="sc_ragione_sociale" HeaderStyle-Width="25%"
+                                    AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains" />
+                                <telerik:GridTemplateColumn SortExpression="sc_comune_desc" UniqueName="sc_comune_desc"
+                                    HeaderText="Città" DataField="sc_comune_desc" HeaderStyle-Width="15%" AllowFiltering="true"
+                                    ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblsc_comune_desc" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn UniqueName="sc_indirizzo" SortExpression="sc_indirizzo"
+                                    InitializeTemplatesFirst="false" HeaderStyle-Width="35%" HeaderText="Indirizzo"
+                                    AllowFiltering="true" ShowFilterIcon="false" DataField="sc_indirizzo" FilterControlWidth="150px"
+                                    AutoPostBackOnFilter="true" CurrentFilterFunction="Contains">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblsc_indirizzo" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridBoundColumn SortExpression="sc_piva" UniqueName="sc_piva" HeaderText="P.Iva"
+                                    DataField="sc_piva" HeaderStyle-Width="5%" AllowFiltering="false"
+                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
+                                <telerik:GridBoundColumn SortExpression="sc_albo_numero" UniqueName="sc_albo_numero"
+                                    HeaderText="Albo N." DataField="sc_albo_numero" HeaderStyle-Width="10%" AllowFiltering="false" 
+                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
+                                <telerik:GridTemplateColumn SortExpression="sc_albo_del" UniqueName="sc_albo_del"
+                                    HeaderText="Albo del" DataField="sc_albo_del" HeaderStyle-Width="10%" AllowFiltering="false"
+                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblsc_sc_albo_del" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
+                                    HeaderStyle-Width="1%" AllowFiltering="false">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
+                                            CommandName="SCHEDA">
+                                                    <i class=" fa fa-edit"></i>&nbsp;SCHEDA</i>
+                                        </asp:LinkButton>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </telerik:GridTemplateColumn>
+                            </Columns>
+                        </MasterTableView>
+                        <ClientSettings EnableRowHoverStyle="true">
+                            <Selecting AllowRowSelect="false" />
+                        </ClientSettings>
+                    </telerik:RadGrid>
+                </div>
             </div>
             <!-- /content-panel lista-->
             <div class="content-panel" id="panel_dati" runat="server" style="display: none;">

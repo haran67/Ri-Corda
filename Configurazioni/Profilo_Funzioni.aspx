@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Profilo_Funzioni.aspx.vb" Inherits="GisRI_Web.Profilo_Funzioni" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -15,8 +15,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row mt">
-        <div style="height: 10px;">
-        </div>
         <div class="col-md-12">
             <div class="content-panel" id="panel_dati" runat="server" style="padding-left: 10px!Important;
                 padding-top: 0px!Important; margin-bottom: 10px;">
@@ -30,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="margin: 10px; padding-top: 10px;">
+                <div>
                     <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                         visible="false">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -74,108 +72,110 @@
                                                     <div class="row" id="div_funzioni" runat="server" visible="false">
                                                         <div class="col-lg-12">
                                                             <h5>FUNZIONI</h5>
-                                                            <asp:Repeater ID="rpt_funzioni_padre" runat="server" OnItemDataBound="rpt_funzioni_padre_ItemDataBound">
-                                                                <HeaderTemplate>
-                                                                    <table class="table table-striped table-advance table-hover">
-                                                                        <thead>
+                                                            <div class="overflow">
+                                                                <asp:Repeater ID="rpt_funzioni_padre" runat="server" OnItemDataBound="rpt_funzioni_padre_ItemDataBound">
+                                                                    <HeaderTemplate>
+                                                                        <table class="table table-striped table-advance table-hover">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="width: 1%;"></th>
+                                                                                    <th style="width: 5%;">
+                                                                                        Numero
+                                                                                    </th>
+                                                                                    <th style="width: 10%;">
+                                                                                        Menu
+                                                                                    </th>
+                                                                                    <th style="width: 20%;">
+                                                                                        Gruppo Funzione
+                                                                                    </th>
+                                                                                    <th style="width: 5%;">
+                                                                                        Permesso
+                                                                                    </th>
+                                                                                    <th style="width: 50%;">
+                                                                                        Funzioni
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                    </HeaderTemplate>
+                                                                    <ItemTemplate>
+                                                                        <tbody>
                                                                             <tr>
-                                                                                <th style="width: 1%;"></th>
-                                                                                <th style="width: 5%;">
-                                                                                    Numero
-                                                                                </th>
-                                                                                <th style="width: 10%;">
-                                                                                    Menu
-                                                                                </th>
-                                                                                <th style="width: 20%;">
-                                                                                    Gruppo Funzione
-                                                                                </th>
-                                                                                <th style="width: 5%;">
-                                                                                    Permesso
-                                                                                </th>
-                                                                                <th style="width: 50%;">
-                                                                                    Funzioni
-                                                                                </th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                </HeaderTemplate>
-                                                                <ItemTemplate>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:CheckBox ID="chk_scelta" runat="server" AutoPostBack="true" OnCheckedChanged="chk_sceltaall_CheckedChanged" />
-                                                                                <asp:Label ID="lbl_tab_funzione_key" runat="server" Visible="false"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:Label ID="lbl_tf_ordinamento" runat="server"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:Label ID="lbl_tf_livello" runat="server"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:Label ID="lbl_tf_titolo" runat="server"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:DropDownList ID="ddl_RW" runat="server">
-                                                                                    <asp:ListItem Text="" Value="" Selected="True"></asp:ListItem>
-                                                                                    <asp:ListItem Text="Lettura" Value="R"></asp:ListItem>
-                                                                                    <asp:ListItem Text="Scrittura" Value="W"></asp:ListItem>
-                                                                                </asp:DropDownList>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:Repeater ID="rpt_funzioni_figlie" runat="server" OnItemDataBound="rpt_funzioni_figlie_ItemDataBound">
-                                                                                    <HeaderTemplate>
-                                                                                        <table class="table table-striped table-advance table-hover">
-                                                                                            <thead>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chk_scelta" runat="server" AutoPostBack="true" OnCheckedChanged="chk_sceltaall_CheckedChanged" />
+                                                                                    <asp:Label ID="lbl_tab_funzione_key" runat="server" Visible="false"></asp:Label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Label ID="lbl_tf_ordinamento" runat="server"></asp:Label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Label ID="lbl_tf_livello" runat="server"></asp:Label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Label ID="lbl_tf_titolo" runat="server"></asp:Label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:DropDownList ID="ddl_RW" runat="server">
+                                                                                        <asp:ListItem Text="" Value="" Selected="True"></asp:ListItem>
+                                                                                        <asp:ListItem Text="Lettura" Value="R"></asp:ListItem>
+                                                                                        <asp:ListItem Text="Scrittura" Value="W"></asp:ListItem>
+                                                                                    </asp:DropDownList>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Repeater ID="rpt_funzioni_figlie" runat="server" OnItemDataBound="rpt_funzioni_figlie_ItemDataBound">
+                                                                                        <HeaderTemplate>
+                                                                                            <table class="table table-striped table-advance table-hover">
+                                                                                                <thead>
+                                                                                                    <tr>
+                                                                                                        <th style="width: 1%;">
+                                                                                                        </th>
+                                                                                                        <th style="width: 10%;">
+                                                                                                            Numero
+                                                                                                        </th>
+                                                                                                        <th style="width: 70%;">
+                                                                                                            Funzione
+                                                                                                        </th>
+                                                                                                        <th style="width: 20%;">
+                                                                                                            Permesso
+                                                                                                        </th>
+                                                                                                    </tr>
+                                                                                                </thead>
+                                                                                        </HeaderTemplate>
+                                                                                        <ItemTemplate>
+                                                                                            <tbody>
                                                                                                 <tr>
-                                                                                                    <th style="width: 1%;">
-                                                                                                    </th>
-                                                                                                    <th style="width: 10%;">
-                                                                                                        Numero
-                                                                                                    </th>
-                                                                                                    <th style="width: 70%;">
-                                                                                                        Funzione
-                                                                                                    </th>
-                                                                                                    <th style="width: 20%;">
-                                                                                                        Permesso
-                                                                                                    </th>
+                                                                                                    <td>
+                                                                                                        <asp:CheckBox ID="chk_scelta" runat="server" AutoPostBack="false" />
+                                                                                                        <asp:Label ID="lbl_tab_funzione_key" runat="server" Visible="false"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <asp:Label ID="lbl_tf_ordinamento" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <asp:Label ID="lbl_tf_titolo" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <asp:DropDownList ID="ddl_RW" runat="server">
+                                                                                                            <asp:ListItem Text="" Value="" Selected="True"></asp:ListItem>
+                                                                                                            <asp:ListItem Text="Lettura" Value="R"></asp:ListItem>
+                                                                                                            <asp:ListItem Text="Scrittura" Value="W"></asp:ListItem>
+                                                                                                        </asp:DropDownList>
+                                                                                                    </td>
                                                                                                 </tr>
-                                                                                            </thead>
-                                                                                    </HeaderTemplate>
-                                                                                    <ItemTemplate>
-                                                                                        <tbody>
-                                                                                            <tr>
-                                                                                                <td>
-                                                                                                    <asp:CheckBox ID="chk_scelta" runat="server" AutoPostBack="false" />
-                                                                                                    <asp:Label ID="lbl_tab_funzione_key" runat="server" Visible="false"></asp:Label>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <asp:Label ID="lbl_tf_ordinamento" runat="server"></asp:Label>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <asp:Label ID="lbl_tf_titolo" runat="server"></asp:Label>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <asp:DropDownList ID="ddl_RW" runat="server">
-                                                                                                        <asp:ListItem Text="" Value="" Selected="True"></asp:ListItem>
-                                                                                                        <asp:ListItem Text="Lettura" Value="R"></asp:ListItem>
-                                                                                                        <asp:ListItem Text="Scrittura" Value="W"></asp:ListItem>
-                                                                                                    </asp:DropDownList>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </ItemTemplate>
-                                                                                    <FooterTemplate>
-                                                                                        </table>
-                                                                                    </FooterTemplate>
-                                                                                </asp:Repeater>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody> 
-                                                                </ItemTemplate>
-                                                                <FooterTemplate >
-                                                                    </table>
-                                                                </FooterTemplate>
-                                                            </asp:Repeater>
+                                                                                            </tbody>
+                                                                                        </ItemTemplate>
+                                                                                        <FooterTemplate>
+                                                                                            </table>
+                                                                                        </FooterTemplate>
+                                                                                    </asp:Repeater>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody> 
+                                                                    </ItemTemplate>
+                                                                    <FooterTemplate >
+                                                                        </table>
+                                                                    </FooterTemplate>
+                                                                </asp:Repeater>
+                                                            </div> 
                                                         </div> 
                                                     </div> 
                                                     <div class="row">
@@ -224,53 +224,55 @@
                                                     <div class="row" id="div_funzioni" runat="server" visible="false">
                                                         <div class="col-lg-12">
                                                             <h5>SITI</h5>
-                                                            <asp:Repeater ID="rpt_siti" runat="server" OnItemDataBound="rpt_siti_ItemDataBound">
-                                                                <HeaderTemplate>
-                                                                    <table class="table table-striped table-advance table-hover">
-                                                                        <thead>
+                                                            <div class="overflow">
+                                                                <asp:Repeater ID="rpt_siti" runat="server" OnItemDataBound="rpt_siti_ItemDataBound">
+                                                                    <HeaderTemplate>
+                                                                        <table class="table table-striped table-advance table-hover">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="width: 1%;"></th>
+                                                                                    <th style="width: 10%; white-space:nowrap;">
+                                                                                        Codice
+                                                                                    </th>
+                                                                                    <th style="width: 40%;">
+                                                                                        Sito
+                                                                                    </th>
+                                                                                    <th style="width: 30%;">
+                                                                                        Città
+                                                                                    </th>
+                                                                                    <th style="width: 20%;">
+                                                                                        Provincia
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                    </HeaderTemplate>
+                                                                    <ItemTemplate>
+                                                                        <tbody>
                                                                             <tr>
-                                                                                <th style="width: 1%;"></th>
-                                                                                <th style="width: 10%; white-space:nowrap;">
-                                                                                    Codice
-                                                                                </th>
-                                                                                <th style="width: 40%;">
-                                                                                    Sito
-                                                                                </th>
-                                                                                <th style="width: 30%;">
-                                                                                    Città
-                                                                                </th>
-                                                                                <th style="width: 20%;">
-                                                                                    Provincia
-                                                                                </th>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chk_scelta" runat="server" />
+                                                                                    <asp:Label ID="lbl_sito_key" runat="server" Visible="false"></asp:Label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Label ID="lbl_st_codice_interno" runat="server"></asp:Label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Label ID="lbl_st_denominazione" runat="server"></asp:Label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Label ID="lbl_st_comune_desc" runat="server"></asp:Label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Label ID="lbl_st_provincia_desc" runat="server"></asp:Label>
+                                                                                </td>
                                                                             </tr>
-                                                                        </thead>
-                                                                </HeaderTemplate>
-                                                                <ItemTemplate>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:CheckBox ID="chk_scelta" runat="server" />
-                                                                                <asp:Label ID="lbl_sito_key" runat="server" Visible="false"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:Label ID="lbl_st_codice_interno" runat="server"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:Label ID="lbl_st_denominazione" runat="server"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:Label ID="lbl_st_comune_desc" runat="server"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:Label ID="lbl_st_provincia_desc" runat="server"></asp:Label>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody> 
-                                                                </ItemTemplate>
-                                                                <FooterTemplate >
-                                                                    </table>
-                                                                </FooterTemplate>
-                                                            </asp:Repeater>
+                                                                        </tbody> 
+                                                                    </ItemTemplate>
+                                                                    <FooterTemplate >
+                                                                        </table>
+                                                                    </FooterTemplate>
+                                                                </asp:Repeater>
+                                                            </div> 
                                                         </div> 
                                                     </div> 
                                                     <div class="row">

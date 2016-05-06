@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Siti_Destinazione.aspx.vb" Inherits="GisRI_Web.Siti_Destinazione" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -106,61 +106,63 @@
                             </div> 
                         </div>
                     </div>                            
-                </div> 
-                <telerik:RadGrid ID="RGSiti" AutoGenerateColumns="False" CssClass="" runat="server"
-                    ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
-                    Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
-                    AllowFilteringByColumn="true" Culture="it-IT">
-                    <GroupingSettings CaseSensitive="false" />
-                    <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
-                    <HeaderStyle CssClass=""></HeaderStyle>
-                    <ItemStyle HorizontalAlign="Left"></ItemStyle>
-                    <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
-                    <FilterItemStyle HorizontalAlign="Left" />
-                    <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="sito_destinazione_key" AllowMultiColumnSorting="True">
-                        <Columns>
-                            <telerik:GridBoundColumn SortExpression="sd_codice" UniqueName="sd_codice"
-                                HeaderText="Codice" DataField="sd_codice" HeaderStyle-Width="5%" AllowFiltering="true"
-                                ShowFilterIcon="false" FilterControlWidth="50px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains" />
-                            <telerik:GridBoundColumn SortExpression="sd_denominazione" UniqueName="sd_denominazione"
-                                HeaderText="Denominazione" DataField="sd_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
-                                ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains" />
-                            <telerik:GridBoundColumn SortExpression="sd_ditta_ragione_sociale" UniqueName="sd_ditta_ragione_sociale"
-                                HeaderText="Gestore" DataField="sd_ditta_ragione_sociale" HeaderStyle-Width="25%"
-                                AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="100px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains">
-                            </telerik:GridBoundColumn>
-                            <telerik:GridTemplateColumn UniqueName="sd_comune_desc" SortExpression="sd_comune_desc"
-                                InitializeTemplatesFirst="false" HeaderStyle-Width="35%" HeaderText="Indirizzo"
-                                AllowFiltering="true" ShowFilterIcon="false" DataField="sd_comune_desc" FilterControlWidth="150px"
-                                AutoPostBackOnFilter="true" CurrentFilterFunction="Contains"
-                                ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
-                                <ItemTemplate>
-                                    <asp:Label ID="lblsd_indirizzo" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
-                                HeaderStyle-Width="1%" AllowFiltering="false">
-                                <ItemStyle HorizontalAlign="Right" />
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
-                                        CommandName="SCHEDA">
-                                        <i class=" fa fa-edit"></i>&nbsp;SCHEDA</i>
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                        </Columns>
-                    </MasterTableView>
-                    <ClientSettings EnableRowHoverStyle="true">
-                        <Selecting AllowRowSelect="false" />
-                    </ClientSettings>
-                </telerik:RadGrid>
+                </div>
+                <div class="overflow">
+                    <telerik:RadGrid ID="RGSiti" AutoGenerateColumns="False" CssClass="" style="width: 100% !important;" runat="server"
+                        ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
+                        Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
+                        AllowFilteringByColumn="true" Culture="it-IT">
+                        <GroupingSettings CaseSensitive="false" />
+                        <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
+                        <HeaderStyle CssClass=""></HeaderStyle>
+                        <ItemStyle HorizontalAlign="Left"></ItemStyle>
+                        <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
+                        <FilterItemStyle HorizontalAlign="Left" />
+                        <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="sito_destinazione_key" AllowMultiColumnSorting="True">
+                            <Columns>
+                                <telerik:GridBoundColumn SortExpression="sd_codice" UniqueName="sd_codice"
+                                    HeaderText="Codice" DataField="sd_codice" HeaderStyle-Width="5%" AllowFiltering="true"
+                                    ShowFilterIcon="false" FilterControlWidth="50px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains" />
+                                <telerik:GridBoundColumn SortExpression="sd_denominazione" UniqueName="sd_denominazione"
+                                    HeaderText="Denominazione" DataField="sd_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
+                                    ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains" />
+                                <telerik:GridBoundColumn SortExpression="sd_ditta_ragione_sociale" UniqueName="sd_ditta_ragione_sociale"
+                                    HeaderText="Gestore" DataField="sd_ditta_ragione_sociale" HeaderStyle-Width="25%"
+                                    AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="100px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains">
+                                </telerik:GridBoundColumn>
+                                <telerik:GridTemplateColumn UniqueName="sd_comune_desc" SortExpression="sd_comune_desc"
+                                    InitializeTemplatesFirst="false" HeaderStyle-Width="35%" HeaderText="Indirizzo"
+                                    AllowFiltering="true" ShowFilterIcon="false" DataField="sd_comune_desc" FilterControlWidth="150px"
+                                    AutoPostBackOnFilter="true" CurrentFilterFunction="Contains"
+                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblsd_indirizzo" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
+                                    HeaderStyle-Width="1%" AllowFiltering="false">
+                                    <ItemStyle HorizontalAlign="Right" />
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
+                                            CommandName="SCHEDA">
+                                            <i class=" fa fa-edit"></i>&nbsp;SCHEDA</i>
+                                        </asp:LinkButton>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                            </Columns>
+                        </MasterTableView>
+                        <ClientSettings EnableRowHoverStyle="true">
+                            <Selecting AllowRowSelect="false" />
+                        </ClientSettings>
+                    </telerik:RadGrid>
+                </div>
             </div>
             <!-- /content-panel -->
             <div class="content-panel" id="panel_dati" runat="server" style="display: none;">
-                <div class="gisri_panel_title">
+                <div class="gisri_panel_title clearix">
                     <div class="gisri_title_left">
                         <h3 style="padding-left: 10px; margin-top: 0px!Important;">
                             <i class="fa fa-angle-right"></i>DETTAGLIO SITO DESTINAZIONE: <asp:Literal ID="ltl_sd_denominazione" runat="server" /></h3>
@@ -169,7 +171,7 @@
                         <asp:LinkButton ID="btn_return" runat="server" ToolTip="Torna all'elenco" CssClass="btn btn-warning"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Elenco</asp:LinkButton>
                     </div>
                 </div>
-                <div style="margin: 10px; padding-top:30px;">
+                <div>
                     <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                         visible="false">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">

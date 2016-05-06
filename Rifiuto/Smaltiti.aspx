@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Smaltiti.aspx.vb" Inherits="GisRI_Web.fSmaltiti" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -24,10 +24,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
-    <div class="row mt">
-        <div style="height:10px;"></div> 
+    <div class="row">
         <div class="col-lg-12">
-            <div class="content-panel" style="padding-left:10px!Important;padding-top:10px!Important; margin-bottom:10px;">
+            <div class="content-panel">
                 <h3 style="margin:0px!Important;">
                     <a href="../Start/Home_Sito.aspx">
                         <i class="fa fa-home"></i>&nbsp;<asp:Literal ID="ltl_st_denominazione" runat="server"></asp:Literal>
@@ -36,7 +35,7 @@
             </div> 
         </div> 
         <div class="col-md-12">
-            <div class="content-panel" id="panel_elenco" runat="server" visible="true" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
+            <div class="content-panel" id="panel_elenco" runat="server" visible="true">
                 <div class="row" style="height:40px!Important;">
 					<div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
@@ -135,7 +134,7 @@
                     <strong>
                         <asp:Literal ID="ltl_messaggio_ok" runat="server"></asp:Literal></strong>
                 </div>
-                <telerik:RadGrid ID="RGSmaltimenti" AutoGenerateColumns="False" CssClass="" runat="server"
+                <telerik:RadGrid ID="RGSmaltimenti" AutoGenerateColumns="False" CssClass="overflow" style="width: 100% !important" runat="server"
                     ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                     Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
                     AllowFilteringByColumn="true" Culture="it-IT">

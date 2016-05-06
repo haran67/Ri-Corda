@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Permessi.aspx.vb" Inherits="GisRI_Web.fPermessi" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -148,79 +148,81 @@
                         </div>
                     </div>
                 </div>
-                <telerik:RadGrid ID="RGPersonale" AutoGenerateColumns="False" CssClass="" runat="server"
-                    ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
-                    Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
-                    AllowFilteringByColumn="true" Culture="it-IT">
-                    <GroupingSettings CaseSensitive="false" />
-                    <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
-                    <HeaderStyle CssClass=""></HeaderStyle>
-                    <ItemStyle HorizontalAlign="Left"></ItemStyle>
-                    <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
-                    <FilterItemStyle HorizontalAlign="Left" />
-                    <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="dipendenti_key" AllowMultiColumnSorting="True">
-                        <Columns>
-                            <telerik:GridTemplateColumn SortExpression="dp_cognome" UniqueName="dp_cognome" HeaderText="Cognome"
-                                DataField="dp_cognome" HeaderStyle-Width="20%" AllowFiltering="true" ShowFilterIcon="false"
-                                FilterControlWidth="150px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnk_dp_cognome" runat="server" CommandName="OPEN" ForeColor="#428bca"></asp:LinkButton>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridBoundColumn SortExpression="dp_nome" UniqueName="dp_nome" HeaderText="Nome"
-                                DataField="dp_nome" HeaderStyle-Width="20%" AllowFiltering="true" ShowFilterIcon="false"
-                                FilterControlWidth="150px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" />
-                            <telerik:GridBoundColumn SortExpression="dp_societa_desc" UniqueName="dp_societa_desc"
-                                HeaderText="Società" DataField="dp_societa_desc" HeaderStyle-Width="15%"
-                                AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="100px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains" />
-                            <telerik:GridBoundColumn SortExpression="dp_telefono" UniqueName="dp_telefono" HeaderText="Telefono"
-                                DataField="dp_telefono" HeaderStyle-Width="10%" AllowFiltering="true" ShowFilterIcon="false"
-                                FilterControlWidth="80px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" />
-                            <telerik:GridBoundColumn SortExpression="dp_email" UniqueName="dp_email" HeaderText="Mail"
-                                DataField="dp_email" HeaderStyle-Width="10%" AllowFiltering="true" ShowFilterIcon="false"
-                                FilterControlWidth="80px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" />
-                            <telerik:GridTemplateColumn SortExpression="dp_attivo" UniqueName="dp_attivo" HeaderText=""
-                                DataField="dp_attivo" HeaderStyle-Width="5%" AllowFiltering="false">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_dp_attivo" runat="server" Font-Size="15"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridBoundColumn SortExpression="dp_profilo" UniqueName="dp_profilo" HeaderText="Profilo"
-                                DataField="dp_profilo" HeaderStyle-Width="15%" AllowFiltering="true" ShowFilterIcon="false"
-                                FilterControlWidth="80px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" />
-                            <telerik:GridBoundColumn SortExpression="dp_profilo_siti" UniqueName="dp_profilo_siti" HeaderText="Profilo Siti"
-                                DataField="dp_profilo_siti" HeaderStyle-Width="15%" AllowFiltering="true" ShowFilterIcon="false"
-                                FilterControlWidth="80px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" />
-                            <telerik:GridTemplateColumn SortExpression="dp_foto" UniqueName="dp_foto" HeaderText="Foto"
-                                DataField="dp_foto" HeaderStyle-Width="5%" AllowFiltering="false">
-                                <ItemTemplate>
-                                    <div class="centered img-circle" style="width: 40px; height: 40px; overflow: hidden;
-                                        margin: 0 auto;">
-                                        <asp:Image ID="img_dp_foto" runat="server" Visible="false" Width="40" CssClass="img-responsive" />
-                                    </div>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
-                                HeaderStyle-Width="1%" AllowFiltering="false">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
-                                        CommandName="SCHEDA">
-                                                            <i class=" fa fa-edit"></i>&nbsp;SCHEDA</i>
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" />
-                            </telerik:GridTemplateColumn>
-                        </Columns>
-                    </MasterTableView>
-                    <ClientSettings EnableRowHoverStyle="true">
-                        <Selecting AllowRowSelect="false" />
-                    </ClientSettings>
-                </telerik:RadGrid>
+                <div class="overflow">
+                    <telerik:RadGrid ID="RGPersonale" AutoGenerateColumns="False" CssClass="" style="width: 100% !important" runat="server"
+                        ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
+                        Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
+                        AllowFilteringByColumn="true" Culture="it-IT">
+                        <GroupingSettings CaseSensitive="false" />
+                        <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
+                        <HeaderStyle CssClass=""></HeaderStyle>
+                        <ItemStyle HorizontalAlign="Left"></ItemStyle>
+                        <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
+                        <FilterItemStyle HorizontalAlign="Left" />
+                        <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="dipendenti_key" AllowMultiColumnSorting="True">
+                            <Columns>
+                                <telerik:GridTemplateColumn SortExpression="dp_cognome" UniqueName="dp_cognome" HeaderText="Cognome"
+                                    DataField="dp_cognome" HeaderStyle-Width="20%" AllowFiltering="true" ShowFilterIcon="false"
+                                    FilterControlWidth="150px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="lnk_dp_cognome" runat="server" CommandName="OPEN" ForeColor="#428bca"></asp:LinkButton>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridBoundColumn SortExpression="dp_nome" UniqueName="dp_nome" HeaderText="Nome"
+                                    DataField="dp_nome" HeaderStyle-Width="20%" AllowFiltering="true" ShowFilterIcon="false"
+                                    FilterControlWidth="150px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" />
+                                <telerik:GridBoundColumn SortExpression="dp_societa_desc" UniqueName="dp_societa_desc"
+                                    HeaderText="Società" DataField="dp_societa_desc" HeaderStyle-Width="15%"
+                                    AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="100px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains" />
+                                <telerik:GridBoundColumn SortExpression="dp_telefono" UniqueName="dp_telefono" HeaderText="Telefono"
+                                    DataField="dp_telefono" HeaderStyle-Width="10%" AllowFiltering="true" ShowFilterIcon="false"
+                                    FilterControlWidth="80px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" />
+                                <telerik:GridBoundColumn SortExpression="dp_email" UniqueName="dp_email" HeaderText="Mail"
+                                    DataField="dp_email" HeaderStyle-Width="10%" AllowFiltering="true" ShowFilterIcon="false"
+                                    FilterControlWidth="80px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" />
+                                <telerik:GridTemplateColumn SortExpression="dp_attivo" UniqueName="dp_attivo" HeaderText=""
+                                    DataField="dp_attivo" HeaderStyle-Width="5%" AllowFiltering="false">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_dp_attivo" runat="server" Font-Size="15"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridBoundColumn SortExpression="dp_profilo" UniqueName="dp_profilo" HeaderText="Profilo"
+                                    DataField="dp_profilo" HeaderStyle-Width="15%" AllowFiltering="true" ShowFilterIcon="false"
+                                    FilterControlWidth="80px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" />
+                                <telerik:GridBoundColumn SortExpression="dp_profilo_siti" UniqueName="dp_profilo_siti" HeaderText="Profilo Siti"
+                                    DataField="dp_profilo_siti" HeaderStyle-Width="15%" AllowFiltering="true" ShowFilterIcon="false"
+                                    FilterControlWidth="80px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" />
+                                <telerik:GridTemplateColumn SortExpression="dp_foto" UniqueName="dp_foto" HeaderText="Foto"
+                                    DataField="dp_foto" HeaderStyle-Width="5%" AllowFiltering="false">
+                                    <ItemTemplate>
+                                        <div class="centered img-circle" style="width: 40px; height: 40px; overflow: hidden;
+                                            margin: 0 auto;">
+                                            <asp:Image ID="img_dp_foto" runat="server" Visible="false" Width="40" CssClass="img-responsive" />
+                                        </div>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
+                                    HeaderStyle-Width="1%" AllowFiltering="false">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
+                                            CommandName="SCHEDA">
+                                                                <i class=" fa fa-edit"></i>&nbsp;SCHEDA</i>
+                                        </asp:LinkButton>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </telerik:GridTemplateColumn>
+                            </Columns>
+                        </MasterTableView>
+                        <ClientSettings EnableRowHoverStyle="true">
+                            <Selecting AllowRowSelect="false" />
+                        </ClientSettings>
+                    </telerik:RadGrid>
+                </div>
             </div>
             <!-- /content-panel lista-->
             <div class="content-panel" id="panel_dati" runat="server" style="display: none;">
-                <div class="gisri_panel_title">
+                <div class="gisri_panel_title clearfix">
                     <div class="gisri_title_left">
                         <h3 style="padding-left: 10px; margin-top: 0px!Important;">
                             <i class="fa fa-angle-right"></i>DETTAGLIO UTENTE:
@@ -230,7 +232,7 @@
                         <asp:LinkButton ID="btn_return" runat="server" ToolTip="Torna all'elenco" CssClass="btn btn-warning"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Elenco</asp:LinkButton>
                     </div>
                 </div>
-                <div style="margin: 10px; padding-top: 30px;">
+                <div>
                     <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                         visible="false">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -265,7 +267,7 @@
                                 <div id="div_overview" class="tab-pane active" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <h6>
                                                     <asp:Label ID="ltl_ultima_modifica" runat="server"></asp:Label></h6>
                                                 <div class="row">
@@ -354,7 +356,7 @@
                                 <div id="div_visibilita" class="tab-pane" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <div class="row" id="div_visibilita_siti_01" runat="server">
                                                     <div class="col-md-12">
                                                         <cc:rDropDown ID="ddl_tab_profilo_sito_key" runat="server" AutoPostBack="true" Label="Profilo Siti"
@@ -500,7 +502,7 @@
                                 <div id="div_funzioni" class="tab-pane" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <cc:rDropDown ID="ddl_tab_profilo_key" runat="server" AutoPostBack="true" Label="Profilo Utente"

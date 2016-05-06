@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Mailbox.aspx.vb" Inherits="GisRI_Web.fMessaggi" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -110,8 +110,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="table-inbox-wrap" id="div_inbox" runat="server">
-                            <telerik:RadGrid ID="RGInBox" AutoGenerateColumns="False" CssClass="" runat="server"
+                        <div class="table-inbox-wrap overflow" id="div_inbox" runat="server">
+                            <telerik:RadGrid ID="RGInBox" AutoGenerateColumns="False" CssClass="" style="width: 100%;" runat="server"
                                 ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                                 Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
                                 AllowFilteringByColumn="false" Culture="it-IT">
@@ -194,8 +194,8 @@
                             </tbody>
                             </table-->
                         </div>
-                        <div class="table-inbox-wrap" id="div_outbox" runat="server">
-                            <telerik:RadGrid ID="RGOutBox" AutoGenerateColumns="False" CssClass="" runat="server"
+                        <div class="table-inbox-wrap overflow" id="div_outbox" runat="server">
+                            <telerik:RadGrid ID="RGOutBox" AutoGenerateColumns="False" CssClass="" style="width: 100%;" runat="server"
                                 ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                                 Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false" Culture="it-IT">
                                 <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
@@ -240,8 +240,8 @@
                                 </ClientSettings>
                             </telerik:RadGrid>
                         </div>
-                        <div class="table-inbox-wrap" id="div_trash" runat="server">
-                            <telerik:RadGrid ID="RGTrash" AutoGenerateColumns="False" CssClass="" runat="server"
+                        <div class="table-inbox-wrap overflow" id="div_trash" runat="server">
+                            <telerik:RadGrid ID="RGTrash" AutoGenerateColumns="False" CssClass="" style="width: 100%;" runat="server"
                                 ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                                 Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false" Culture="it-IT">
                                 <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
@@ -279,7 +279,7 @@
                                 </ClientSettings>
                             </telerik:RadGrid>
                         </div>
-                        <div class="table-inbox-wrap" id="div_message" runat="server">
+                        <div class="table-inbox-wrap overflow" id="div_message" runat="server">
                             <div class="panel-body ">
                                 <div class="mail-header row">
                                     <div class="col-md-6">

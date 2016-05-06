@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master" EnableEventValidation="false"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master" EnableEventValidation="false"
     CodeBehind="Depositi_Situazione.aspx.vb" Inherits="GisRI_Web.Depositi_Oltre_Capienza" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -14,7 +14,7 @@
     <div style="height:10px;"></div> 
     <div class="row">
         <div class="col-lg-12">
-            <div class="content-panel" style="padding-left:10px!Important;padding-top:10px!Important; margin-bottom:10px;">
+            <div class="content-panel">
                 <h2 style="margin:0px!Important;">
                     <asp:Literal ID="ltl_st_denominazione" runat="server">Situazione depositi temporanei</asp:Literal></h2>
             </div> 
@@ -58,6 +58,7 @@
                         <asp:Repeater ID="rpt_prodottori" runat="server" OnItemDataBound="rpt_prodottori_ItemDataBound">
                             <ItemTemplate>
                                 <h5 style="margin:5px!Important; font-weight:bold;" id="h5_rf" runat="server">Rifiuti prodotti da:&nbsp;<asp:Literal ID="ltl_prodottore" runat="server"></asp:Literal></h5>
+                                <div class="overflow">
                                 <table class="table table-striped table-advance table-hover" style="margin-bottom:2px!Important" id="tb_dt_tot" runat="server">
                                     <thead>
                                         <tr style="white-space:nowrap;">
@@ -146,6 +147,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                </div>
                             </ItemTemplate>
                         </asp:Repeater>
                         <hr />

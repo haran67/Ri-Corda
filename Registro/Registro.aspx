@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Registro.aspx.vb" Inherits="GisRI_Web.fRegistro" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -36,10 +36,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
-    <div style="height:10px;"></div>
     <div class="row">
         <div class="col-lg-12">
-            <div class="content-panel" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
+            <div class="content-panel">
                 <div class="row" style="height:39px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
@@ -57,7 +56,7 @@
             </div> 
         </div> 
         <div class="col-md-12">
-            <div class="content-panel" id="panel_elenco" runat="server" visible="true" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
+            <div class="content-panel" id="panel_elenco" runat="server" visible="true">
 				<div class="row" style="height:40px!Important;">
 					<div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
@@ -78,7 +77,7 @@
                 <div class="row" id="div_filtri_boh" runat="server" visible="true">
                 </div> 
                 <div class="row" id="div_filtri" runat="server" visible="false">
-                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 35px!Important; margin-bottom:10px;">
+                    <div class="form-body">
                         <div class="row">
                             <div class="col-xs-4 gisri_row_filter">
                                 <div class="input-group" style="width:100%">
@@ -113,7 +112,7 @@
                         </div>
                     </div>                            
                 </div> 
-                <telerik:RadGrid ID="RGRegistri" AutoGenerateColumns="False" CssClass="" runat="server"
+                <telerik:RadGrid ID="RGRegistri" AutoGenerateColumns="False" CssClass="overflow" style="width: 100% !important" runat="server"
                     ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                     Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
                     AllowFilteringByColumn="true" Culture="it-IT">
@@ -253,7 +252,7 @@
                                 <div id="div_overview" class="tab-pane active" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <h6><asp:Label ID="ltl_ultima_modifica" runat="server"></asp:Label></h6>
                                                 <div class="row">
                                                     <div class="col-md-12">

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Smaltimento.aspx.vb" Inherits="GisRI_Web.fSmaltimento" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -31,10 +31,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
-    <div class="row mt">
-        <div style="height:10px;"></div> 
+    <div class="row">
         <div class="col-lg-12">
-            <div class="content-panel" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
+            <div class="content-panel clearfix">
                 <div class="row" style="height:39px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
@@ -89,7 +88,7 @@
                                 <div id="div_overview" class="tab-pane active" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <h6><asp:Label ID="ltl_ultima_modifica" runat="server"></asp:Label></h6>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -163,7 +162,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row" id="div_dettagli_smaltimento" runat="server" visible="false">
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-12 overflow">
                                                         <table class="table table-striped table-advance table-hover">
                                                             <thead>
                                                                 <tr>
@@ -355,7 +354,7 @@
                                 <div id="div_viaggi" class="tab-pane" runat="server" visible="false">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <div class="form-actions right">
                                                     <asp:LinkButton ID="btn_registra_viaggio" runat="server" CssClass="btn btn-primary"
                                                         OnClick="btn_registra_Click">
@@ -375,9 +374,9 @@
                                     </div>
                                 </div>
                                 <div id="div_allegati" class="tab-pane" runat="server">
-                                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                    <div class="form-body">
                                         <div class="form-horizontal">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <cc:cAllegati ID="cAllegati1" runat="server" />
                                             </div>
                                             <div class="form-actions right">
@@ -392,7 +391,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-horizontal">
-                                        <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                        <div class="form-body">
                                         </div> 
                                     </div> 
                                 </div> 

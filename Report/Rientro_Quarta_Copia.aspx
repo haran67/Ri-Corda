@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master" EnableEventValidation="false"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master" EnableEventValidation="false"
     CodeBehind="Rientro_Quarta_Copia.aspx.vb" Inherits="GisRI_Web.Rientro_Quarta_Copia" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -14,7 +14,7 @@
     <div style="height:10px;"></div> 
     <div class="row">
         <div class="col-lg-12">
-            <div class="content-panel" style="padding-left:10px!Important;padding-top:10px!Important; margin-bottom:10px;">
+            <div class="content-panel">
                 <h2 style="margin:0px!Important;">
                     <asp:Literal ID="ltl_st_denominazione" runat="server">Rifiuti senza rientro quarta copia</asp:Literal></h2>
             </div> 
@@ -56,102 +56,104 @@
                         </h3>
                         <h4 style="margin:0px!Important; font-weight:bold;"><asp:Literal ID="ltl_st_denominazione" runat="server"></asp:Literal></h4>
                         <h5 style="color:#999;"><asp:Literal ID="ltl_st_numero_rifiuti" runat="server"></asp:Literal></h5>
-                        <table class="table table-striped table-advance table-hover">
-                            <thead>
-                                <tr style="white-space:nowrap;">
-                                    <th style="width: 1%;">
-                                        
-                                    </th>
-                                    <th style="width: 10%;">
-                                        CER
-                                    </th>
-                                    <th style="width: 30%;">
-                                        Descrizione
-                                    </th>
-                                    <th style="width: 20%;">
-                                        Prodotto Da
-                                    </th>
-                                    <th style="width: 10%;">
-                                        Quantità
-                                    </th>
-                                    <th style="width: 10%;">
-                                        Smaltito il
-                                    </th>
-                                    <th style="width: 20%;">
-                                        Presso
-                                    </th> 
-                                    <th title="Giorni residui" style="width: 1%; text-align:right; white-space:nowrap;">
-                                        <i class="fa fa-history"></i>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <asp:Repeater ID="rpt_rifiuti_non_rientrati" runat="server" OnItemDataBound="rpt_rifiuti_caricati_ItemDataBound">
-                                    <ItemTemplate>
-                                        <tr class="gisri_report_row">
-                                            <td id="td_label" runat="server" style="vertical-align:middle;border-left: 10px solid #000000;">
-                                                <div class="activity-icon activity-gisri activity-bg-law">
-                                                    <i class="fa fa-graduation-cap"></i>
-                                                </div>
-                                            </td>
-                                            <td style="font-weight:bold; white-space:nowrap;">
-                                                <asp:Label ID="lbl_tab_codici_cer_cod" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lbl_rf_descrizione" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lbl_rf_produttore" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lbl_rf_quantita" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lbl_rf_data_smaltimento" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lbl_rf_destinazione" runat="server"></asp:Label>
-                                            </td>
-                                            <td style="white-space:nowrap;  text-align:right;">
-                                                <asp:Label ID="lbl_count_down" runat="server" Font-Italic="true" Width="100%"></asp:Label>
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                                <asp:Repeater ID="rpt_rifiuti_scadenza_rientro" runat="server" OnItemDataBound="rpt_rifiuti_caricati_ItemDataBound">
-                                    <ItemTemplate>
-                                        <tr class="gisri_report_row">
-                                            <td id="td_label" runat="server" style="vertical-align:middle;border-left: 10px solid #aa0000;">
-                                                <div class="activity-icon activity-gisri activity-bg-danger">
-                                                    <i class="fa fa-truck"></i>
-                                                </div>
-                                            </td>
-                                            <td style="font-weight:bold; white-space:nowrap;">
-                                                <asp:Label ID="lbl_tab_codici_cer_cod" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lbl_rf_descrizione" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lbl_rf_produttore" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lbl_rf_quantita" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lbl_rf_data_smaltimento" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lbl_rf_destinazione" runat="server"></asp:Label>
-                                            </td>
-                                            <td style="white-space:nowrap;  text-align:right;">
-                                                <asp:Label ID="lbl_count_down" runat="server" Font-Italic="true" Width="100%" Height="22px"></asp:Label>
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                            </tbody>
-                        </table>
+                        <div class="overflow">
+                            <table class="table table-striped table-advance table-hover">
+                                <thead>
+                                    <tr style="white-space:nowrap;">
+                                        <th style="width: 1%;">
+
+                                        </th>
+                                        <th style="width: 10%;">
+                                            CER
+                                        </th>
+                                        <th style="width: 30%;">
+                                            Descrizione
+                                        </th>
+                                        <th style="width: 20%;">
+                                            Prodotto Da
+                                        </th>
+                                        <th style="width: 10%;">
+                                            Quantità
+                                        </th>
+                                        <th style="width: 10%;">
+                                            Smaltito il
+                                        </th>
+                                        <th style="width: 20%;">
+                                            Presso
+                                        </th> 
+                                        <th title="Giorni residui" style="width: 1%; text-align:right; white-space:nowrap;">
+                                            <i class="fa fa-history"></i>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:Repeater ID="rpt_rifiuti_non_rientrati" runat="server" OnItemDataBound="rpt_rifiuti_caricati_ItemDataBound">
+                                        <ItemTemplate>
+                                            <tr class="gisri_report_row">
+                                                <td id="td_label" runat="server" style="vertical-align:middle;border-left: 10px solid #000000;">
+                                                    <div class="activity-icon activity-gisri activity-bg-law">
+                                                        <i class="fa fa-graduation-cap"></i>
+                                                    </div>
+                                                </td>
+                                                <td style="font-weight:bold; white-space:nowrap;">
+                                                    <asp:Label ID="lbl_tab_codici_cer_cod" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lbl_rf_descrizione" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lbl_rf_produttore" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lbl_rf_quantita" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lbl_rf_data_smaltimento" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lbl_rf_destinazione" runat="server"></asp:Label>
+                                                </td>
+                                                <td style="white-space:nowrap;  text-align:right;">
+                                                    <asp:Label ID="lbl_count_down" runat="server" Font-Italic="true" Width="100%"></asp:Label>
+                                                </td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <asp:Repeater ID="rpt_rifiuti_scadenza_rientro" runat="server" OnItemDataBound="rpt_rifiuti_caricati_ItemDataBound">
+                                        <ItemTemplate>
+                                            <tr class="gisri_report_row">
+                                                <td id="td_label" runat="server" style="vertical-align:middle;border-left: 10px solid #aa0000;">
+                                                    <div class="activity-icon activity-gisri activity-bg-danger">
+                                                        <i class="fa fa-truck"></i>
+                                                    </div>
+                                                </td>
+                                                <td style="font-weight:bold; white-space:nowrap;">
+                                                    <asp:Label ID="lbl_tab_codici_cer_cod" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lbl_rf_descrizione" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lbl_rf_produttore" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lbl_rf_quantita" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lbl_rf_data_smaltimento" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lbl_rf_destinazione" runat="server"></asp:Label>
+                                                </td>
+                                                <td style="white-space:nowrap;  text-align:right;">
+                                                    <asp:Label ID="lbl_count_down" runat="server" Font-Italic="true" Width="100%" Height="22px"></asp:Label>
+                                                </td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </tbody>
+                            </table>
+                        </div>
                         <hr />
                     </ItemTemplate>
                 </asp:Repeater>

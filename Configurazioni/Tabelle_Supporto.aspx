@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Tabelle_Supporto.aspx.vb" Inherits="GisRI_Web.Tabelle_Supporto" EnableEventValidation="false" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -27,7 +27,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
-    <div class="row mt">
+    <div class="row">
         <div class="col-lg-12">
             <div class="content-panel" id="panel_dati" runat="server">
                 <h3 style="padding-left: 10px; margin-top: 0px!Important;">
@@ -36,7 +36,7 @@
             <!-- /content-panel dettali-->
             <div style="margin: 10px;">
             </div>
-            <div class="col-sm-3" style="padding-left: 0px!Important; padding-right: 0px!Important;">
+            <div class="col-sm-3 conf-menu">
                 <div class="content-panel" style="padding-top:0px!Important;">
                     <div class="panel-body"  style="padding-top:0px!Important;">
                         <div style="width:100%; text-align:center; padding-top:5px;">
@@ -67,9 +67,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9" style="padding-right: 0px!Important;">
+            <div class="col-sm-9 conf-content">
                 <div class="content-panel">
-                    <div style="margin-left: 15px!Important; margin-right: 15px!Important;">
+                    <div>
                         <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                             visible="false">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -89,46 +89,48 @@
                     </div>
                     <div class="panel-body minimal">
                         <div id="div_documenti" runat="server">
-                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                            <div class="form-body">
                                 <h3>TIPO DI DOCUMENTI</h3>
-                                <table class="table table-striped table-advance table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 50%;">
-                                                Relativo a
-                                            </th>
-                                            <th style="width: 50%;">
-                                                Descrizione
-                                            </th>
-                                            <th style="width: 1%;">
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <asp:Repeater ID="rpt_tipo_documenti" runat="server">
-                                            <ItemTemplate>
-                                                <tr>
-                                                    <td>
-                                                        <asp:Label ID="lbl_tab_tipo_documento_gruppo" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label ID="lbl_tab_tipo_documento_desc" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td style="white-space: nowrap;">
-                                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
-                                                            CommandName="SCHEDA">
-                                                        <i class=" fa fa-edit"></i>&nbsp;Modifica</i>
-                                                        </asp:LinkButton>
-                                                        <asp:LinkButton ID="btn_cancella" runat="server" CssClass="btn btn-danger btn-xs button-link-w"
-                                                            CommandName="CANCELLA">
-                                                        <i class=" fa fa-trash-o"></i>&nbsp;Cancella</i>
-                                                        </asp:LinkButton>
-                                                    </td>
-                                                </tr>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
-                                    </tbody>
-                                </table>
+                                <div class="overflow">
+                                    <table class="table table-striped table-advance table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 50%;">
+                                                    Relativo a
+                                                </th>
+                                                <th style="width: 50%;">
+                                                    Descrizione
+                                                </th>
+                                                <th style="width: 1%;">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <asp:Repeater ID="rpt_tipo_documenti" runat="server">
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <td>
+                                                            <asp:Label ID="lbl_tab_tipo_documento_gruppo" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_tab_tipo_documento_desc" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td style="white-space: nowrap;">
+                                                            <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
+                                                                CommandName="SCHEDA">
+                                                            <i class=" fa fa-edit"></i>&nbsp;Modifica</i>
+                                                            </asp:LinkButton>
+                                                            <asp:LinkButton ID="btn_cancella" runat="server" CssClass="btn btn-danger btn-xs button-link-w"
+                                                                CommandName="CANCELLA">
+                                                            <i class=" fa fa-trash-o"></i>&nbsp;Cancella</i>
+                                                            </asp:LinkButton>
+                                                        </td>
+                                                    </tr>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="">
                                 <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
@@ -165,50 +167,52 @@
                         <div id="div_siti" runat="server">
                             <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
                                 <h3>TIPOLOGIA DEI SITI</h3>
-                                <table class="table table-striped table-advance table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 30%;">
-                                                Società
-                                            </th>
-                                            <th style="width: 20%;">
-                                                Codice
-                                            </th>
-                                            <th style="width: 50%;">
-                                                Descrizione
-                                            </th>
-                                            <th style="width: 1%;">
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <asp:Repeater ID="rpt_tipologia_sito" runat="server">
-                                            <ItemTemplate>
-                                                <tr>
-                                                    <td>
-                                                        <asp:Label ID="lbl_tab_tipologia_sito_societa" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label ID="lbl_tab_tipologia_sito_cod" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label ID="lbl_tab_tipologia_sito_desc" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td style="white-space: nowrap;">
-                                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
-                                                            CommandName="SCHEDA">
-                                                        <i class=" fa fa-edit"></i>&nbsp;Modifica</i>
-                                                        </asp:LinkButton>
-                                                        <asp:LinkButton ID="btn_cancella" runat="server" CssClass="btn btn-danger btn-xs button-link-w"
-                                                            CommandName="CANCELLA">
-                                                        <i class=" fa fa-trash-o"></i>&nbsp;Cancella</i>
-                                                        </asp:LinkButton>
-                                                    </td>
-                                                </tr>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
-                                    </tbody>
-                                </table>
+                                <div class="overflow">
+                                    <table class="table table-striped table-advance table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 30%;">
+                                                    Società
+                                                </th>
+                                                <th style="width: 20%;">
+                                                    Codice
+                                                </th>
+                                                <th style="width: 50%;">
+                                                    Descrizione
+                                                </th>
+                                                <th style="width: 1%;">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <asp:Repeater ID="rpt_tipologia_sito" runat="server">
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <td>
+                                                            <asp:Label ID="lbl_tab_tipologia_sito_societa" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_tab_tipologia_sito_cod" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_tab_tipologia_sito_desc" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td style="white-space: nowrap;">
+                                                            <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
+                                                                CommandName="SCHEDA">
+                                                            <i class=" fa fa-edit"></i>&nbsp;Modifica</i>
+                                                            </asp:LinkButton>
+                                                            <asp:LinkButton ID="btn_cancella" runat="server" CssClass="btn btn-danger btn-xs button-link-w"
+                                                                CommandName="CANCELLA">
+                                                            <i class=" fa fa-trash-o"></i>&nbsp;Cancella</i>
+                                                            </asp:LinkButton>
+                                                        </td>
+                                                    </tr>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="">
                                 <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
@@ -251,50 +255,52 @@
 						<div id="div_ruoli" runat="server">
                             <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
                                 <h3>RUOLI AZIENDALI</h3>
-                                <table class="table table-striped table-advance table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 40%;">
-                                                Relativo a
-                                            </th>
-                                            <th style="width: 50%;">
-                                                Descrizione
-                                            </th>
-                                            <th style="width: 10%;">
-                                                Ordinamento
-                                            </th>
-                                            <th style="width: 1%;">
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <asp:Repeater ID="rpt_ruoli_aziendali" runat="server">
-                                            <ItemTemplate>
-                                                <tr>
-                                                    <td>
-                                                        <asp:Label ID="lbl_tab_ruolo_aziendale_tipo" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label ID="lbl_tab_ruolo_aziendale_desc" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label ID="lbl_tab_ruolo_aziendale_order" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td style="white-space: nowrap;">
-                                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
-                                                            CommandName="SCHEDA">
-                                                        <i class=" fa fa-edit"></i>&nbsp;Modifica</i>
-                                                        </asp:LinkButton>
-                                                        <asp:LinkButton ID="btn_cancella" runat="server" CssClass="btn btn-danger btn-xs button-link-w"
-                                                            CommandName="CANCELLA">
-                                                        <i class=" fa fa-trash-o"></i>&nbsp;Cancella</i>
-                                                        </asp:LinkButton>
-                                                    </td>
-                                                </tr>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
-                                    </tbody>
-                                </table>
+                                <div class="overflow">
+                                    <table class="table table-striped table-advance table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 40%;">
+                                                    Relativo a
+                                                </th>
+                                                <th style="width: 50%;">
+                                                    Descrizione
+                                                </th>
+                                                <th style="width: 10%;">
+                                                    Ordinamento
+                                                </th>
+                                                <th style="width: 1%;">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <asp:Repeater ID="rpt_ruoli_aziendali" runat="server">
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <td>
+                                                            <asp:Label ID="lbl_tab_ruolo_aziendale_tipo" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_tab_ruolo_aziendale_desc" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_tab_ruolo_aziendale_order" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td style="white-space: nowrap;">
+                                                            <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
+                                                                CommandName="SCHEDA">
+                                                            <i class=" fa fa-edit"></i>&nbsp;Modifica</i>
+                                                            </asp:LinkButton>
+                                                            <asp:LinkButton ID="btn_cancella" runat="server" CssClass="btn btn-danger btn-xs button-link-w"
+                                                                CommandName="CANCELLA">
+                                                            <i class=" fa fa-trash-o"></i>&nbsp;Cancella</i>
+                                                            </asp:LinkButton>
+                                                        </td>
+                                                    </tr>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="">
                                 <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
@@ -337,64 +343,66 @@
                         <div id="div_alert" runat="server">
                             <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
                                 <h3>TIPO ALERT</h3>
-                                <table class="table table-striped table-advance table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 30%;">
-                                                Alert
-                                            </th>
-                                            <th style="width: 5%;">
-                                                Attivo
-                                            </th>
-                                            <th style="width: 5%;">
-                                                Mail
-                                            </th>
-                                            <th style="width: 15%;">
-                                                Cadenza
-                                            </th>
-                                            <th style="width: 15%;">
-                                                Giorno
-                                            </th>
-                                            <th style="width: 30%;">
-                                                Ruolo
-                                            </th>
-                                            <th style="width: 1%;">
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <asp:Repeater ID="rpt_alert" runat="server">
-                                            <ItemTemplate>
-                                                <tr>
-                                                    <td>
-                                                        <asp:Label ID="lbl_alert_titolo" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label ID="lbl_alert_attivo" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label ID="lbl_alert_mail" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label ID="lbl_alert_cadenza" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label ID="lbl_alert_giorno" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label ID="lbl_alert_ruolo_aziendale" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td style="white-space: nowrap;">
-                                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
-                                                            CommandName="SCHEDA">
-                                                        <i class=" fa fa-edit"></i>&nbsp;Modifica</i>
-                                                        </asp:LinkButton>
-                                                    </td>
-                                                </tr>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
-                                    </tbody>
-                                </table>
+                                <div class="overflow">
+                                    <table class="table table-striped table-advance table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 30%;">
+                                                    Alert
+                                                </th>
+                                                <th style="width: 5%;">
+                                                    Attivo
+                                                </th>
+                                                <th style="width: 5%;">
+                                                    Mail
+                                                </th>
+                                                <th style="width: 15%;">
+                                                    Cadenza
+                                                </th>
+                                                <th style="width: 15%;">
+                                                    Giorno
+                                                </th>
+                                                <th style="width: 30%;">
+                                                    Ruolo
+                                                </th>
+                                                <th style="width: 1%;">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <asp:Repeater ID="rpt_alert" runat="server">
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <td>
+                                                            <asp:Label ID="lbl_alert_titolo" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_alert_attivo" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_alert_mail" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_alert_cadenza" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_alert_giorno" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label ID="lbl_alert_ruolo_aziendale" runat="server"></asp:Label>
+                                                        </td>
+                                                        <td style="white-space: nowrap;">
+                                                            <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
+                                                                CommandName="SCHEDA">
+                                                            <i class=" fa fa-edit"></i>&nbsp;Modifica</i>
+                                                            </asp:LinkButton>
+                                                        </td>
+                                                    </tr>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="">
                                 <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">

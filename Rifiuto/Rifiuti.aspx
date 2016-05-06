@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Rifiuti.aspx.vb" Inherits="GisRI_Web.fRifiuti" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -45,10 +45,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
-    <div class="row mt">
-        <div style="height:10px;"></div> 
+    <div class="row">
         <div class="col-lg-12">
-            <div class="content-panel" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
+            <div class="content-panel">
                 <div class="row" style="height:39px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
@@ -66,8 +65,8 @@
             </div> 
         </div> 
         <div class="col-md-12">
-            <div class="content-panel" id="panel_elenco" runat="server" visible="true" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
-				<div class="" style="height:50px!Important; padding-top:13px;">
+            <div class="content-panel" id="panel_elenco" runat="server" visible="true">
+				<div class="clearfix">
                     <div class="gisri_panel_title">
                         <div class="gisri_title_left">
                             <asp:LinkButton ID="btn_filtri" runat="server" CssClass="btn btn-default"
@@ -76,8 +75,7 @@
                             </asp:LinkButton>
                         </div> 
                         <div class="gisri_title_left">
-                            <h3 style="padding-left: 10px; margin-top: 0px!Important;">
-                                ELENCO RIFIUTI PRODOTTI</h3>
+                            <h3 style="padding-left: 10px; margin-top: 0px!Important;">ELENCO RIFIUTI PRODOTTI</h3>
                         </div>
                         <div class="gisri_button_right" id="div_nuovo" runat="server">
                             <asp:LinkButton ID="btn_nuovo" runat="server" ToolTip="Nuovo Rifiuto" CssClass="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;Nuovo Rifiuto</asp:LinkButton>
@@ -135,7 +133,7 @@
                         </div>
                     </div>                            
                 </div> 
-                <telerik:RadGrid ID="RGRifiuti" AutoGenerateColumns="False" CssClass="" runat="server"
+                <telerik:RadGrid ID="RGRifiuti" AutoGenerateColumns="False" CssClass="overflow" style="width: 100% !important" runat="server"
                     ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                     Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
                     AllowFilteringByColumn="true" Culture="it-IT">
@@ -275,7 +273,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="">
-                                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                                <div class="form-body">
                                                     <h6><asp:Label ID="ltl_ultima_modifica" runat="server"></asp:Label></h6>
                                                     <div class="row" id="div_societa_gestione" runat="server">
                                                         <div class="col-md-6">
@@ -502,9 +500,9 @@
                                     <! --/PERSONALE -->
                                 </div>
                                 <div id="div_allegati" class="tab-pane" runat="server">
-                                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                    <div class="form-body">
                                         <div class="form-horizontal">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body overflow">
                                                 <cc:cAllegati ID="cAllegati1" runat="server" />
                                             </div>
                                             <div class="form-actions right">

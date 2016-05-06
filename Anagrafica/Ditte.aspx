@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Start/GisRI.Master"
     CodeBehind="Ditte.aspx.vb" Inherits="GisRI_Web.fDitte" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
@@ -98,73 +98,75 @@
                             </div> 
                         </div>
                     </div>                            
-                </div> 
-                <telerik:RadGrid ID="RGDitte" AutoGenerateColumns="False" CssClass="" runat="server"
-                    ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
-                    Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
-                    AllowFilteringByColumn="true" Culture="it-IT">
-                    <GroupingSettings CaseSensitive="false" />
-                    <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
-                    <HeaderStyle CssClass=""></HeaderStyle>
-                    <ItemStyle HorizontalAlign="Left"></ItemStyle>
-                    <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
-                    <FilterItemStyle HorizontalAlign="Left" />
-                    <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="ditta_key" AllowMultiColumnSorting="True">
-                        <Columns>
-                            <telerik:GridBoundColumn SortExpression="di_ragione_sociale" UniqueName="di_ragione_sociale"
-                                HeaderText="Ragione sociale" DataField="di_ragione_sociale" HeaderStyle-Width="25%"
-                                AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains" />
-                            <telerik:GridTemplateColumn SortExpression="di_comune_desc" UniqueName="di_comune_desc"
-                                HeaderText="Città" DataField="di_comune_desc" HeaderStyle-Width="15%" AllowFiltering="true"
-                                ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbldi_comune_desc" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="di_indirizzo" SortExpression="di_indirizzo"
-                                InitializeTemplatesFirst="false" HeaderStyle-Width="35%" HeaderText="Indirizzo"
-                                AllowFiltering="true" ShowFilterIcon="false" DataField="di_indirizzo" FilterControlWidth="150px"
-                                AutoPostBackOnFilter="true" CurrentFilterFunction="Contains">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbldi_indirizzo" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridBoundColumn SortExpression="di_piva" UniqueName="di_piva" HeaderText="P.Iva"
-                                DataField="di_piva" HeaderStyle-Width="5%" AllowFiltering="true" ShowFilterIcon="false" 
-                                FilterControlWidth="100px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" 
-                                ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
-                            <telerik:GridBoundColumn SortExpression="di_albo_numero" UniqueName="di_albo_numero"
-                                HeaderText="Albo N." DataField="di_albo_numero" HeaderStyle-Width="10%" AllowFiltering="false" 
-                                ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
-                            <telerik:GridTemplateColumn SortExpression="di_albo_del" UniqueName="di_albo_del"
-                                HeaderText="Albo del" DataField="di_albo_del" HeaderStyle-Width="10%" AllowFiltering="false"
-                                ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
-                                <ItemTemplate>
-                                    <asp:Label ID="lbldi_di_albo_del" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
-                                HeaderStyle-Width="1%" AllowFiltering="false" >
-                                <ItemStyle HorizontalAlign="right" />
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
-                                        CommandName="SCHEDA">
-                                        <i class=" fa fa-edit"></i>&nbsp;SCHEDA
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                        </Columns>
-                    </MasterTableView>
-                    <ClientSettings EnableRowHoverStyle="true">
-                        <Selecting AllowRowSelect="false" />
-                    </ClientSettings>
-                </telerik:RadGrid>
+                </div>
+                <div class="overflow">
+                    <telerik:RadGrid ID="RGDitte" AutoGenerateColumns="False" CssClass="" style="width: 100% !important" runat="server"
+                        ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
+                        Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
+                        AllowFilteringByColumn="true" Culture="it-IT">
+                        <GroupingSettings CaseSensitive="false" />
+                        <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
+                        <HeaderStyle CssClass=""></HeaderStyle>
+                        <ItemStyle HorizontalAlign="Left"></ItemStyle>
+                        <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
+                        <FilterItemStyle HorizontalAlign="Left" />
+                        <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="ditta_key" AllowMultiColumnSorting="True">
+                            <Columns>
+                                <telerik:GridBoundColumn SortExpression="di_ragione_sociale" UniqueName="di_ragione_sociale"
+                                    HeaderText="Ragione sociale" DataField="di_ragione_sociale" HeaderStyle-Width="25%"
+                                    AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains" />
+                                <telerik:GridTemplateColumn SortExpression="di_comune_desc" UniqueName="di_comune_desc"
+                                    HeaderText="Città" DataField="di_comune_desc" HeaderStyle-Width="15%" AllowFiltering="true"
+                                    ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbldi_comune_desc" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn UniqueName="di_indirizzo" SortExpression="di_indirizzo"
+                                    InitializeTemplatesFirst="false" HeaderStyle-Width="35%" HeaderText="Indirizzo"
+                                    AllowFiltering="true" ShowFilterIcon="false" DataField="di_indirizzo" FilterControlWidth="150px"
+                                    AutoPostBackOnFilter="true" CurrentFilterFunction="Contains">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbldi_indirizzo" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridBoundColumn SortExpression="di_piva" UniqueName="di_piva" HeaderText="P.Iva"
+                                    DataField="di_piva" HeaderStyle-Width="5%" AllowFiltering="true" ShowFilterIcon="false" 
+                                    FilterControlWidth="100px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" 
+                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
+                                <telerik:GridBoundColumn SortExpression="di_albo_numero" UniqueName="di_albo_numero"
+                                    HeaderText="Albo N." DataField="di_albo_numero" HeaderStyle-Width="10%" AllowFiltering="false" 
+                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
+                                <telerik:GridTemplateColumn SortExpression="di_albo_del" UniqueName="di_albo_del"
+                                    HeaderText="Albo del" DataField="di_albo_del" HeaderStyle-Width="10%" AllowFiltering="false"
+                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbldi_di_albo_del" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
+                                    HeaderStyle-Width="1%" AllowFiltering="false" >
+                                    <ItemStyle HorizontalAlign="right" />
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
+                                            CommandName="SCHEDA">
+                                            <i class=" fa fa-edit"></i>&nbsp;SCHEDA
+                                        </asp:LinkButton>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                            </Columns>
+                        </MasterTableView>
+                        <ClientSettings EnableRowHoverStyle="true">
+                            <Selecting AllowRowSelect="false" />
+                        </ClientSettings>
+                    </telerik:RadGrid>
+                </div>
             </div>
             <!-- /content-panel lista-->
             <div class="content-panel" id="panel_dati" runat="server" style="display: none;">
-                <div class="gisri_panel_title">
+                <div class="gisri_panel_title clearfix">
                     <div class="gisri_title_left">
                         <h3 style="padding-left: 10px; margin-top: 0px!Important;">
                             <i class="fa fa-angle-right"></i>DETTAGLIO DITTA OPERATRICE: <asp:Literal ID="ltl_di_denominazione" runat="server" /></asp:Literal></h3>
@@ -173,7 +175,7 @@
                         <asp:LinkButton ID="btn_return" runat="server" ToolTip="Torna all'elenco" CssClass="btn btn-warning"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Elenco</asp:LinkButton>
                     </div>
                 </div>
-                <div style="margin: 10px; padding-top:30px;">
+                <div>
                     <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                         visible="false">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -213,12 +215,12 @@
                                 <div id="div_overview" class="tab-pane active" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <h6><asp:Label ID="ltl_ultima_modifica" runat="server"></asp:Label></h6>
                                                 <div class="row" id="div_societa_gestione" runat="server">
                                                     <div class="col-md-12">
                                                         <cc:rDropDown ID="ddl_di_societa_gestione_key" runat="server" AutoPostBack="false"
-                                                            Label="Società di gestione" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="Societ&agrave; di gestione" Placeholder="Seleziona..." Form_Vertical="true" 
                                                             Required="true" Required_Help="Società di gestione obbligatoria!" />
                                                     </div>
                                                 </div>
@@ -392,7 +394,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="">
-                                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                                <div class="form-body">
                                                     <asp:Repeater ID="rpt_tab_tipologia_ditta" runat="server">
                                                         <HeaderTemplate>
                                                             <div class="row">
@@ -423,7 +425,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="">
-                                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                                <div class="form-body overflow">
                                                     <table class="table table-striped table-advance table-hover">
                                                         <thead>
                                                             <tr>
@@ -482,7 +484,7 @@
                                                     </table>
                                                 </div>
                                                 <div class="">
-                                                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                                    <div class="form-body">
                                                         <div id="div_modifica_autorizzazione" runat="server">
                                                             <div class="row">
                                                                 <div class="col-md-12">
