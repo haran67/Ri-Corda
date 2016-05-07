@@ -1,4 +1,4 @@
-﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="Supporto.ascx.vb" Inherits="GisRI_Web.Supporto" %>
+<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="Supporto.ascx.vb" Inherits="GisRI_Web.Supporto" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Src="../Controls/rCheckBox.ascx" TagName="rCheckBox" TagPrefix="cc" %>
 <div class="modal fade" id="myModalSupport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -81,7 +81,7 @@
                                                 <label for="allegati" class="">
                                                     Allegati:</label>
                                                 <br />
-                                                <telerik:RadAsyncUpload runat="server" ID="RadUpload1" MultipleFileSelection="Automatic"
+                                                <telerik:RadAsyncUpload runat="server" ID="RadUpload1" style="width: 50%;" MultipleFileSelection="Automatic"
                                                     Culture="it-IT" AllowedFileExtensions="doc,docx,pdf,xls,xlsx,jpg,msg,txt" Localization-Select="Seleziona" />
                                             </div>
                                             <div class="col-lg-3" style="text-align: right;">
@@ -92,14 +92,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <asp:LinkButton ID="btnInvia" runat="server" CssClass="btn btn-primary">
+                    <div class="modal-footer" style="text-align: center">
+                        <asp:LinkButton ID="btnInvia" runat="server" CssClass="btn btn-primary" style="margin-bottom: 10px !important;">
                             <i class="fa fa-check"></i> Invia il messaggio
                         </asp:LinkButton>
-                        <asp:HyperLink ID="lnk_manuale" runat="server" CssClass="btn btn-warning" Target="_blank">
+                        <asp:HyperLink ID="lnk_manuale" runat="server" CssClass="btn btn-warning" Target="_blank" style="margin-bottom: 10px !important;">
                             <i class="fa fa-book"></i>&nbsp;&nbsp;SCARICA IL MANUALE DI Ri.-C.O.R.D.A.
                         </asp:HyperLink>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn_chiudi" runat="server"
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn_chiudi" runat="server" style="margin-bottom: 10px !important;"
                             onclick="$('#<%=btnInvia.ClientID%>').css('display', ''); $('.alert-dismissable').alert('close');">
                             CHIUDI</button>
                     </div>
