@@ -19,11 +19,10 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
-    <div style="height:10px;"></div> 
     <div class="row">
         <div class="col-lg-12">
             <div class="content-panel" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
-                <div class="row" style="height:39px!Important;">
+                <div class="row clearfix">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <h3 style="margin:0px!Important;">
@@ -41,8 +40,7 @@
         </div> 
         <div class="col-md-12">
             <div class="content-panel" id="panel_dati" runat="server" style="display: none;">
-                <h3 style="padding-left: 10px; margin-top: 0px!Important;">
-                    <i class="fa fa-angle-right"></i>CARICO SUL REGISTRO</h3>
+                <h3 style="padding-left: 10px; margin-top: 0px!Important;"><i class="fa fa-angle-right"></i>CARICO SUL REGISTRO</h3>
                 <div style="margin: 10px;">
                     <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                         visible="false">
@@ -60,7 +58,7 @@
                         <strong>
                             <asp:Literal ID="ltl_messaggio_ok" runat="server"></asp:Literal></strong>
                     </div>
-                    <div class="">
+                    <div>
                         <div class="panel-heading">
                             <ul class="nav nav-tabs nav-justified">
                                 <li class="active" id="li_overview" runat="server"><a data-toggle="tab" href="#<%=div_overview.ClientID%>"
@@ -156,7 +154,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-horizontal">
-                                                <div class="form-body">
+                                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
                                                     <cc:cAllegati ID="cAllegati1" runat="server" />
                                                 </div>
                                                 <div class="form-actions right">
