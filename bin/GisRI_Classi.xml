@@ -6,7 +6,15 @@ GisRI_Classi
 </name>
 </assembly>
 <members>
-<member name="T:GisRI_Classi.Oggetti.Permessi_alert_Base">
+<member name="T:GisRI_Classi.Oggetti.Allegati_movimenti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella ALLEGATI_MOVIMENTI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_registro_rifiuti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_CARICO
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Permessi_alert_Base">
 	<summary>
  Classe utilizzata per l'astrazione dei dati della tabella PERMESSI_ALERT
  </summary>
@@ -537,6 +545,10 @@ GisRI_Classi
 </member><member name="T:GisRI_Classi.Oggetti.Tab_codici_cer_Base">
 	<summary>
  Classe utilizzata per l'astrazione dei dati della tabella TAB_CODICI_CER
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_sito_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_CARICO
  </summary>
 </member><member name="T:GisRI_Classi.Oggetti.Permessi_funzioni_Base">
 	<summary>

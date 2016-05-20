@@ -8,6 +8,8 @@
 <%@ Register Src="../Controls/rDropDown.ascx" TagName="rDropDown" TagPrefix="cc" %>
 <%@ Register Src="../Controls/rCheckBox.ascx" TagName="rCheckBox" TagPrefix="cc" %>
 <%@ Register Src="../Controls/rRadioButton.ascx" TagName="rRadioButton" TagPrefix="cc" %>
+<%@ Register Src="../Controls/cFileUpload.ascx" TagName="cFileUpload" TagPrefix="cc" %>
+<%@ Register Src="../Controls/cAllegati.ascx" TagName="cAllegati" TagPrefix="cc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function Init_bootstrapSwitch() {
@@ -247,6 +249,14 @@
                         </div>
                     </div>
                     <div class="">
+                        <div class="panel-heading">
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active" id="li_overview" runat="server"><a data-toggle="tab" href="#<%=div_overview.ClientID%>"
+                                    class="tab-font">Dati Registro</a> </li>
+                                <li id="li_allegati" runat="server"><a data-toggle="tab" href="#<%=div_allegati.ClientID%>"
+                                    class="tab-font">Allegati</a> </li>
+                            </ul>
+                        </div>
                         <div class="panel-body">
                             <div class="tab-content">
                                 <div id="div_overview" class="tab-pane active" runat="server">
@@ -319,7 +329,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <cc:rTextBox ID="txt_rr_localizzazione" runat="server" MaxLength="1000" Label="Sede di conservazione registro C/S"
-                                                            Visible="true" Form_Vertical="true" />
+                                                            Visible="true" Form_Vertical="true" Required="true" Required_Help="Sede di conservazione obbligatoria!" />
                                                     </div>
                                                 </div>
                                                 <div class="row" id="div_loc_fin" runat="server" visible="false">
@@ -344,6 +354,99 @@
                                     </div>
                                     <! --/OVERVIEW -->
                                 </div>
+                                <div id="div_allegati" class="tab-pane" runat="server">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-horizontal">
+                                                <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
+                                                    <cc:cAllegati ID="cAllegati1" runat="server" />
+                                                </div>
+                                                <div class="form-actions right">
+                                                    <asp:LinkButton ID="btn_allega" runat="server" CssClass="btn btn-primary">
+                                                <i class="fa fa-plus"></i> Carica Files
+                                                    </asp:LinkButton>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-horizontal">
+                                                <h3>
+                                                    Elenco allegati ai movimenti</h3>
+                                                <table class="table table-striped table-advance table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 15%;">
+                                                                Allegato
+                                                            </th>
+                                                            <th style="width: 20%;">
+                                                                Tipologia
+                                                            </th>
+                                                            <th style="width: 10%;">
+                                                                Data
+                                                            </th>
+                                                            <th style="width: 15%;">
+                                                                Titolo
+                                                            </th>
+                                                            <th style="width: 30%;">
+                                                                Descrizione
+                                                            </th>
+                                                            <th style="width: 1%;">
+                                                                Numero
+                                                            </th>
+                                                            <th style="width: 10%;">
+                                                                Movimento
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <asp:Repeater ID="rpt_documenti" runat="server">
+                                                            <ItemTemplate>
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:HyperLink ID="lnk_doc_file" runat="server" Target="_blank"></asp:HyperLink>
+                                                                        <div class="project-wrapper" id="div_immagine" runat="server">
+                                                                            <div class="project">
+                                                                                <div class="photo-wrapper">
+                                                                                    <div class="photo">
+                                                                                        <asp:HyperLink ID="lnk_doc_immagine" runat="server" CssClass="fancybox" NavigateUrl="">
+                                                                                            <asp:Image ID="img_doc_immagine" runat="server" CssClass="img-responsive gisri_attach_image" />
+                                                                                        </asp:HyperLink>
+                                                                                    </div>
+                                                                                    <div class="overlay">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <asp:Label ID="lbl_doc_tipo_documento_desc" runat="server"></asp:Label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <asp:Label ID="lbl_doc_data" runat="server"></asp:Label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <asp:Label ID="lbl_doc_titolo" runat="server"></asp:Label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <asp:Label ID="lbl_doc_descrizione" runat="server"></asp:Label>
+                                                                    </td>
+                                                                    <td style="white-space: nowrap;">
+                                                                        <asp:Label ID="lbl_doc_movimento" runat="server"></asp:Label>
+                                                                    </td>
+                                                                    <td style="white-space: nowrap;">
+                                                                        <asp:Label ID="lbl_doc_movimento_tipo" runat="server"></asp:Label>
+                                                                    </td>
+                                                                </tr>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /tab-content -->
                         </div>
@@ -356,4 +459,7 @@
         <!-- /col-md-12 -->
     </div>
     <!-- /row -->
+</asp:Content>
+<asp:Content ID="ttt" runat="server" ContentPlaceHolderID="body">
+    <cc:cFileUpload ID="cFileUpload" runat="server" />
 </asp:Content>

@@ -2,6 +2,8 @@
     Inherits="GisRI_Web.cFileUpload" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register Src="../Controls/rTextBox.ascx" TagName="rTextBox" TagPrefix="cc" %>
+<%@ Register Src="../Controls/rTextData.ascx" TagName="rTextData" TagPrefix="cc" %>
+
 <!-- Button trigger modal -->
 <!-- Modal -->
 <script type="text/javascript">
@@ -62,7 +64,7 @@
                 <h4 class="modal-title" id="myModalLabel">
                     FILE ED ALLEGATI</h4>
             </div>
-            <div class="modal-body" style="height: 400px; overflow: auto;">
+            <div class="modal-body" style="height: 420px; overflow: auto;">
                 <div class="row">
                     <div class="col-md-12">
                         <asp:UpdatePanel ID="updWizard" runat="server">
@@ -126,7 +128,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="horizontal-form">
                                                                         <telerik:RadAsyncUpload runat="server" ID="doc_upload" MultipleFileSelection="Automatic" Culture="it-IT"
-                                                                            DropZones="#DropZone1" AllowedFileExtensions="doc,docx,pdf,xls,xlsx,jpg,msg,txt" Localization-Select="Seleziona" />
+                                                                            DropZones="#DropZone1" AllowedFileExtensions="doc,docx,pdf,xls,xlsx,jpg,msg,txt,png,gif" Localization-Select="Seleziona" />
                                                                         <br />
                                                                     </div> 
                                                                 </div>
@@ -159,8 +161,17 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <asp:TextBox ID="txt_titolo" runat="server" MaxLength="128" CssClass="form-control" placeholder="Inserisci qui il titolo"></asp:TextBox>
+                                                                                <div class="col-md-6">
+                                                                                    <div style="margin-left:15px; margin-right:5px;">
+                                                                                        <cc:rTextBox ID="txt_titolo" runat="server" MaxLength="10" AutoPostBack="false" Remove_Form_Group="true"
+                                                                                            Placeholder="Inserisci qui il titolo" Form_Vertical="true" />
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <div style="margin-left:0px; margin-right:5px;">
+                                                                                        <cc:rTextData ID="txt_data" runat="server" MaxLength="10" AutoPostBack="false" Remove_Form_Group="true"
+                                                                                            Placeholder="Data Documento" Icon="fa fa-calendar" Form_Vertical="true" />
+                                                                                    </div> 
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row">
@@ -194,7 +205,7 @@
                                                                                 </div>
                                                                                 <div class="row">
                                                                                     <div class="col-md-12">
-                                                                                        <asp:Label ID="lbl_titolo" runat="server" Font-Bold="true"></asp:Label>
+                                                                                        <asp:Label ID="lbl_data" runat="server" Font-Bold="true"></asp:Label>&nbsp;<asp:Label ID="lbl_titolo" runat="server" Font-Bold="true"></asp:Label>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row">

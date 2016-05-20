@@ -154,8 +154,13 @@
                                                     </div>
                                                 </div>
                                                 <!--VIAGGI FINE-->
-                                                <div class="row" id="div_societa_gestione" runat="server">
-                                                    <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <cc:rDropDown ID="ddl_rs_produttore_key" runat="server" AutoPostBack="false" Label="Produttore"
+                                                            Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Required="true" Required_Help="Produttore rifuto obbligatorio!" />
+                                                    </div>
+                                                    <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rs_codici_cer_key" runat="server" AutoPostBack="true" Label="Rifiuto (CER)"
                                                             Placeholder="Seleziona..." Form_Vertical="true" 
                                                             Required="true" Required_Help="Codice CER obbligatorio!" />
@@ -376,7 +381,7 @@
                                 <div id="div_allegati" class="tab-pane" runat="server">
                                     <div class="form-body">
                                         <div class="form-horizontal">
-                                            <div class="form-body">
+                                            <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                 <cc:cAllegati ID="cAllegati1" runat="server" />
                                             </div>
                                             <div class="form-actions right">

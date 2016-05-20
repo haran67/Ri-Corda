@@ -519,8 +519,11 @@
                                     <th style="width: 40%;">
                                         Titolo
                                     </th>
-                                    <th style="width: 60%;">
+                                    <th style="width: 59%;">
                                         Intestatario
+                                    </th>
+                                    <th style="width: 1%;">
+                                        
                                     </th>
                                 </tr>
                             </thead>
@@ -533,6 +536,11 @@
                             </td>
                             <td>
                                 <asp:Label ID="lbl_rr_proprietario" runat="server" Font-Bold="true"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="lnk_allegato" runat="server" Target="_blank">
+                                    <i class="fa fa-download"></i>
+                                </asp:HyperLink>
                             </td>
                         </tr>
                     </ItemTemplate>

@@ -6,7 +6,319 @@ GisRI_Web
 </name>
 </assembly>
 <members>
-<member name="F:GisRI_Web.fMessaggi.btn_nuova">
+<member name="T:GisRI_Web.Verifica_Caricamenti.TipoModoPagina">
+	<summary>
+ Enumeratore per la gestione dello stato corrente della pagina
+ </summary>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.li_rifiuti">
+	<summary>
+li_rifiuti control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.li_smaltimenti">
+	<summary>
+li_smaltimenti control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.div_rifiuti">
+	<summary>
+div_rifiuti control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.RGRifiutiVerifica">
+	<summary>
+RGRifiutiVerifica control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.div_smaltimenti">
+	<summary>
+div_smaltimenti control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.RGSmaltimentiVerifica">
+	<summary>
+RGSmaltimentiVerifica control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.panel_vecchio">
+	<summary>
+panel_vecchio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.btn_filtri">
+	<summary>
+btn_filtri control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.div_nuovo">
+	<summary>
+div_nuovo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.btn_nuovo">
+	<summary>
+btn_nuovo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.div_filtri">
+	<summary>
+div_filtri control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.txt_filter_cer">
+	<summary>
+txt_filter_cer control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.txt_filter_produttore">
+	<summary>
+txt_filter_produttore control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.txt_filter_descrizione">
+	<summary>
+txt_filter_descrizione control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.ddl_filter_stati">
+	<summary>
+ddl_filter_stati control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.btn_reset_filter">
+	<summary>
+btn_reset_filter control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.btn_close">
+	<summary>
+btn_close control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.btn_detach">
+	<summary>
+btn_detach control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.ltl_messaggio">
+	<summary>
+ltl_messaggio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.ltl_cer">
+	<summary>
+ltl_cer control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.div_supporto">
+	<summary>
+div_supporto control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.ltl_sito">
+	<summary>
+ltl_sito control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.updWizard">
+	<summary>
+updWizard control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.div_message_ko">
+	<summary>
+div_message_ko control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.ltl_messaggio_ko">
+	<summary>
+ltl_messaggio_ko control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.div_message_ok">
+	<summary>
+div_message_ok control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.ltl_messaggio_ok">
+	<summary>
+ltl_messaggio_ok control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.txt_verificato_note">
+	<summary>
+txt_verificato_note control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.chk_da_verificare">
+	<summary>
+chk_da_verificare control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.btn_conferma">
+	<summary>
+btn_conferma control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Verifica_Caricamenti.btn_chiudi">
+	<summary>
+btn_chiudi control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="T:GisRI_Web.Elenco_mud.TipoModoPagina">
+	<summary>
+ Enumeratore per la gestione dello stato corrente della pagina
+ </summary>
+</member><member name="F:GisRI_Web.Elenco_mud.ltl_st_denominazione">
+	<summary>
+ltl_st_denominazione control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Elenco_mud.div_titolarita">
+	<summary>
+div_titolarita control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Elenco_mud.ddl_st_sito">
+	<summary>
+ddl_st_sito control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Elenco_mud.ddl_anno">
+	<summary>
+ddl_anno control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Elenco_mud.label_control">
+	<summary>
+label_control control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Elenco_mud.btn_aggiorna">
+	<summary>
+btn_aggiorna control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Elenco_mud.rpt_siti">
+	<summary>
+rpt_siti control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fMessaggi.btn_nuova">
 	<summary>
 btn_nuova control.
 </summary>
@@ -1918,6 +2230,14 @@ li_dipendenti control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:GisRI_Web.Siti.li_allegati">
+	<summary>
+li_allegati control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:GisRI_Web.Siti.div_overview">
 	<summary>
 div_overview control.
@@ -2398,9 +2718,41 @@ btn_google_address control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:GisRI_Web.Siti.div_allegati">
+	<summary>
+div_allegati control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Siti.cAllegati1">
+	<summary>
+cAllegati1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Siti.btn_allega">
+	<summary>
+btn_allega control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:GisRI_Web.Siti.btn_position">
 	<summary>
 btn_position control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.Siti.cFileUpload">
+	<summary>
+cFileUpload control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -6569,6 +6921,22 @@ ltl_messaggio_ok control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:GisRI_Web.fRegistro.li_overview">
+	<summary>
+li_overview control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fRegistro.li_allegati">
+	<summary>
+li_allegati control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:GisRI_Web.fRegistro.div_overview">
 	<summary>
 div_overview control.
@@ -6708,6 +7076,46 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:GisRI_Web.fRegistro.btn_chiudi">
 	<summary>
 btn_chiudi control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fRegistro.div_allegati">
+	<summary>
+div_allegati control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fRegistro.cAllegati1">
+	<summary>
+cAllegati1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fRegistro.btn_allega">
+	<summary>
+btn_allega control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fRegistro.rpt_documenti">
+	<summary>
+rpt_documenti control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fRegistro.cFileUpload">
+	<summary>
+cFileUpload control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -7761,9 +8169,9 @@ ddl_rs_intermediario_key control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:GisRI_Web.fSmaltimento.div_societa_gestione">
+</member><member name="F:GisRI_Web.fSmaltimento.ddl_rs_produttore_key">
 	<summary>
-div_societa_gestione control.
+ddl_rs_produttore_key control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -9333,6 +9741,22 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:GisRI_Web.fDitte.btn_allega">
 	<summary>
 btn_allega control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fDitte.div_autorizzazioni_scarico">
+	<summary>
+div_autorizzazioni_scarico control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fDitte.rpt_documenti">
+	<summary>
+rpt_documenti control.
 </summary>
 	<remarks>
 Auto-generated field.

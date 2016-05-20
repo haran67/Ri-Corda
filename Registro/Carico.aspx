@@ -154,7 +154,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-horizontal">
-                                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                                <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                     <cc:cAllegati ID="cAllegati1" runat="server" />
                                                 </div>
                                                 <div class="form-actions right">

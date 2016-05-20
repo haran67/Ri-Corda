@@ -502,7 +502,7 @@
                                 <div id="div_allegati" class="tab-pane" runat="server">
                                     <div class="form-body">
                                         <div class="form-horizontal">
-                                            <div class="form-body overflow">
+                                            <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                 <cc:cAllegati ID="cAllegati1" runat="server" />
                                             </div>
                                             <div class="form-actions right">

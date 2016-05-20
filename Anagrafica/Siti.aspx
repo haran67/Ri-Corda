@@ -8,7 +8,11 @@
 <%@ Register Src="../Controls/rDropDown.ascx" TagName="rDropDown" TagPrefix="cc" %>
 <%@ Register Src="../Controls/rCheckBox.ascx" TagName="rCheckBox" TagPrefix="cc" %>
 <%@ Register Src="../Controls/rRadioButton.ascx" TagName="rRadioButton" TagPrefix="cc" %>
+<%@ Register Src="../Controls/cFileUpload.ascx" TagName="cFileUpload" TagPrefix="cc" %>
+<%@ Register Src="../Controls/cAllegati.ascx" TagName="cAllegati" TagPrefix="cc" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <link href="../assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet"
         type="text/css" />
     <script type="text/javascript" src="../assets/plugins/bootstrap-switch/js/bootstrap-switch.js"></script>
@@ -255,6 +259,8 @@
                                     class="tab-font">Ditte operatrici</a> </li>
                                 <li id="li_dipendenti" runat="server"><a data-toggle="tab" href="#<%=div_dipendenti.ClientID%>"
                                     class="tab-font">Titolarità</a> </li>
+                                <li id="li_allegati" runat="server"><a data-toggle="tab" href="#<%=div_allegati.ClientID%>"
+                                    class="tab-font">Allegati</a> </li>
                             </ul>
                         </div>
                         <! --/panel-heading -->
@@ -723,6 +729,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div id="div_allegati" class="tab-pane" runat="server">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-horizontal">
+                                                <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
+                                                    <cc:cAllegati ID="cAllegati1" runat="server" />
+                                                </div>
+                                                <div class="form-actions right">
+                                                    <asp:LinkButton ID="btn_allega" runat="server" CssClass="btn btn-primary">
+                                                <i class="fa fa-plus"></i> Carica Files
+                                                    </asp:LinkButton>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /tab-content -->
                         </div>
@@ -749,4 +771,7 @@
         }
 
     </script>
+</asp:Content>
+<asp:Content ID="ttt" runat="server" ContentPlaceHolderID="body">
+    <cc:cFileUpload ID="cFileUpload" runat="server" />
 </asp:Content>

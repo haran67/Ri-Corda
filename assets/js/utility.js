@@ -37,6 +37,7 @@ function openModal(name) {
 
 function closeModal(name) {
     $(name).modal('hide');
+    $('.alert-dismissable').alert('close');
 }
 
 

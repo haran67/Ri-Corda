@@ -4,7 +4,7 @@
 <table class="table table-striped table-advance table-hover">
     <thead>
         <tr>
-            <th style="width: 20%;">
+            <th style="width: 15%;">
                 Allegato
             </th>
             <th style="width: 10%;">
@@ -13,10 +13,13 @@
             <th style="width: 20%;">
                 Tipologia
             </th>
+            <th style="width: 10%;">
+                Data
+            </th>
             <th style="width: 15%;">
                 Titolo
             </th>
-            <th style="width: 35%;">
+            <th style="width: 30%;">
                 Descrizione
             </th>
             <th style="width: 1%;">
@@ -48,6 +51,9 @@
                     </td>
                     <td>
                         <asp:Label ID="lbl_doc_tipo_documento_desc" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Label ID="lbl_doc_data" runat="server"></asp:Label>
                     </td>
                     <td>
                         <asp:Label ID="lbl_doc_titolo" runat="server"></asp:Label>
