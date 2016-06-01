@@ -189,8 +189,12 @@
                             <telerik:GridTemplateColumn UniqueName="rf_stato_allegati" SortExpression="" DataField="" 
                                 InitializeTemplatesFirst="false" HeaderStyle-Width="1%" HeaderText="" AllowFiltering="false" >
                                 <ItemTemplate>
-                                    <asp:Label ID="ltl_stato_allegati" runat="server" Style="width: 100%; height: 100%;">
-                                    </asp:Label>
+                                    <asp:LinkButton ID="btn_allegati" runat="server" CssClass="btn btn-primary btn-xs button-link-w gisri_button_list"
+                                        CommandName="ZIP" Style="padding-bottom:3px; padding-top:3px; padding-right:2px;">
+                                        <i class=" fa fa-paperclip"></i>
+                                    </asp:LinkButton>
+                                    <asp:Hyperlink ID="lnk_allegati" runat="server" Target="_blank" Style="width: 100%;">
+                                    </asp:Hyperlink>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
                             <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
@@ -198,9 +202,8 @@
                                 <ItemTemplate>
                                     <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w gisri_button_list"
                                         CommandName="SCHEDA">
-                                                <i class=" fa fa-edit"></i>&nbsp;SCHEDA</i>
+                                        <i class=" fa fa-edit"></i>&nbsp;SCHEDA
                                     </asp:LinkButton>
-									
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </telerik:GridTemplateColumn>
@@ -216,4 +219,5 @@
         <!-- /col-md-12 -->
     </div>
     <!-- /row -->
+    <iframe id="ifZip" runat="server" src="" style="display: none;"></iframe>
 </asp:Content>

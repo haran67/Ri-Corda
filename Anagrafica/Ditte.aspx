@@ -425,6 +425,8 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="">
+                                                <h3>
+                                                    Autorizzazioni per il trasporto/intermediazione</h3>
                                                 <div class="form-body overflow">
                                                     <table class="table table-striped table-advance table-hover">
                                                         <thead>
@@ -530,6 +532,63 @@
                                                 </div>
                                                 <asp:Label ID="lbl_ditta_autorizzazioni_key" runat="server" Visible="false"></asp:Label>
                                             </div>
+                                            <div class="">
+                                                <h3>
+                                                    Autorizzazioni per il recupero/smaltimento</h3>
+                                                <div class="form-body overflow">
+                                                    <table class="table table-striped table-advance table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 20%;">
+                                                                    Sito
+                                                                </th>
+                                                                <th style="width: 20%;">
+                                                                    Autorizzazione
+                                                                </th>
+                                                                <th style="width: 10%; white-space:nowrap;">
+                                                                    Numero
+                                                                </th>
+                                                                <th style="width: 10%; white-space:nowrap;">
+                                                                    Data Emissione
+                                                                </th>
+                                                                <th style="width: 10%; white-space:nowrap;">
+                                                                    Data Scadenza
+                                                                </th>
+                                                                <th style="width: 30%;">
+                                                                    Note
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <asp:Repeater ID="rpt_autorizzazioni_scarico" runat="server">
+                                                                <ItemTemplate>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_sd_sito" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_sd_tipologia_autorizzazioni_desc" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_sd_emissione_numero" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_sd_emissione_data" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_sd_a_data" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_sd_note" runat="server"></asp:Label>
+                                                                        </td>
+                                                                    </tr>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div> 
                                         </div>
                                     </div>
                                 </div>
@@ -537,6 +596,8 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-horizontal">
+                                                <h3>
+                                                    Autorizzazioni per il trasporto/intermediazione</h3>
                                                 <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                     <cc:cAllegati ID="cAllegati1" runat="server" />
                                                 </div>
@@ -552,23 +613,26 @@
                                         <div class="col-lg-12">
                                             <div class="form-horizontal">
                                                 <h3>
-                                                    Elenco allegati alle autorizzazioni allo scarico</h3>
+                                                    Autorizzazioni per il recupero/smaltimento</h3>
                                                 <table class="table table-striped table-advance table-hover">
                                                     <thead>
                                                         <tr>
+                                                            <th style="width: 20%;">
+                                                                Sito
+                                                            </th>
                                                             <th style="width: 15%;">
                                                                 Allegato
                                                             </th>
-                                                            <th style="width: 20%;">
+                                                            <th style="width: 15%;">
                                                                 Tipologia
                                                             </th>
                                                             <th style="width: 10%;">
                                                                 Data
                                                             </th>
-                                                            <th style="width: 20%;">
+                                                            <th style="width: 15%;">
                                                                 Titolo
                                                             </th>
-                                                            <th style="width: 35%;">
+                                                            <th style="width: 25%;">
                                                                 Descrizione
                                                             </th>
                                                         </tr>
@@ -577,6 +641,9 @@
                                                         <asp:Repeater ID="rpt_documenti" runat="server">
                                                             <ItemTemplate>
                                                                 <tr>
+                                                                    <td>
+                                                                        <asp:Label ID="lbl_doc_sito" runat="server"></asp:Label>
+                                                                    </td>
                                                                     <td>
                                                                         <asp:HyperLink ID="lnk_doc_file" runat="server" Target="_blank"></asp:HyperLink>
                                                                         <div class="project-wrapper" id="div_immagine" runat="server">

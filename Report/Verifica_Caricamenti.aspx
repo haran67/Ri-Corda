@@ -30,7 +30,7 @@
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <h3 style="margin:0px!Important;">
-                                ELENCO DEI MOVIMENTI (CARICHI E SCARICHI) DA VERIFICARE
+                                ELENCO DEGLI INSERIMENTI DA VERIFICARE
                             </h3>
                         </div>
                     </div>
@@ -45,6 +45,14 @@
                             class="tab-font">Rifiuti</a> </li>
                         <li id="li_smaltimenti" runat="server"><a data-toggle="tab" href="#<%=div_smaltimenti.ClientID%>"
                             class="tab-font">Smaltimenti</a> </li>
+                        <li id="li_cer" runat="server"><a data-toggle="tab" href="#<%=div_cer.ClientID%>"
+                            class="tab-font">Conferme CER</a> </li>
+                        <li id="li_carichi" runat="server"><a data-toggle="tab" href="#<%=div_carichi.ClientID%>"
+                            class="tab-font">Carichi</a> </li>
+                        <li id="li_scarichi" runat="server"><a data-toggle="tab" href="#<%=div_scarichi.ClientID%>"
+                            class="tab-font">Scarichi</a> </li>
+                        <li id="li_copie" runat="server"><a data-toggle="tab" href="#<%=div_copie.ClientID%>"
+                            class="tab-font">4° Copia</a> </li>
                     </ul>
                 </div>
                 <! --/panel-heading -->
@@ -231,6 +239,228 @@
                                             <Selecting AllowRowSelect="false" />
                                         </ClientSettings>
                                     </telerik:RadGrid>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div_cer" class="tab-pane" runat="server">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div_carichi" class="tab-pane" runat="server">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <telerik:RadGrid ID="RGCarichi" AutoGenerateColumns="False" CssClass="" runat="server"
+                                        ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
+                                        Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
+                                        AllowFilteringByColumn="true" Culture="it-IT">
+                                        <GroupingSettings CaseSensitive="false" />
+                                        <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
+                                        <HeaderStyle CssClass=""></HeaderStyle>
+                                        <ItemStyle HorizontalAlign="Left"></ItemStyle>
+                                        <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
+                                        <FilterItemStyle HorizontalAlign="Left" />
+                                        <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="registro_rifiuti_key" AllowMultiColumnSorting="True">
+                                            <Columns>
+                                                <telerik:GridTemplateColumn SortExpression="rm_st_denominazione" UniqueName="rm_st_denominazione"
+                                                    HeaderText="Sito" DataField="rm_st_denominazione" HeaderStyle-Width="30%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_st_denominazione" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_data_op" UniqueName="rm_data_op"
+                                                    HeaderText="Data Op." DataField="rm_data_op" HeaderStyle-Width="10%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_data_op" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                                    HeaderText="Num." DataField="rm_numero" HeaderStyle-Width="5%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_fir" UniqueName="rm_fir"
+                                                    HeaderText="N.FIR" DataField="rm_fir" HeaderStyle-Width="5%" AllowFiltering="true">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_fir" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_riferimento" UniqueName="rm_riferimento"
+                                                    HeaderText="Rif." DataField="rm_riferimento" HeaderStyle-Width="10%" AllowFiltering="true">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_riferimento" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_cer" UniqueName="rm_cer"
+                                                    HeaderText="CER" DataField="rm_cer" HeaderStyle-Width="10%" AllowFiltering="true">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrc_codici_cer_key" runat="server" Font-Bold="true"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="" UniqueName="rm_descrizione"
+                                                    HeaderText="Descrizione" DataField="rm_descrizione" HeaderStyle-Width="30%" AllowFiltering="true"
+                                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrf_descrizione" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="" UniqueName="rf_peso"
+                                                    HeaderText="Quantità" DataField="rf_peso" HeaderStyle-Width="5%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrf_peso" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="" UniqueName="rf_peso_destino"
+                                                    HeaderText="Destino" DataField="rf_peso_destino" HeaderStyle-Width="5%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lbrf_peso_destino" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_data" UniqueName="rm_data"
+                                                    HeaderText="Data Reg." DataField="rm_data" HeaderStyle-Width="10%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_data" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
+                                                    HeaderStyle-Width="1%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w gisri_button_list"
+                                                            CommandName="SCHEDA">
+                                                            <i class=" fa fa-edit"></i>&nbsp;SCHEDA
+                                                        </asp:LinkButton>
+                                                    </ItemTemplate>
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn UniqueName="TemplateColumnOk" SortExpression="" InitializeTemplatesFirst="false"
+                                                    HeaderStyle-Width="1%" AllowFiltering="false">
+                                                    <ItemStyle HorizontalAlign="Right" />
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="btn_conferma" runat="server" CssClass="btn btn-success btn-xs button-link-w gisri_button_list"
+                                                            CommandName="CONFERMA">
+                                                            <i class=" fa fa-check-circle"></i>&nbsp;CONFERMA</i>
+                                                        </asp:LinkButton>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                            </Columns>
+                                        </MasterTableView>
+                                        <ClientSettings EnableRowHoverStyle="true">
+                                            <Selecting AllowRowSelect="false" />
+                                        </ClientSettings>
+                                    </telerik:RadGrid>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div_scarichi" class="tab-pane" runat="server">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <telerik:RadGrid ID="RGScarichi" AutoGenerateColumns="False" CssClass="" runat="server"
+                                        ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
+                                        Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
+                                        AllowFilteringByColumn="true" Culture="it-IT">
+                                        <GroupingSettings CaseSensitive="false" />
+                                        <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
+                                        <HeaderStyle CssClass=""></HeaderStyle>
+                                        <ItemStyle HorizontalAlign="Left"></ItemStyle>
+                                        <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
+                                        <FilterItemStyle HorizontalAlign="Left" />
+                                        <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="registro_rifiuti_key" AllowMultiColumnSorting="True">
+                                            <Columns>
+                                                <telerik:GridTemplateColumn SortExpression="rm_st_denominazione" UniqueName="rm_st_denominazione"
+                                                    HeaderText="Sito" DataField="rm_st_denominazione" HeaderStyle-Width="30%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_st_denominazione" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_data_op" UniqueName="rm_data_op"
+                                                    HeaderText="Data Op." DataField="rm_data_op" HeaderStyle-Width="10%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_data_op" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                                    HeaderText="Num." DataField="rm_numero" HeaderStyle-Width="5%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_fir" UniqueName="rm_fir"
+                                                    HeaderText="N.FIR" DataField="rm_fir" HeaderStyle-Width="5%" AllowFiltering="true">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_fir" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_riferimento" UniqueName="rm_riferimento"
+                                                    HeaderText="Rif." DataField="rm_riferimento" HeaderStyle-Width="10%" AllowFiltering="true">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_riferimento" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_cer" UniqueName="rm_cer"
+                                                    HeaderText="CER" DataField="rm_cer" HeaderStyle-Width="10%" AllowFiltering="true">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrc_codici_cer_key" runat="server" Font-Bold="true"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="" UniqueName="rm_descrizione"
+                                                    HeaderText="Descrizione" DataField="rm_descrizione" HeaderStyle-Width="30%" AllowFiltering="true"
+                                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrf_descrizione" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="" UniqueName="rf_peso"
+                                                    HeaderText="Quantità" DataField="rf_peso" HeaderStyle-Width="5%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrf_peso" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="" UniqueName="rf_peso_destino"
+                                                    HeaderText="Destino" DataField="rf_peso_destino" HeaderStyle-Width="5%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lbrf_peso_destino" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_data" UniqueName="rm_data"
+                                                    HeaderText="Data Reg." DataField="rm_data" HeaderStyle-Width="10%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_data" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
+                                                    HeaderStyle-Width="1%" AllowFiltering="false">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w gisri_button_list"
+                                                            CommandName="SCHEDA">
+                                                            <i class=" fa fa-edit"></i>&nbsp;SCHEDA
+                                                        </asp:LinkButton>
+                                                    </ItemTemplate>
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn UniqueName="TemplateColumnOk" SortExpression="" InitializeTemplatesFirst="false"
+                                                    HeaderStyle-Width="1%" AllowFiltering="false">
+                                                    <ItemStyle HorizontalAlign="Right" />
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="btn_conferma" runat="server" CssClass="btn btn-success btn-xs button-link-w gisri_button_list"
+                                                            CommandName="CONFERMA">
+                                                            <i class=" fa fa-check-circle"></i>&nbsp;CONFERMA</i>
+                                                        </asp:LinkButton>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                            </Columns>
+                                        </MasterTableView>
+                                        <ClientSettings EnableRowHoverStyle="true">
+                                            <Selecting AllowRowSelect="false" />
+                                        </ClientSettings>
+                                    </telerik:RadGrid>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div_copie" class="tab-pane" runat="server">
+                            <div class="row">
+                                <div class="col-lg-12">
                                 </div>
                             </div>
                         </div>

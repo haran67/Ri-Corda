@@ -328,7 +328,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <cc:rTextBox ID="txt_rr_localizzazione" runat="server" MaxLength="1000" Label="Sede di conservazione registro C/S"
+                                                        <cc:rTextBox ID="txt_rr_localizzazione" runat="server" MaxLength="1000" Label="Sede di conservazione registro C/S e Referente incaricato della conservazione"
                                                             Visible="true" Form_Vertical="true" Required="true" Required_Help="Sede di conservazione obbligatoria!" />
                                                     </div>
                                                 </div>
@@ -373,7 +373,10 @@
                                         <div class="col-lg-12">
                                             <div class="form-horizontal">
                                                 <h3>
-                                                    Elenco allegati ai movimenti</h3>
+                                                    <asp:LinkButton ID="btn_scarica" runat="server">
+                                                        <i class="fa fa-download"></i>
+                                                    </asp:LinkButton>
+                                                    &nbsp;Elenco allegati ai movimenti</h3>
                                                 <table class="table table-striped table-advance table-hover">
                                                     <thead>
                                                         <tr>
@@ -459,6 +462,7 @@
         <!-- /col-md-12 -->
     </div>
     <!-- /row -->
+    <iframe id="ifZip" runat="server" src="" style="display: none;"></iframe>
 </asp:Content>
 <asp:Content ID="ttt" runat="server" ContentPlaceHolderID="body">
     <cc:cFileUpload ID="cFileUpload" runat="server" />

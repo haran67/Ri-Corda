@@ -6,15 +6,7 @@ GisRI_Classi
 </name>
 </assembly>
 <members>
-<member name="T:GisRI_Classi.Oggetti.Allegati_movimenti_Base">
-	<summary>
- Classe utilizzata per l'astrazione dei dati della tabella ALLEGATI_MOVIMENTI
- </summary>
-</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_registro_rifiuti_Base">
-	<summary>
- Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_CARICO
- </summary>
-</member><member name="T:GisRI_Classi.Oggetti.Permessi_alert_Base">
+<member name="T:GisRI_Classi.Oggetti.Permessi_alert_Base">
 	<summary>
  Classe utilizzata per l'astrazione dei dati della tabella PERMESSI_ALERT
  </summary>
@@ -149,6 +141,10 @@ GisRI_Classi
 </member><member name="P:GisRI_Classi.Oggetti.Dto.Denominazione">
 	<summary>
  Denominazione.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto.Proprietario">
+	<summary>
+ Proprietario.
  </summary>
 </member><member name="P:GisRI_Classi.Oggetti.Dto_Messaggi.Messaggio">
 	<summary>
@@ -538,6 +534,10 @@ GisRI_Classi
  Ha le stesse caratteristiche del controllo Button, in più si disabilita
  automaticamente lato client non appena viene cliccato.
  </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_rifiuto_cer_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_DITTA
+ </summary>
 </member><member name="T:GisRI_Classi.Oggetti.Rel_dipendenti_societa_gestione_Base">
 	<summary>
  Classe utilizzata per l'astrazione dei dati della tabella REL_DIPENDENTI_SOCIETA_GESTIONE
@@ -593,6 +593,14 @@ GisRI_Classi
 </member><member name="T:GisRI_Classi.Oggetti.Tab_tipologia_ditta_Base">
 	<summary>
  Classe utilizzata per l'astrazione dei dati della tabella TAB_TIPOLOGIA_DITTA
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Allegati_movimenti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella ALLEGATI_MOVIMENTI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Rel_documenti_registro_rifiuti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella REL_DOCUMENTI_CARICO
  </summary>
 </member><member name="T:GisRI_Classi.Oggetti.Depositi_pericolosi_situazione_Base">
 	<summary>

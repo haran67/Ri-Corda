@@ -430,6 +430,23 @@
                                                                 Placeholder="Seleziona..." Form_Vertical="true" 
                                                                 Required="true" Required_Help="Tipologia di deposito obbligatoria!" />
                                                         </div>
+                                                        <div class="col-md-6">
+                                                            <div id="div_doc_upload" runat="server" class="form-group" visible="false">
+                                                                <label style="white-space:nowrap;font-weight:bold;" class="control-label">
+                                                                    Foto del Deposito Temporaneo e del rifiuto prodotto</label>
+                                                                <div id="">
+                                                                    <div id="" class="">
+                                                                        <telerik:RadAsyncUpload runat="server" ID="doc_upload" MultipleFileSelection="Disabled" Culture="it-IT" Localization-Select="Seleziona"
+                                                                            AllowedFileExtensions="jpg,png,jpeg,gif,pdf,doc,docx"/>
+                                                                    </div>
+                                                                    <span class="help-block" id="span_allegato" runat="server" visible="false">
+                                                                        Allegato obbligatorio!
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <cc:rTextBox ID="txt_doc_upload" runat="server" Label="File caricato" Read_Only="false"
+                                                                Visible="false" Form_Vertical="true" />
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">

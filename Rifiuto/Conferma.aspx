@@ -7,6 +7,9 @@
 <%@ Register Src="../Controls/rDropDown.ascx" TagName="rDropDown" TagPrefix="cc" %>
 <%@ Register Src="../Controls/rCheckBox.ascx" TagName="rCheckBox" TagPrefix="cc" %>
 <%@ Register Src="../Controls/rRadioButton.ascx" TagName="rRadioButton" TagPrefix="cc" %>
+<%@ Register Src="../Controls/cFileUpload.ascx" TagName="cFileUpload" TagPrefix="cc" %>
+<%@ Register Src="../Controls/cAllegati.ascx" TagName="cAllegati" TagPrefix="cc" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function Init_bootstrapSwitch() {
@@ -64,6 +67,14 @@
                             <asp:Literal ID="ltl_messaggio_ok" runat="server"></asp:Literal></strong>
                     </div>
                     <div class="">
+                        <div class="panel-heading">
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active" id="li_overview" runat="server"><a data-toggle="tab" href="#<%=div_overview.ClientID%>"
+                                    class="tab-font">Dati CER</a> </li>
+                                <li id="li_allegati" runat="server"><a data-toggle="tab" href="#<%=div_allegati.ClientID%>"
+                                    class="tab-font">Allegati</a> </li>
+                            </ul>
+                        </div>
                         <div class="panel-body">
                             <div class="tab-content">
                                 <div id="div_overview" class="tab-pane active" runat="server">
@@ -104,8 +115,25 @@
                                                             Placeholder="Seleziona..." Form_Vertical="true" 
                                                             Required="true" Required_Help="Stato fisico finale obbligatorio!" />
                                                     </div>
+                                                    <div class="col-md-6">
+                                                        <div id="div_doc_upload" runat="server" class="form-group" visible="false">
+                                                            <label style="white-space:nowrap;font-weight:bold;" class="control-label">
+                                                                Copia digitale del Rapporto di Prova</label>
+                                                            <div id="">
+                                                                <div id="" class="">
+                                                                    <telerik:RadAsyncUpload runat="server" ID="doc_upload" MultipleFileSelection="Disabled" Culture="it-IT" Localization-Select="Seleziona"
+                                                                        AllowedFileExtensions="jpg,png,jpeg,gif,pdf,doc,docx"/>
+                                                                </div>
+                                                                <span class="help-block" id="span_allegato" runat="server" visible="false">
+                                                                    Allegato obbligatorio!
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <cc:rTextBox ID="txt_doc_upload" runat="server" Label="File caricato" Read_Only="false"
+                                                            Visible="false" Form_Vertical="true" />
+                                                    </div>
                                                 </div>
-                                                <div class="row">
+                                                <div class="row" style="padding-top:10px;">
                                                     <div class="col-md-12" id="div_classi_pericolosita" runat="server">
                                                         <div class="form-body">
                                                             <label class="control-label" style="white-space:nowrap;font-weight:bold;">
@@ -156,6 +184,22 @@
                                     </div>
                                     <! --/OVERVIEW -->
                                 </div>
+                                <div id="div_allegati" class="tab-pane" runat="server">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-horizontal">
+                                                <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
+                                                    <cc:cAllegati ID="cAllegati1" runat="server" />
+                                                </div>
+                                                <div class="form-actions right">
+                                                    <asp:LinkButton ID="btn_allega" runat="server" CssClass="btn btn-primary">
+                                                <i class="fa fa-plus"></i> Carica Files
+                                                    </asp:LinkButton>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /tab-content -->
                         </div>
@@ -168,4 +212,7 @@
         <!-- /col-md-12 -->
     </div>
     <!-- /row -->
+</asp:Content>
+<asp:Content ID="ttt" runat="server" ContentPlaceHolderID="body">
+    <cc:cFileUpload ID="cFileUpload" runat="server" />
 </asp:Content>

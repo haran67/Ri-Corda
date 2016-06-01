@@ -98,22 +98,27 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_registro_rifiuti_key" runat="server" AutoPostBack="true" Label="Registro"
                                                             Placeholder="Seleziona..." Form_Vertical="true" 
                                                             Required="true" Required_Help="Registro rifiuti obbligatorio!" />
                                                     </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextData ID="txt_rm_data" runat="server" MaxLength="10" AutoPostBack="false"
                                                             Label="Data Registrazione" Icon="fa fa-calendar" Form_Vertical="true"
                                                             Required="true" Required_Help="Data obbligatoria!" />
                                                     </div>
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextBox ID="txt_rm_numero" runat="server" MaxLength="16" AutoPostBack="false"
                                                             Read_Only="true" Label="Progressivo" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Progressivo obbligatorio!" />
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <cc:rTextBox ID="txt_rm_numero_scritto" runat="server" MaxLength="32" AutoPostBack="false"
+                                                            Label="Progressivo alternativo/integrato" Icon="" Form_Vertical="true"
+                                                            Required="true" Required_Help="Numero sul registro obbligatorio!" />
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -123,9 +128,21 @@
                                                             Required="true" Required_Help="Personale indicante obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <cc:rTextBox ID="txt_rm_numero_scritto" runat="server" MaxLength="32" AutoPostBack="false"
-                                                            Label="Progressivo alternativo/integrato" Icon="" Form_Vertical="true"
-                                                            Required="true" Required_Help="Numero sul registro obbligatorio!" />
+                                                        <div id="div_doc_upload" runat="server" class="form-group" visible="false">
+                                                            <label style="white-space:nowrap;font-weight:bold;" class="control-label">
+                                                                Copia digitale dell’annotazione del carico nel RCS</label>
+                                                            <div id="">
+                                                                <div id="" class="">
+                                                                    <telerik:RadAsyncUpload runat="server" ID="doc_upload" MultipleFileSelection="Disabled" Culture="it-IT" Localization-Select="Seleziona"
+                                                                        AllowedFileExtensions="jpg,png,jpeg,gif,pdf,doc,docx"/>
+                                                                </div>
+                                                                <span class="help-block" id="span_allegato" runat="server" visible="false">
+                                                                    Allegato obbligatorio!
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <cc:rTextBox ID="txt_doc_upload" runat="server" Label="File caricato" Read_Only="false"
+                                                            Visible="false" Form_Vertical="true" />
                                                     </div>
                                                 </div>
                                                 <div class="row">
