@@ -329,7 +329,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <cc:rTextBox ID="txt_rr_localizzazione" runat="server" MaxLength="1000" Label="Sede di conservazione registro C/S e Referente incaricato della conservazione"
-                                                            Visible="true" Form_Vertical="true" Required="true" Required_Help="Sede di conservazione obbligatoria!" />
+                                                            Visible="true" Form_Vertical="true" Required="false" Required_Help="Sede di conservazione obbligatoria!" />
                                                     </div>
                                                 </div>
                                                 <div class="row" id="div_loc_fin" runat="server" visible="false">

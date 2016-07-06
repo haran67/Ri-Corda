@@ -487,7 +487,7 @@
                                                     <table class="table table-striped table-advance table-hover">
                                                         <thead>
                                                             <tr>
-                                                                <th style="width: 50%;">
+                                                                <th style="width: 45%;">
                                                                     Ditta
                                                                 </th>
                                                                 <th style="width: 20%;">
@@ -496,8 +496,11 @@
                                                                 <th style="width: 20%;">
                                                                     A Data
                                                                 </th>
-                                                                <th style="width: 9%;">
+                                                                <th style="width: 8%;">
                                                                     Subappalto
+                                                                </th>
+                                                                <th style="width: 16%;">
+                                                                    Visibilita
                                                                 </th>
                                                                 <th style="width: 1%;">
                                                                 </th>
@@ -518,6 +521,9 @@
                                                                         </td>
                                                                         <td>
                                                                             <asp:Label ID="lbl_st_subappalto" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_st_visibilita_deposito" runat="server"></asp:Label>
                                                                         </td>
                                                                         <td style="white-space: nowrap;">
                                                                             <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w"
@@ -547,6 +553,11 @@
                                                                 <cc:rDropDown ID="ddl_st_ditta_key" runat="server" AutoPostBack="true" Label="Ditta operatrice"
                                                                     Placeholder="Seleziona..." Required="true" Required_Help="Ditta operatrice obbligatoria!" />
                                                             </div>
+                                                            <div class="col-md-6">
+                                                                <cc:rDropDown ID="ddl_st_visibilita_deposito" runat="server" AutoPostBack="true" Label="Visibilità Registri" />
+                                                            </div>
+                                                        </div> 
+                                                        <div class="row">
                                                             <div class="col-md-6">
                                                                 <cc:rCheckBox ID="chk_st_subappalto" runat="server" Values="S|" Classes="make-switch|SI|NO|warning|"
                                                                     Label="In Subappalto" AutoPostBack="false" Checked="false" />

@@ -293,6 +293,14 @@
                                                             Label="Data iscrizione" Icon="fa fa-calendar" Form_Vertical="true" />
                                                     </div>
                                                 </div>
+                                                <div class="row hidden">
+                                                    <div class="col-md-6">
+                                                        <cc:rCheckBox ID="chk_di_gestore_cliente" runat="server" Values="S|" Classes="make-switch|SI|NO|warning|"
+                                                            Label="Visibilita su tutto il cliente" AutoPostBack="false" Checked="false" Form_Vertical="true" />
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                    </div>
+                                                </div>
                                                 <div class="form-actions right">
                                                     <asp:LinkButton ID="btn_registra" runat="server" CssClass="btn btn-primary">
                                                         <i class="fa fa-check"></i> Salva

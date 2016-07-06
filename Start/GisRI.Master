@@ -298,6 +298,8 @@
           <!--footer end-->
         </section>
 
+        <asp:HiddenField ID="hidden_session" runat="server" />
+
     </form>
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -341,6 +343,7 @@
         $(document).ready(function () {
             initSelect2();
             initMultipleSelect2();
+            //alert(history.length);
         });
 
         function SaveResetScrollPosition(div_ok) {
