@@ -147,10 +147,12 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <cc:rDropDown ID="ddl_rs_intermediario_key" runat="server" AutoPostBack="false" Label="Intermediario"
+                                                        <cc:rDropDown ID="ddl_rs_intermediario_key" runat="server" AutoPostBack="true" Label="Intermediario"
                                                             Placeholder="Seleziona..." Form_Vertical="true" />
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6" id="div_autorizzazione_intermiedario_visibile" runat="server">
+                                                        <cc:rDropDown ID="ddl_rs_autorizzazione_inter_key" runat="server" AutoPostBack="false"
+                                                            Label="Autorizzazione Intermediario" Placeholder="Seleziona..." Form_Vertical="true" />
                                                     </div>
                                                 </div>
                                                 <!--VIAGGI FINE-->

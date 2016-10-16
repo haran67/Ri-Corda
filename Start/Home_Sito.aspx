@@ -122,7 +122,11 @@
                                         <th style="width: 20%;">
                                             Prodotto Da
                                         </th>
-                                        <th class="hidden-xs hidden-sm" style="width: 40%; ">
+                                        <th class="hidden-xs hidden-sm" style="width: 5%;">
+                                            <asp:LinkButton ID="btn_rp_order_num" runat="server" CommandName="NUM" OnClick="btn_rp_order_cer_click"
+                                                ForeColor="Black">Num.</asp:LinkButton>
+                                        </th>
+                                        <th class="hidden-xs hidden-sm" style="width: 35%; ">
                                             Descrizione
                                         </th>
                                         <th style="width: 10%;">
@@ -149,6 +153,9 @@
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lbl_rf_produttore" runat="server"></asp:Label>
+                                                </td>
+                                                <td class="hidden-xs hidden-sm">
+                                                    <asp:Label ID="lbl_rm_numero" runat="server"></asp:Label>
                                                 </td>
                                                 <td class="hidden-xs hidden-sm">
                                                     <asp:Label ID="lbl_rf_descrizione" runat="server"></asp:Label>
@@ -235,6 +242,10 @@
                                         <th style="width: 10%;" class="hidden-xs hidden-sm">
                                             FIR
                                         </th>
+                                        <th class="hidden-xs hidden-sm" style="width: 5%;">
+                                            <asp:LinkButton ID="btn_rs_order_num" runat="server" CommandName="NUM" OnClick="btn_rs_order_cer_click"
+                                                ForeColor="Black">Num.</asp:LinkButton>
+                                        </th>
                                         <th style="width: 15%;">
                                             <asp:LinkButton ID="btn_rs_order_data" runat="server" CommandName="DATA" OnClick="btn_rs_order_cer_click"
                                                 ForeColor="Black">Smaltito Il</asp:LinkButton>
@@ -243,7 +254,7 @@
                                         <th style="width: 20%;" class="hidden-xs hidden-sm">
                                             Prodotto Da
                                         </th>
-                                        <th style="width: 35%;">
+                                        <th style="width: 30%;">
                                             Presso
                                         </th>
                                         <th style="width: 10%;">
@@ -267,6 +278,9 @@
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lbl_rs_formulario_numero" runat="server"></asp:Label>
+                                                </td>
+                                                <td class="hidden-xs hidden-sm">
+                                                    <asp:Label ID="lbl_rm_numero" runat="server"></asp:Label>
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="lbl_rs_data_trasporto" runat="server"></asp:Label>

@@ -39,6 +39,25 @@
         </div> 
         <div class="col-md-12">
             <div class="content-panel">
+
+                <h4 style="font-weight: bold; margin: 0px; margin-bottom: 5px;">
+                    Seleziona Sito</h4>
+                <div id="div_titolarita" runat="server">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <cc:rDropDown ID="ddl_st_sito" runat="server" AutoPostBack="false" Select2="true"
+                                Label="" Placeholder="Seleziona..." Form_Vertical="true" />
+                        </div>
+                        <div class="col-md-2">
+                            <label class="control-label col-md-3" style="white-space: nowrap;" id="label_control"
+                                runat="server">
+                            </label>
+                            <asp:LinkButton ID="btn_aggiorna" runat="server" CssClass="btn btn-primary">
+                                <i class="fa fa-check"></i> Carica Dati
+                            </asp:LinkButton>
+                        </div>
+                    </div>
+                </div>
                 <div class="panel-heading">
                     <ul class="nav nav-tabs nav-justified">
                         <li class="active" id="li_rifiuti" runat="server"><a data-toggle="tab" href="#<%=div_rifiuti.ClientID%>"
@@ -74,8 +93,8 @@
                                         <FilterItemStyle HorizontalAlign="Left" />
                                         <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="" AllowMultiColumnSorting="True">
                                             <Columns>
-                                                <telerik:GridBoundColumn SortExpression="rc_st_denominazione" UniqueName="rc_st_denominazione"
-                                                    HeaderText="Sito" DataField="rc_st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
+                                                <telerik:GridBoundColumn SortExpression="st_denominazione" UniqueName="st_denominazione"
+                                                    HeaderText="Sito" DataField="st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
                                                     ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                     CurrentFilterFunction="Contains" />
                                                 <telerik:GridBoundColumn SortExpression="inserito_il" UniqueName="inserito_il"
@@ -93,11 +112,19 @@
                                                     </ItemTemplate>
                                                 </telerik:GridTemplateColumn>
                                                 <telerik:GridTemplateColumn SortExpression="rf_proprietario_desc" UniqueName="rf_proprietario_desc"
-                                                    HeaderText="Produttore" DataField="rf_proprietario_desc" HeaderStyle-Width="15%"
+                                                    HeaderText="Produttore" DataField="rf_proprietario_desc" HeaderStyle-Width="12%"
                                                     AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                     CurrentFilterFunction="Contains">
                                                     <ItemTemplate>
                                                         <asp:Label ID="lblrf_proprietario_desc" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                                    HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
+                                                    ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                                    CurrentFilterFunction="Contains">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
                                                     </ItemTemplate>
                                                 </telerik:GridTemplateColumn>
                                                 <telerik:GridTemplateColumn SortExpression="rf_data_produzione" UniqueName="rf_data_produzione"
@@ -165,8 +192,8 @@
                                         <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="rifiuto_smaltimento_key"
                                             AllowMultiColumnSorting="True">
                                             <Columns>
-                                                <telerik:GridBoundColumn SortExpression="rs_st_denominazione" UniqueName="rs_st_denominazione"
-                                                    HeaderText="Sito" DataField="rs_st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
+                                                <telerik:GridBoundColumn SortExpression="st_denominazione" UniqueName="st_denominazione"
+                                                    HeaderText="Sito" DataField="st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
                                                     ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                     CurrentFilterFunction="Contains" />
                                                 <telerik:GridBoundColumn SortExpression="inserito_il" UniqueName="inserito_il"
@@ -180,6 +207,14 @@
                                                     <ItemStyle Wrap="false" Font-Bold="true" />
                                                     <ItemTemplate>
                                                         <asp:Label ID="lblrs_codici_cer_cod" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                                    HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
+                                                    ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                                    CurrentFilterFunction="Contains">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
                                                     </ItemTemplate>
                                                 </telerik:GridTemplateColumn>
                                                 <telerik:GridTemplateColumn SortExpression="rs_proprietario_desc" UniqueName="rs_proprietario_desc"
@@ -266,8 +301,8 @@
                                         <FilterItemStyle HorizontalAlign="Left" />
                                         <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="" AllowMultiColumnSorting="True">
                                             <Columns>
-                                                <telerik:GridBoundColumn SortExpression="rc_st_denominazione" UniqueName="rc_st_denominazione"
-                                                    HeaderText="Sito" DataField="rc_st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
+                                                <telerik:GridBoundColumn SortExpression="st_denominazione" UniqueName="st_denominazione"
+                                                    HeaderText="Sito" DataField="st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
                                                     ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                     CurrentFilterFunction="Contains" />
                                                 <telerik:GridBoundColumn SortExpression="cer_inserito_il" UniqueName="cer_inserito_il"
@@ -290,6 +325,14 @@
                                                     CurrentFilterFunction="Contains">
                                                     <ItemTemplate>
                                                         <asp:Label ID="lblrf_proprietario_desc" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
+                                                <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                                    HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
+                                                    ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                                    CurrentFilterFunction="Contains">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
                                                     </ItemTemplate>
                                                 </telerik:GridTemplateColumn>
                                                 <telerik:GridTemplateColumn SortExpression="rf_data_produzione" UniqueName="rf_data_produzione"
@@ -575,12 +618,12 @@
                                         <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="rifiuto_smaltimento_key"
                                             AllowMultiColumnSorting="True">
                                             <Columns>
-                                                <telerik:GridBoundColumn SortExpression="rs_st_denominazione" UniqueName="rs_st_denominazione"
-                                                    HeaderText="Sito" DataField="rs_st_denominazione" HeaderStyle-Width="30%" AllowFiltering="true"
+                                                <telerik:GridBoundColumn SortExpression="st_denominazione" UniqueName="st_denominazione"
+                                                    HeaderText="Sito" DataField="st_denominazione" HeaderStyle-Width="30%" AllowFiltering="true"
                                                     ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                     CurrentFilterFunction="Contains" />
-                                                <telerik:GridBoundColumn SortExpression="modificato_il" UniqueName="modificato_il"
-                                                    HeaderText="Inserito il" DataField="modificato_il" HeaderStyle-Width="10%" AllowFiltering="true"
+                                                <telerik:GridBoundColumn SortExpression="rs_4c_data_inserimento" UniqueName="rs_4c_data_inserimento"
+                                                    HeaderText="Inserito il" DataField="rs_4c_data_inserimento" HeaderStyle-Width="10%" AllowFiltering="true"
                                                     ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                     CurrentFilterFunction="Contains" />
                                                 <telerik:GridTemplateColumn SortExpression="rs_codici_cer_cod" UniqueName="rs_codici_cer_cod"
@@ -592,10 +635,14 @@
                                                         <asp:Label ID="lblrs_codici_cer_cod" runat="server"></asp:Label>
                                                     </ItemTemplate>
                                                 </telerik:GridTemplateColumn>
-                                                <telerik:GridBoundColumn SortExpression="registro_scarico_key" UniqueName="registro_scarico_key"
-                                                    HeaderText="Mov." DataField="registro_scarico_key" HeaderStyle-Width="5%" AllowFiltering="true"
+                                                <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                                    HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
                                                     ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
-                                                    CurrentFilterFunction="Contains" />
+                                                    CurrentFilterFunction="Contains">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
+                                                    </ItemTemplate>
+                                                </telerik:GridTemplateColumn>
                                                 <telerik:GridTemplateColumn SortExpression="rs_proprietario_desc" UniqueName="rs_proprietario_desc"
                                                     HeaderText="Prodotto Da" DataField="rs_proprietario_desc" HeaderStyle-Width="15%"
                                                     AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="120px" AutoPostBackOnFilter="true"
@@ -761,20 +808,20 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg" id="modal_body">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_close" runat="server">
-                        &nbsp;&times;</button>
-                    <h3 class="modal-title" id="myModalLabel">
-                        <asp:Literal ID="ltl_messaggio" runat="server">
-                        CONFERMA CARICAMENTO</asp:Literal>&nbsp;<asp:Literal ID="ltl_cer" runat="server"></asp:Literal></h3>
-                    <div id="div_supporto" runat="server">
-                        <h6 style="color: White; font-weight: bold;">
-                            <asp:Literal ID="ltl_sito" runat="server"></asp:Literal>
-                        </h6>
-                    </div>
-                </div>
                 <asp:UpdatePanel ID="updWizard" runat="server">
                     <ContentTemplate>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_close" runat="server">
+                                &nbsp;&times;</button>
+                            <h3 class="modal-title" id="myModalLabel">
+                                <asp:Literal ID="ltl_messaggio" runat="server">
+                                CONFERMA CARICAMENTO</asp:Literal>&nbsp;<asp:Literal ID="ltl_cer" runat="server"></asp:Literal></h3>
+                            <div id="div_supporto" runat="server">
+                                <h6 style="color: White; font-weight: bold;">
+                                    <asp:Literal ID="ltl_sito" runat="server"></asp:Literal>
+                                </h6>
+                            </div>
+                        </div>
                         <div class="modal-body" style="height: 320px; overflow: auto;">
                             <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                                 visible="false">
@@ -799,19 +846,16 @@
                                             <div class="row">
                                                 <div class="compose-editor" style="padding-top: 0px;">
                                                     <label for="mail_subject" class="">
-                                                        Note di conferma:</label>
+                                                        Note sulle verifica effettuata:</label>
                                                     <asp:TextBox ID="txt_verificato_note" Style="display: ;" runat="server" TextMode="MultiLine"
-                                                        Rows="8" CssClass="form-control"></asp:TextBox>
+                                                        Rows="10" CssClass="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row" id="div_in_lavorazione" runat="server" visible="false">
                                                 <div class="form-group">
-                                                    <cc:rCheckBox ID="chk_da_verificare" runat="server" Values="S|" Classes="make-switch|SI|NO|success|"
-                                                        Label="Segna come verificato" Checked="false" Form_Vertical="true" />
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group">
+                                                    <h4>
+                                                        In lavorazione da parte di: <asp:Literal ID="ltl_in_lavorazione" runat="server"></asp:Literal>
+                                                    </h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -820,6 +864,9 @@
                             </div>
                         </div>
                         <div class="modal-footer">
+                            <asp:LinkButton ID="btn_lavorazione" runat="server" CssClass="btn btn-warning">
+                                <i class="fa fa-check"></i> METTI IN LAVORAZIONE
+                            </asp:LinkButton>
                             <asp:LinkButton ID="btn_conferma" runat="server" CssClass="btn btn-primary">
                                 <i class="fa fa-check"></i> CONFERMA
                             </asp:LinkButton>

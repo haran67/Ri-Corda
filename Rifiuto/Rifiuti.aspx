@@ -164,11 +164,19 @@
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
                             <telerik:GridTemplateColumn SortExpression="rf_proprietario_desc" UniqueName="rf_proprietario_desc"
-                                HeaderText="Produttore" DataField="rf_proprietario_desc" HeaderStyle-Width="15%" AllowFiltering="true"
+                                HeaderText="Produttore" DataField="rf_proprietario_desc" HeaderStyle-Width="12%" AllowFiltering="true"
                                 ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                 CurrentFilterFunction="Contains">
                                 <ItemTemplate>
                                     <asp:Label ID="lblrf_proprietario_desc" runat="server"></asp:Label>
+                                </ItemTemplate>
+                            </telerik:GridTemplateColumn>
+                            <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
+                                ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                CurrentFilterFunction="Contains">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
                             <telerik:GridTemplateColumn SortExpression="rf_data_produzione" UniqueName="rf_data_produzione"

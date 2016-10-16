@@ -6,7 +6,15 @@ GisRI_Classi
 </name>
 </assembly>
 <members>
-<member name="T:GisRI_Classi.Oggetti.Permessi_alert_Base">
+<member name="T:GisRI_Classi.Oggetti.Vs_rifiuti_smaltiti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella VS_RIFIUTI_SMALTITI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Vs_rifiuti_prodotti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella VS_RIFIUTI_PRODOTTI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Permessi_alert_Base">
 	<summary>
  Classe utilizzata per l'astrazione dei dati della tabella PERMESSI_ALERT
  </summary>
@@ -173,6 +181,14 @@ GisRI_Classi
 </member><member name="P:GisRI_Classi.Oggetti.Dto_Griglie.Stato_Griglia(System.String)">
 	<summary>
  Stato_Griglia.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto_Verifiche.Tab">
+	<summary>
+ Tab.
+ </summary>
+</member><member name="P:GisRI_Classi.Oggetti.Dto_Verifiche.Sito_Key">
+	<summary>
+ Sito_Key.
  </summary>
 </member><member name="T:GisRI_Classi.Oggetti.Registro_scarico_Base">
 	<summary>

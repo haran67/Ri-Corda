@@ -97,8 +97,8 @@
                                             <FilterItemStyle HorizontalAlign="Left" />
                                             <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="" AllowMultiColumnSorting="True">
                                                 <Columns>
-                                                    <telerik:GridBoundColumn SortExpression="rc_st_denominazione" UniqueName="rc_st_denominazione"
-                                                        HeaderText="Sito" DataField="rc_st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
+                                                    <telerik:GridBoundColumn SortExpression="st_denominazione" UniqueName="st_denominazione"
+                                                        HeaderText="Sito" DataField="st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
                                                         ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                         CurrentFilterFunction="Contains" Visible="false" />
                                                     <telerik:GridBoundColumn SortExpression="inserito_il" UniqueName="inserito_il" HeaderText="Inserito il"
@@ -120,6 +120,14 @@
                                                         CurrentFilterFunction="Contains">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblrf_proprietario_desc" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </telerik:GridTemplateColumn>
+                                                    <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                                        HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
+                                                        ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                                        CurrentFilterFunction="Contains">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
                                                         </ItemTemplate>
                                                     </telerik:GridTemplateColumn>
                                                     <telerik:GridTemplateColumn SortExpression="rf_data_produzione" UniqueName="rf_data_produzione"
@@ -189,8 +197,8 @@
                                             <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="rifiuto_smaltimento_key"
                                                 AllowMultiColumnSorting="True">
                                                 <Columns>
-                                                    <telerik:GridBoundColumn SortExpression="rs_st_denominazione" UniqueName="rs_st_denominazione"
-                                                        HeaderText="Sito" DataField="rs_st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
+                                                    <telerik:GridBoundColumn SortExpression="st_denominazione" UniqueName="st_denominazione"
+                                                        HeaderText="Sito" DataField="st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
                                                         ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                         CurrentFilterFunction="Contains" Visible="false" />
                                                     <telerik:GridBoundColumn SortExpression="inserito_il" UniqueName="inserito_il" HeaderText="Inserito il"
@@ -203,6 +211,14 @@
                                                         <ItemStyle Wrap="false" Font-Bold="true" />
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblrs_codici_cer_cod" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </telerik:GridTemplateColumn>
+                                                    <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                                        HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
+                                                        ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                                        CurrentFilterFunction="Contains">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
                                                         </ItemTemplate>
                                                     </telerik:GridTemplateColumn>
                                                     <telerik:GridTemplateColumn SortExpression="rs_proprietario_desc" UniqueName="rs_proprietario_desc"
@@ -291,8 +307,8 @@
                                             <FilterItemStyle HorizontalAlign="Left" />
                                             <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="" AllowMultiColumnSorting="True">
                                                 <Columns>
-                                                    <telerik:GridBoundColumn SortExpression="rc_st_denominazione" UniqueName="rc_st_denominazione"
-                                                        HeaderText="Sito" DataField="rc_st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
+                                                    <telerik:GridBoundColumn SortExpression="st_denominazione" UniqueName="st_denominazione"
+                                                        HeaderText="Sito" DataField="st_denominazione" HeaderStyle-Width="25%" AllowFiltering="true"
                                                         ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                         CurrentFilterFunction="Contains" Visible="false" />
                                                     <telerik:GridBoundColumn SortExpression="cer_inserito_il" UniqueName="cer_inserito_il"
@@ -315,6 +331,14 @@
                                                         CurrentFilterFunction="Contains">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblrf_proprietario_desc" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </telerik:GridTemplateColumn>
+                                                    <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                                        HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
+                                                        ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                                        CurrentFilterFunction="Contains">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
                                                         </ItemTemplate>
                                                     </telerik:GridTemplateColumn>
                                                     <telerik:GridTemplateColumn SortExpression="rf_data_produzione" UniqueName="rf_data_produzione"
@@ -620,12 +644,12 @@
                                             <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="rifiuto_smaltimento_key"
                                                 AllowMultiColumnSorting="True">
                                                 <Columns>
-                                                    <telerik:GridBoundColumn SortExpression="rs_st_denominazione" UniqueName="rs_st_denominazione"
-                                                        HeaderText="Sito" DataField="rs_st_denominazione" HeaderStyle-Width="30%" AllowFiltering="true"
+                                                    <telerik:GridBoundColumn SortExpression="st_denominazione" UniqueName="st_denominazione"
+                                                        HeaderText="Sito" DataField="st_denominazione" HeaderStyle-Width="30%" AllowFiltering="true"
                                                         ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                         CurrentFilterFunction="Contains" Visible="false" />
-                                                    <telerik:GridBoundColumn SortExpression="modificato_il" UniqueName="modificato_il"
-                                                        HeaderText="Inserito il" DataField="modificato_il" HeaderStyle-Width="10%" AllowFiltering="true"
+                                                    <telerik:GridBoundColumn SortExpression="rs_4c_data_inserimento" UniqueName="rs_4c_data_inserimento"
+                                                        HeaderText="Inserito il" DataField="rs_4c_data_inserimento" HeaderStyle-Width="10%" AllowFiltering="true"
                                                         ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
                                                         CurrentFilterFunction="Contains" />
                                                     <telerik:GridTemplateColumn SortExpression="rs_codici_cer_cod" UniqueName="rs_codici_cer_cod"
@@ -637,10 +661,14 @@
                                                             <asp:Label ID="lblrs_codici_cer_cod" runat="server"></asp:Label>
                                                         </ItemTemplate>
                                                     </telerik:GridTemplateColumn>
-                                                    <telerik:GridBoundColumn SortExpression="registro_scarico_key" UniqueName="registro_scarico_key"
-                                                        HeaderText="Mov." DataField="registro_scarico_key" HeaderStyle-Width="5%" AllowFiltering="true"
+                                                    <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                                        HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
                                                         ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
-                                                        CurrentFilterFunction="Contains" />
+                                                        CurrentFilterFunction="Contains">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </telerik:GridTemplateColumn>
                                                     <telerik:GridTemplateColumn SortExpression="rs_proprietario_desc" UniqueName="rs_proprietario_desc"
                                                         HeaderText="Prodotto Da" DataField="rs_proprietario_desc" HeaderStyle-Width="15%"
                                                         AllowFiltering="true" ShowFilterIcon="false" FilterControlWidth="120px" AutoPostBackOnFilter="true"

@@ -155,8 +155,16 @@
                                     <asp:Label ID="lblrs_codici_cer_cod" runat="server"></asp:Label>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
+                            <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
+                                ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                CurrentFilterFunction="Contains">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
+                                </ItemTemplate>
+                            </telerik:GridTemplateColumn>
                             <telerik:GridTemplateColumn SortExpression="rs_proprietario_desc" UniqueName="rs_proprietario_desc"
-                                HeaderText="Prodotto Da" DataField="rs_proprietario_desc" HeaderStyle-Width="20%" AllowFiltering="true"
+                                HeaderText="Prodotto Da" DataField="rs_proprietario_desc" HeaderStyle-Width="17%" AllowFiltering="true"
                                 ShowFilterIcon="false" FilterControlWidth="120px" AutoPostBackOnFilter="true"
                                 CurrentFilterFunction="Contains">
                                 <ItemTemplate>
