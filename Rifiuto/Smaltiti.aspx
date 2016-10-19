@@ -61,7 +61,7 @@
                                 <div class="input-group" style="width:100%">
                                     <div>
                                         <asp:TextBox ID="txt_filter_cer" runat="server" CssClass="form-control gisri_form_filter"
-                                            placeholder="CER" onChange="grid_search(this, event, 'rs_codici_cer_cod');" ></asp:TextBox>
+                                            placeholder="CER" onChange="grid_search(this, event, 'cer_confermato');" ></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                                 <div class="input-group" style="width:100%">
                                     <div>
                                         <asp:TextBox ID="txt_filter_smaltitore" runat="server" CssClass="form-control gisri_form_filter"
-                                            placeholder="Smaltitore" onChange="grid_search(this, event, 'rs_destinatario_desc');" ></asp:TextBox>
+                                            placeholder="Smaltitore" onChange="grid_search(this, event, 'destinatario_desc');" ></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                                 <div class="input-group" style="width:100%">
                                     <div>
                                         <asp:TextBox ID="txt_filter_trasportatore" runat="server" CssClass="form-control gisri_form_filter"
-                                            placeholder="Trasportatore" onChange="grid_search(this, event, 'rs_trasportatore_desc');" ></asp:TextBox>
+                                            placeholder="Trasportatore" onChange="grid_search(this, event, 'trasportatore_desc');" ></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -146,8 +146,8 @@
                     <FilterItemStyle HorizontalAlign="Left" />
                     <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="rifiuto_smaltimento_key" AllowMultiColumnSorting="True">
                         <Columns>
-                            <telerik:GridTemplateColumn SortExpression="rs_codici_cer_cod" UniqueName="rs_codici_cer_cod"
-                                HeaderText="CER" DataField="rs_codici_cer_cod" HeaderStyle-Width="5%" AllowFiltering="true"
+                            <telerik:GridTemplateColumn SortExpression="cer_confermato" UniqueName="cer_confermato"
+                                HeaderText="CER" DataField="cer_confermato" HeaderStyle-Width="5%" AllowFiltering="true"
                                 ShowFilterIcon="false" FilterControlWidth="50px" AutoPostBackOnFilter="true"
                                 CurrentFilterFunction="Contains" >
                                 <ItemStyle Wrap="false"  Font-Bold="true" />
@@ -192,8 +192,8 @@
                                     <asp:Label ID="lblformulario_data" runat="server"></asp:Label>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn SortExpression="rs_destinatario_desc" UniqueName="rs_destinatario_desc"
-                                HeaderText="Smaltitore" DataField="rs_destinatario_desc" HeaderStyle-Width="20%" AllowFiltering="true"
+                            <telerik:GridTemplateColumn SortExpression="destinatario_desc" UniqueName="destinatario_desc"
+                                HeaderText="Smaltitore" DataField="destinatario_desc" HeaderStyle-Width="20%" AllowFiltering="true"
                                 ShowFilterIcon="false" FilterControlWidth="100px" AutoPostBackOnFilter="true"
                                 CurrentFilterFunction="Contains"
                                 ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
@@ -201,8 +201,8 @@
                                     <asp:Label ID="lblrs_destinatario_desc" runat="server"></asp:Label>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn SortExpression="rs_trasportatore_desc" UniqueName="rs_trasportatore_desc"
-                                HeaderText="Trasportatore" DataField="rs_trasportatore_desc" HeaderStyle-Width="20%" AllowFiltering="true"
+                            <telerik:GridTemplateColumn SortExpression="trasportatore_desc" UniqueName="trasportatore_desc"
+                                HeaderText="Trasportatore" DataField="trasportatore_desc" HeaderStyle-Width="20%" AllowFiltering="true"
                                 ShowFilterIcon="false" FilterControlWidth="100px" AutoPostBackOnFilter="true"
                                 CurrentFilterFunction="Contains">
                                 <ItemTemplate>

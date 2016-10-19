@@ -6,15 +6,7 @@ GisRI_Classi
 </name>
 </assembly>
 <members>
-<member name="T:GisRI_Classi.Oggetti.Vs_rifiuti_smaltiti_Base">
-	<summary>
- Classe utilizzata per l'astrazione dei dati della tabella VS_RIFIUTI_SMALTITI
- </summary>
-</member><member name="T:GisRI_Classi.Oggetti.Vs_rifiuti_prodotti_Base">
-	<summary>
- Classe utilizzata per l'astrazione dei dati della tabella VS_RIFIUTI_PRODOTTI
- </summary>
-</member><member name="T:GisRI_Classi.Oggetti.Permessi_alert_Base">
+<member name="T:GisRI_Classi.Oggetti.Permessi_alert_Base">
 	<summary>
  Classe utilizzata per l'astrazione dei dati della tabella PERMESSI_ALERT
  </summary>
@@ -290,6 +282,10 @@ GisRI_Classi
 	<summary>
  Classe utilizzata per l'astrazione dei dati dell'utente.
  </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Vs_rifiuti_smaltiti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella VS_RIFIUTI_SMALTITI
+ </summary>
 </member><member name="P:GisRI_Classi.Controls.TextData.Data">
 	<summary>
  Data
@@ -342,6 +338,10 @@ GisRI_Classi
 </member><member name="T:GisRI_Classi.Oggetti.Tab_parametri_Base">
 	<summary>
  Classe utilizzata per l'astrazione dei dati della tabella TAB_PARAMETRI
+ </summary>
+</member><member name="T:GisRI_Classi.Oggetti.Vs_rifiuti_prodotti_Base">
+	<summary>
+ Classe utilizzata per l'astrazione dei dati della tabella VS_RIFIUTI_PRODOTTI
  </summary>
 </member><member name="P:GisRI_Classi.Oggetti.Immagini.Immagine">
 	<summary>
