@@ -10,11 +10,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row mt">
-        <div style="height: 10px;">
-        </div>
         <div class="col-md-12">
             <div class="col-sm-3" style="display:none;">
                 <section class="panel">
@@ -45,7 +44,7 @@
                     </div>
                 </section>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-12" style="padding: 0">
                 <section class="panel">
                     <header class="panel-heading wht-bg">
                         <div class="mail-header row">
@@ -53,7 +52,7 @@
                                  <h4 class="gen-case"><asp:Literal ID="ltl_title" runat="server"></asp:Literal></h4>
                             </div>
                             <div class="col-md-6">
-                                <div class="compose-btn pull-right">
+                                <div class="">
                                     <div id="div_cerca" runat="server">
                                         <div class="form-inline">
                                             <asp:TextBox ID="txt_search" runat="server" CssClass="form-control" placeholder="Cerca nei messaggi"></asp:TextBox>
@@ -64,7 +63,7 @@
                                     </div>
                                     <div id="div_return" runat="server">
                                         <asp:LinkButton ID="btn_return" runat="server" ToolTip="Torna indietro" CssClass="btn btn-warning"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Torna indietro</asp:LinkButton>
-                                    </div> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +85,7 @@
                             <strong>
                                 <asp:Literal ID="ltl_messaggio_ok" runat="server"></asp:Literal></strong>
                         </div>
-                        <div class="mail-option pull-right">
+                        <div class="mail-option">
                             <!-- actions for inbox -->
                             <div id="div_btn_int" runat="server">
                                 <div class="form-actions pull-right">
@@ -125,7 +124,7 @@
                                     <Columns>
                                         <telerik:GridClientSelectColumn UniqueName="CheckboxSelectColumn" ItemStyle-HorizontalAlign="Center"
                                             HeaderStyle-HorizontalAlign="Center" HeaderStyle-Width="40" />
-                                        <telerik:GridTemplateColumn UniqueName="Preferito" SortExpression="preferito" AllowFiltering="false" 
+                                        <telerik:GridTemplateColumn UniqueName="Preferito" SortExpression="preferito" AllowFiltering="false"
                                             InitializeTemplatesFirst="false" HeaderStyle-Width="40">
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="lnk_star" runat="server" CommandName="STAR">
@@ -208,7 +207,7 @@
                                         <telerik:GridClientSelectColumn UniqueName="CheckboxSelectColumn" ItemStyle-HorizontalAlign="Center"
                                             HeaderStyle-HorizontalAlign="Center" HeaderStyle-Width="40" />
                                         <telerik:GridBoundColumn UniqueName="destinatario_key" SortExpression="destinatario_key"
-                                            HeaderText="Destinatario" DataField="destinatario_desc" HeaderStyle-Width="40%" />                                        
+                                            HeaderText="Destinatario" DataField="destinatario_desc" HeaderStyle-Width="40%" />
                                         <telerik:GridButtonColumn SortExpression="soggetto" UniqueName="soggetto" HeaderText="Oggetto"
                                             CommandName="Go" DataTextField="soggetto" HeaderStyle-Width="40%">
                                         </telerik:GridButtonColumn>
@@ -256,7 +255,7 @@
                                         <telerik:GridBoundColumn UniqueName="mittente_key" SortExpression="mittente_key"
                                             HeaderText="Mittente" DataField="mittente_desc" HeaderStyle-Width="25%" />
                                         <telerik:GridBoundColumn UniqueName="destinatario_key" SortExpression="destinatario_key"
-                                            HeaderText="Destinatario" DataField="destinatario_desc" HeaderStyle-Width="25%" />                                        
+                                            HeaderText="Destinatario" DataField="destinatario_desc" HeaderStyle-Width="25%" />
                                         <telerik:GridButtonColumn SortExpression="soggetto" UniqueName="soggetto" HeaderText="Oggetto"
                                             CommandName="Go" DataTextField="soggetto" HeaderStyle-Width="40%">
                                         </telerik:GridButtonColumn>
@@ -283,7 +282,7 @@
                             <div class="panel-body ">
                                 <div class="mail-header row">
                                     <div class="col-md-6">
-                                        <h4 class="pull-left"> <asp:Literal ID="ltl_oggetto" runat="server"></asp:Literal></h4> 
+                                        <h4 class="pull-left"> <asp:Literal ID="ltl_oggetto" runat="server"></asp:Literal></h4>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="compose-btn pull-right">
@@ -338,7 +337,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </section>
             </div>

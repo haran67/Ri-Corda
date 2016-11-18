@@ -6,20 +6,21 @@
 <%@ Register Src="../Controls/rDropDown.ascx" TagName="rDropDown" TagPrefix="cc" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div style="height:10px;"></div> 
+    <div style="height:10px;"></div>
     <div class="row">
         <div class="col-lg-12">
             <div class="content-panel">
                 <h2 style="margin:0px!Important;">
                     <asp:Literal ID="ltl_st_denominazione" runat="server">Rifiuti in scadenza</asp:Literal></h2>
-            </div> 
-        </div> 
+            </div>
+        </div>
         <div class="col-lg-12">
             <div class="content-panel" style="padding:10px!Important;">
-                <div style="margin:20px;" >
-                    <h4 style="font-weight:bold; margin:0px; margin-bottom:5px;">Seleziona</h4> 
+                <div>
+                    <h4 style="font-weight:bold; margin:0px; margin-bottom:5px;">Seleziona</h4>
                     <div class="form-body" style="">
                         <div id="div_titolarita" runat="server">
                             <div class="row">
@@ -37,7 +38,7 @@
                                     <asp:LinkButton ID="btn_aggiorna" runat="server" CssClass="btn btn-primary">
                                         <i class="fa fa-check"></i> Aggiorna Report
                                     </asp:LinkButton>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -78,7 +79,7 @@
                                         </th>
                                         <th style="width: 10%;">
                                             Entro Il
-                                        </th> 
+                                        </th>
                                         <th title="Giorni mancanti" style="width: 1%; text-align:right; white-space:nowrap;">
                                             <i class="fa fa-history"></i>
                                         </th>
@@ -230,9 +231,9 @@
                         </div>
                         <hr />
                     </ItemTemplate>
-                
+
                 </asp:Repeater>
-            </div> 
+            </div>
         </div>
     </div>
 

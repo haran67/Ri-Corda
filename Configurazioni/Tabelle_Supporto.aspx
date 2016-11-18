@@ -25,6 +25,7 @@
             $("#<%=div_alert.ClientID%>").dirtyForms();
         }
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row">
@@ -133,7 +134,7 @@
                                 </div>
                             </div>
                             <div class="">
-                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                <div class="form-body">
                                     <div id="div_modifica_tipo_documento" runat="server">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -165,7 +166,7 @@
                             <asp:Label ID="lbl_tab_tipo_documento_cod" runat="server" Visible="false"></asp:Label>
                         </div>
                         <div id="div_siti" runat="server">
-                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                            <div class="form-body">
                                 <h3>TIPOLOGIA DEI SITI</h3>
                                 <div class="overflow">
                                     <table class="table table-striped table-advance table-hover">
@@ -215,7 +216,7 @@
                                 </div>
                             </div>
                             <div class="">
-                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                <div class="form-body">
                                     <div id="div_modifica_tipologia_sito" runat="server">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -253,7 +254,7 @@
                             <asp:Label ID="lbl_tab_tipologia_sito_key" runat="server" Visible="false"></asp:Label>
                         </div>
 						<div id="div_ruoli" runat="server">
-                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                            <div class="form-body">
                                 <h3>RUOLI AZIENDALI</h3>
                                 <div class="overflow">
                                     <table class="table table-striped table-advance table-hover">
@@ -303,7 +304,7 @@
                                 </div>
                             </div>
                             <div class="">
-                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                <div class="form-body">
                                     <div id="div_modifica_ruolo_aziendale" runat="server">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -341,7 +342,7 @@
                             <asp:Label ID="lbl_tab_ruolo_aziendale_cod" runat="server" Visible="false"></asp:Label>
                         </div>
                         <div id="div_alert" runat="server">
-                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                            <div class="form-body">
                                 <h3>TIPO ALERT</h3>
                                 <div class="overflow">
                                     <table class="table table-striped table-advance table-hover">
@@ -405,9 +406,9 @@
                                 </div>
                             </div>
                             <div class="">
-                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                <div class="form-body">
                                     <div id="div_modifica_alert" runat="server">
-                                        
+
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <hr />
@@ -419,7 +420,7 @@
                                                     Label="Societa Gestione" Placeholder="Seleziona..." Form_Vertical="true" Required="true"
                                                     Required_Help="societa gestione obbligatorio!" />
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <cc:rTextBox ID="txt_alert_titolo" runat="server" MaxLength="128" AutoPostBack="false"
@@ -456,7 +457,7 @@
                                             <div class="col-md-6">
                                                 <cc:rTextNumero ID="txt_alert_scadenza" runat="server" MaxLength="128" AutoPostBack="false"
                                                     Label="Parametro scadenza" CifreDecimali="0" Icon="" Form_Vertical="true" Required="false" />
-                                            </div> 
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">

@@ -17,13 +17,14 @@
             $("#<%=div_overview.ClientID%>").dirtyForms();
         }
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row mt">
-        <div style="height:10px;"></div> 
+        <div style="height:10px;"></div>
         <div class="col-lg-12">
             <div class="content-panel gisri_content_panel">
-                <div class="row" style="height:35px!Important;">
+                <div class="row" style="min-height:40px!Important;">
                     <div class="gisri_panel_title gisri_title_margin_lr">
                         <div class="gisri_title_left">
                             <h3 style="margin:0px!Important;">
@@ -36,9 +37,9 @@
                             <asp:LinkButton ID="btn_return" runat="server" ToolTip="Torna indietro" CssClass="btn btn-warning"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Torna Indietro</asp:LinkButton>
                         </div>
                     </div>
-                </div> 
-            </div> 
-        </div> 
+                </div>
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="content-panel" id="panel_dati" runat="server">
                 <h3 style="padding-left: 10px; margin-top: 0px!Important;">
@@ -75,12 +76,12 @@
                                 <div id="div_overview" class="tab-pane active" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <h6><asp:Label ID="ltl_ultima_modifica" runat="server"></asp:Label></h6>
                                                 <div class="row" id="div_societa_gestione" runat="server">
                                                     <div class="col-md-6">
                                                         <cc:rTextData ID="txt_rs_data_rientro" runat="server" MaxLength="10" AutoPostBack="false"
-                                                            Label="Data Ricezione" Icon="fa fa-calendar" Form_Vertical="true" 
+                                                            Label="Data Ricezione" Icon="fa fa-calendar" Form_Vertical="true"
                                                             Required="true" Required_Help="Data rientro obbligatoria!" />
                                                     </div>
                                                     <div class="col-md-6">
@@ -89,12 +90,12 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rs_rifiuto_accettato_cod" runat="server" AutoPostBack="true"
-                                                            Label="Accettazione" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="Accettazione" Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Tipologia accettazione obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <cc:rTextNumero ID="txt_rs_rifiuto_accettato_qta" runat="server" MaxLength="16" AutoPostBack="false"
-                                                            Label="Quantita" Icon="" Form_Vertical="true" CifreDecimali="1" 
+                                                            Label="Quantita" Icon="" Form_Vertical="true" CifreDecimali="1"
                                                             Required="true" Required_Help="Quantita accettata obbligatoria!" />
                                                     </div>
                                                 </div>
@@ -107,24 +108,24 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextNumero ID="txt_rs_peso_iniziale" runat="server" MaxLength="16" AutoPostBack="true"
-                                                            Label="Peso stimato" Icon="" Form_Vertical="true" CifreDecimali="1" 
+                                                            Label="Peso stimato" Icon="" Form_Vertical="true" CifreDecimali="1"
                                                             Read_Only="true" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <cc:rTextNumero ID="txt_rs_volume_iniziale" runat="server" MaxLength="16" AutoPostBack="true"
-                                                            Label="Volume stimato" Icon="" Form_Vertical="true" CifreDecimali="1" 
+                                                            Label="Volume stimato" Icon="" Form_Vertical="true" CifreDecimali="1"
                                                             Read_Only="true" />
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <cc:rTextNumero ID="txt_rs_peso_finale" runat="server" MaxLength="16" AutoPostBack="true"
-                                                            Label="Peso a destino" Icon="" Form_Vertical="true" CifreDecimali="1" 
+                                                            Label="Peso a destino" Icon="" Form_Vertical="true" CifreDecimali="1"
                                                             Required="true" Required_Help="Peso a destino obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-2">
                                                         <cc:rDropDown ID="ddl_rs_peso_finale_misura_cod" runat="server" AutoPostBack="false"
-                                                            Label="UM" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="UM" Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Unità di misura obbligatoria!" />
                                                     </div>
                                                     <div class="col-md-4">

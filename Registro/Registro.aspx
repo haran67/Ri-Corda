@@ -36,12 +36,13 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row">
         <div class="col-lg-12">
             <div class="content-panel">
-                <div class="row" style="min-height:39px!Important;">
+                <div class="row" style="min-height:40px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <h3 style="margin:0px!Important;">
@@ -59,7 +60,7 @@
         </div>
         <div class="col-md-12">
             <div class="content-panel" id="panel_elenco" runat="server" visible="true">
-				<div class="row" style="height:40px!Important;">
+				<div class="clearfix">
 					<div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <asp:LinkButton ID="btn_filtri" runat="server" CssClass="btn btn-default"
@@ -79,7 +80,7 @@
                 <div class="row" id="div_filtri_boh" runat="server" visible="true">
                 </div>
                 <div class="row" id="div_filtri" runat="server" visible="false">
-                    <div class="form-body">
+                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 35px!Important; margin-bottom:10px;">
                         <div class="row">
                             <div class="col-xs-4 gisri_row_filter">
                                 <div class="input-group" style="width:100%">
@@ -205,7 +206,7 @@
                                         CommandName="MOVIMENTI">
                                                 <i class=" fa fa-file-text-o"></i>&nbsp;MOVIMENTI</i>
                                     </asp:LinkButton>
-                                    <asp:LinkButton ID="btn_esporta" runat="server" CssClass="btn btn-success btn-xs button-link-w gisri_button_list"
+                                    <asp:LinkButton ID="btn_esporta" runat="server" CssClass="btn btn-success btn-xs hidden-xs button-link-w gisri_button_list"
                                         CommandName="ESPORTA">
                                                 <i class=" fa fa-file-excel-o"></i>&nbsp;ESPORTA</i>
                                     </asp:LinkButton>
@@ -229,7 +230,7 @@
                         <asp:LinkButton ID="btn_return" runat="server" ToolTip="Torna all'elenco" CssClass="btn btn-warning"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Elenco</asp:LinkButton>
                     </div>
                 </div>
-                <div style="margin: 10px;  padding-top:10px;">
+                <div style="margin: 10px 0;  padding-top:10px;">
                     <div class="form-body" style="margin-top: 20px!Important;">
                         <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                             visible="false">
@@ -358,7 +359,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-horizontal">
-                                                <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
+                                                <div class="form-body table-container" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                     <cc:cAllegati ID="cAllegati1" runat="server" />
                                                 </div>
                                                 <div class="form-actions right">
@@ -377,75 +378,77 @@
                                                         <i class="fa fa-download"></i>
                                                     </asp:LinkButton>
                                                     &nbsp;Elenco allegati ai movimenti</h3>
-                                                <table class="table table-striped table-advance table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="width: 15%;">
-                                                                Allegato
-                                                            </th>
-                                                            <th style="width: 20%;">
-                                                                Tipologia
-                                                            </th>
-                                                            <th style="width: 10%;">
-                                                                Data
-                                                            </th>
-                                                            <th style="width: 15%;">
-                                                                Titolo
-                                                            </th>
-                                                            <th style="width: 30%;">
-                                                                Descrizione
-                                                            </th>
-                                                            <th style="width: 1%;">
-                                                                Numero
-                                                            </th>
-                                                            <th style="width: 10%;">
-                                                                Movimento
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <asp:Repeater ID="rpt_documenti" runat="server">
-                                                            <ItemTemplate>
-                                                                <tr>
-                                                                    <td>
-                                                                        <asp:HyperLink ID="lnk_doc_file" runat="server" Target="_blank"></asp:HyperLink>
-                                                                        <div class="project-wrapper" id="div_immagine" runat="server">
-                                                                            <div class="project">
-                                                                                <div class="photo-wrapper">
-                                                                                    <div class="photo">
-                                                                                        <asp:HyperLink ID="lnk_doc_immagine" runat="server" CssClass="fancybox" NavigateUrl="">
-                                                                                            <asp:Image ID="img_doc_immagine" runat="server" CssClass="img-responsive gisri_attach_image" />
-                                                                                        </asp:HyperLink>
-                                                                                    </div>
-                                                                                    <div class="overlay">
+                                                    <div class="table-container">
+                                                    <table class="table table-striped table-advance table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 15%;">
+                                                                    Allegato
+                                                                </th>
+                                                                <th style="width: 20%;">
+                                                                    Tipologia
+                                                                </th>
+                                                                <th style="width: 10%;">
+                                                                    Data
+                                                                </th>
+                                                                <th style="width: 15%;">
+                                                                    Titolo
+                                                                </th>
+                                                                <th style="width: 30%;">
+                                                                    Descrizione
+                                                                </th>
+                                                                <th style="width: 1%;">
+                                                                    Numero
+                                                                </th>
+                                                                <th style="width: 10%;">
+                                                                    Movimento
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <asp:Repeater ID="rpt_documenti" runat="server">
+                                                                <ItemTemplate>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:HyperLink ID="lnk_doc_file" runat="server" Target="_blank"></asp:HyperLink>
+                                                                            <div class="project-wrapper" id="div_immagine" runat="server">
+                                                                                <div class="project">
+                                                                                    <div class="photo-wrapper">
+                                                                                        <div class="photo">
+                                                                                            <asp:HyperLink ID="lnk_doc_immagine" runat="server" CssClass="fancybox" NavigateUrl="">
+                                                                                                <asp:Image ID="img_doc_immagine" runat="server" CssClass="img-responsive gisri_attach_image" />
+                                                                                            </asp:HyperLink>
+                                                                                        </div>
+                                                                                        <div class="overlay">
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:Label ID="lbl_doc_tipo_documento_desc" runat="server"></asp:Label>
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:Label ID="lbl_doc_data" runat="server"></asp:Label>
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:Label ID="lbl_doc_titolo" runat="server"></asp:Label>
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:Label ID="lbl_doc_descrizione" runat="server"></asp:Label>
-                                                                    </td>
-                                                                    <td style="white-space: nowrap;">
-                                                                        <asp:Label ID="lbl_doc_movimento" runat="server"></asp:Label>
-                                                                    </td>
-                                                                    <td style="white-space: nowrap;">
-                                                                        <asp:Label ID="lbl_doc_movimento_tipo" runat="server"></asp:Label>
-                                                                    </td>
-                                                                </tr>
-                                                            </ItemTemplate>
-                                                        </asp:Repeater>
-                                                    </tbody>
-                                                </table>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_doc_tipo_documento_desc" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_doc_data" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_doc_titolo" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_doc_descrizione" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td style="white-space: normal;">
+                                                                            <asp:Label ID="lbl_doc_movimento" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td style="white-space: normal;">
+                                                                            <asp:Label ID="lbl_doc_movimento_tipo" runat="server"></asp:Label>
+                                                                        </td>
+                                                                    </tr>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

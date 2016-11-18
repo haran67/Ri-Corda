@@ -17,6 +17,7 @@
             $("#<%=div_overview.ClientID%>").dirtyForms();
         }
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row">
@@ -36,12 +37,12 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-        </div> 
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="content-panel" id="panel_dati" runat="server" style="display: none;">
                 <h3 style="padding-left: 10px; margin-top: 0px!Important;"><i class="fa fa-angle-right"></i>CARICO SUL REGISTRO</h3>
-                <div style="margin: 10px;">
+                <div style="margin: 00px;">
                     <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                         visible="false">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -89,7 +90,7 @@
                                                     <div class="col-md-6">
                                                         <cc:rTextBox ID="txt_rf_data_produzione" runat="server" MaxLength="16" AutoPostBack="false"
                                                             Read_Only="true" Label="Data produzione" Icon="fa fa-calendar" Text="" Form_Vertical="true" />
-                                                    
+
                                                     </div>
                                                     <div class="col-md-6">
                                                         <cc:rTextBox ID="txt_rf_descrizione" runat="server" MaxLength="4000" AutoPostBack="false"
@@ -100,7 +101,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_registro_rifiuti_key" runat="server" AutoPostBack="true" Label="Registro"
-                                                            Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Registro rifiuti obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
@@ -130,7 +131,7 @@
                                                     <div class="col-md-6">
                                                         <div id="div_doc_upload" runat="server" class="form-group" visible="false">
                                                             <label style="white-space:nowrap;font-weight:bold;" class="control-label">
-                                                                Copia digitale dell’annotazione del carico nel RCS</label>
+                                                                Copia digitale dellï¿½annotazione del carico nel RCS</label>
                                                             <div id="">
                                                                 <div id="" class="">
                                                                     <telerik:RadAsyncUpload runat="server" ID="doc_upload" MultipleFileSelection="Disabled" Culture="it-IT" Localization-Select="Seleziona"
@@ -171,7 +172,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-horizontal">
-                                                <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
+                                                <div class="form-body table-container" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                     <cc:cAllegati ID="cAllegati1" runat="server" />
                                                 </div>
                                                 <div class="form-actions right">
@@ -196,7 +197,7 @@
     </div>
 
     <!-- /row -->
-	<script type="text/javascript" src="../assets/js/fancybox/jquery.fancybox.js"></script>    
+	<script type="text/javascript" src="../assets/js/fancybox/jquery.fancybox.js"></script>
 
     <script type="text/javascript">
         $(function () {

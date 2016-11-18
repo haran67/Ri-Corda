@@ -18,6 +18,7 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
@@ -60,54 +61,55 @@
                             ToolTip="Visualizza i filtri" Height="25" Style="padding-top: 6px; padding-left: 1px;">
                             <i class="fa fa-filter"></i>
                         </asp:LinkButton>&nbsp; RIFIUTI PRODOTTI
+                        <div class="row" id="div_filtri_prodotti" runat="server" visible="false">
+                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;
+                                margin-top: 5px;">
+                                <div class="row">
+                                    <div class="col-xs-3 gisri_row_filter">
+                                        <div class="input-group" style="width: 100%">
+                                            <div>
+                                                <asp:TextBox ID="txt_filter_codice" runat="server" CssClass="form-control gisri_form_filter"
+                                                    AutoPostBack="true" placeholder="Codice CER"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 gisri_row_filter">
+                                        <div class="input-group" style="width: 100%">
+                                            <div>
+                                                <asp:DropDownList ID="ddl_rf_produttore_key" runat="server" CssClass="form-control gisri_form_filter"
+                                                    AutoPostBack="true">
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 gisri_row_filter">
+                                        <div class="input-group" style="width: 100%">
+                                            <div>
+                                                <asp:DropDownList ID="ddl_stati_rifiuto" runat="server" CssClass="form-control gisri_form_filter"
+                                                    AutoPostBack="true">
+                                                    <asp:ListItem Text="Tutti gli stati" Value=""></asp:ListItem>
+                                                    <asp:ListItem Text="Da registrare" Value="R"></asp:ListItem>
+                                                    <asp:ListItem Text="Da confermare" Value="C"></asp:ListItem>
+                                                    <asp:ListItem Text="In attesa" Value="I"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
+                                        <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
+                                            ToolTip="Pulisce Filtri" Height="25" Style="padding-top: 6px; padding-left: 1px;">
+                                    <i class="fa fa-eraser"></i>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="table-container">
                             <table class="table table-striped table-advance table-hover">
                                 <thead>
                                     <tr>
                                         <th colspan="7" style="width: 50%; font-size: 15px;">
-                                            <div class="row" id="div_filtri_prodotti" runat="server" visible="false">
-                                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;
-                                                    margin-top: 5px;">
-                                                    <div class="row">
-                                                        <div class="col-xs-3 gisri_row_filter">
-                                                            <div class="input-group" style="width: 100%">
-                                                                <div>
-                                                                    <asp:TextBox ID="txt_filter_codice" runat="server" CssClass="form-control gisri_form_filter"
-                                                                        AutoPostBack="true" placeholder="Codice CER"></asp:TextBox>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-4 gisri_row_filter">
-                                                            <div class="input-group" style="width: 100%">
-                                                                <div>
-                                                                    <asp:DropDownList ID="ddl_rf_produttore_key" runat="server" CssClass="form-control gisri_form_filter"
-                                                                        AutoPostBack="true">
-                                                                    </asp:DropDownList>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-4 gisri_row_filter">
-                                                            <div class="input-group" style="width: 100%">
-                                                                <div>
-                                                                    <asp:DropDownList ID="ddl_stati_rifiuto" runat="server" CssClass="form-control gisri_form_filter"
-                                                                        AutoPostBack="true">
-                                                                        <asp:ListItem Text="Tutti gli stati" Value=""></asp:ListItem>
-                                                                        <asp:ListItem Text="Da registrare" Value="R"></asp:ListItem>
-                                                                        <asp:ListItem Text="Da confermare" Value="C"></asp:ListItem>
-                                                                        <asp:ListItem Text="In attesa" Value="I"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
-                                                            <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
-                                                                ToolTip="Pulisce Filtri" Height="25" Style="padding-top: 6px; padding-left: 1px;">
-                                                        <i class="fa fa-eraser"></i>
-                                                            </asp:LinkButton>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+
                                         </th>
                                     </tr>
                                     <tr>
@@ -184,53 +186,54 @@
                             ToolTip="Visualizza i filtri" Height="25" Style="padding-top: 6px; padding-left: 1px;">
                             <i class="fa fa-filter"></i>
                         </asp:LinkButton>&nbsp; RIFIUTI A DESTINO
+                        <div class="row" id="div_filtri_smaltiti" runat="server" visible="false">
+                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;
+                                margin-top: 5px;">
+                                <div class="row">
+                                    <div class="col-xs-3 gisri_row_filter">
+                                        <div class="input-group" style="width: 100%">
+                                            <div>
+                                                <asp:TextBox ID="txt_filter_codice_smaltiti" runat="server" CssClass="form-control gisri_form_filter"
+                                                    AutoPostBack="true" placeholder="Codice CER"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 gisri_row_filter">
+                                        <div class="input-group" style="width: 100%">
+                                            <div>
+                                                <asp:DropDownList ID="ddl_rs_produttore_key" runat="server" CssClass="form-control gisri_form_filter"
+                                                    AutoPostBack="true">
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 gisri_row_filter">
+                                        <div class="input-group" style="width: 100%">
+                                            <div>
+                                                <asp:DropDownList ID="ddl_stati_rifiuto_smaltiti" runat="server" CssClass="form-control gisri_form_filter"
+                                                    AutoPostBack="true">
+                                                    <asp:ListItem Text="Tutti gli stati" Value=""></asp:ListItem>
+                                                    <asp:ListItem Text="Da registrare" Value="R"></asp:ListItem>
+                                                    <asp:ListItem Text="Ricevuta 4° copia" Value="4"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
+                                        <asp:LinkButton ID="btn_reset_filter_smaltiti" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
+                                            ToolTip="Pulisce Filtri" Height="25" Style="padding-top: 6px; padding-left: 1px;">
+                                    <i class="fa fa-eraser"></i>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="table-container">
                             <table class="table table-striped table-advance table-hover">
                                 <thead>
                                     <tr>
                                         <th colspan="7" style="width: 50%; font-size: 15px;">
-                                            <div class="row" id="div_filtri_smaltiti" runat="server" visible="false">
-                                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;
-                                                    margin-top: 5px;">
-                                                    <div class="row">
-                                                        <div class="col-xs-3 gisri_row_filter">
-                                                            <div class="input-group" style="width: 100%">
-                                                                <div>
-                                                                    <asp:TextBox ID="txt_filter_codice_smaltiti" runat="server" CssClass="form-control gisri_form_filter"
-                                                                        AutoPostBack="true" placeholder="Codice CER"></asp:TextBox>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-4 gisri_row_filter">
-                                                            <div class="input-group" style="width: 100%">
-                                                                <div>
-                                                                    <asp:DropDownList ID="ddl_rs_produttore_key" runat="server" CssClass="form-control gisri_form_filter"
-                                                                        AutoPostBack="true">
-                                                                    </asp:DropDownList>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-4 gisri_row_filter">
-                                                            <div class="input-group" style="width: 100%">
-                                                                <div>
-                                                                    <asp:DropDownList ID="ddl_stati_rifiuto_smaltiti" runat="server" CssClass="form-control gisri_form_filter"
-                                                                        AutoPostBack="true">
-                                                                        <asp:ListItem Text="Tutti gli stati" Value=""></asp:ListItem>
-                                                                        <asp:ListItem Text="Da registrare" Value="R"></asp:ListItem>
-                                                                        <asp:ListItem Text="Ricevuta 4° copia" Value="4"></asp:ListItem>
-                                                                    </asp:DropDownList>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
-                                                            <asp:LinkButton ID="btn_reset_filter_smaltiti" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
-                                                                ToolTip="Pulisce Filtri" Height="25" Style="padding-top: 6px; padding-left: 1px;">
-                                                        <i class="fa fa-eraser"></i>
-                                                            </asp:LinkButton>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+
 
                                         </th>
                                     </tr>

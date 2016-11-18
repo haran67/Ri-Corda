@@ -8,21 +8,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../assets/plugins/nouislider/jquery.nouislider.css" />
     <link rel="stylesheet" type="text/css" href="../assets/plugins/nouislider/jquery.nouislider.pips.css" />
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
     <script type="text/javascript" src="../assets/plugins/nouislider/jquery.nouislider.all.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div style="height:10px;"></div> 
+    <div style="height:10px;"></div>
     <div class="row">
         <div class="col-lg-12">
             <div class="content-panel">
                 <h2 style="margin:0px!Important;">
                     <asp:Literal ID="ltl_st_denominazione" runat="server">Situazione depositi temporanei</asp:Literal></h2>
-            </div> 
-        </div> 
+            </div>
+        </div>
         <div class="col-lg-12">
             <div class="content-panel" style="padding:10px!Important;">
-                <div style="margin:20px;" >
-                    <h4 style="font-weight:bold; margin:0px; margin-bottom:5px;">Seleziona Sito</h4> 
+                <div >
+                    <h4 style="font-weight:bold; margin:0px; margin-bottom:5px;">Seleziona Sito</h4>
                     <div class="form-body" style="">
                         <div id="div_titolarita" runat="server">
                             <div class="row">
@@ -36,13 +37,13 @@
                                     <asp:LinkButton ID="btn_aggiorna" runat="server" CssClass="btn btn-primary">
                                         <i class="fa fa-check"></i> Aggiorna Report
                                     </asp:LinkButton>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div style="margin:20px;" >
-                    <h4 style="font-weight:bold; margin:0px; margin-bottom:5px;">Percentuale di caricamento del deposito</h4> 
+                    <h4 style="font-weight:bold; margin:0px; margin-bottom:5px;">Percentuale di caricamento del deposito</h4>
                     <div class="noUi-control noUi-success" id="slider_0">
                     </div>
                     <asp:Button ID="btn_ricarica" runat="server" Visible="false" />
@@ -86,7 +87,7 @@
                                                 <asp:Label ID="lbl_deposito_tot_perc" runat="server"></asp:Label>
                                             </th>
                                             <th style="width: 55%;">
-                                                
+
                                             </th>
                                         </tr>
                                     </thead>
@@ -102,14 +103,14 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                </table> 
+                                </table>
                                 <table class="table table-striped table-advance table-hover" id="tb_dt_per" runat="server">
                                     <thead>
                                         <tr style="white-space:nowrap; color:Red;">
                                             <th colspan="10">
                                                 Deposito sui rifiuti pericolosi
                                             </th>
-                                        </tr> 
+                                        </tr>
                                         <tr style="white-space:nowrap;">
                                             <th style="width: 5%; white-space:nowrap;">
                                                 Volume attuale
@@ -130,7 +131,7 @@
                                                 <asp:Label ID="lbl_deposito_per_perc" runat="server"></asp:Label>
                                             </th>
                                             <th style="width: 55%;">
-                                                
+
                                             </th>
                                         </tr>
                                     </thead>
@@ -152,9 +153,9 @@
                         </asp:Repeater>
                         <hr />
                     </ItemTemplate>
-                
+
                 </asp:Repeater>
-            </div> 
+            </div>
         </div>
     </div>
 

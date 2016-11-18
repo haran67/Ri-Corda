@@ -41,19 +41,20 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row mt">
         <div class="col-md-12">
             <div class="content-panel" id="panel_elenco" runat="server" visible="true" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
-                <div class="row" style="height:50px!Important;">
-                    <div class="gisri_panel_title gisri_title_margin">
+                <div class="row" style="min-height:50px!Important;">
+                    <div class="gisri_panel_title gisri_title_margin clearfix">
                         <div class="gisri_title_left">
                             <asp:LinkButton ID="btn_filtri" runat="server" CssClass="btn btn-default"
                                 ToolTip="Visualizza maschera dei filtri" Style="padding-top:6px; padding-left:10px;">
                                 <i class="fa fa-filter"></i>
                             </asp:LinkButton>
-                        </div> 
+                        </div>
                         <div class="gisri_title_left">
                             <h3 style="padding-left: 10px; margin-top: 0px!Important;">
                                 SITI DESTINAZIONE RIFIUTI</h3>
@@ -64,7 +65,7 @@
                     </div>
                 </div>
                 <div class="row" id="div_filtri" runat="server" visible="false">
-                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 35px!Important; margin-bottom:10px;">
+                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important; margin-bottom:10px;">
                         <div class="row">
                             <div class="col-xs-2 gisri_row_filter">
                                 <div class="input-group" style="width:100%">
@@ -101,11 +102,11 @@
                             <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                 <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                     ToolTip="Pulisce Filtri" Height="25" Style="padding-top:6px; padding-left:1px;">
-                                    <i class="fa fa-eraser"></i>  
+                                    <i class="fa fa-eraser"></i>
                                 </asp:LinkButton>
-                            </div> 
+                            </div>
                         </div>
-                    </div>                            
+                    </div>
                 </div>
                 <div class="overflow">
                     <telerik:RadGrid ID="RGSiti" AutoGenerateColumns="False" CssClass="" style="width: 100% !important;" runat="server"
@@ -162,7 +163,7 @@
             </div>
             <!-- /content-panel -->
             <div class="content-panel" id="panel_dati" runat="server" style="display: none;">
-                <div class="gisri_panel_title clearix">
+                <div class="gisri_panel_title clearfix">
                     <div class="gisri_title_left">
                         <h3 style="padding-left: 10px; margin-top: 0px!Important;">
                             <i class="fa fa-angle-right"></i>DETTAGLIO SITO DESTINAZIONE: <asp:Literal ID="ltl_sd_denominazione" runat="server" /></h3>
@@ -208,7 +209,7 @@
                                 <div id="div_overview" class="tab-pane" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <h6><asp:Label ID="ltl_ultima_modifica" runat="server"></asp:Label></h6>
                                                 <div class="row" id="div_ditta" runat="server">
                                                     <div class="col-md-12">
@@ -298,31 +299,27 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <! --/OVERVIEW -->
                                 </div>
                                 <! --/tab-pane -->
                                 <div id="div_mappa" class="tab-pane" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div style="margin-left: 30px!Important; margin-right: 30px!Important;">
-                                                <div class="col-lg-12">
-                                                    <iframe id="iMappa" frameborder="0" width="100%" height="730" src=""></iframe>
-                                                </div>
-                                            </div>
+                                            <iframe id="iMappa" frameborder="0" width="100%" height="730" src=""></iframe>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-9">
                                             <div style="margin-left: 30px!Important;">
-                                                <asp:TextBox ID="txt_google_address" runat="server" MaxLength="256" AutoPostBack="false" 
+                                                <asp:TextBox ID="txt_google_address" runat="server" MaxLength="256" AutoPostBack="false"
                                                 CssClass="form-control" placeholder="Inserisci l'indirizzo per la ricerca su Google Maps"/>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div style="margin-right: 30px!Important; text-align:right;">
                                                 <asp:LinkButton ID="btn_google_address" runat="server" ToolTip="" CssClass="btn btn-default"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Ricalcola coordinate</asp:LinkButton>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -330,7 +327,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="">
-                                                <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                                <div class="form-body table-container" >
                                                     <table class="table table-striped table-advance table-hover">
                                                         <thead>
                                                             <tr>
@@ -389,13 +386,13 @@
                                                     </table>
                                                 </div>
                                                 <div class="">
-                                                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                                    <div class="form-body">
                                                         <div id="div_modifica_autorizzazione" runat="server">
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <hr />
-                                                                </div> 
-                                                            </div> 
+                                                                </div>
+                                                            </div>
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <cc:rTextBox ID="txt_sd_emissione_numero" runat="server" MaxLength="32" AutoPostBack="false"
@@ -405,7 +402,7 @@
                                                                     <cc:rTextData ID="txt_sd_emissione_data" runat="server" MaxLength="10" AutoPostBack="false"
                                                                         Label="Data Emissione" Icon="fa fa-calendar" Form_Vertical="true" />
                                                                 </div>
-                                                            </div> 
+                                                            </div>
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <cc:rTextData ID="txt_sd_a_data" runat="server" MaxLength="10" AutoPostBack="false"
@@ -424,7 +421,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div> 
+                                                </div>
                                                 <div class="form-actions right">
                                                     <asp:LinkButton ID="btn_registra_autorizzazione" runat="server" CssClass="btn btn-primary">
                                                             <i class="fa fa-check"></i> Salva
@@ -441,7 +438,7 @@
                                 <div id="div_allegati" class="tab-pane" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-horizontal">
+                                            <div class="form-horizontal table-container">
                                                 <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                     <cc:cAllegati ID="cAllegati1" runat="server" />
                                                 </div>
@@ -454,9 +451,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                             <!-- /tab-content -->
-                        </div> 
+                        </div>
                     </div>
                     <! --/panel-body -->
                 </div>

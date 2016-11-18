@@ -1,3 +1,6 @@
+.tab-font {
+    font-size: 16px !important;
+}
 
 .btn {
     white-space: normal !important;
@@ -27,6 +30,13 @@
 .recent-activity .activity-panel td{
     width: 33%;
     padding: 5px;
+}
+.label-full-width {
+    text-indent: inherit;
+    width: inherit;;
+}
+.RadAsyncUpload.RadUpload.RadUpload_Default {
+    width: 100%;
 }
 @media (max-width:320px) {
     header {
@@ -97,6 +107,18 @@
 }
 
 @media (max-width: 480px) {
+    .input-group {
+        margin-bottom: 3px !important;
+    }
+    .gisri_title_left {
+        float: none;
+    }
+    .gisri_button_right {
+        float: none;
+        width: 100%;
+        margin: 20px 0 0 0;
+        padding: 0;
+    }
     .login .form-login {
         margin: 0 auto ;
         border-radius: 0;

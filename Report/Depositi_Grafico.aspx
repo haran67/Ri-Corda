@@ -11,22 +11,23 @@
     <script src="../assets/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
     <script src="../assets/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
     <script src="../assets/plugins/flot/jquery.flot.time.min.js" type="text/javascript"></script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
     <!-- END PAGE LEVEL PLUGINS -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div style="height:10px;"></div> 
+    <div style="height:10px;"></div>
     <div class="row">
         <div class="col-lg-12">
             <div class="content-panel" style="padding-left:10px!Important;padding-top:10px!Important; margin-bottom:10px;">
                 <h2 style="margin:0px!Important;">
                     <asp:Literal ID="ltl_st_denominazione" runat="server">Evoluzione depositi</asp:Literal></h2>
-            </div> 
-        </div> 
+            </div>
+        </div>
         <div class="col-lg-12">
             <div class="content-panel" style="padding:10px!Important;">
                 <div style="height:10px;"></div>
                 <div style="margin:20px;" >
-                    <h4 style="font-weight:bold; margin:0px; margin-bottom:5px;">Intervallo di visibilità</h4> 
+                    <h4 style="font-weight:bold; margin:0px; margin-bottom:5px;">Intervallo di visibilità</h4>
                     <div class="form-body" style="">
                         <div id="div_titolarita" runat="server">
                             <div class="row">
@@ -52,7 +53,7 @@
                                     <asp:LinkButton ID="btn_aggiorna" runat="server" CssClass="btn btn-primary">
                                         <i class="fa fa-check"></i> Aggiorna Report
                                     </asp:LinkButton>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -83,14 +84,14 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                </table> 
+                                </table>
                                 <table class="table table-striped table-advance table-hover" id="tb_dt_per" runat="server">
                                     <thead>
                                         <tr style="white-space:nowrap; color:Red;">
                                             <th colspan="10">
                                                 Situazione sui rifiuti pericolosi
                                             </th>
-                                        </tr> 
+                                        </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="gisri_report_row">
@@ -104,9 +105,9 @@
                         </asp:Repeater>
                         <hr />
                     </ItemTemplate>
-                
+
                 </asp:Repeater>
-            </div> 
+            </div>
         </div>
     </div>
 

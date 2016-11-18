@@ -40,20 +40,21 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
-    
+
     <div class="row mt">
         <div class="col-md-12">
             <div class="content-panel" id="panel_elenco" runat="server" visible="true" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
-                <div class="row" style="height:50px!Important;">
-                    <div class="gisri_panel_title gisri_title_margin">
+                <div class="row" style="min-height:50px!Important;">
+                    <div class="gisri_panel_title gisri_title_margin clearfix">
                         <div class="gisri_title_left">
                             <asp:LinkButton ID="btn_filtri" runat="server" CssClass="btn btn-default"
                                 ToolTip="Visualizza maschera dei filtri" Style="padding-top:6px; padding-left:10px;">
                                 <i class="fa fa-filter"></i>
                             </asp:LinkButton>
-                        </div> 
+                        </div>
                         <div class="gisri_title_left">
                             <h3 style="padding-left: 10px; margin-top: 0px!Important;">
                                 ELENCO DITTE OPERATRICI</h3>
@@ -64,7 +65,7 @@
                     </div>
                 </div>
                 <div class="row" id="div_filtri" runat="server" visible="false">
-                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 35px!Important; margin-bottom:10px;">
+                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important; margin-bottom:10px;">
                         <div class="row">
                             <div class="col-xs-4 gisri_row_filter">
                                 <div class="input-group" style="width:100%">
@@ -93,13 +94,13 @@
                             <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                 <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                     ToolTip="Pulisce Filtri" Height="25" Style="padding-top:6px; padding-left:1px;">
-                                    <i class="fa fa-eraser"></i>  
+                                    <i class="fa fa-eraser"></i>
                                 </asp:LinkButton>
-                            </div> 
+                            </div>
                         </div>
-                    </div>                            
+                    </div>
                 </div>
-                <div class="overflow">
+                <div class="table-container">
                     <telerik:RadGrid ID="RGDitte" AutoGenerateColumns="False" CssClass="" style="width: 100% !important" runat="server"
                         ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                         Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
@@ -133,11 +134,11 @@
                                     </ItemTemplate>
                                 </telerik:GridTemplateColumn>
                                 <telerik:GridBoundColumn SortExpression="di_piva" UniqueName="di_piva" HeaderText="P.Iva"
-                                    DataField="di_piva" HeaderStyle-Width="5%" AllowFiltering="true" ShowFilterIcon="false" 
-                                    FilterControlWidth="100px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains" 
+                                    DataField="di_piva" HeaderStyle-Width="5%" AllowFiltering="true" ShowFilterIcon="false"
+                                    FilterControlWidth="100px" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains"
                                     ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
                                 <telerik:GridBoundColumn SortExpression="di_albo_numero" UniqueName="di_albo_numero"
-                                    HeaderText="Albo N." DataField="di_albo_numero" HeaderStyle-Width="10%" AllowFiltering="false" 
+                                    HeaderText="Albo N." DataField="di_albo_numero" HeaderStyle-Width="10%" AllowFiltering="false"
                                     ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
                                 <telerik:GridTemplateColumn SortExpression="di_albo_del" UniqueName="di_albo_del"
                                     HeaderText="Albo del" DataField="di_albo_del" HeaderStyle-Width="10%" AllowFiltering="false"
@@ -220,7 +221,7 @@
                                                 <div class="row" id="div_societa_gestione" runat="server">
                                                     <div class="col-md-12">
                                                         <cc:rDropDown ID="ddl_di_societa_gestione_key" runat="server" AutoPostBack="false"
-                                                            Label="Societ&agrave; di gestione" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="Societ&agrave; di gestione" Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Società di gestione obbligatoria!" />
                                                     </div>
                                                 </div>
@@ -321,6 +322,7 @@
                                 <div id="div_personal" class="tab-pane" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
+                                            <div class="table-container">
                                             <telerik:RadGrid ID="RGPersonale" AutoGenerateColumns="False" CssClass="" runat="server"
                                                 ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                                                 Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
@@ -387,6 +389,7 @@
                                                     <Selecting AllowRowSelect="false" />
                                                 </ClientSettings>
                                             </telerik:RadGrid>
+                                        </div>
                                             <div class="form-actions right" style="padding-top: 10px;">
                                                 <asp:LinkButton ID="btn_nuovo_personale" runat="server" CssClass="btn btn-primary">
                                             <i class="fa fa-plus"></i> Nuovo Personale
@@ -435,7 +438,7 @@
                                             <div class="">
                                                 <h3>
                                                     Autorizzazioni per il trasporto/intermediazione</h3>
-                                                <div class="form-body overflow">
+                                                <div class="form-body table-container">
                                                     <table class="table table-striped table-advance table-hover">
                                                         <thead>
                                                             <tr>
@@ -493,14 +496,14 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="">
+                                                <div class="overflow">
                                                     <div class="form-body">
                                                         <div id="div_modifica_autorizzazione" runat="server">
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <hr />
-                                                                </div> 
-                                                            </div> 
+                                                                </div>
+                                                            </div>
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <cc:rDropDown ID="ddl_di_tipologia_autorizzazioni_cod" runat="server" AutoPostBack="false" Label="Tipo autorizzazione"
@@ -529,7 +532,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div> 
+                                                </div>
                                                 <div class="form-actions right">
                                                     <asp:LinkButton ID="btn_registra_autorizzazione" runat="server" CssClass="btn btn-primary">
                                                             <i class="fa fa-check"></i> Salva
@@ -541,9 +544,8 @@
                                                 <asp:Label ID="lbl_ditta_autorizzazioni_key" runat="server" Visible="false"></asp:Label>
                                             </div>
                                             <div class="">
-                                                <h3>
-                                                    Autorizzazioni per il recupero/smaltimento</h3>
-                                                <div class="form-body overflow">
+                                                <h3>Autorizzazioni per il recupero/smaltimento</h3>
+                                                <div class="form-body table-container">
                                                     <table class="table table-striped table-advance table-hover">
                                                         <thead>
                                                             <tr>
@@ -596,7 +598,7 @@
                                                     </table>
                                                 </div>
 
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -606,7 +608,7 @@
                                             <div class="form-horizontal">
                                                 <h3>
                                                     Autorizzazioni per il trasporto/intermediazione</h3>
-                                                <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
+                                                <div class="form-body table-container" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                     <cc:cAllegati ID="cAllegati1" runat="server" />
                                                 </div>
                                                 <div class="form-actions right">
@@ -620,71 +622,72 @@
                                     <div class="row" id="div_autorizzazioni_scarico" runat="server">
                                         <div class="col-lg-12">
                                             <div class="form-horizontal">
-                                                <h3>
-                                                    Autorizzazioni per il recupero/smaltimento</h3>
-                                                <table class="table table-striped table-advance table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="width: 20%;">
-                                                                Sito
-                                                            </th>
-                                                            <th style="width: 15%;">
-                                                                Allegato
-                                                            </th>
-                                                            <th style="width: 15%;">
-                                                                Tipologia
-                                                            </th>
-                                                            <th style="width: 10%;">
-                                                                Data
-                                                            </th>
-                                                            <th style="width: 15%;">
-                                                                Titolo
-                                                            </th>
-                                                            <th style="width: 25%;">
-                                                                Descrizione
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <asp:Repeater ID="rpt_documenti" runat="server">
-                                                            <ItemTemplate>
-                                                                <tr>
-                                                                    <td>
-                                                                        <asp:Label ID="lbl_doc_sito" runat="server"></asp:Label>
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:HyperLink ID="lnk_doc_file" runat="server" Target="_blank"></asp:HyperLink>
-                                                                        <div class="project-wrapper" id="div_immagine" runat="server">
-                                                                            <div class="project">
-                                                                                <div class="photo-wrapper">
-                                                                                    <div class="photo">
-                                                                                        <asp:HyperLink ID="lnk_doc_immagine" runat="server" CssClass="fancybox" NavigateUrl="">
-                                                                                            <asp:Image ID="img_doc_immagine" runat="server" CssClass="img-responsive gisri_attach_image" />
-                                                                                        </asp:HyperLink>
-                                                                                    </div>
-                                                                                    <div class="overlay">
+                                                <h3>Autorizzazioni per il recupero/smaltimento</h3>
+                                                <div class="table-container">
+                                                    <table class="table table-striped table-advance table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 20%;">
+                                                                    Sito
+                                                                </th>
+                                                                <th style="width: 15%;">
+                                                                    Allegato
+                                                                </th>
+                                                                <th style="width: 15%;">
+                                                                    Tipologia
+                                                                </th>
+                                                                <th style="width: 10%;">
+                                                                    Data
+                                                                </th>
+                                                                <th style="width: 15%;">
+                                                                    Titolo
+                                                                </th>
+                                                                <th style="width: 25%;">
+                                                                    Descrizione
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <asp:Repeater ID="rpt_documenti" runat="server">
+                                                                <ItemTemplate>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_doc_sito" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:HyperLink ID="lnk_doc_file" runat="server" Target="_blank"></asp:HyperLink>
+                                                                            <div class="project-wrapper" id="div_immagine" runat="server">
+                                                                                <div class="project">
+                                                                                    <div class="photo-wrapper">
+                                                                                        <div class="photo">
+                                                                                            <asp:HyperLink ID="lnk_doc_immagine" runat="server" CssClass="fancybox" NavigateUrl="">
+                                                                                                <asp:Image ID="img_doc_immagine" runat="server" CssClass="img-responsive gisri_attach_image" />
+                                                                                            </asp:HyperLink>
+                                                                                        </div>
+                                                                                        <div class="overlay">
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:Label ID="lbl_doc_tipo_documento_desc" runat="server"></asp:Label>
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:Label ID="lbl_doc_data" runat="server"></asp:Label>
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:Label ID="lbl_doc_titolo" runat="server"></asp:Label>
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:Label ID="lbl_doc_descrizione" runat="server"></asp:Label>
-                                                                    </td>
-                                                                </tr>
-                                                            </ItemTemplate>
-                                                        </asp:Repeater>
-                                                    </tbody>
-                                                </table>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_doc_tipo_documento_desc" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_doc_data" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_doc_titolo" runat="server"></asp:Label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Label ID="lbl_doc_descrizione" runat="server"></asp:Label>
+                                                                        </td>
+                                                                    </tr>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -693,7 +696,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="">
-                                                <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
+                                                <div class="form-body table-container" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                     <table class="table table-striped table-advance table-hover">
                                                         <thead>
                                                             <tr>

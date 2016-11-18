@@ -61,6 +61,7 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <cc:Messaggio ID="Messaggio" runat="server" />
@@ -68,7 +69,7 @@
         <div class="col-md-12">
             <div class="content-panel" id="panel_elenco" runat="server" visible="true" style="padding-left: 10px!Important;
                 padding-top: 0px!Important; margin-bottom: 10px;">
-                <div class="row" style="height: 50px!Important;">
+                <div class="row" style="min-height: 50px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <asp:LinkButton ID="btn_filtri" runat="server" CssClass="btn btn-default" ToolTip="Visualizza maschera dei filtri"
@@ -113,7 +114,7 @@
                             <div class="col-xs-2 gisri_row_filter">
                                 <div class="input-group" style="width: 100%">
                                     <div>
-                                        <asp:DropDownList ID="ddl_filter_profili" runat="server" CssClass="form-control gisri_form_filter" 
+                                        <asp:DropDownList ID="ddl_filter_profili" runat="server" CssClass="form-control gisri_form_filter"
                                             onChange="grid_search(this, event, 'dp_profilo');">
                                         </asp:DropDownList>
                                     </div>
@@ -122,7 +123,7 @@
                             <div class="col-xs-2 gisri_row_filter">
                                 <div class="input-group" style="width: 100%">
                                     <div>
-                                        <asp:DropDownList ID="ddl_filter_profili_siti" runat="server" CssClass="form-control gisri_form_filter" 
+                                        <asp:DropDownList ID="ddl_filter_profili_siti" runat="server" CssClass="form-control gisri_form_filter"
                                             onChange="grid_search(this, event, 'dp_profilo_siti');">
                                         </asp:DropDownList>
                                     </div>
@@ -142,7 +143,7 @@
                             <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                 <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                     ToolTip="Pulisce Filtri" Height="25" Style="padding-top: 6px; padding-left: 1px;">
-                                    <i class="fa fa-eraser"></i>  
+                                    <i class="fa fa-eraser"></i>
                                 </asp:LinkButton>
                             </div>
                         </div>
@@ -373,7 +374,7 @@
                                                                 </asp:LinkButton>
                                                                 <h5 style="float:right;">ELENCO SITI</h5>
                                                             </div>
-                                                        </div>        
+                                                        </div>
                                                         <div class="row" id="div_filtri_siti" runat="server" visible="false">
                                                             <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;
                                                                 margin-top: 5px; margin-bottom:10px;">
@@ -426,9 +427,9 @@
                                                                     <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                                                         <asp:LinkButton ID="btn_reset_filter_siti" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                                                             ToolTip="Pulisce Filtri" Height="25" Style="padding-top:6px; padding-left:1px;">
-                                                                            <i class="fa fa-eraser"></i>  
+                                                                            <i class="fa fa-eraser"></i>
                                                                         </asp:LinkButton>
-                                                                    </div> 
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -440,7 +441,7 @@
                                                             <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
                                                             <FilterItemStyle HorizontalAlign="Left" Height="0" />
                                                             <ItemStyle HorizontalAlign="Left" />
-                                                            <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="sito_key" ClientDataKeyNames="sito_key" 
+                                                            <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="sito_key" ClientDataKeyNames="sito_key"
                                                                 AllowMultiColumnSorting="True" ShowHeadersWhenNoRecords="false">
                                                                 <Columns>
                                                                     <telerik:GridTemplateColumn UniqueName="st_assegnato_permesso" SortExpression=""
@@ -470,7 +471,7 @@
                                                                         AllowFiltering="true">
                                                                         <HeaderStyle CssClass="hidden" />
                                                                         <ItemStyle CssClass="hidden" />
-                                                                    </telerik:GridBoundColumn> 
+                                                                    </telerik:GridBoundColumn>
                                                                 </Columns>
                                                             </MasterTableView>
                                                         </telerik:RadGrid>
@@ -493,7 +494,7 @@
                                                         <i class="fa fa-check"></i> Salva
                                                     </asp:LinkButton>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                     <! --/row -->
@@ -608,7 +609,7 @@
                                                                             </asp:Repeater>
                                                                         </td>
                                                                     </tr>
-                                                                </tbody> 
+                                                                </tbody>
                                                             </ItemTemplate>
                                                             <FooterTemplate >
                                                                 </table>
@@ -622,7 +623,7 @@
                                                         <i class="fa fa-check"></i> Salva
                                                     </asp:LinkButton>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

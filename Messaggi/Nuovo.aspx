@@ -17,11 +17,10 @@
             $('.make-switch').bootstrapSwitch();
         }
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row mt">
-        <div style="height: 10px;">
-        </div>
         <div class="col-md-12">
             <section class="content-panel">
                 <header class="panel-heading wht-bg">
@@ -30,13 +29,13 @@
                                 <h4 class="gen-case"> Nuovo messaggio</h4>
                         </div>
                         <div class="col-md-6">
-                            <div class="compose-btn pull-right">
+                            <!-- <div class="compose-btn" > -->
                                 <div id="div_cerca" runat="server">
                                     <div class="form-inline">
                                         <asp:LinkButton ID="btn_return" runat="server" ToolTip="Vai alla mailbox" CssClass="btn btn-primary"><i class="fa fa-envelope"></i>&nbsp;&nbsp;Vai alla mailbox</asp:LinkButton>
                                     </div>
                                 </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </header>
@@ -57,7 +56,7 @@
                         <strong>
                             <asp:Literal ID="ltl_messaggio_ok" runat="server"></asp:Literal></strong>
                     </div>
-                    <div class="compose-mail" style="padding-left:30px; padding-right:30px;">
+                    <div class="compose-mail" style="padding-left:10px; padding-right:10px;">
                         <div class="form-vertical">
                             <div class="row">
                                 <div class="form-group">
@@ -72,13 +71,13 @@
                                         placeholder="Seleziona gli indrizzi">
                                     </asp:DropDownList>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="row">
                                 <div class="form-group">
                                     <label for="mail_subject" class="">Oggetto:</label>
                                     <asp:TextBox ID="txt_soggetto" name="mail_subject" runat="server" MaxLength="256" CssClass="form-control" placeholder="Inserisci l'oggetto del messaggio"></asp:TextBox>
-                                </div> 
-                            </div> 
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="compose-editor" style="padding-top:0px;">
                                     <label for="mail_subject" class="">Messaggio:</label>
@@ -86,7 +85,7 @@
 							        </div>
                                     <asp:TextBox ID="txt_messaggio_html" style="display:none;" runat="server" TextMode="MultiLine" Rows="10" CssClass="form-control"></asp:TextBox>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="row" id="div_messaggistica_invio" runat="server">
                                 <div class="form-group">
                                     <cc:rCheckBox ID="chk_messaggistica_invio" runat="server" Values="S|" Classes="make-switch|SI|NO|success|"
@@ -100,14 +99,14 @@
                                     <telerik:RadAsyncUpload runat="server" ID="RadUpload1" MultipleFileSelection="Automatic" Culture="it-IT"
                                         AllowedFileExtensions="doc,docx,pdf,xls,xlsx,jpg,msg,txt" Localization-Select="Seleziona" />
                                 </div>
-                            </div> 
+                            </div>
                             <div class="row">
                             <div class="form-group">
                                 <asp:LinkButton ID="btnInvia" runat="server" CssClass="btn btn-primary">
                                         <i class="fa fa-check"></i> Invia il messaggio
                                 </asp:LinkButton>
                             </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,7 +119,7 @@
     <!--script for this page-->
 	<script type="text/javascript" src="../assets/plugins/bootstrap-summernote/summernote.min.js"></script>
 	<script type="text/javascript" src="../assets/plugins/bootstrap-summernote/lang/summernote-it-IT.js"></script>
-    
+
     <script type="text/javascript">
         $(document).ready(function () {
             setSummerNote(true);
