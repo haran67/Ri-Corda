@@ -20,15 +20,15 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    
-    <div style="height:10px;"></div> 
+
+    <div style="height:10px;"></div>
     <div class="row">
         <div class="col-lg-12">
             <div class="content-panel" style="padding-left:10px!Important;padding-top:10px!Important; margin-bottom:10px;">
                 <h3 style="margin:0px!Important;">
                     <i class="fa fa-home"></i>&nbsp;<asp:Literal ID="ltl_st_denominazione" runat="server"></asp:Literal></h3>
-            </div> 
-        </div> 
+            </div>
+        </div>
         <div class="col-lg-8">
             <div class="content-panel" style="padding:10px!Important;">
                 <div class="head-menu">
@@ -102,7 +102,7 @@
                                                         <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                                             <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                                                 ToolTip="Pulisce Filtri" Height="25" Style="padding-top: 6px; padding-left: 1px;">
-                                                        <i class="fa fa-eraser"></i>  
+                                                        <i class="fa fa-eraser"></i>
                                                             </asp:LinkButton>
                                                         </div>
                                                     </div>
@@ -225,7 +225,7 @@
                                                         <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                                             <asp:LinkButton ID="btn_reset_filter_smaltiti" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                                                 ToolTip="Pulisce Filtri" Height="25" Style="padding-top: 6px; padding-left: 1px;">
-                                                        <i class="fa fa-eraser"></i>  
+                                                        <i class="fa fa-eraser"></i>
                                                             </asp:LinkButton>
                                                         </div>
                                                     </div>
@@ -311,8 +311,8 @@
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-            
-            </div> 
+
+            </div>
         </div>
         <div class="col-lg-4 side-col">
             <div class="content-panel" style="padding:10px!Important;">
@@ -356,21 +356,21 @@
                                             <div class="recent-activity" style="margin-top:10px;">
                                                 <table style="width: 100%;">
                                                     <tr>
-                                                        <td>&nbsp;</td>
+                                                        <td class="legend">&nbsp;</td>
                                                         <td>
-                                                            <div class="activity-panel head">
-                                                                <div class="row">
-                                                                    <div class="col-xs-4">
+                                                            <table class="activity-panel" style="border-left: 10px solid #fff; max-height: 300px; overflow: auto;">
+                                                                <tr>
+                                                                    <td>
                                                                         <h5>Codice</h5>
-                                                                    </div>
-                                                                    <div class="col-xs-4">
+                                                                    </td>
+                                                                    <td>
                                                                         <h5>Quantit&agrave;</h5>
-                                                                    </div>
-                                                                    <div class="col-xs-4">
+                                                                    </td>
+                                                                    <td>
                                                                         <h5>Entro il</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -378,33 +378,31 @@
                                                     <HeaderTemplate>
                                                             <table style="width: 100%;">
                                                                 <tr>
-                                                                    <td>
+                                                                    <td class="legend">
                                                                         <div class="activity-icon activity-gisri activity-bg-law">
                                                                             <i class="fa fa-graduation-cap"></i>
                                                                         </div>
                                                                     </td>
                                                                     <td>
 <!--                                                                        <div class="activity-panel" style="border-left: 10px solid #000000; max-height: 300px; overflow: auto;">-->
-                                                                        <div class="activity-panel body" style="max-height: 300px; overflow: auto;">
+                                                                        <!-- <div class="activity-panel body" style="max-height: 300px; overflow: auto;"> -->
+                                                                            <table class="activity-panel" style="border-left: 10px solid #000000; max-height: 300px; overflow: auto;">
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
-                                                        <div class="row">
-                                                            <div class=" col-xs-4">
-                                                                <h5>
-                                                                    <asp:Label ID="lbl_codice_cer" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                            <div class=" col-xs-4">
-                                                                <h5>
-                                                                    <asp:Label ID="lbl_qta_da_smaltire" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                            <div class=" col-xs-4">
-                                                                <h5>
-                                                                    <asp:Label ID="lbl_data_entro" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                        </div>
+                                                            <tr>
+                                                                <td>
+                                                                    <h5><asp:Label ID="lbl_codice_cer" runat="server"></asp:Label></h5>
+                                                                </td>
+                                                                <td>
+                                                                    <h5><asp:Label ID="lbl_qta_da_smaltire" runat="server"></asp:Label></h5>
+                                                                </td>
+                                                                <td>
+                                                                    <h5><asp:Label ID="lbl_data_entro" runat="server"></asp:Label></h5>
+                                                                </td>
+                                                            </tr>
                                                     </ItemTemplate>
                                                     <FooterTemplate>
-                                                        </div> </td> </tr> </table> 
+                                                    </table> </td> </tr> </table>
 <!--                                                        </div>-->
                                                     </FooterTemplate>
                                                 </asp:Repeater>
@@ -413,33 +411,31 @@
                                                         <div class="row" style="padding-left: 15px; padding-right: 15px; padding-bottom: 10px;">
                                                             <table style="width: 100%;">
                                                                 <tr>
-                                                                    <td style="width: 30px; padding-right: 5px; vertical-align: middle;">
+                                                                    <td class="legend">
                                                                         <div class="activity-icon activity-gisri activity-bg-danger">
                                                                             <i class="fa fa-truck"></i>
                                                                         </div>
                                                                     </td>
-                                                                    <td style="white-space: nowrap;">
-                                                                        <div class="activity-panel" style="border-left: 10px solid #aa0000; max-height: 300px;
-                                                                            overflow: auto;">
-                                                    </HeaderTemplate>
-                                                    <ItemTemplate>
-                                                        <div class="row">
-                                                            <div class=" col-xs-4">
-                                                                <h5>
-                                                                    <asp:Label ID="lbl_codice_cer" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                            <div class=" col-xs-4">
-                                                                <h5>
-                                                                    <asp:Label ID="lbl_qta_da_smaltire" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                            <div class=" col-xs-4">
-                                                                <h5>
-                                                                    <asp:Label ID="lbl_data_entro" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                        </div>
-                                                    </ItemTemplate>
-                                                    <FooterTemplate>
-                                                        </div> </td> </tr> </table> </div>
+                                                                    <td>
+                                                                        <!-- <div class="activity-panel" style="border-left: 10px solid #aa0000; max-height: 300px;
+                                                                            overflow: auto;"> -->
+                                                                        <table class="activity-panel" style="border-left: 10px solid #aa0000; max-height: 300px; overflow: auto;">
+                                                                    </HeaderTemplate>
+                                                                    <ItemTemplate>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <h5><asp:Label ID="lbl_codice_cer" runat="server"></asp:Label></h5>
+                                                                            </td>
+                                                                            <td>
+                                                                                <h5><asp:Label ID="lbl_qta_da_smaltire" runat="server"></asp:Label></h5>
+                                                                            </td>
+                                                                            <td>
+                                                                                <h5><asp:Label ID="lbl_data_entro" runat="server"></asp:Label></h5>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </ItemTemplate>
+                                                                    <FooterTemplate>
+                                                        </table></td> </tr> </table> </div>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
                                                 <asp:Repeater ID="rpt_deposito_warning" runat="server" OnItemDataBound="rpt_deposito_ItemDataBound">
@@ -447,33 +443,37 @@
                                                         <div class="row" style="padding-left: 15px; padding-right: 15px; padding-bottom: 10px;">
                                                             <table style="width: 100%;">
                                                                 <tr>
-                                                                    <td style="width: 30px; padding-right: 5px; vertical-align: middle;">
+                                                                    <td class="legend">
                                                                         <div class="activity-icon activity-gisri activity-bg-warning">
                                                                             <i class="fa fa-gears"></i>
                                                                         </div>
                                                                     </td>
-                                                                    <td style="white-space: nowrap;">
-                                                                        <div class="activity-panel" style="border-left: 10px solid #F1C500; max-height: 300px;
+                                                                    <td>
+                                                                        <!-- <div class="activity-panel" style="border-left: 10px solid #F1C500; max-height: 300px;
+                                                                            overflow: auto;"> -->
+                                                                        <table class="activity-panel" style="border-left: 10px solid #F1C500; max-height: 300px;
                                                                             overflow: auto;">
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
-                                                        <div class="row">
-                                                            <div class=" col-xs-4">
+                                                        <tr>
+                                                            <td>
                                                                 <h5>
                                                                     <asp:Label ID="lbl_codice_cer" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                            <div class=" col-xs-4">
+                                                            </td>
+                                                            <td>
                                                                 <h5>
                                                                     <asp:Label ID="lbl_qta_da_smaltire" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                            <div class=" col-xs-4">
+
+                                                            </td>
+                                                            <td>
                                                                 <h5>
                                                                     <asp:Label ID="lbl_data_entro" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                        </div>
+                                                            </td>
+
+                                                        </tr>
                                                     </ItemTemplate>
                                                     <FooterTemplate>
-                                                        </div> </td> </tr> </table> </div>
+                                                    </table> </td> </tr> </table> </div>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
                                                 <asp:Repeater ID="rpt_deposito_calm" runat="server" OnItemDataBound="rpt_deposito_ItemDataBound">
@@ -481,33 +481,31 @@
                                                         <div class="row" style="padding-left: 15px; padding-right: 15px; padding-bottom: 10px;">
                                                             <table style="width: 100%;">
                                                                 <tr>
-                                                                    <td style="width: 30px; padding-right: 5px; vertical-align: middle;">
+                                                                    <td class="legend">
                                                                         <div class="activity-icon activity-gisri activity-bg-success">
                                                                             <i class="fa fa-recycle"></i>
                                                                         </div>
                                                                     </td>
-                                                                    <td style="white-space: nowrap;">
-                                                                        <div class="activity-panel" style="border-left: 10px solid #067700; max-height: 300px;
-                                                                            overflow: auto;">
+                                                                    <td>
+                                                                        <!-- <div class="activity-panel" style="border-left: 10px solid #067700; max-height: 300px;
+                                                                            overflow: auto;"> -->
+                                                                        <table class="activity-panel" style="border-left: 10px solid #067700; max-height: 300px;overflow: auto;">
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
-                                                        <div class="row">
-                                                            <div class=" col-xs-4">
-                                                                <h5>
-                                                                    <asp:Label ID="lbl_codice_cer" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                            <div class=" col-xs-4">
-                                                                <h5>
-                                                                    <asp:Label ID="lbl_qta_da_smaltire" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                            <div class=" col-xs-4">
-                                                                <h5>
-                                                                    <asp:Label ID="lbl_data_entro" runat="server"></asp:Label></h5>
-                                                            </div>
-                                                        </div>
+                                                        <tr>
+                                                            <td>
+                                                                <h5><asp:Label ID="lbl_codice_cer" runat="server"></asp:Label></h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5><asp:Label ID="lbl_qta_da_smaltire" runat="server"></asp:Label></h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5><asp:Label ID="lbl_data_entro" runat="server"></asp:Label></h5>
+                                                            </td>
+                                                        </tr>
                                                     </ItemTemplate>
                                                     <FooterTemplate>
-                                                        </div> </td> </tr> </table> </div>
+                                                    </table> </td> </tr> </table> </div>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
                                             </div>
@@ -518,7 +516,7 @@
                         </asp:Repeater>
 
                     </div>
-                </div> 
+                </div>
 
                 <asp:Repeater ID="rpt_registri" runat="server">
                     <HeaderTemplate>
@@ -528,7 +526,7 @@
                                     <th colspan="2" style="width: 50%; text-align:center; font-size:15px;">
                                         REGISTRI PRESENTI
                                     </th>
-                                </tr> 
+                                </tr>
                                 <tr>
                                     <th style="width: 40%;">
                                         Titolo
@@ -537,7 +535,7 @@
                                         Intestatario
                                     </th>
                                     <th style="width: 1%;">
-                                        
+
                                     </th>
                                 </tr>
                             </thead>
@@ -563,7 +561,7 @@
                         </table>
                     </FooterTemplate>
                 </asp:Repeater>
-                
+
                 <asp:Repeater ID="rpt_personale_assegnato" runat="server">
                     <HeaderTemplate>
                         <table class="table table-striped table-advance table-hover">
@@ -572,7 +570,7 @@
                                     <th colspan="2" style="width: 50%; text-align:center; font-size:15px;">
                                         PERSONALE TITOLARE
                                     </th>
-                                </tr> 
+                                </tr>
                                 <tr>
                                     <th style="width: 60%;">
                                         Nominativo
@@ -607,7 +605,7 @@
                                     <th colspan="2" style="width: 50%; text-align:center; font-size:15px;">
                                         DITTE OPERATRICI IN SITO
                                     </th>
-                                </tr> 
+                                </tr>
                                 <tr>
                                     <th style="width: 60%;">
                                         Ditta

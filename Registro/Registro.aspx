@@ -41,7 +41,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="content-panel">
-                <div class="row" style="height:39px!Important;">
+                <div class="row" style="min-height:39px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <h3 style="margin:0px!Important;">
@@ -55,8 +55,8 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-        </div> 
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="content-panel" id="panel_elenco" runat="server" visible="true">
 				<div class="row" style="height:40px!Important;">
@@ -66,7 +66,7 @@
                                 ToolTip="Visualizza maschera dei filtri" Style="padding-top:6px; padding-left:10px;">
                                 <i class="fa fa-filter"></i>
                             </asp:LinkButton>
-                        </div> 
+                        </div>
 						<div class="gisri_title_left">
 							<h3 style="padding-left: 10px; margin-top: 0px!Important;">
 								ELENCO REGISTRI DEL SITO</h3>
@@ -77,7 +77,7 @@
 					</div>
 				</div>
                 <div class="row" id="div_filtri_boh" runat="server" visible="true">
-                </div> 
+                </div>
                 <div class="row" id="div_filtri" runat="server" visible="false">
                     <div class="form-body">
                         <div class="row">
@@ -108,12 +108,12 @@
                             <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                 <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                     ToolTip="Pulisce Filtri" Height="25" Style="padding-top:6px; padding-left:1px;">
-                                    <i class="fa fa-eraser"></i>  
+                                    <i class="fa fa-eraser"></i>
                                 </asp:LinkButton>
-                            </div> 
+                            </div>
                         </div>
-                    </div>                            
-                </div> 
+                    </div>
+                </div>
                 <telerik:RadGrid ID="RGRegistri" AutoGenerateColumns="False" CssClass="overflow" style="width: 100% !important" runat="server"
                     ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                     Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
@@ -267,14 +267,14 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <cc:rDropDown ID="ddl_proprietario_key" runat="server" AutoPostBack="false" Label="Intestatario"
-                                                            Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Proprietario del registro obbligatorio!" />
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <cc:rTextBox ID="txt_rr_titolo" runat="server" MaxLength="128" AutoPostBack="false"
-                                                            Label="Titolo del registro" Icon="" Form_Vertical="true" 
+                                                            Label="Titolo del registro" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Titolo del registro obbligatorio!" />
                                                     </div>
                                                 </div>
@@ -287,38 +287,38 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextBox ID="txt_rr_protocollo_numero" runat="server" MaxLength="32" AutoPostBack="false"
-                                                            Label="Protocollo Num" Icon="" Form_Vertical="true" 
+                                                            Label="Protocollo Num" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Numero protocollo obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <cc:rTextData ID="txt_rr_protocollo_data" runat="server" MaxLength="10" AutoPostBack="false"
-                                                            Label="Data protocollo" Icon="fa fa-calendar" Form_Vertical="true" 
+                                                            Label="Data protocollo" Icon="fa fa-calendar" Form_Vertical="true"
                                                             Required="true" Required_Help="Data protocollo obbligatoria!" />
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <cc:rTextBox ID="txt_rr_autorita_vidimante" runat="server" MaxLength="128" AutoPostBack="false"
-                                                            Label="Vidimato Da" Icon="" Form_Vertical="true" 
+                                                            Label="Vidimato Da" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Autorità vidimante obbligatoria!" />
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextNumero ID="txt_rr_progressivo_inizio" runat="server" MaxLength="16" AutoPostBack="true"
-                                                            CifreDecimali="0" Label="Progressivo numerico semplice" Icon="" Form_Vertical="true" 
+                                                            CifreDecimali="0" Label="Progressivo numerico semplice" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Primo progressivo obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <cc:rTextBox ID="txt_rr_progressivo_scritto" runat="server" MaxLength="32" AutoPostBack="false"
-                                                            Label="Progressivo alternativo/integrato <br>(come riportato su registro)" Icon="" Form_Vertical="true" 
+                                                            Label="Progressivo alternativo/integrato <br>(come riportato su registro)" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Primo progressivo scritto obbligatorio!" />
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rr_sito_attivita_rifiuto_cod" runat="server" AutoPostBack="false"
-                                                            Label="Tipologia attività" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="Tipologia attività" Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Tipologia attività obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">

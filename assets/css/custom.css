@@ -7,13 +7,23 @@
     margin-top: 10px;
     padding: 10px;
 }
+.table-container {
+    overflow:auto;
+    text-align: left;
+}
 .table-inbox-wrap {
     margin: 0;
 }
 .login .form-login {
     margin: 10% auto 0;
 }
-
+.recent-activity .activity-panel {
+    width: 100%;
+}
+.recent-activity .activity-panel td{
+    width: 33%;
+    padding: 5px;
+}
 @media (max-width:320px) {
     header {
         background-size: cover;
@@ -38,7 +48,7 @@
         background: #fff;
         margin-top: 15px;
     }
-    
+
     .head-menu {
         text-align: center;
     }
@@ -46,14 +56,10 @@
         padding-left: 15px;
         padding-top: 15px;
     }
-    .table-container {
-        overflow:auto;
-        text-align: left;
-    }
-    
-    
+
+
     /* tabella depositi temporanei */
-    
+
     .progress {
         position: relative;
     }
@@ -62,23 +68,7 @@
         left: 0;
         margin-top: 0;
     }
-    
-    .recent-activity tr > td{
-        width: 20px;
-        vertical-align: middle;
-        white-space: nowrap;
-    }
-    .recent-activity tr td:first-child{
-        display: none;
-    }
-    .recent-activity .activity-panel{
-        padding: 5px;
-    }
-    .recent-activity .head{
-        border: none !important;
-        padding-right: 0;
 
-    }
     .recent-activity .activity-icon {
         margin: 20px 0;
 
@@ -87,15 +77,15 @@
         border: none !important;
 
     }
-    
-    
+
+
     /* sezione configurazione */
-    
+
     .conf-menu {
         padding-left: 0px;
         padding-right: 0px;
     }
-    
+
     .conf-content {
         padding-left: 0px;
         padding-right: 0px;
@@ -124,20 +114,16 @@
     }
     .head-menu {
         text-align: center;
-        box-sizing: 
+        box-sizing:
     }
     .side-col {
         padding-left: 15px;
         padding-top: 15px;
     }
-    .table-container {
-        overflow:auto;
-        text-align: left;
-    }
-    
-    
+
+
     /* tabella depositi temporanei */
-    
+
     .progress {
         position: relative;
     }
@@ -146,20 +132,11 @@
         left: 0;
         margin-top: 0;
     }
-    .recent-activity tr > td{
-        width: 20px;
-        vertical-align: middle;
-        white-space: nowrap;
-    }
-    .recent-activity tr td:first-child{
+
+    .recent-activity .legend{
         display: none;
     }
 
-    .recent-activity .head{
-        border: none !important;
-        padding-right: 0;
-
-    }
     .recent-activity .activity-icon {
         margin: 20px 0;
 
@@ -168,7 +145,7 @@
         border: none !important;
 
     }
-    
+
     /* sezione configurazione */
 
     .conf-menu {
@@ -206,7 +183,7 @@
         margin-left: 10px;
     }
 
-    
+
     /* tabella depositi temporanei */
 
     .progress {
@@ -217,17 +194,12 @@
         left: 0;
         margin-top: 0;
     }
-    .recent-activity tr > td{
-        width: 20px;
+    .recent-activity .legend{
+        width: 60px;
         vertical-align: middle;
         white-space: nowrap
     }
 
-    .recent-activity .head{
-        border-left: 10px solid #fff;
-        padding-right: 5px;
-
-    }
     .recent-activity .activity-icon {
         margin: 20px 0;
 
@@ -236,7 +208,7 @@
         border-left: 10px solid #000000;
 
     }
-    
+
     /* sezione configurazione */
 
     .conf-menu {
@@ -258,12 +230,8 @@
         padding-left: 15px;
         padding-top: 15px;
     }
-    .table-container {
-        overflow:auto;
-        text-align: left;
-    }
-    
-    
+
+
     /* tabella depositi temporanei */
 
     .progress {
@@ -274,7 +242,7 @@
         left: 0;
         margin-top: 0;
     }
-    .recent-activity tr > td{
+    .recent-activity .legend{
         width: 20px;
         vertical-align: middle;
         white-space: nowrap
@@ -293,8 +261,8 @@
         border-left: 10px solid #000000;
 
     }
-    
-    
+
+
     /* sezione configurazione */
 
     .conf-menu {
@@ -316,12 +284,8 @@
         padding-left: 15px;
         padding-top: 15px;
     }
-    .table-container {
-        overflow:auto;
-        text-align: left;
-    }
-    
-    
+
+
     /* tabella depositi temporanei */
 
     .progress {
@@ -332,17 +296,12 @@
         left: 0;
         margin-top: 0;
     }
-    .recent-activity tr > td{
-        width: 20px;
+    .recent-activity .legend{
+        width: 50px;
         vertical-align: middle;
         white-space: nowrap
     }
 
-    .recent-activity .head{
-        border-left: 10px solid #fff;
-        padding-right: 5px;
-
-    }
     .recent-activity .activity-icon {
         margin: 20px 0;
 
@@ -351,8 +310,8 @@
         border-left: 10px solid #000000;
 
     }
-    
-    
+
+
     /* sezione configurazione */
 
     .conf-menu {
@@ -374,12 +333,7 @@
         padding-left: 0;
         padding-top: 0;
     }
-    .table-container {
-        overflow:auto;
-        text-align: left;
-    }
-    
-    
+
     /* tabella depositi temporanei */
 
     .progress {
@@ -390,27 +344,17 @@
         left: 0;
         margin-top: 0;
     }
-    .recent-activity tr > td{
-        width: 20px;
-        vertical-align: middle;
-        white-space: nowrap
-    }
-    
-    .recent-activity .head{
-        border-left: 10px solid #fff;
-        padding-right: 5px;
-        
-    }
+
     .recent-activity .activity-icon {
         margin: 20px 0;
 
     }
     .recent-activity .body {
         border-left: 10px solid #000000;
-        
+
     }
-    
-    
+
+
     /* sezione configurazione */
 
     .conf-menu {
@@ -423,12 +367,3 @@
         padding-right: 0px;
     }
 }
-
-
-
-
-
-
-
-
-
