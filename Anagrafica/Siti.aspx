@@ -719,23 +719,23 @@
                                 </div>
                                 <div id="div_mappa" class="tab-pane" runat="server">
                                     <div class="row">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12" style="padding: 0;">
                                             <div style="margin-left: 10px!Important; margin-right: 10px!Important;">
-                                                <div class="col-lg-12">
+                                                <div class="col-lg-12" style="padding: 0;">
                                                     <iframe id="iMappa" frameborder="0" width="100%" height="730" src=""></iframe>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-9">
-                                            <div style="margin-left: 10px!Important;">
+                                        <div class="col-lg-9" style="margin-top: 5px;">
+                                            <div>
                                                 <asp:TextBox ID="txt_google_address" runat="server" MaxLength="256" AutoPostBack="false"
                                                 CssClass="form-control" placeholder="Inserisci l'indirizzo per la ricerca su Google Maps"/>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
-                                            <div style="margin-right: 10px!Important; text-align:right;">
+                                        <div class="col-lg-3" style="margin-top: 5px;">
+                                            <div>
                                                 <asp:LinkButton ID="btn_google_address" runat="server" ToolTip="" CssClass="btn btn-default"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Ricalcola coordinate</asp:LinkButton>
                                             </div>
                                         </div>

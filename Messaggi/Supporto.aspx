@@ -48,6 +48,7 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </head>
 <body>
     <form id="frmSupporto" runat="server">

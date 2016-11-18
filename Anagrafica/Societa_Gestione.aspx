@@ -73,10 +73,10 @@
                         </div>
                         <div class="gisri_title_left">
                             <h3 style="padding-left: 10px; margin-top: 0px!Important;">
-                                ELENCO SOCIETA GESTIONE</h3>
+                                ELENCO SOCIETA' GESTIONE</h3>
                         </div>
                         <div class="gisri_button_right" id="div_nuovo" runat="server" >
-                            <asp:LinkButton ID="btn_nuovo" runat="server" ToolTip="Nuova societa" CssClass="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;Nuova Società</asp:LinkButton>
+                            <asp:LinkButton ID="btn_nuovo" runat="server" ToolTip="Nuova societa" CssClass="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;Nuova Societ&aacute;</asp:LinkButton>
                         </div>
                     </div>
                 </div>
