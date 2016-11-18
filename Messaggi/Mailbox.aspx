@@ -14,7 +14,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row mt">
-        <div class="col-md-12">
+        <div class="">
             <div class="col-sm-3" style="display:none;">
                 <section class="panel">
                     <div class="panel-body">
@@ -44,31 +44,31 @@
                     </div>
                 </section>
             </div>
-            <div class="col-sm-12" style="padding: 0">
+            <div class="col-sm-12">
                 <section class="panel">
-                    <header class="panel-heading wht-bg">
+                    <header class="panel-heading wht-bg" style="padding:  10px">
                         <div class="mail-header row">
-                            <div class="col-md-6">
+                            <div class="col-sm-6">
                                  <h4 class="gen-case"><asp:Literal ID="ltl_title" runat="server"></asp:Literal></h4>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-sm-6">
                                 <div class="">
                                     <div id="div_cerca" runat="server">
-                                        <div class="form-inline">
-                                            <asp:TextBox ID="txt_search" runat="server" CssClass="form-control" placeholder="Cerca nei messaggi"></asp:TextBox>
-                                            <asp:LinkButton ID="btn_cerca" runat="server" CssClass="btn btn-default">
+                                        <div class="form-inline" style="text-align: right;">
+                                            <asp:TextBox ID="txt_search" runat="server" CssClass="form-control" placeholder="Cerca nei messaggi" style="margin-top: 5px;"></asp:TextBox>
+                                            <asp:LinkButton ID="btn_cerca" runat="server" CssClass="btn btn-default" style="margin-top: 5px;">
                                                 <i class="fa fa-search"></i>&nbsp;Cerca
                                             </asp:LinkButton>
                                         </div>
                                     </div>
-                                    <div id="div_return" runat="server">
+                                    <div id="div_return" runat="server" style="text-align: right;">
                                         <asp:LinkButton ID="btn_return" runat="server" ToolTip="Torna indietro" CssClass="btn btn-warning"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Torna indietro</asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </header>
-                    <div class="panel-body minimal">
+                    <div class="panel-body minimal" style="padding: 10px">
                         <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                             visible="false">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -266,7 +266,7 @@
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="btnVediMsg" runat="server" CssClass="btn btn-primary btn-xs button-link-w gisri_button_ws"
                                                     CommandName="GO" ToolTip="Vedi il messaggio">
-                                                    <i class=" fa fa-envelope"></i>&nbsp;</i>
+                                                    <i class=" fa fa-envelope"></i>&nbsp;
                                                 </asp:LinkButton>
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" />
@@ -278,45 +278,42 @@
                                 </ClientSettings>
                             </telerik:RadGrid>
                         </div>
-                        <div class="table-inbox-wrap overflow" id="div_message" runat="server">
+                        <div class="table-inbox-wrap" id="div_message" runat="server">
                             <div class="panel-body ">
                                 <div class="mail-header row">
                                     <div class="col-md-6">
-                                        <h4 class="pull-left"> <asp:Literal ID="ltl_oggetto" runat="server"></asp:Literal></h4>
+                                        <h4 class="pull-left"><asp:Literal ID="ltl_oggetto" runat="server"></asp:Literal></h4>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="compose-btn pull-right">
-                                            <div class="form-actions right">
-                                                <asp:LinkButton ID="btn_rispondi" runat="server" CssClass="btn btn-primary">
-                                                        <i class="fa fa-mail-reply"></i> Rispondi
-                                                </asp:LinkButton>
-                                                <asp:LinkButton ID="btn_inoltra" runat="server" CssClass="btn btn-primary">
-                                                        <i class="fa fa-mail-forward"></i> Inoltra
-                                                </asp:LinkButton>
-                                                <asp:LinkButton ID="btn_cancella" runat="server" CssClass="btn btn-danger">
-                                                        <i class="fa fa-trash-o"></i> Elimina
-                                                </asp:LinkButton>
-                                            </div>
+                                        <div class="form-actions right" style="text-align: right;">
+                                            <asp:LinkButton ID="btn_rispondi" runat="server" CssClass="btn btn-primary">
+                                                    <i class="fa fa-mail-reply"></i> Rispondi
+                                            </asp:LinkButton>
+                                            <asp:LinkButton ID="btn_inoltra" runat="server" CssClass="btn btn-primary">
+                                                    <i class="fa fa-mail-forward"></i> Inoltra
+                                            </asp:LinkButton>
+                                            <asp:LinkButton ID="btn_cancella" runat="server" CssClass="btn btn-danger">
+                                                    <i class="fa fa-trash-o"></i> Elimina
+                                            </asp:LinkButton>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mail-sender">
                                     <div class="row">
-                                        <div class="col-md-10" style="white-space:nowrap;">
-                                            <h5>
-                                            <asp:Image ID="img_dp_foto" runat="server" />
-                                            Da:&nbsp;
+                                        <div class="col-md-12" style="white-space: normal;">
+                                            <asp:Image ID="img_dp_foto" runat="server" style="float:left" />
+                                            <div style="margin-left: 40px;">
+                                            <h5 style="margin:0">
+                                                Da:&nbsp;
                                             <strong><asp:Literal ID="ltl_mittente" runat="server"></asp:Literal></strong>
-                                            <span>[<asp:Literal ID="ltl_mittente_mail" runat="server"></asp:Literal>]</span>
+                                            <span>[<asp:Literal ID="ltl_mittente_mail" runat="server"></asp:Literal>]</span><br />
                                             A:&nbsp;
                                             <strong><asp:Literal ID="ltl_destinatario" runat="server"></asp:Literal></strong>
                                             </h5>
+                                            <span style="font-style: italic; color: #999;"><asp:Literal ID="ltl_data" runat="server"></asp:Literal></span>
+                                            </div>
                                         </div>
-                                        <div class="col-md-2" style="white-space:nowrap;">
-                                            <h5>
-                                            <p class="date"><asp:Literal ID="ltl_data" runat="server"></asp:Literal></p>
-                                            </h5>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="view-mail"><asp:Literal ID="ltl_messaggio" runat="server"></asp:Literal>

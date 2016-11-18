@@ -17,7 +17,21 @@
             $('.make-switch').bootstrapSwitch();
         }
     </script>
-    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
+    <style>
+        /*@media (min-width: 768px) {
+            #ctl00_body_up_btn_return {
+                float: right
+            };
+        }*/
+        @media (max-width: 768px) {
+             .btn {
+                 width: 100% !important;
+             }
+             /*.btn.#ctl00_body_up_btn_return {
+                 float: none !important;
+             }*/
+         }
+     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row mt">
@@ -25,13 +39,13 @@
             <section class="content-panel">
                 <header class="panel-heading wht-bg">
                     <div class="mail-header row">
-                        <div class="col-md-6">
+                        <div class="col-sm-6">
                                 <h4 class="gen-case"> Nuovo messaggio</h4>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-sm-6">
                             <!-- <div class="compose-btn" > -->
                                 <div id="div_cerca" runat="server">
-                                    <div class="form-inline">
+                                    <div class="form-inline" style="text-align: right">
                                         <asp:LinkButton ID="btn_return" runat="server" ToolTip="Vai alla mailbox" CssClass="btn btn-primary"><i class="fa fa-envelope"></i>&nbsp;&nbsp;Vai alla mailbox</asp:LinkButton>
                                     </div>
                                 </div>
@@ -39,7 +53,7 @@
                         </div>
                     </div>
                 </header>
-                <div class="panel-body">
+                <div class="panel-body" style="padding:  10px">
                     <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                         visible="false">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">

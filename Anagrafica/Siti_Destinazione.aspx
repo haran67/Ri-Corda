@@ -284,18 +284,16 @@
                                                             Label="Coordinata E." Icon="" CifreDecimali="10" Form_Vertical="true" Read_Only="true" />
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="form-actions right">
-                                                        <asp:LinkButton ID="btn_registra" runat="server" CssClass="btn btn-primary">
-                                                            <i class="fa fa-check"></i> Salva
-                                                        </asp:LinkButton>
-                                                        <asp:LinkButton ID="btn_salva_e_nuovo" runat="server" CssClass="btn btn-primary">
-                                                                <i class="fa fa-plus"></i>&nbsp;&nbsp;Salva e Nuovo
-                                                        </asp:LinkButton>
-                                                        <asp:LinkButton ID="btn_cancella" runat="server" CssClass="btn btn-danger">
-                                                            <i class="fa fa-trash-o"></i> Cancella
-                                                        </asp:LinkButton>
-                                                    </div>
+                                                <div class="form-actions right">
+                                                    <asp:LinkButton ID="btn_registra" runat="server" CssClass="btn btn-primary">
+                                                        <i class="fa fa-check"></i> Salva
+                                                    </asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_salva_e_nuovo" runat="server" CssClass="btn btn-primary">
+                                                            <i class="fa fa-plus"></i>&nbsp;&nbsp;Salva e Nuovo
+                                                    </asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_cancella" runat="server" CssClass="btn btn-danger">
+                                                        <i class="fa fa-trash-o"></i> Cancella
+                                                    </asp:LinkButton>
                                                 </div>
                                             </div>
                                         </div>
