@@ -1,3 +1,7 @@
+
+.btn {
+    white-space: normal !important;
+}
 .overflow {
     overflow: auto;
     width: 100%;

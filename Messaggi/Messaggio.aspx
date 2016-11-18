@@ -7,6 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Ri.-C.O.R.D.A. by ambiente sc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../assets/plugins/select2/select2.css"/>
     <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css" />
@@ -57,6 +58,11 @@
         }
 
     </script>
+    <style>
+    div#messaggio_p_RadUpload1.RadAsyncUpload.RadUpload.RadUpload_Default {
+        width: 100%;
+    }
+    </style>
 </head>
 <body>
     <form id="frmSupporto" runat="server">
