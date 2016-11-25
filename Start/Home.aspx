@@ -44,19 +44,19 @@
         google.maps.event.addDomListener(window, 'load', showGoogleMaps);
 
 
-        function RowDblClick(sender, eventArgs) {
-            var ClikedDataKey = eventArgs._dataKeyValues.sito_key;
-            var grid = $find('<%= RGSiti.ClientID %>');
-            var masterTable = grid.get_masterTableView();
-            var Rows = masterTable.get_dataItems();
-            for (var i = 0; i < Rows.length; i++) {
-                var row = Rows[i];
-                if (ClikedDataKey != null && ClikedDataKey == row.getDataKeyValue("sito_key")) {
-                    var button = row.findElement("btn_st_denominazione");
-                    button.click();
-                }
-            }
-        }
+//        function RowDblClick(sender, eventArgs) {
+//            var ClikedDataKey = eventArgs._dataKeyValues.sito_key;
+//            var grid = $find('<%= RGSiti.ClientID %>');
+//            var masterTable = grid.get_masterTableView();
+//            var Rows = masterTable.get_dataItems();
+//            for (var i = 0; i < Rows.length; i++) {
+//                var row = Rows[i];
+//                if (ClikedDataKey != null && ClikedDataKey == row.getDataKeyValue("sito_key")) {
+//                    var button = row.findElement("btn_st_denominazione");
+//                    button.click();
+//                }
+//            }
+//        }
 
         function grid_search(sender, eventArgs, uniqueName) {
             eventArgs.cancelBubble = true;
@@ -385,7 +385,7 @@
                         <telerik:RadGrid ID="RGSiti" AutoGenerateColumns="False" CssClass="" runat="server"
                             ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                             Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
-                            AllowFilteringByColumn="true" Culture="it-IT">
+                            AllowFilteringByColumn="true" Culture="it-IT" Style="z-index:100;">
                             <GroupingSettings CaseSensitive="false" />
                             <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
                             <FilterItemStyle HorizontalAlign="Left" Height="0" />
