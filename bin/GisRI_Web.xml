@@ -8665,6 +8665,38 @@ ddl_rs_rifiuto_destinazione_cod control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:GisRI_Web.fSmaltimento.ddl_rs_produttore_key">
+	<summary>
+ddl_rs_produttore_key control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fSmaltimento.ddl_rs_codici_cer_key">
+	<summary>
+ddl_rs_codici_cer_key control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fSmaltimento.div_dettagli_smaltimento">
+	<summary>
+div_dettagli_smaltimento control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:GisRI_Web.fSmaltimento.rpt_dettaglio_smaltimenti">
+	<summary>
+rpt_dettaglio_smaltimenti control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:GisRI_Web.fSmaltimento.div_trasportatore">
 	<summary>
 div_trasportatore control.
@@ -8716,38 +8748,6 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:GisRI_Web.fSmaltimento.ddl_rs_autorizzazione_inter_key">
 	<summary>
 ddl_rs_autorizzazione_inter_key control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:GisRI_Web.fSmaltimento.ddl_rs_produttore_key">
-	<summary>
-ddl_rs_produttore_key control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:GisRI_Web.fSmaltimento.ddl_rs_codici_cer_key">
-	<summary>
-ddl_rs_codici_cer_key control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:GisRI_Web.fSmaltimento.div_dettagli_smaltimento">
-	<summary>
-div_dettagli_smaltimento control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:GisRI_Web.fSmaltimento.rpt_dettaglio_smaltimenti">
-	<summary>
-rpt_dettaglio_smaltimenti control.
 </summary>
 	<remarks>
 Auto-generated field.

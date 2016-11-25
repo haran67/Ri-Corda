@@ -133,28 +133,6 @@
                                                     <div class="col-md-6">
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6" id="div_trasportatore" runat="server">
-                                                        <cc:rDropDown ID="ddl_rs_trasportatore_key" runat="server" AutoPostBack="true" Label="Trasportatore"
-                                                            Placeholder="Seleziona..." Form_Vertical="true" 
-                                                            Required="true" Required_Help="Trasportatore del rifiuto obbligatorio!" />
-                                                    </div>
-                                                    <div class="col-md-6" id="div_autorizzazione_trasporto_visibile" runat="server">
-                                                        <cc:rDropDown ID="ddl_rs_autorizzazione_trasp_key" runat="server" AutoPostBack="false"
-                                                            Label="Autorizzazione Trasporto" Placeholder="Seleziona..." Form_Vertical="true" 
-                                                            Required="true" Required_Help="Nessuna autorizzazione al trasporto in corso di validità selezionata!" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <cc:rDropDown ID="ddl_rs_intermediario_key" runat="server" AutoPostBack="true" Label="Intermediario"
-                                                            Placeholder="Seleziona..." Form_Vertical="true" />
-                                                    </div>
-                                                    <div class="col-md-6" id="div_autorizzazione_intermiedario_visibile" runat="server">
-                                                        <cc:rDropDown ID="ddl_rs_autorizzazione_inter_key" runat="server" AutoPostBack="false"
-                                                            Label="Autorizzazione Intermediario" Placeholder="Seleziona..." Form_Vertical="true" />
-                                                    </div>
-                                                </div>
                                                 <!--VIAGGI FINE-->
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -244,6 +222,28 @@
                                                                 </asp:Repeater>
                                                             </tbody>
                                                         </table>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6" id="div_trasportatore" runat="server">
+                                                        <cc:rDropDown ID="ddl_rs_trasportatore_key" runat="server" AutoPostBack="true" Label="Trasportatore"
+                                                            Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Required="true" Required_Help="Trasportatore del rifiuto obbligatorio!" />
+                                                    </div>
+                                                    <div class="col-md-6" id="div_autorizzazione_trasporto_visibile" runat="server">
+                                                        <cc:rDropDown ID="ddl_rs_autorizzazione_trasp_key" runat="server" AutoPostBack="false"
+                                                            Label="Autorizzazione Trasporto" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Required="true" Required_Help="Nessuna autorizzazione al trasporto in corso di validità selezionata!" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <cc:rDropDown ID="ddl_rs_intermediario_key" runat="server" AutoPostBack="true" Label="Intermediario"
+                                                            Placeholder="Seleziona..." Form_Vertical="true" />
+                                                    </div>
+                                                    <div class="col-md-6" id="div_autorizzazione_intermiedario_visibile" runat="server">
+                                                        <cc:rDropDown ID="ddl_rs_autorizzazione_inter_key" runat="server" AutoPostBack="false"
+                                                            Label="Autorizzazione Intermediario" Placeholder="Seleziona..." Form_Vertical="true" />
                                                     </div>
                                                 </div>
                                                 <div class="row">
