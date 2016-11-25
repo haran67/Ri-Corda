@@ -6,6 +6,7 @@
 <%@ Register Src="../Controls/rDropDown.ascx" TagName="rDropDown" TagPrefix="cc" %>
 <%@ Register Src="../Controls/cAllegati.ascx" TagName="cAllegati" TagPrefix="cc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div style="height: 10px;">
@@ -459,7 +460,7 @@
                                                             <asp:Label ID="lblrf_descrizione" runat="server"></asp:Label>
                                                         </ItemTemplate>
                                                     </telerik:GridTemplateColumn>
-                                                    <telerik:GridTemplateColumn SortExpression="" UniqueName="rf_peso" HeaderText="Quantità"
+                                                    <telerik:GridTemplateColumn SortExpression="" UniqueName="rf_peso" HeaderText="Quantitï¿½"
                                                         DataField="rf_peso" HeaderStyle-Width="5%" AllowFiltering="false" Visible="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblrf_peso" runat="server"></asp:Label>
@@ -575,7 +576,7 @@
                                                             <asp:Label ID="lblrf_descrizione" runat="server"></asp:Label>
                                                         </ItemTemplate>
                                                     </telerik:GridTemplateColumn>
-                                                    <telerik:GridTemplateColumn SortExpression="" UniqueName="rf_peso" HeaderText="Quantità"
+                                                    <telerik:GridTemplateColumn SortExpression="" UniqueName="rf_peso" HeaderText="Quantitï¿½"
                                                         DataField="rf_peso" HeaderStyle-Width="5%" AllowFiltering="false" Visible="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblrf_peso" runat="server"></asp:Label>

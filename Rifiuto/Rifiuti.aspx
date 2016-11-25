@@ -43,12 +43,13 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row">
         <div class="col-lg-12">
             <div class="content-panel">
-                <div class="row" style="height:39px!Important;">
+                <div class="row" style="min-height:40px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <h3 style="margin:0px!Important;">
@@ -62,8 +63,8 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-        </div> 
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="content-panel" id="panel_elenco" runat="server" visible="true">
 				<div class="clearfix">
@@ -73,7 +74,7 @@
                                 ToolTip="Visualizza maschera dei filtri" Style="padding-top:6px; padding-left:10px;">
                                 <i class="fa fa-filter"></i>
                             </asp:LinkButton>
-                        </div> 
+                        </div>
                         <div class="gisri_title_left">
                             <h3 style="padding-left: 10px; margin-top: 0px!Important;">ELENCO RIFIUTI PRODOTTI</h3>
                         </div>
@@ -127,12 +128,12 @@
                             <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                 <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                     ToolTip="Pulisce Filtri" Height="25" Style="padding-top:6px; padding-left:1px;">
-                                    <i class="fa fa-eraser"></i>  
+                                    <i class="fa fa-eraser"></i>
                                 </asp:LinkButton>
-                            </div> 
+                            </div>
                         </div>
-                    </div>                            
-                </div> 
+                    </div>
+                </div>
                 <telerik:RadGrid ID="RGRifiuti" AutoGenerateColumns="False" CssClass="overflow" style="width: 100% !important" runat="server"
                     ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
                     Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
@@ -188,7 +189,7 @@
                             <telerik:GridBoundColumn SortExpression="rf_descrizione" UniqueName="rf_descrizione"
                                 HeaderText="Descrizione" DataField="rf_descrizione" HeaderStyle-Width="30%" AllowFiltering="true"
                                 ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains" 
+                                CurrentFilterFunction="Contains"
                                 ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" />
                             <telerik:GridTemplateColumn SortExpression="" UniqueName="rf_peso_volume_iniziale"
                                 HeaderText="Peso e Volume" DataField="rf_peso_volume_iniziale" HeaderStyle-Width="10%" AllowFiltering="false"
@@ -199,16 +200,16 @@
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
                             <telerik:GridBoundColumn SortExpression="rf_deposito_desc" UniqueName="rf_deposito_desc"
-                                HeaderText="Deposito" DataField="rf_deposito_desc" HeaderStyle-Width="10%" AllowFiltering="false" 
+                                HeaderText="Deposito" DataField="rf_deposito_desc" HeaderStyle-Width="10%" AllowFiltering="false"
                                 ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" Visible="false" />
-                            <telerik:GridTemplateColumn UniqueName="rf_stato_allegati" SortExpression="" DataField="" 
+                            <telerik:GridTemplateColumn UniqueName="rf_stato_allegati" SortExpression="" DataField=""
                                 InitializeTemplatesFirst="false" HeaderStyle-Width="1%" HeaderText="" AllowFiltering="false" >
                                 <ItemTemplate>
                                     <asp:Label ID="ltl_stato_allegati" runat="server" Style="width: 100%; height: 100%;">
                                     </asp:Label>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="rf_stato_attuale" SortExpression="rf_stato_attuale" DataField="rf_stato_attuale" 
+                            <telerik:GridTemplateColumn UniqueName="rf_stato_attuale" SortExpression="rf_stato_attuale" DataField="rf_stato_attuale"
                                 InitializeTemplatesFirst="false" HeaderStyle-Width="1%" HeaderText="Stato" AllowFiltering="true" >
                                 <ItemTemplate>
                                     <asp:Label ID="ltl_stato" runat="server" Style="width: 100%; height: 100%;">
@@ -244,7 +245,7 @@
                         <asp:LinkButton ID="btn_return" runat="server" ToolTip="Torna all'elenco" CssClass="btn btn-warning"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Elenco</asp:LinkButton>
                     </div>
                 </div>
-                <div style="margin: 10px; padding-top:10px;">
+                <div style="margin: 10px 0; padding-top:10px;">
                     <div class="form-body" style="margin-top: 20px!Important;">
                         <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                             visible="false">
@@ -286,24 +287,24 @@
                                                     <div class="row" id="div_societa_gestione" runat="server">
                                                         <div class="col-md-6">
                                                             <cc:rDropDown ID="ddl_rf_produttore_key" runat="server" AutoPostBack="true"
-                                                                Label="Prodotto Da" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                                Label="Prodotto Da" Placeholder="Seleziona..." Form_Vertical="true"
                                                                 Required="true" Required_Help="Produttore del rifiuto obbligatorio!" />
                                                         </div>
                                                         <div class="col-md-6">
                                                             <cc:rTextData ID="txt_rf_data_produzione" runat="server" MaxLength="10" AutoPostBack="false"
-                                                                Label="Data produzione" Icon="fa fa-calendar" Form_Vertical="true" 
+                                                                Label="Data produzione" Icon="fa fa-calendar" Form_Vertical="true"
                                                                 Required="true" Required_Help="Data produzione obbligatoria!" />
                                                         </div>
                                                     </div>
                                                     <div class="row" id="div_presunto_01" runat="server">
                                                         <div class="col-md-6">
                                                             <cc:rDropDown ID="ddl_rc_codici_cer_key" runat="server" AutoPostBack="true" Label="Codice CER Presunto"
-                                                                Placeholder="Seleziona..." Form_Vertical="true" Select2="true" 
+                                                                Placeholder="Seleziona..." Form_Vertical="true" Select2="true"
                                                                 Required="true" Required_Help="Codice CER obbligatorio!" />
                                                         </div>
                                                         <div class="col-md-6">
                                                             <cc:rDropDown ID="ddl_rf_rifiuto_stato_fisico_cod" runat="server" AutoPostBack="false" Label="Stato Fisico iniziale"
-                                                                Placeholder="Seleziona..." Form_Vertical="true" 
+                                                                Placeholder="Seleziona..." Form_Vertical="true"
                                                                 Required="true" Required_Help="Stato fisico del rifiuto obbligatorio!" />
                                                         </div>
                                                     </div>
@@ -329,7 +330,7 @@
                                                                                 </div>
                                                                                 <span style="font-size:10px;">
                                                                                     <asp:Literal ID="ltl_rc_classi_pericolosita_desc" runat="server" Visible="false"></asp:Literal>
-                                                                                </span> 
+                                                                                </span>
                                                                             </div>
                                                                         </div>
                                                                         <asp:Label ID="rc_classi_pericolosita_key" runat="server" Visible="false"></asp:Label>
@@ -343,7 +344,7 @@
                                                                     <asp:Literal ID="ltl_per_pre_help" runat="server"></asp:Literal></span>
                                                                 </div>
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     </div>
                                                     <div class="row" id="div_confermato_01" runat="server">
                                                         <div class="col-md-6">
@@ -377,7 +378,7 @@
                                                                                 </div>
                                                                                 <span style="font-size:10px;">
                                                                                     <asp:Literal ID="ltl_rc_classi_pericolosita_desc" runat="server" Visible="false"></asp:Literal>
-                                                                                </span> 
+                                                                                </span>
                                                                             </div>
                                                                         </div>
                                                                         <asp:Label ID="rc_classi_pericolosita_key" runat="server" Visible="false"></asp:Label>
@@ -389,7 +390,7 @@
                                                                 <span class="help-block" id="span_per_con_help" runat="server">
                                                                     <asp:Literal ID="ltl_per_con_help" runat="server"></asp:Literal></span>
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
@@ -404,29 +405,29 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <cc:rDropDown ID="ddl_rf_personale_indicante_key" runat="server" AutoPostBack="false" Label="Personale Indicante"
-                                                                Placeholder="Seleziona..." Form_Vertical="true" 
+                                                                Placeholder="Seleziona..." Form_Vertical="true"
                                                                 Required="true" Required_Help="Personale indicante obbligatorio!" />
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <cc:rTextNumero ID="txt_rf_peso_iniziale" runat="server" MaxLength="16" AutoPostBack="false"
-                                                                Label="Peso Iniziale" CifreDecimali="1" Icon="" Form_Vertical="true" 
+                                                                Label="Peso Iniziale" CifreDecimali="1" Icon="" Form_Vertical="true"
                                                                 Required="true" Required_Help="Peso del rifiuto obbligatorio!" />
                                                         </div>
                                                         <div class="col-md-2">
                                                             <cc:rDropDown ID="ddl_rf_peso_misura_cod" runat="server" AutoPostBack="false" Label="UM"
-                                                                Placeholder="Seleziona..." Form_Vertical="true" 
+                                                                Placeholder="Seleziona..." Form_Vertical="true"
                                                                 Required="true" Required_Help="Unità di misura obbligatoria!" />
                                                         </div>
                                                         <div class="col-md-4">
                                                             <cc:rTextNumero ID="txt_rf_volume_iniziale" runat="server" MaxLength="16" AutoPostBack="false"
-                                                                Label="Vol. Iniziale" CifreDecimali="1" Icon="" Form_Vertical="true" 
+                                                                Label="Vol. Iniziale" CifreDecimali="1" Icon="" Form_Vertical="true"
                                                                 Required="true" Required_Help="Volume del rifiuto obbligatorio!" />
                                                         </div>
                                                         <div class="col-md-2">
                                                             <cc:rDropDown ID="ddl_rf_volume_misura_cod" runat="server" AutoPostBack="false" Label="UM"
-                                                                Placeholder="Seleziona..." Form_Vertical="true" 
+                                                                Placeholder="Seleziona..." Form_Vertical="true"
                                                                 Required="true" Required_Help="Unità di misura del volume obbligatoria!" />
                                                         </div>
                                                     </div>
@@ -435,7 +436,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <cc:rDropDown ID="ddl_rf_rifiuto_deposito_key" runat="server" AutoPostBack="false" Label="Deposito"
-                                                                Placeholder="Seleziona..." Form_Vertical="true" 
+                                                                Placeholder="Seleziona..." Form_Vertical="true"
                                                                 Required="true" Required_Help="Tipologia di deposito obbligatoria!" />
                                                         </div>
                                                         <div class="col-md-6">
@@ -499,7 +500,7 @@
                                                                             <asp:HyperLink ID="lnk_immagine" runat="server" CssClass="fancybox" NavigateUrl="../assets/img/portfolio/rifiuto00.jpg">
                                                                                 <asp:Image ID="img_immagine" runat="server" CssClass="img-responsive" />
                                                                             </asp:HyperLink>
-		                            	                                    
+
 		                                                                </div>
 		                                                                <div class="overlay"></div>
 		                                                            </div>
@@ -527,7 +528,7 @@
                                 <div id="div_allegati" class="tab-pane" runat="server">
                                     <div class="form-body">
                                         <div class="form-horizontal">
-                                            <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
+                                            <div class="form-body table-container" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                 <cc:cAllegati ID="cAllegati1" runat="server" />
                                             </div>
                                             <div class="form-actions right">
@@ -551,7 +552,7 @@
     </div>
     <!-- /row -->
 
-	<script type="text/javascript" src="../assets/js/fancybox/jquery.fancybox.js"></script>    
+	<script type="text/javascript" src="../assets/js/fancybox/jquery.fancybox.js"></script>
 
     <script type="text/javascript">
         $(function () {

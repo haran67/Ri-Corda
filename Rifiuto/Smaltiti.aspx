@@ -22,6 +22,7 @@
             masterTableView.filter(uniqueName, sender.value, Telerik.Web.UI.GridFilterFunction.Contains);
         }
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row">
@@ -32,18 +33,18 @@
                         <i class="fa fa-home"></i>&nbsp;<asp:Literal ID="ltl_st_denominazione" runat="server"></asp:Literal>
                     </a>
                 </h3>
-            </div> 
-        </div> 
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="content-panel" id="panel_elenco" runat="server" visible="true">
-                <div class="row" style="height:40px!Important;">
+                <div class="clearfix">
 					<div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <asp:LinkButton ID="btn_filtri" runat="server" CssClass="btn btn-default"
                                 ToolTip="Visualizza maschera dei filtri" Style="padding-top:6px; padding-left:10px;">
                                 <i class="fa fa-filter"></i>
                             </asp:LinkButton>
-                        </div> 
+                        </div>
 						<div class="gisri_title_left">
                             <h3 style="padding-left: 10px; margin-top: 0px!Important;">
                                 ELENCO RIFIUTI A DESTINO</h3>
@@ -53,7 +54,7 @@
 					</div>
 				</div>
                 <div class="row" id="div_filtri_boh" runat="server" visible="true">
-                </div> 
+                </div>
                 <div class="row" id="div_filtri" runat="server" visible="false">
                     <div class="form-body" style="margin-left: 30px!Important; margin-right: 35px!Important; margin-bottom:10px;">
                         <div class="row">
@@ -112,12 +113,12 @@
                             <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                 <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                     ToolTip="Pulisce Filtri" Height="25" Style="padding-top:6px; padding-left:1px;">
-                                    <i class="fa fa-eraser"></i>  
+                                    <i class="fa fa-eraser"></i>
                                 </asp:LinkButton>
-                            </div> 
+                            </div>
                         </div>
-                    </div>                            
-                </div> 
+                    </div>
+                </div>
                 <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                     visible="false">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -217,7 +218,7 @@
                                     <asp:Label ID="lblrs_peso_volume" runat="server"></asp:Label>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="rf_stato_allegati" SortExpression="" DataField="" 
+                            <telerik:GridTemplateColumn UniqueName="rf_stato_allegati" SortExpression="" DataField=""
                                 InitializeTemplatesFirst="false" HeaderStyle-Width="1%" HeaderText="" AllowFiltering="false" >
                                 <ItemTemplate>
                                     <asp:Label ID="ltl_stato_allegati" runat="server" Style="width: 100%; height: 100%;">

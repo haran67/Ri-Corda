@@ -26,14 +26,15 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row mt">
         <div class="col-md-12">
             <div class="content-panel" id="panel_elenco" runat="server" visible="true" style="padding-left: 10px!Important;
                 padding-top: 0px!Important; margin-bottom: 10px;">
-                <div class="row" style="height: 50px!Important;">
-                    <div class="gisri_panel_title gisri_title_margin">
+                <div class="row" style="min-height: 50px!Important;">
+                    <div class="gisri_panel_title gisri_title_margin clearfix">
                         <div class="gisri_title_left">
                             <asp:LinkButton ID="btn_filtri" runat="server" CssClass="btn btn-default" ToolTip="Visualizza maschera dei filtri"
                                 Style="padding-top: 6px; padding-left: 10px;">
@@ -49,7 +50,7 @@
                     </div>
                 </div>
                 <div class="row" id="div_filtri" runat="server" visible="false">
-                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 35px!Important;
+                    <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;
                         margin-bottom: 10px;">
                         <div class="row">
                             <div class="col-xs-2 gisri_row_filter">
@@ -91,7 +92,7 @@
                             <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                 <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                     ToolTip="Pulisce Filtri" Height="25" Style="padding-top: 6px; padding-left: 1px;">
-                                    <i class="fa fa-eraser"></i>  
+                                    <i class="fa fa-eraser"></i>
                                 </asp:LinkButton>
                             </div>
                         </div>
@@ -188,7 +189,7 @@
                                 <Selecting AllowRowSelect="false" />
                             </ClientSettings>
                         </telerik:RadGrid>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>

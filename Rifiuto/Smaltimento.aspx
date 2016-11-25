@@ -29,12 +29,13 @@
             $("#<%=div_viaggi.ClientID%>").dirtyForms();
         }
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row">
         <div class="col-lg-12">
             <div class="content-panel clearfix">
-                <div class="row" style="height:39px!Important;">
+                <div class="row" style="min-height:49px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <h3 style="margin:0px!Important;">
@@ -47,14 +48,14 @@
                             <asp:LinkButton ID="btn_return" runat="server" ToolTip="Torna indietro" CssClass="btn btn-warning"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Torna Indietro</asp:LinkButton>
                         </div>
                     </div>
-                </div> 
-            </div> 
-        </div> 
+                </div>
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="content-panel" id="panel_dati" runat="server">
                 <h3 style="padding-left: 10px; margin-top: 0px!Important;">
                     <i class="fa fa-angle-right"></i>DETTAGLIO FIR: <asp:Label ID="ltl_rs_denominazione" runat="server" /></h3>
-                <div style="margin: 10px;">
+                <div style="margin: 0px;">
                     <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                         visible="false">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -93,19 +94,19 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextBox ID="txt_rs_formulario_numero" runat="server" MaxLength="32" AutoPostBack="false"
-                                                            Label="Formulario Num" Icon="" Form_Vertical="true" 
+                                                            Label="Formulario Num" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Numero FIR obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <cc:rTextData ID="txt_rs_formulario_data" runat="server" MaxLength="10" AutoPostBack="false"
-                                                            Label="Formulario Data" Icon="fa fa-calendar" Form_Vertical="true" 
+                                                            Label="Formulario Data" Icon="fa fa-calendar" Form_Vertical="true"
                                                             Required="true" Required_Help="Data del FIR obbligatoria!" />
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rs_destinatario_key" runat="server" AutoPostBack="true" Label="Destinatario"
-                                                            Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Smaltitore del rifiuto obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
@@ -114,12 +115,12 @@
                                                 <div class="row" id="div_autorizzazione_sito_visible" runat="server">
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rs_destinatario_sito_key" runat="server" AutoPostBack="true"
-                                                            Label="Sito Destinazione" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="Sito Destinazione" Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Sito di destinazione obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rs_autorizzazione_sito_key" runat="server" AutoPostBack="false"
-                                                            Label="Autorizzazione Destinatario" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="Autorizzazione Destinatario" Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Nessuna autorizzazione allo smaltimento in corso di validità selezionata!" />
                                                     </div>
                                                 </div>
@@ -127,22 +128,44 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rs_rifiuto_destinazione_cod" runat="server" AutoPostBack="false"
-                                                            Label="Tipo destinazione" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="Tipo destinazione" Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Destinazione del rifiuto obbligatoria!" />
                                                     </div>
                                                     <div class="col-md-6">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6" id="div_trasportatore" runat="server">
+                                                        <cc:rDropDown ID="ddl_rs_trasportatore_key" runat="server" AutoPostBack="true" Label="Trasportatore"
+                                                            Placeholder="Seleziona..." Form_Vertical="true"
+                                                            Required="true" Required_Help="Trasportatore del rifiuto obbligatorio!" />
+                                                    </div>
+                                                    <div class="col-md-6" id="div_autorizzazione_trasporto_visibile" runat="server">
+                                                        <cc:rDropDown ID="ddl_rs_autorizzazione_trasp_key" runat="server" AutoPostBack="false"
+                                                            Label="Autorizzazione Trasporto" Placeholder="Seleziona..." Form_Vertical="true"
+                                                            Required="true" Required_Help="Nessuna autorizzazione al trasporto in corso di validità selezionata!" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <cc:rDropDown ID="ddl_rs_intermediario_key" runat="server" AutoPostBack="true" Label="Intermediario"
+                                                            Placeholder="Seleziona..." Form_Vertical="true" />
+                                                    </div>
+                                                    <div class="col-md-6" id="div_autorizzazione_intermiedario_visibile" runat="server">
+                                                        <cc:rDropDown ID="ddl_rs_autorizzazione_inter_key" runat="server" AutoPostBack="false"
+                                                            Label="Autorizzazione Intermediario" Placeholder="Seleziona..." Form_Vertical="true" />
                                                     </div>
                                                 </div>
                                                 <!--VIAGGI FINE-->
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rs_produttore_key" runat="server" AutoPostBack="false" Label="Produttore"
-                                                            Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Produttore rifuto obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rs_codici_cer_key" runat="server" AutoPostBack="true" Label="Rifiuto (CER)"
-                                                            Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Codice CER obbligatorio!" />
                                                     </div>
                                                 </div>
@@ -225,31 +248,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-6" id="div_trasportatore" runat="server">
-                                                        <cc:rDropDown ID="ddl_rs_trasportatore_key" runat="server" AutoPostBack="true" Label="Trasportatore"
-                                                            Placeholder="Seleziona..." Form_Vertical="true" 
-                                                            Required="true" Required_Help="Trasportatore del rifiuto obbligatorio!" />
-                                                    </div>
-                                                    <div class="col-md-6" id="div_autorizzazione_trasporto_visibile" runat="server">
-                                                        <cc:rDropDown ID="ddl_rs_autorizzazione_trasp_key" runat="server" AutoPostBack="false"
-                                                            Label="Autorizzazione Trasporto" Placeholder="Seleziona..." Form_Vertical="true" 
-                                                            Required="true" Required_Help="Nessuna autorizzazione al trasporto in corso di validità selezionata!" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <cc:rDropDown ID="ddl_rs_intermediario_key" runat="server" AutoPostBack="true" Label="Intermediario"
-                                                            Placeholder="Seleziona..." Form_Vertical="true" />
-                                                    </div>
-                                                    <div class="col-md-6" id="div_autorizzazione_intermiedario_visibile" runat="server">
-                                                        <cc:rDropDown ID="ddl_rs_autorizzazione_inter_key" runat="server" AutoPostBack="false"
-                                                            Label="Autorizzazione Intermediario" Placeholder="Seleziona..." Form_Vertical="true" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rs_rifiuto_imballaggio_cod" runat="server" AutoPostBack="false"
-                                                            Label="Imballaggio" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="Imballaggio" Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Tipo Imballo del rifiuto obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
@@ -260,7 +261,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextBox ID="txt_rs_imballaggio_quantita" runat="server" MaxLength="16" AutoPostBack="false"
-                                                            Label="Colli" Icon="" Form_Vertical="true" 
+                                                            Label="Colli" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Quantità imballaggio obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
@@ -289,21 +290,21 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextBox ID="txt_rs_nominativo_firmatario" runat="server" MaxLength="128" AutoPostBack="false"
-                                                            Label="Firmatario" Icon="" Form_Vertical="true" 
+                                                            Label="Firmatario" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Nome del firmatario del FIR obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <cc:rDropDown ID="ddl_rs_personale_indicante_key" runat="server" AutoPostBack="false"
-                                                            Label="Personale Indicante" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="Personale Indicante" Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Personale indicante obbligatorio!" />
                                                     </div>
                                                 </div>
-                                                
+
                                                 <!--VIAGGI INIZO-->
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextBox ID="txt_rs_targa_mezzo_motrice" runat="server" MaxLength="7" AutoPostBack="false"
-                                                            Label="Targa Motrice/Autocarro" Icon="" Form_Vertical="true" 
+                                                            Label="Targa Motrice/Autocarro" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Targa del mezzo obbligatoria!" />
                                                     </div>
                                                     <div class="col-md-6">
@@ -314,7 +315,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextData ID="txt_rs_data_trasporto" runat="server" MaxLength="10" AutoPostBack="false"
-                                                            Label="Data Trasporto" Icon="fa fa-calendar" Form_Vertical="true" 
+                                                            Label="Data Trasporto" Icon="fa fa-calendar" Form_Vertical="true"
                                                             Required="true" Required_Help="Data del trasporto obbligatoria!" />
                                                     </div>
                                                     <div class="col-md-6">
@@ -325,7 +326,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <cc:rTextBox ID="txt_rs_nominativo_conducente" runat="server" MaxLength="128" AutoPostBack="false"
-                                                            Label="Conducente" Icon="" Form_Vertical="true" 
+                                                            Label="Conducente" Icon="" Form_Vertical="true"
                                                             Required="true" Required_Help="Nome del conducente obbligatorio!" />
                                                     </div>
                                                     <div class="col-md-6">
@@ -398,7 +399,7 @@
                                 <div id="div_allegati" class="tab-pane" runat="server">
                                     <div class="form-body">
                                         <div class="form-horizontal">
-                                            <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
+                                            <div class="form-body table-container" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                 <cc:cAllegati ID="cAllegati1" runat="server" />
                                             </div>
                                             <div class="form-actions right">
@@ -414,10 +415,10 @@
                                 <div class="col-lg-12">
                                     <div class="form-horizontal">
                                         <div class="form-body">
-                                        </div> 
-                                    </div> 
-                                </div> 
-                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- /tab-content -->
                         </div>
                         <! --/panel-body -->

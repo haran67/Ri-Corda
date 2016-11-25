@@ -55,6 +55,7 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row">
@@ -67,7 +68,7 @@
                                 ToolTip="Visualizza maschera dei filtri" Style="padding-top:6px; padding-left:10px;">
                                 <i class="fa fa-filter"></i>
                             </asp:LinkButton>
-                        </div> 
+                        </div>
                         <div class="gisri_title_left">
                             <h3 style="padding-left: 10px; margin-top: 0px!Important;">
                                 SITI PRODUZIONE RIFIUTI</h3>
@@ -105,8 +106,8 @@
                                 </div>
                             </div>
                             <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
-                            </div> 
-                        </div> 
+                            </div>
+                        </div>
                         <div class="row" style="margin-top:10px;">
                             <div class="col-xs-6 gisri_row_filter">
                                 <div class="input-group" style="width:100%">
@@ -131,11 +132,11 @@
                             <div class="col-xs-1 gisri_row_filter gisri_row_filter_right">
                                 <asp:LinkButton ID="btn_reset_filter" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
                                     ToolTip="Pulisce Filtri" Height="25" Style="padding-top:6px; padding-left:1px;">
-                                    <i class="fa fa-eraser"></i>  
+                                    <i class="fa fa-eraser"></i>
                                 </asp:LinkButton>
-                            </div> 
+                            </div>
                         </div>
-                    </div>                            
+                    </div>
                 </div>
                 <div class="overflow">
                     <telerik:RadGrid ID="RGSiti" AutoGenerateColumns="False" CssClass="" style="width: 100% !important" runat="server"
@@ -269,19 +270,19 @@
                                 <div id="div_overview" class="tab-pane" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 10px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body" >
                                                 <h6><asp:Label ID="ltl_ultima_modifica" runat="server"></asp:Label></h6>
                                                 <div class="row" id="div_societa_gestione" runat="server">
                                                     <div class="col-md-12">
                                                         <cc:rDropDown ID="ddl_st_societa_gestione_key" runat="server" AutoPostBack="true"
-                                                            Label="Società di gestione" Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Label="Società di gestione" Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Società di gestione obbligatoria!" />
                                                     </div>
                                                 </div>
                                                 <div class="row" id="div_societa" runat="server">
                                                     <div class="col-md-12">
                                                         <cc:rDropDown ID="ddl_st_societa_key" runat="server" AutoPostBack="false" Label="Società proprietaria"
-                                                            Placeholder="Seleziona..." Form_Vertical="true" 
+                                                            Placeholder="Seleziona..." Form_Vertical="true"
                                                             Required="true" Required_Help="Società titolare obbligatoria!" />
                                                     </div>
                                                 </div>
@@ -445,8 +446,8 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <hr />
-                                                                </div> 
-                                                            </div> 
+                                                                </div>
+                                                            </div>
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <cc:rDropDown ID="ddl_st_stati_sito_cod" runat="server" AutoPostBack="false" Label="Stato del sito"
@@ -465,7 +466,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div> 
+                                                </div>
                                                 <div class="form-actions right">
                                                     <asp:LinkButton ID="btn_registra_stati" runat="server" CssClass="btn btn-primary">
                                                             <i class="fa fa-check"></i> Salva
@@ -546,8 +547,8 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <hr />
-                                                            </div> 
-                                                        </div> 
+                                                            </div>
+                                                        </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <cc:rDropDown ID="ddl_st_ditta_key" runat="server" AutoPostBack="true" Label="Ditta operatrice"
@@ -556,7 +557,7 @@
                                                             <div class="col-md-6">
                                                                 <cc:rDropDown ID="ddl_st_visibilita_deposito" runat="server" AutoPostBack="true" Label="Visibilità Registri" />
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <cc:rCheckBox ID="chk_st_subappalto" runat="server" Values="S|" Classes="make-switch|SI|NO|warning|"
@@ -671,8 +672,8 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <hr />
-                                                            </div> 
-                                                        </div> 
+                                                            </div>
+                                                        </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <cc:rRadioButton ID="rdb_scelta_societa" runat="server" GroupName="rdb_scelta_societa"
@@ -718,25 +719,25 @@
                                 </div>
                                 <div id="div_mappa" class="tab-pane" runat="server">
                                     <div class="row">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12" style="padding: 0;">
                                             <div style="margin-left: 10px!Important; margin-right: 10px!Important;">
-                                                <div class="col-lg-12">
+                                                <div class="col-lg-12" style="padding: 0;">
                                                     <iframe id="iMappa" frameborder="0" width="100%" height="730" src=""></iframe>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-9">
-                                            <div style="margin-left: 10px!Important;">
-                                                <asp:TextBox ID="txt_google_address" runat="server" MaxLength="256" AutoPostBack="false" 
+                                        <div class="col-lg-9" style="margin-top: 5px;">
+                                            <div>
+                                                <asp:TextBox ID="txt_google_address" runat="server" MaxLength="256" AutoPostBack="false"
                                                 CssClass="form-control" placeholder="Inserisci l'indirizzo per la ricerca su Google Maps"/>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
-                                            <div style="margin-right: 10px!Important; text-align:right;">
+                                        <div class="col-lg-3" style="margin-top: 5px;">
+                                            <div>
                                                 <asp:LinkButton ID="btn_google_address" runat="server" ToolTip="" CssClass="btn btn-default"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Ricalcola coordinate</asp:LinkButton>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -744,7 +745,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-horizontal">
-                                                <div class="form-body" style="margin-left: 0px!Important; margin-right: 0px!Important;">
+                                                <div class="form-body table-container" style="margin-left: 0px!Important; margin-right: 0px!Important;">
                                                     <cc:cAllegati ID="cAllegati1" runat="server" />
                                                 </div>
                                                 <div class="form-actions right">

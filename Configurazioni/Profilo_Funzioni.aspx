@@ -12,13 +12,14 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row mt">
         <div class="col-md-12">
             <div class="content-panel" id="panel_dati" runat="server" style="padding-left: 10px!Important;
                 padding-top: 0px!Important; margin-bottom: 10px;">
-                <div class="row" style="height: 39px!Important;">
+                <div class="row" style="min-height: 40px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <h3 style="padding-left: 10px; margin-top: 0px!Important;">
@@ -68,7 +69,7 @@
                                                             <cc:rTextBox ID="txt_tab_profilo_desc" runat="server" MaxLength="256" AutoPostBack="false"
                                                                 Label="Denominazione" Icon="" Form_Vertical="true"/>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                     <div class="row" id="div_funzioni" runat="server" visible="false">
                                                         <div class="col-lg-12">
                                                             <h5>FUNZIONI</h5>
@@ -169,15 +170,15 @@
                                                                                     </asp:Repeater>
                                                                                 </td>
                                                                             </tr>
-                                                                        </tbody> 
+                                                                        </tbody>
                                                                     </ItemTemplate>
                                                                     <FooterTemplate >
                                                                         </table>
                                                                     </FooterTemplate>
                                                                 </asp:Repeater>
-                                                            </div> 
-                                                        </div> 
-                                                    </div> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <asp:LinkButton ID="btn_open" runat="server" CssClass="btn btn-warning btn-xs"
@@ -192,7 +193,7 @@
                                                                 CommandName="DEL">
                                                                 <i class="fa fa-trash-o"></i> Cancella
                                                             </asp:LinkButton>
-                                                        </div> 
+                                                        </div>
                                                     </div>
                                                     <hr />
                                                 </ItemTemplate>
@@ -203,8 +204,8 @@
                                                         CommandName="ADD">
                                                         <i class="fa fa-plus"></i> Aggiungi
                                                     </asp:LinkButton>
-                                                </div> 
-                                            </div> 
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <! --/OVERVIEW -->
@@ -220,7 +221,7 @@
                                                             <cc:rTextBox ID="txt_tab_profilo_siti_desc" runat="server" MaxLength="256" AutoPostBack="false"
                                                                 Label="Denominazione" Icon="" Form_Vertical="true"/>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                     <div class="row" id="div_funzioni" runat="server" visible="false">
                                                         <div class="col-lg-12">
                                                             <h5>SITI</h5>
@@ -266,15 +267,15 @@
                                                                                     <asp:Label ID="lbl_st_provincia_desc" runat="server"></asp:Label>
                                                                                 </td>
                                                                             </tr>
-                                                                        </tbody> 
+                                                                        </tbody>
                                                                     </ItemTemplate>
                                                                     <FooterTemplate >
                                                                         </table>
                                                                     </FooterTemplate>
                                                                 </asp:Repeater>
-                                                            </div> 
-                                                        </div> 
-                                                    </div> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <asp:LinkButton ID="btn_open" runat="server" CssClass="btn btn-warning btn-xs"
@@ -289,7 +290,7 @@
                                                                 CommandName="DEL">
                                                                 <i class="fa fa-trash-o"></i> Cancella
                                                             </asp:LinkButton>
-                                                        </div> 
+                                                        </div>
                                                     </div>
                                                     <hr />
                                                 </ItemTemplate>
@@ -300,8 +301,8 @@
                                                         CommandName="ADD">
                                                         <i class="fa fa-plus"></i> Aggiungi
                                                     </asp:LinkButton>
-                                                </div> 
-                                            </div> 
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <! --/OVERVIEW -->

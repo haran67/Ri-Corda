@@ -19,13 +19,13 @@
             $('.make-switch').bootstrapSwitch();
         }
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_up" runat="server">
     <div class="row mt">
-        <div style="height:10px;"></div> 
         <div class="col-lg-12">
             <div class="content-panel" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
-                <div class="row" style="height:50px!Important;">
+                <div class="row" style="min-height:50px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <h3 style="margin:0px!Important;">
@@ -37,11 +37,11 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-        </div> 
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="content-panel" id="panel_dati" runat="server" visible="false" style="padding-left:10px!Important;padding-top:0px!Important; margin-bottom:10px;">
-                <div class="row" style="height:39px!Important;">
+                <div class="row" style="min-height:40px!Important;">
                     <div class="gisri_panel_title gisri_title_margin">
                         <div class="gisri_title_left">
                             <h3 style="padding-left: 10px; margin-top: 0px!Important;">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="margin: 10px; padding-top:10px;">
+                <div>
                     <div class="alert alert-danger alert-dismissable" id="div_message_ko" runat="server"
                         visible="false">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
@@ -74,7 +74,7 @@
                                 <div id="div_overview" class="tab-pane active" runat="server">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="form-body" style="margin-left: 30px!Important; margin-right: 30px!Important;">
+                                            <div class="form-body">
                                                 <h6><asp:Label ID="ltl_ultima_modifica" runat="server"></asp:Label></h6>
                                                 <div class="row">
                                                     <div class="col-md-6">

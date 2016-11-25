@@ -8,6 +8,7 @@
     <title>Ri.-C.O.R.D.A. by ambiente sc</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../assets/plugins/select2/select2.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/gisri.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/select2.css" />
@@ -47,6 +48,7 @@
         }
 
     </script>
+    <style>@media (max-width: 768px) { .btn {width: 100% !important;}}</style>
 </head>
 <body>
     <form id="frmSupporto" runat="server">
