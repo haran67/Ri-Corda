@@ -137,11 +137,29 @@
             } catch (ex) {}
         }
 
+        // if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        //     var msViewportStyle = document.createElement("style");
+        //     msViewportStyle.appendChild(
+        //         document.createTextNode(
+        //             "@-ms-viewport{width:100%!important}"
+        //         )
+        //     );
+        //     document.getElementsByTagName("head")[0].
+        //         appendChild(msViewportStyle);
+        // }
+
     </script>
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        /*@-webkit-viewport{width:device-width}
+        @-moz-viewport{width:device-width}
+        @-ms-viewport{width:device-width}
+        @-o-viewport{width:device-width}
+        @viewport{width:device-width}*/
+    </style>
 </head>
 <body>
     <form id="frmPrincipale" runat="server">
@@ -401,6 +419,7 @@
     </script>
 
     <asp:ContentPlaceHolder ID="script" runat="server">
+    <!-- <script src="https://jsconsole.com/js/remote.js?54864ef8-0539-49f4-ae82-88796558fad2"></script> -->
     </asp:ContentPlaceHolder>
 
 </body>

@@ -1,0 +1,1124 @@
+﻿
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Ri.-C.O.R.D.A. by ambiente sc
+</title><meta charset="UTF-8" /><meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" /><meta name="author" content="Mesys S.r.l." /><meta name="keyword" content="Rifiuti per ambiente s.c." /><link rel="shortcut icon" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <!--external css-->
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.css" /><link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css" /><link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" /><link rel="stylesheet" type="text/css" href="../assets/lineicons/style.css" /><link rel="stylesheet" type="text/css" href="../assets/css/RadGrid.css" /><link rel="stylesheet" type="text/css" href="../assets/plugins/select2/select2.css" /><link rel="stylesheet" type="text/css" href="../assets/plugins/smoke/themes/ambiente.css" /><link rel="stylesheet" type="text/css" href="../assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css" /><link rel="stylesheet" type="text/css" href="../assets/plugins/bootstrap-datepicker/css/datepicker3.css" /><link rel="stylesheet" type="text/css" href="../assets/css/gisri.css" /><link rel="stylesheet" type="text/css" href="../assets/css/select2.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/style.css" rel="stylesheet" /><link href="../assets/css/style-responsive.css" rel="stylesheet" /><link href="../assets/css/custom.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../assets/js/jquery.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
+
+    <script src="../assets/js/chart-master/Chart.js" type="text/javascript"></script>
+
+    <script src="../assets/plugins/bootstrap-switch/js/bootstrap-switch.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery.dirtyforms/jquery.dirtyforms.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../assets/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/select2/select2_locale_it.js"></script>
+
+    <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../assets/js/utility.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).on('onkeypress', function (e) {
+            if (e.keyCode == 13) { doPrevent = true; }
+            if (doPrevent) {
+                event.preventDefault();
+            }
+        });
+
+        $(document).on('keydown', function (e) {
+            if (e.keyCode === 8) {
+                var doPrevent = false,
+                d = e.srcElement || e.target,
+                tagName = d.tagName.toUpperCase(),
+                type = (d.type ? d.type.toUpperCase() : ""),
+                isEditable = d.contentEditable,
+                isReadOnly = d.readOnly,
+                isDisabled = d.disabled;
+                //alert(tagName);
+                //alert(type);
+                if ((tagName === 'INPUT' && (type === 'TEXT' || type === 'PASSWORD')) || tagName === 'PASSWORD' || tagName === 'TEXTAREA' ||
+                    (tagName === 'DIV' && type === '')) {
+
+                    doPrevent = isReadOnly || isDisabled;
+                }
+                else if (tagName === 'SPAN') {
+
+                    doPrevent = !isEditable;
+                }
+                else {
+
+                    doPrevent = true;
+                }
+            }
+            if (doPrevent) {
+                event.preventDefault();
+            }
+        });
+
+        function initSelect2() {
+            if ($().select2) {
+                $('select.select2me').select2({
+                    placeholder: "Select",
+                    allowClear: true
+                });
+            }
+        }
+        function initMultipleSelect2() {
+            if ($().select2) {
+                $('select[multiple="multiple"]').each(function () {
+                    $('.select2-search-choice').remove();
+                    $(this).on("change", function (e) {
+                        //alert("change val=" + e.val);
+                        PageMethods.SalvaSelect2MultipleValues(e.val, PMSuccess, PMFailure);
+                    })
+                });
+            }
+        }
+
+
+    </script>
+
+
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+
+        // The latitude and longitude of italy
+        var position = [41.29246, 12.5736108];
+        var allMarkers = [];
+        var allInfo = [];
+        var geocoder;
+
+        function showGoogleMaps() {
+
+            var latLng = new google.maps.LatLng(position[0], position[1]);
+
+            var mapOptions = {
+                zoom: 6, // initialize zoom level - the max value is 21
+                streetViewControl: true, // hide the yellow Street View pegman
+                zoomControl: true, // allow users to zoom the Google Map
+                zoomControlOptions: {
+                    style: google.maps.ZoomControlStyle.SMALL
+                },
+                mapTypeId: google.maps.MapTypeId.TERRAIN,
+                center: latLng
+            };
+
+            map = new google.maps.Map(document.getElementById('googlemaps'), mapOptions);
+
+            var marker_1 = new google.maps.Marker({ position: new google.maps.LatLng(43.3475078412181, 11.5050110724915), icon: '/Images/Marker/sm_black.png', map: map }); allMarkers['id6'] = marker_1;
+            var infowindow_1 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Castelnuovo berardenga', ' () ', 'P.zza Marconi', 'ctl00$body$btn_scheda', 6) });
+            allInfo['id6'] = infowindow_1;
+            google.maps.event.addListener(marker_1, 'click', function () { infowindow_1.open(map, marker_1); }); var marker_2 = new google.maps.Marker({ position: new google.maps.LatLng(9.2855961, 9.2855961), icon: '/Images/Marker/sm_black.png', map: map }); allMarkers['id8'] = marker_2;
+            var infowindow_2 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Deposito Linate Aeroporto', 'Peschiera Borromeo (MI) ', 'Aeroporto Linate', 'ctl00$body$btn_scheda', 8) });
+            allInfo['id8'] = infowindow_2;
+            google.maps.event.addListener(marker_2, 'click', function () { infowindow_2.open(map, marker_2); }); var marker_3 = new google.maps.Marker({ position: new google.maps.LatLng(43.5648377, 10.3142473), icon: '/Images/Marker/sm_black.png', map: map }); allMarkers['id7'] = marker_3;
+            var infowindow_3 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Deposito nazionale idrocarburi', 'Livorno (LI) ', 'Via delle cateratte', 'ctl00$body$btn_scheda', 7) });
+            allInfo['id7'] = infowindow_3;
+            google.maps.event.addListener(marker_3, 'click', function () { infowindow_3.open(map, marker_3); }); var marker_4 = new google.maps.Marker({ position: new google.maps.LatLng(41.9901489, 12.0609753), icon: '/Images/Marker/sm_black.png', map: map }); allMarkers['id3'] = marker_4;
+            var infowindow_4 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'ADS 5416 TIRRENO OVEST', 'Civitavecchia (RM) ', 'A12 Roma-Civitavecchia', 'ctl00$body$btn_scheda', 3) });
+            allInfo['id3'] = infowindow_4;
+            google.maps.event.addListener(marker_4, 'click', function () { infowindow_4.open(map, marker_4); }); var marker_5 = new google.maps.Marker({ position: new google.maps.LatLng(43.661818, 10.628221), icon: '/Images/Marker/sm_black.png', map: map }); allMarkers['id2'] = marker_5;
+            var infowindow_5 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', '\"Ex dente Piaggio\"', 'Pontedera (PI) ', 'Via Rinaldo Piaggio', 'ctl00$body$btn_scheda', 2) });
+            allInfo['id2'] = infowindow_5;
+            google.maps.event.addListener(marker_5, 'click', function () { infowindow_5.open(map, marker_5); }); var marker_6 = new google.maps.Marker({ position: new google.maps.LatLng(44.1966018522513, 12.0310367972061), icon: '/Images/Marker/sm_black.png', map: map }); allMarkers['id10'] = marker_6;
+            var infowindow_6 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Campo agricolo Loc.Branzolino', 'Forlì (FC) ', 'Via dei Prati, 2', 'ctl00$body$btn_scheda', 10) });
+            allInfo['id10'] = infowindow_6;
+            google.maps.event.addListener(marker_6, 'click', function () { infowindow_6.open(map, marker_6); }); var marker_7 = new google.maps.Marker({ position: new google.maps.LatLng(11.8993634, 11.8993634), icon: '/Images/Marker/sm_blue.png', map: map }); allMarkers['id9'] = marker_7;
+            var infowindow_7 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'PVE Faenza', 'Faenza (RA) ', 'Via Forlivese, 59', 'ctl00$body$btn_scheda', 9) });
+            allInfo['id9'] = infowindow_7;
+            google.maps.event.addListener(marker_7, 'click', function () { infowindow_7.open(map, marker_7); }); var marker_8 = new google.maps.Marker({ position: new google.maps.LatLng(11.3509248, 11.3509248), icon: '/Images/Marker/sm_blue.png', map: map }); allMarkers['id12'] = marker_8;
+            var infowindow_8 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Stabilimento Castel Maggiore', 'Castel Maggiore (BO) ', 'Via Fabbri, 20', 'ctl00$body$btn_scheda', 12) });
+            allInfo['id12'] = infowindow_8;
+            google.maps.event.addListener(marker_8, 'click', function () { infowindow_8.open(map, marker_8); }); var marker_9 = new google.maps.Marker({ position: new google.maps.LatLng(45.4343363, 12.3387844), icon: '/Images/Marker/sm_blue.png', map: map }); allMarkers['id4'] = marker_9;
+            var infowindow_9 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Sito Produttivo di prova', ' () ', 'via delle Carlotte 69/U', 'ctl00$body$btn_scheda', 4) });
+            allInfo['id4'] = infowindow_9;
+            google.maps.event.addListener(marker_9, 'click', function () { infowindow_9.open(map, marker_9); }); var marker_10 = new google.maps.Marker({ position: new google.maps.LatLng(39.2432079, 9.1797945), icon: '/Images/Marker/sm_blue.png', map: map }); allMarkers['id1'] = marker_10;
+            var infowindow_10 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Ex Pv Repsol (Costa Bissara)', 'Vicenza (VI) ', 'Via Brigata Sassari', 'ctl00$body$btn_scheda', 1) });
+            allInfo['id1'] = infowindow_10;
+            google.maps.event.addListener(marker_10, 'click', function () { infowindow_10.open(map, marker_10); }); var marker_11 = new google.maps.Marker({ position: new google.maps.LatLng(12.073732, 12.073732), icon: '/Images/Marker/sm_blue.png', map: map }); allMarkers['id16'] = marker_11;
+            var infowindow_11 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Deposito Avio Agip Forlì', 'Forlì (FC) ', 'via Seganti 103', 'ctl00$body$btn_scheda', 16) });
+            allInfo['id16'] = infowindow_11;
+            google.maps.event.addListener(marker_11, 'click', function () { infowindow_11.open(map, marker_11); }); var marker_12 = new google.maps.Marker({ position: new google.maps.LatLng(37.4881525642084, 15.0730427828033), icon: '/Images/Marker/sm_blue.png', map: map }); allMarkers['id20'] = marker_12;
+            var infowindow_12 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Centro agricolo  Catania  - ex 9573', 'Catania (CT) ', 'via Tre Ponti, 16', 'ctl00$body$btn_scheda', 20) });
+            allInfo['id20'] = infowindow_12;
+            google.maps.event.addListener(marker_12, 'click', function () { infowindow_12.open(map, marker_12); }); var marker_13 = new google.maps.Marker({ position: new google.maps.LatLng(41.9092397, 12.5349262), icon: '/Images/Marker/sm_blue.png', map: map }); allMarkers['id5'] = marker_13;
+            var infowindow_13 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Ex palazzina \"Polfer\" - Stazione Tiburtina', ' () ', 'Largo Camesena', 'ctl00$body$btn_scheda', 5) });
+            allInfo['id5'] = infowindow_13;
+            google.maps.event.addListener(marker_13, 'click', function () { infowindow_13.open(map, marker_13); }); var marker_14 = new google.maps.Marker({ position: new google.maps.LatLng(45.4865899924059, 11.6445740794754), icon: '/Images/Marker/sm_blue.png', map: map }); allMarkers['id11'] = marker_14;
+            var infowindow_14 = new google.maps.InfoWindow({ Content: getInfowindowsData('Ri-CORDA', 'Deposito San Donà di Piave', ' () ', 'Via Calnova, 150', 'ctl00$body$btn_scheda', 11) });
+            allInfo['id11'] = infowindow_14;
+            google.maps.event.addListener(marker_14, 'click', function () { infowindow_14.open(map, marker_14); });
+
+            geocoder = new google.maps.Geocoder();
+
+        }
+
+        function directOpenMarker() {
+            NuovoCantiere('', '', '', 0, 0, null);
+            openModal('#myModalCantiere');
+        }
+
+        google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+
+
+        function RowDblClick(sender, eventArgs) {
+            var ClikedDataKey = eventArgs._dataKeyValues.sito_key;
+            var grid = $find('ctl00_body_RGSiti');
+            var masterTable = grid.get_masterTableView();
+            var Rows = masterTable.get_dataItems();
+            for (var i = 0; i < Rows.length; i++) {
+                var row = Rows[i];
+                if (ClikedDataKey != null && ClikedDataKey == row.getDataKeyValue("sito_key")) {
+                    var button = row.findElement("btn_st_denominazione");
+                    button.click();
+                }
+            }
+        }
+
+        function grid_search(sender, eventArgs, uniqueName) {
+            eventArgs.cancelBubble = true;
+            eventArgs.returnValue = false;
+            if (eventArgs.stopPropagation) {
+                eventArgs.stopPropagation();
+                eventArgs.preventDefault();
+            }
+            var masterTableView = $find("ctl00_body_RGSiti").get_masterTableView();
+            masterTableView.filter(uniqueName, sender.value, Telerik.Web.UI.GridFilterFunction.Contains);
+        }
+
+        function Init_ToolTips() {
+            $('[data-toggle="tooltip"]').tooltip();
+        }
+
+    </script>
+<link href="/WebResource.axd?d=eyQUYBIvPv7wvDa68iXX_3OCx0QMHN8YXuVuiHQDkFPobH0lQ_VLtXgBzj7-J1O3StrGxkhSK62R-ADf-znYRdIlmL0SR1c2FfAw4EAolx3CtDbBGJkqOTsL1uUltVyFDCHMn7mbfsUut4LFAqxC3g2&amp;t=635496836280000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=MOIRprJiYja2I8b8T8C77upecnLVdqTE8aOanInX3EF5AvtqVfS_P-H8E-LeBgDr89KXYwxFvFoDtp8bzrIndmTTzc1P3GA2FYZfgsgJu51eLFdGjaFK3akD25T4iQFkn6c__LU3TN001EY5vyxneg2&amp;t=635496836280000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body>
+    <form name="aspnetForm" method="post" action="./Home.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="ctl00_RadScriptManager1_TSM" id="ctl00_RadScriptManager1_TSM" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMzQ1NDgyMjA1DxYCHgtWU19NT0RPUEFHRQspX0dpc1JJX1dlYi5Ib21lK1RpcG9Nb2RvUGFnaW5hLCBHaXNSSV9XZWIsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsABYCZg9kFgICAw9kFgwCAw8WAh4HVmlzaWJsZWhkAgUPZBYGAgEPFgIeBFRleHQFATNkAgMPFgIfAgUBM2QCBQ8WAh4LXyFJdGVtQ291bnQCAxYGZg9kFgICAQ8PFgIeD0NvbW1hbmRBcmd1bWVudAUCMjlkFggCAQ8PFgIeCEltYWdlVXJsBRguLi9hc3NldHMvaW1nL3VpLXNhbS5qcGdkZAIDDxYCHwIFEDA2LzA3LzIwMTUgMTI6NDdkAgUPFgIfAgURTWFzc2ltaWxpYW5vIFNhbmlkAgcPFgIfAgUDc3NzZAIBD2QWAgIBDw8WAh8EBQIzMGQWCAIBDw8WAh8FBRguLi9hc3NldHMvaW1nL3VpLXNhbS5qcGdkZAIDDxYCHwIFEDA2LzA3LzIwMTUgMTI6NDdkAgUPFgIfAgURTWFzc2ltaWxpYW5vIFNhbmlkAgcPFgIfAgUDc3NzZAICD2QWAgIBDw8WAh8EBQIxNGQWCAIBDw8WAh8FBRguLi9hc3NldHMvaW1nL3VpLXNhbS5qcGdkZAIDDxYCHwIFEDAyLzA3LzIwMTUgMTY6MTdkAgUPFgIfAgURTWFzc2ltaWxpYW5vIFNhbmlkAgcPFgIfAgUFUFJPVkFkAgkPDxYCHwUFGC4uL2Fzc2V0cy9pbWcvdWktc2FtLmpwZ2RkAgsPFgIfAgUOQW1taW5pc3RyYXRvcmVkAg0PFgIfAwIGFgxmD2QWBgIBDw8WBB8EBRUuLi9TdGFydC9Ib21lLmFzcHh8fDEfAgU1PGkgY2xhc3M9ImZhIGZhLWRhc2hib2FyZCI+PC9pPjxzcGFuPldvcmtzcGFjZTwvc3Bhbj4WAh4FY2xhc3MFBmFjdGl2ZWQCAw8PFgIfAWhkZAIFDxYEHwNmHwFoZAIBD2QWBgIBDw8WBh8EBQN8fDMfAgU1PGkgY2xhc3M9ImZhIGZhLWNvZ3MiPjwvaT48c3Bhbj5Db25maWd1cmF6aW9uaTwvc3Bhbj4fAWhkZAIDDw8WBB8CBTU8aSBjbGFzcz0iZmEgZmEtY29ncyI+PC9pPjxzcGFuPkNvbmZpZ3VyYXppb25pPC9zcGFuPh4LTmF2aWdhdGVVcmwFDGphdmFzY3JpcHQ6O2RkAgUPFgIfAwIDFgYCAQ9kFgICAQ8PFgQfBAUtLi4vQ29uZmlndXJhemlvbmkvUHJvZmlsb19GdW56aW9uaS5hc3B4fHwzfDEzHwIFHzxzcGFuPlByb2ZpbGkgZGkgYWNjZXNzbzwvc3Bhbj5kZAICD2QWAgIBDw8WBB8EBSUuLi9Db25maWd1cmF6aW9uaS9QZXJtZXNzaS5hc3B4fHwzfDEyHwIFIDxzcGFuPlBlcm1lc3NpIGRpIGFjY2Vzc288L3NwYW4+ZGQCAw9kFgICAQ8PFgQfBAUtLi4vQ29uZmlndXJhemlvbmkvVGFiZWxsZV9TdXBwb3J0by5hc3B4fHwzfDE0HwIFIDxzcGFuPlRhYmVsbGUgZGkgc3VwcG9ydG88L3NwYW4+ZGQCAg9kFgYCAQ8PFgYfBAUDfHwyHwIFNjxpIGNsYXNzPSJmYSBmYS1hcmNoaXZlICI+PC9pPjxzcGFuPkFuYWdyYWZpY2hlPC9zcGFuPh8BaGRkAgMPDxYEHwIFNjxpIGNsYXNzPSJmYSBmYS1hcmNoaXZlICI+PC9pPjxzcGFuPkFuYWdyYWZpY2hlPC9zcGFuPh8HBQxqYXZhc2NyaXB0OjtkZAIFDxYCHwMCBRYKAgEPZBYCAgEPDxYEHwQFKS4uL0FuYWdyYWZpY2EvU29jaWV0YV9HZXN0aW9uZS5hc3B4fHwyfDI4HwIFITxzcGFuPlNvY2lldMOgIGRpIEdlc3Rpb25lPC9zcGFuPmRkAgIPZBYCAgEPDxYEHwQFHy4uL0FuYWdyYWZpY2EvU29jaWV0YS5hc3B4fHwyfDgfAgUVPHNwYW4+U29jaWV0w6A8L3NwYW4+ZGQCAw9kFgICAQ8PFgQfBAUcLi4vQW5hZ3JhZmljYS9TaXRpLmFzcHh8fDJ8OR8CBRE8c3Bhbj5TaXRpPC9zcGFuPmRkAgQPZBYCAgEPDxYEHwQFHi4uL0FuYWdyYWZpY2EvRGl0dGUuYXNweHx8MnwxMB8CBR08c3Bhbj5EaXR0ZSBvcGVyYXRyaWNpPC9zcGFuPmRkAgUPZBYCAgEPDxYEHwQFKi4uL0FuYWdyYWZpY2EvU2l0aV9EZXN0aW5hemlvbmUuYXNweHx8MnwxMR8CBR48c3Bhbj5TaXRpIGRlc3RpbmF6aW9uZTwvc3Bhbj5kZAIDD2QWBgIBDw8WBh8EBQN8fDYfAgUzPGkgY2xhc3M9ImZhIGZhLWVudmVsb3BlIj48L2k+PHNwYW4+TWVzc2FnZ2k8L3NwYW4+HwFoZGQCAw8PFgQfAgUzPGkgY2xhc3M9ImZhIGZhLWVudmVsb3BlIj48L2k+PHNwYW4+TWVzc2FnZ2k8L3NwYW4+HwcFDGphdmFzY3JpcHQ6O2RkAgUPFgIfAwIEFggCAQ9kFgICAQ8PFgQfBAUcLi4vTWVzc2FnZ2kvTnVvdm8uYXNweHx8NnwyNB8CBRw8c3Bhbj5OdW92byBtZXNzYWdnaW88L3NwYW4+ZGQCAg9kFgICAQ8PFgQfBAUhLi4vTWVzc2FnZ2kvTWFpbGJveC5hc3B4fE1JTnw2fDIxHwIFFTxzcGFuPlJpY2V2dXRpPC9zcGFuPmRkAgMPZBYCAgEPDxYEHwQFIS4uL01lc3NhZ2dpL01haWxib3guYXNweHxNT1V8NnwyMh8CBRQ8c3Bhbj5JbnZpYXRpPC9zcGFuPmRkAgQPZBYCAgEPDxYEHwQFIS4uL01lc3NhZ2dpL01haWxib3guYXNweHxNREV8NnwyMx8CBRc8c3Bhbj5DYW5jZWxsYXRpPC9zcGFuPmRkAgQPZBYGAgEPDxYGHwQFA3x8Nx8CBTU8aSBjbGFzcz0iIGZhIGZhLWJhci1jaGFydC1vIj48L2k+PHNwYW4+UmVwb3J0PC9zcGFuPh8BaGRkAgMPDxYEHwIFNTxpIGNsYXNzPSIgZmEgZmEtYmFyLWNoYXJ0LW8iPjwvaT48c3Bhbj5SZXBvcnQ8L3NwYW4+HwcFDGphdmFzY3JpcHQ6O2RkAgUPFgIfAwIHFg4CAQ9kFgICAQ8PFgQfBAUoLi4vUmVwb3J0L1JpZml1dGlfSW5fU2NhZGVuemEuYXNweHx8N3wyNR8CBSA8c3Bhbj5SaWZpdXRpIGluIHNjYWRlbnphPC9zcGFuPmRkAgIPZBYCAgEPDxYEHwQFKC4uL1JlcG9ydC9EZXBvc2l0aV9TaXR1YXppb25lLmFzcHh8fDd8MjYfAgUgPHNwYW4+U2l0dWF6aW9uZSBkZXBvc2l0aTwvc3Bhbj5kZAIDD2QWAgIBDw8WBB8EBSUuLi9SZXBvcnQvRGVwb3NpdGlfR3JhZmljby5hc3B4fHw3fDI3HwIFIDxzcGFuPkV2b2x1emlvbmUgZGVwb3NpdGk8L3NwYW4+ZGQCBA9kFgICAQ8PFgQfBAUpLi4vUmVwb3J0L1JpZW50cm9fUXVhcnRhX0NvcGlhLmFzcHh8fDd8MjkfAgUhPHNwYW4+UmllbnRybyBxdWFydGEgY29waWE8L3NwYW4+ZGQCBQ9kFgICAQ8PFgQfBAUlLi4vUmVwb3J0L0VzcG9ydGF6aW9uZV9tdWQuYXNweHx8N3wzNR8CBR08c3Bhbj5FbGVuY28gbW92aW1lbnRpPC9zcGFuPmRkAgYPZBYCAgEPDxYEHwQFKS4uL1JlcG9ydC9WZXJpZmljYV9DYXJpY2FtZW50aS5hc3B4fHw3fDM0HwIFJjxzcGFuPkNhcmljYW1lbnRpIGRhIHZlcmlmaWNhcmU8L3NwYW4+ZGQCBw9kFgICAQ8PFgQfBAUrLi4vUmVwb3J0L0NhcmljYW1lbnRpX1ZlcmlmaWNhdGkuYXNweHx8N3wzNh8CBSE8c3Bhbj5WZXJpZmljaGUgZWZmZXR0dWF0ZTwvc3Bhbj5kZAIFD2QWBgIBDw8WBh8EBQR8fDM3HwIFMTxpIGNsYXNzPSIgZmEgZmEtYm9vayI+PC9pPjxzcGFuPkRvY3VtZW50aTwvc3Bhbj4fAWhkZAIDDw8WBB8CBTE8aSBjbGFzcz0iIGZhIGZhLWJvb2siPjwvaT48c3Bhbj5Eb2N1bWVudGk8L3NwYW4+HwcFDGphdmFzY3JpcHQ6O2RkAgUPFgIfAwICFgQCAQ9kFgICAQ8PFgQfBAUgLi4vUmVwb3J0L0VsZW5jb19tdWQuYXNweHx8Mzd8MzMfAgUXPHNwYW4+RWxlbmNvIE11ZDwvc3Bhbj5kZAICD2QWAgIBDw8WBB8EBSMuLi9NYW51YWxlL01hbnVhbGlzdGljYS5hc3B4fHwzN3wzOB8CBRk8c3Bhbj5NYW51YWxpc3RpY2E8L3NwYW4+ZGQCDw9kFgYCAw9kFgJmD2QWAgIHD2QWCAIHDxBkEBUEEVR1dHRlIGxlIHNvY2lldMOgA0VOSQdFc3Rlcm5hB1BST1ZBIDIVBAABMQEzAjEyFCsDBGdnZ2cWAWZkAgkPEGRkFgFmZAILDxBkZBYBZmQCDQ9kFgICAQ8QZGQWAWZkAgUPZBYCZg9kFgICAQ88KwAOAgAUKwACDxYKHhdFbmFibGVBamF4U2tpblJlbmRlcmluZ2geFUVuYWJsZUVtYmVkZGVkU2NyaXB0c2ceC18hRGF0YUJvdW5kZx8DAgEeHEVuYWJsZUVtYmVkZGVkQmFzZVN0eWxlc2hlZXRnZBcDBQ9TZWxlY3RlZEluZGV4ZXMWAAULRWRpdEluZGV4ZXMWAAUIUGFnZVNpemUCGQEWAhYLDwIFFCsABRQrAAUWAh4Eb2luZAICZGRkBRFUZW1wbGF0ZUNvbHVtblBpbhQrAAUWBB4IRGF0YVR5cGUZKwIfDAIDZGRkBRFzdF9jb2RpY2VfaW50ZXJubxQrAAUWBB8NGSsCHwwCBGRkZAUQc3RfZGVub21pbmF6aW9uZRQrAAUWBB8NGSsCHwwCBWRkZAURc3RfcHJvdmluY2lhX2Rlc2MUKwAFFgIfDAIGZGRkBRBUZW1wbGF0ZUNvbHVtblNjZGUUKwAACyl6VGVsZXJpay5XZWIuVUkuR3JpZENoaWxkTG9hZE1vZGUsIFRlbGVyaWsuV2ViLlVJLCBWZXJzaW9uPTIwMTQuMy4xMDI0LjQwLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDQBPCsABwALKXVUZWxlcmlrLldlYi5VSS5HcmlkRWRpdE1vZGUsIFRlbGVyaWsuV2ViLlVJLCBWZXJzaW9uPTIwMTQuMy4xMDI0LjQwLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDQBZGQWEB4IRGF0YUtleXMWAB4MX2lzZmx0cml0bWV4Zx4FX3FlbHQZKV5HaXNSSV9DbGFzc2kuT2dnZXR0aS5TaXRvLCBHaXNSSV9DbGFzc2ksIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsHwMCDx4USXNCb3VuZFRvRm9yd2FyZE9ubHloHg5DdXN0b21QYWdlU2l6ZQIZHwpnHgVfIUNJUxcAZGYWBmYPFCsAA2RkZGQCAQ8WBRQrAAIPFhAfDhYAHw9nHxAZKwcfAwIPHxFoHxICGR8KZx8TFwBkFwQFBl8hRFNJQwIPBQtfIUl0ZW1Db3VudAIPBRBDdXJyZW50UGFnZUluZGV4ZgUIXyFQQ291bnQCARYCHgNfc2UWAh4CX2NmFCsADxQrAAIUKwABBQhzaXRvX2tleRQrAAECBhQrAAIUKwABBQhzaXRvX2tleRQrAAECCBQrAAIUKwABBQhzaXRvX2tleRQrAAECBxQrAAIUKwABBQhzaXRvX2tleRQrAAECAxQrAAIUKwABBQhzaXRvX2tleRQrAAECAhQrAAIUKwABBQhzaXRvX2tleRQrAAECChQrAAIUKwABBQhzaXRvX2tleRQrAAECCRQrAAIUKwABBQhzaXRvX2tleRQrAAECDxQrAAIUKwABBQhzaXRvX2tleRQrAAECDBQrAAIUKwABBQhzaXRvX2tleRQrAAECBBQrAAIUKwABBQhzaXRvX2tleRQrAAECARQrAAIUKwABBQhzaXRvX2tleRQrAAECEBQrAAIUKwABBQhzaXRvX2tleRQrAAECFBQrAAIUKwABBQhzaXRvX2tleRQrAAECBRQrAAIUKwABBQhzaXRvX2tleRQrAAECCxYFZGRkZGQWAmdnFgRmD2QWQGYPZBYGZg8PFgYeCENzc0NsYXNzBQggcmdQYWdlch4EXyFTQgICHwFoZBYCZg8PFgIeCkNvbHVtblNwYW4CBWQWAmYPZBYCAgEPZBYCZg9kFgICAw8PFgQfFgUQcmdXcmFwIHJnQWR2UGFydB8XAgJkFgICAQ8UKwACDxYeHhlSZWdpc3RlcldpdGhTY3JpcHRNYW5hZ2VyZx4MVGFibGVTdW1tYXJ5ZR8JZx8CBQIyNR8LZx4MVGFibGVDYXB0aW9uBRBQYWdlU2l6ZUNvbWJvQm94HxcCgAIeCklucHV0VGl0bGVlHhNFbmFibGVFbWJlZGRlZFNraW5zaB4dT25DbGllbnRTZWxlY3RlZEluZGV4Q2hhbmdpbmcFMFRlbGVyaWsuV2ViLlVJLkdyaWQuQ2hhbmdpbmdQYWdlU2l6ZUNvbWJvSGFuZGxlch4TY2FjaGVkU2VsZWN0ZWRWYWx1ZWQfCmceEUVuYWJsZUFyaWFTdXBwb3J0aB4FV2lkdGgbAAAAAAAAR0ABAAAAHhxPbkNsaWVudFNlbGVjdGVkSW5kZXhDaGFuZ2VkBS5UZWxlcmlrLldlYi5VSS5HcmlkLkNoYW5nZVBhZ2VTaXplQ29tYm9IYW5kbGVyZA8UKwAEFCsAAg8WBh8CBQIxMB4FVmFsdWUFAjEwHghTZWxlY3RlZGgWAh4Qb3duZXJUYWJsZVZpZXdJZAUXY3RsMDBfYm9keV9SR1NpdGlfY3RsMDBkFCsAAg8WBh8CBQIyNR8jBQIyNR8kZxYCHyUFF2N0bDAwX2JvZHlfUkdTaXRpX2N0bDAwZBQrAAIPFgYfAgUCNTAfIwUCNTAfJGgWAh8lBRdjdGwwMF9ib2R5X1JHU2l0aV9jdGwwMGQUKwACDxYGHwIFAzEwMB8jBQMxMDAfJGgWAh8lBRdjdGwwMF9ib2R5X1JHU2l0aV9jdGwwMGQPFCsBBGZmZmYWAQV4VGVsZXJpay5XZWIuVUkuUmFkQ29tYm9Cb3hJdGVtLCBUZWxlcmlrLldlYi5VSSwgVmVyc2lvbj0yMDE0LjMuMTAyNC40MCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0xMjFmYWU3ODE2NWJhM2Q0FgxmDw8WBB8WBQlyY2JIZWFkZXIfFwICZGQCAQ8PFgQfFgUJcmNiRm9vdGVyHxcCAmRkAgIPDxYGHwIFAjEwHyMFAjEwHyRoFgIfJQUXY3RsMDBfYm9keV9SR1NpdGlfY3RsMDBkAgMPDxYGHwIFAjI1HyMFAjI1HyRnFgIfJQUXY3RsMDBfYm9keV9SR1NpdGlfY3RsMDBkAgQPDxYGHwIFAjUwHyMFAjUwHyRoFgIfJQUXY3RsMDBfYm9keV9SR1NpdGlfY3RsMDBkAgUPDxYGHwIFAzEwMB8jBQMxMDAfJGgWAh8lBRdjdGwwMF9ib2R5X1JHU2l0aV9jdGwwMGQCAQ9kFghmDw8WBB8CBQYmbmJzcDsfAWhkZAIBDw8WBB8CBQYmbmJzcDsfAWhkZAICDw8WAh8CZWRkAgYPDxYCHwJlZBYEAgMPDxYEHxYFQGJ0biBidG4tcHJpbWFyeSBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgcmVkLXRvb2x0aXAfFwICZGQCBQ8PFgQfFgUyYnRuIGJ0bi1kZWZhdWx0IGJ0bi14cyBnaXNyaV9idXR0b25fd3MgcmVkLXRvb2x0aXAfFwICZGQCAg9kFg5mDw8WBB8CBQYmbmJzcDsfAWhkZAIBDw8WBB8CBQYmbmJzcDsfAWhkZAICDw8WAh8CBQYmbmJzcDtkZAIDDw9kFgIeBXN0eWxlBRN3aGl0ZS1zcGFjZTpub3dyYXA7FgJmDw9kFgIeCm9ua2V5cHJlc3MFJ2lmKChldmVudC5rZXlDb2RlID09IDEzKSkgcmV0dXJuIGZhbHNlO2QCBA8PZBYCHyYFE3doaXRlLXNwYWNlOm5vd3JhcDsWAmYPD2QWAh8nBSdpZigoZXZlbnQua2V5Q29kZSA9PSAxMykpIHJldHVybiBmYWxzZTtkAgUPD2QWAh8mBRN3aGl0ZS1zcGFjZTpub3dyYXA7FgJmDw9kFgIfJwUnaWYoKGV2ZW50LmtleUNvZGUgPT0gMTMpKSByZXR1cm4gZmFsc2U7ZAIGDw8WAh8CBQYmbmJzcDtkZAIBDw8WAh8BaGQWBGYPZBYOZg8PFgIfAgUGJm5ic3A7ZGQCAQ8PFgIfAgUGJm5ic3A7ZGQCAg8PFgIfAgUGJm5ic3A7ZGQCAw8PFgIfAgUGJm5ic3A7ZGQCBA8PFgIfAgUGJm5ic3A7ZGQCBQ8PFgIfAgUGJm5ic3A7ZGQCBg8PFgIfAgUGJm5ic3A7ZGQCAQ8PFgYfFgUIIHJnUGFnZXIfFwICHwFoZBYCZg8PFgIfGAIFZBYCZg9kFgICAQ9kFgJmD2QWAgIDDw8WBB8WBRByZ1dyYXAgcmdBZHZQYXJ0HxcCAmQWAgIBDxQrAAIPFh4fGWcfGmUfCWcfAgUCMjUfC2cfGwUQUGFnZVNpemVDb21ib0JveB8XAoACHxxlHx1oHx4FMFRlbGVyaWsuV2ViLlVJLkdyaWQuQ2hhbmdpbmdQYWdlU2l6ZUNvbWJvSGFuZGxlch8fZB8KZx8gaB8hGwAAAAAAAEdAAQAAAB8iBS5UZWxlcmlrLldlYi5VSS5HcmlkLkNoYW5nZVBhZ2VTaXplQ29tYm9IYW5kbGVyZA8UKwAEFCsAAg8WBh8CBQIxMB8jBQIxMB8kaBYCHyUFF2N0bDAwX2JvZHlfUkdTaXRpX2N0bDAwZBQrAAIPFgYfAgUCMjUfIwUCMjUfJGcWAh8lBRdjdGwwMF9ib2R5X1JHU2l0aV9jdGwwMGQUKwACDxYGHwIFAjUwHyMFAjUwHyRoFgIfJQUXY3RsMDBfYm9keV9SR1NpdGlfY3RsMDBkFCsAAg8WBh8CBQMxMDAfIwUDMTAwHyRoFgIfJQUXY3RsMDBfYm9keV9SR1NpdGlfY3RsMDBkDxQrAQRmZmZmFgEFeFRlbGVyaWsuV2ViLlVJLlJhZENvbWJvQm94SXRlbSwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAxNC4zLjEwMjQuNDAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49MTIxZmFlNzgxNjViYTNkNBYMZg8PFgQfFgUJcmNiSGVhZGVyHxcCAmRkAgEPDxYEHxYFCXJjYkZvb3Rlch8XAgJkZAICDw8WBh8CBQIxMB8jBQIxMB8kaBYCHyUFF2N0bDAwX2JvZHlfUkdTaXRpX2N0bDAwZAIDDw8WBh8CBQIyNR8jBQIyNR8kZxYCHyUFF2N0bDAwX2JvZHlfUkdTaXRpX2N0bDAwZAIEDw8WBh8CBQI1MB8jBQI1MB8kaBYCHyUFF2N0bDAwX2JvZHlfUkdTaXRpX2N0bDAwZAIFDw8WBh8CBQMxMDAfIwUDMTAwHyRoFgIfJQUXY3RsMDBfYm9keV9SR1NpdGlfY3RsMDBkAgIPDxYCHgRfaWloBQEwZBYOZg8PFgIfAWhkZAIBDw8WBB8CBQYmbmJzcDsfAWhkZAICDw8WAh8CZWQWAgIBDw8WAh8EBQE2FgIeB29uQ2xpY2sFNmdvU2l0b01hcmtlcihhbGxNYXJrZXJzLmlkNixhbGxJbmZvLmlkNik7cmV0dXJuIGZhbHNlO2QCAw8PFgIfAgUHQ0FHLTAwMWRkAgQPDxYCHwJlZBYCAgEPDxYEHwQFATYfAgUWQ2FzdGVsbnVvdm8gYmVyYXJkZW5nYWRkAgUPDxYCHwJlZBYCAgEPDxYCHwIFAlNJZGQCBg8PFgIfAmVkFgYCAQ8PFggfFgVOYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLWRlY29tbWlzaW9uaW5nIHJlZC10b29sdGlwHgdUb29sVGlwBQ9EZWNvbW1pc3Npb25pbmcfAgUkPGkgY2xhc3M9ImZhIGZhLWZsYWciPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgMPDxYIHxYFR2J0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1zY2FkdXRvIHJlZC10b29sdGlwHyoFC0RUID4gMyBNZXNpHwIFJDxpIGNsYXNzPSJmYSBmYS11c2VyIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIFDw8WCB8WBUdidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tc2NhZHV0byByZWQtdG9vbHRpcB8qBQtEVCA+IDMgbWVzaR8CBSU8aSBjbGFzcz0iZmEgZmEtdXNlcnMiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgMPZBYCZg8PFgIfAWhkZAIEDw8WAh8oBQExZBYOZg8PFgIfAWhkZAIBDw8WBB8CBQYmbmJzcDsfAWhkZAICDw8WAh8CZWQWAgIBDw8WAh8EBQE4FgIfKQU2Z29TaXRvTWFya2VyKGFsbE1hcmtlcnMuaWQ4LGFsbEluZm8uaWQ4KTtyZXR1cm4gZmFsc2U7ZAIDDw8WAh8CBQdERVAtMDAxZGQCBA8PFgIfAmVkFgICAQ8PFgQfBAUBOB8CBRlEZXBvc2l0byBMaW5hdGUgQWVyb3BvcnRvZGQCBQ8PFgIfAmVkFgICAQ8PFgIfAgUCTUlkZAIGDw8WAh8CZWQWBgIBDw8WCB8WBUlidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tYWNxdWlzaXRvIHJlZC10b29sdGlwHyoFCUFDUVVJU0lUTx8CBSQ8aSBjbGFzcz0iZmEgZmEtZmxhZyI+PC9pPiZuYnNwOzwvaT4fFwICZGQCAw8PFggfFgVHYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLXNjYWR1dG8gcmVkLXRvb2x0aXAfKgULRFQgPiAzIE1lc2kfAgUkPGkgY2xhc3M9ImZhIGZhLXVzZXIiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgUPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVlVPVE8fAgUlPGkgY2xhc3M9ImZhIGZhLXVzZXJzIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIFD2QWAmYPDxYCHwFoZGQCBg8PFgIfKAUBMmQWDmYPDxYCHwFoZGQCAQ8PFgQfAgUGJm5ic3A7HwFoZGQCAg8PFgIfAmVkFgICAQ8PFgIfBAUBNxYCHykFNmdvU2l0b01hcmtlcihhbGxNYXJrZXJzLmlkNyxhbGxJbmZvLmlkNyk7cmV0dXJuIGZhbHNlO2QCAw8PFgIfAgUHREVQLTAwMWRkAgQPDxYCHwJlZBYCAgEPDxYEHwQFATcfAgUeRGVwb3NpdG8gbmF6aW9uYWxlIGlkcm9jYXJidXJpZGQCBQ8PFgIfAmVkFgICAQ8PFgIfAgUCTElkZAIGDw8WAh8CZWQWBgIBDw8WCB8WBUlidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tYWNxdWlzaXRvIHJlZC10b29sdGlwHyoFCUFDUVVJU0lUTx8CBSQ8aSBjbGFzcz0iZmEgZmEtZmxhZyI+PC9pPiZuYnNwOzwvaT4fFwICZGQCAw8PFggfFgVHYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLXNjYWR1dG8gcmVkLXRvb2x0aXAfKgULRFQgPiAzIE1lc2kfAgUkPGkgY2xhc3M9ImZhIGZhLXVzZXIiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgUPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVlVPVE8fAgUlPGkgY2xhc3M9ImZhIGZhLXVzZXJzIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIHD2QWAmYPDxYCHwFoZGQCCA8PFgIfKAUBM2QWDmYPDxYCHwFoZGQCAQ8PFgQfAgUGJm5ic3A7HwFoZGQCAg8PFgIfAmVkFgICAQ8PFgIfBAUBMxYCHykFNmdvU2l0b01hcmtlcihhbGxNYXJrZXJzLmlkMyxhbGxJbmZvLmlkMyk7cmV0dXJuIGZhbHNlO2QCAw8PFgIfAgUHUkFGLU1BWGRkAgQPDxYCHwJlZBYCAgEPDxYEHwQFATMfAgUWQURTIDU0MTYgVElSUkVOTyBPVkVTVGRkAgUPDxYCHwJlZBYCAgEPDxYCHwIFAlJNZGQCBg8PFgIfAmVkFgYCAQ8PFggfFgVMYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLW1hbnV0YW56aW9uZSByZWQtdG9vbHRpcB8qBQxNYW50ZW5pbWVudG8fAgUkPGkgY2xhc3M9ImZhIGZhLWZsYWciPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgMPDxYIHxYFR2J0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1zY2FkdXRvIHJlZC10b29sdGlwHyoFC0RUID4gMyBNZXNpHwIFJDxpIGNsYXNzPSJmYSBmYS11c2VyIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIFDw8WCB8WBUdidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tc2NhZHV0byByZWQtdG9vbHRpcB8qBQtEVCA+IDMgbWVzaR8CBSU8aSBjbGFzcz0iZmEgZmEtdXNlcnMiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgkPZBYCZg8PFgIfAWhkZAIKDw8WAh8oBQE0ZBYOZg8PFgIfAWhkZAIBDw8WBB8CBQYmbmJzcDsfAWhkZAICDw8WAh8CZWQWAgIBDw8WAh8EBQEyFgIfKQU2Z29TaXRvTWFya2VyKGFsbE1hcmtlcnMuaWQyLGFsbEluZm8uaWQyKTtyZXR1cm4gZmFsc2U7ZAIDDw8WAh8CBQdERVAtMDAxZGQCBA8PFgIfAmVkFgICAQ8PFgQfBAUBMh8CBRIiRXggZGVudGUgUGlhZ2dpbyJkZAIFDw8WAh8CZWQWAgIBDw8WAh8CBQJQSWRkAgYPDxYCHwJlZBYGAgEPDxYIHxYFTmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1kZWNvbW1pc2lvbmluZyByZWQtdG9vbHRpcB8qBQ9EZWNvbW1pc3Npb25pbmcfAgUkPGkgY2xhc3M9ImZhIGZhLWZsYWciPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgMPDxYIHxYFR2J0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1zY2FkdXRvIHJlZC10b29sdGlwHyoFC0RUID4gMyBNZXNpHwIFJDxpIGNsYXNzPSJmYSBmYS11c2VyIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIFDw8WCB8WBUdidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tc2NhZHV0byByZWQtdG9vbHRpcB8qBQtEVCA+IDMgbWVzaR8CBSU8aSBjbGFzcz0iZmEgZmEtdXNlcnMiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgsPZBYCZg8PFgIfAWhkZAIMDw8WAh8oBQE1ZBYOZg8PFgIfAWhkZAIBDw8WBB8CBQYmbmJzcDsfAWhkZAICDw8WAh8CZWQWAgIBDw8WAh8EBQIxMBYCHykFOGdvU2l0b01hcmtlcihhbGxNYXJrZXJzLmlkMTAsYWxsSW5mby5pZDEwKTtyZXR1cm4gZmFsc2U7ZAIDDw8WAh8CBQdDQUctMDAxZGQCBA8PFgIfAmVkFgICAQ8PFgQfBAUCMTAfAgUdQ2FtcG8gYWdyaWNvbG8gTG9jLkJyYW56b2xpbm9kZAIFDw8WAh8CZWQWAgIBDw8WAh8CBQJGQ2RkAgYPDxYCHwJlZBYGAgEPDxYIHxYFSGJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hbGllbmF0byByZWQtdG9vbHRpcB8qBQhBbGllbmF0bx8CBSQ8aSBjbGFzcz0iZmEgZmEtZmxhZyI+PC9pPiZuYnNwOzwvaT4fFwICZGQCAw8PFggfFgVHYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLXNjYWR1dG8gcmVkLXRvb2x0aXAfKgULRFQgPiAzIE1lc2kfAgUkPGkgY2xhc3M9ImZhIGZhLXVzZXIiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgUPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVlVPVE8fAgUlPGkgY2xhc3M9ImZhIGZhLXVzZXJzIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIND2QWAmYPDxYCHwFoZGQCDg8PFgIfKAUBNmQWDmYPDxYCHwFoZGQCAQ8PFgQfAgUGJm5ic3A7HwFoZGQCAg8PFgIfAmVkFgICAQ8PFgIfBAUBORYCHykFNmdvU2l0b01hcmtlcihhbGxNYXJrZXJzLmlkOSxhbGxJbmZvLmlkOSk7cmV0dXJuIGZhbHNlO2QCAw8PFgIfAgUHUFZFLTAwMWRkAgQPDxYCHwJlZBYCAgEPDxYEHwQFATkfAgUKUFZFIEZhZW56YWRkAgUPDxYCHwJlZBYCAgEPDxYCHwIFAlJBZGQCBg8PFgIfAmVkFgYCAQ8PFggfFgVJYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLWFjcXVpc2l0byByZWQtdG9vbHRpcB8qBQlBQ1FVSVNJVE8fAgUkPGkgY2xhc3M9ImZhIGZhLWZsYWciPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgMPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVnVvdG8fAgUkPGkgY2xhc3M9ImZhIGZhLXVzZXIiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgUPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVlVPVE8fAgUlPGkgY2xhc3M9ImZhIGZhLXVzZXJzIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIPD2QWAmYPDxYCHwFoZGQCEA8PFgIfKAUBN2QWDmYPDxYCHwFoZGQCAQ8PFgQfAgUGJm5ic3A7HwFoZGQCAg8PFgIfAmVkFgICAQ8PFgIfBAUCMTUWAh8pBThnb1NpdG9NYXJrZXIoYWxsTWFya2Vycy5pZDE1LGFsbEluZm8uaWQxNSk7cmV0dXJuIGZhbHNlO2QCAw8PFgIfAgUDUFBQZGQCBA8PFgIfAmVkFgICAQ8PFgQfBAUCMTUfAgUFUFJPVkFkZAIFDw8WAh8CZWQWAgIBDw8WAh8CBQJBUWRkAgYPDxYCHwJlZBYGAgEPDxYIHxYFSWJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hY3F1aXNpdG8gcmVkLXRvb2x0aXAfKgUJQUNRVUlTSVRPHwIFJDxpIGNsYXNzPSJmYSBmYS1mbGFnIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIDDw8WCB8WBUZidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tYXBlcnRvIHJlZC10b29sdGlwHyoFCERUIFZ1b3RvHwIFJDxpIGNsYXNzPSJmYSBmYS11c2VyIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIFDw8WCB8WBUZidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tYXBlcnRvIHJlZC10b29sdGlwHyoFCERUIFZVT1RPHwIFJTxpIGNsYXNzPSJmYSBmYS11c2VycyI+PC9pPiZuYnNwOzwvaT4fFwICZGQCEQ9kFgJmDw8WAh8BaGRkAhIPDxYCHygFAThkFg5mDw8WAh8BaGRkAgEPDxYEHwIFBiZuYnNwOx8BaGRkAgIPDxYCHwJlZBYCAgEPDxYCHwQFAjEyFgIfKQU4Z29TaXRvTWFya2VyKGFsbE1hcmtlcnMuaWQxMixhbGxJbmZvLmlkMTIpO3JldHVybiBmYWxzZTtkAgMPDxYCHwIFB0NQUi0wMDFkZAIEDw8WAh8CZWQWAgIBDw8WBB8EBQIxMh8CBRxTdGFiaWxpbWVudG8gQ2FzdGVsIE1hZ2dpb3JlZGQCBQ8PFgIfAmVkFgICAQ8PFgIfAgUCQk9kZAIGDw8WAh8CZWQWBgIBDw8WCB8WBUlidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tYWNxdWlzaXRvIHJlZC10b29sdGlwHyoFCUFDUVVJU0lUTx8CBSQ8aSBjbGFzcz0iZmEgZmEtZmxhZyI+PC9pPiZuYnNwOzwvaT4fFwICZGQCAw8PFggfFgVGYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLWFwZXJ0byByZWQtdG9vbHRpcB8qBQhEVCBWdW90bx8CBSQ8aSBjbGFzcz0iZmEgZmEtdXNlciI+PC9pPiZuYnNwOzwvaT4fFwICZGQCBQ8PFggfFgVGYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLWFwZXJ0byByZWQtdG9vbHRpcB8qBQhEVCBWVU9UTx8CBSU8aSBjbGFzcz0iZmEgZmEtdXNlcnMiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAhMPZBYCZg8PFgIfAWhkZAIUDw8WAh8oBQE5ZBYOZg8PFgIfAWhkZAIBDw8WBB8CBQYmbmJzcDsfAWhkZAICDw8WAh8CZWQWAgIBDw8WAh8EBQE0FgIfKQU2Z29TaXRvTWFya2VyKGFsbE1hcmtlcnMuaWQ0LGFsbEluZm8uaWQ0KTtyZXR1cm4gZmFsc2U7ZAIDDw8WAh8CBQYmbmJzcDtkZAIEDw8WAh8CZWQWAgIBDw8WBB8EBQE0HwIFGFNpdG8gUHJvZHV0dGl2byBkaSBwcm92YWRkAgUPDxYCHwJlZBYCAgEPDxYCHwIFAlZFZGQCBg8PFgIfAmVkFgYCAQ8PFggfFgVJYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLWFjcXVpc2l0byByZWQtdG9vbHRpcB8qBQlBQ1FVSVNJVE8fAgUkPGkgY2xhc3M9ImZhIGZhLWZsYWciPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgMPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVnVvdG8fAgUkPGkgY2xhc3M9ImZhIGZhLXVzZXIiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgUPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVlVPVE8fAgUlPGkgY2xhc3M9ImZhIGZhLXVzZXJzIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIVD2QWAmYPDxYCHwFoZGQCFg8PFgIfKAUCMTBkFg5mDw8WAh8BaGRkAgEPDxYEHwIFBiZuYnNwOx8BaGRkAgIPDxYCHwJlZBYCAgEPDxYCHwQFATEWAh8pBTZnb1NpdG9NYXJrZXIoYWxsTWFya2Vycy5pZDEsYWxsSW5mby5pZDEpO3JldHVybiBmYWxzZTtkAgMPDxYCHwIFB0NBRy0wMDFkZAIEDw8WAh8CZWQWAgIBDw8WBB8EBQExHwIFHEV4IFB2IFJlcHNvbCAoQ29zdGEgQmlzc2FyYSlkZAIFDw8WAh8CZWQWAgIBDw8WAh8CBQJWSWRkAgYPDxYCHwJlZBYGAgEPDxYIHxYFSWJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hY3F1aXNpdG8gcmVkLXRvb2x0aXAfKgUJQWNxdWlzaXRvHwIFJDxpIGNsYXNzPSJmYSBmYS1mbGFnIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIDDw8WCB8WBUZidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tYXBlcnRvIHJlZC10b29sdGlwHyoFCERUIFZ1b3RvHwIFJDxpIGNsYXNzPSJmYSBmYS11c2VyIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIFDw8WCB8WBUZidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tYXBlcnRvIHJlZC10b29sdGlwHyoFCERUIFZVT1RPHwIFJTxpIGNsYXNzPSJmYSBmYS11c2VycyI+PC9pPiZuYnNwOzwvaT4fFwICZGQCFw9kFgJmDw8WAh8BaGRkAhgPDxYCHygFAjExZBYOZg8PFgIfAWhkZAIBDw8WBB8CBQYmbmJzcDsfAWhkZAICDw8WAh8CZWQWAgIBDw8WAh8EBQIxNhYCHykFOGdvU2l0b01hcmtlcihhbGxNYXJrZXJzLmlkMTYsYWxsSW5mby5pZDE2KTtyZXR1cm4gZmFsc2U7ZAIDDw8WAh8CBQdEQVYtMDA2ZGQCBA8PFgIfAmVkFgICAQ8PFgQfBAUCMTYfAgUZRGVwb3NpdG8gQXZpbyBBZ2lwIEZvcmzDrGRkAgUPDxYCHwJlZBYCAgEPDxYCHwIFAkZDZGQCBg8PFgIfAmVkFgYCAQ8PFggfFgVJYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLWFjcXVpc2l0byByZWQtdG9vbHRpcB8qBQlBY3F1aXNpdG8fAgUkPGkgY2xhc3M9ImZhIGZhLWZsYWciPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgMPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVnVvdG8fAgUkPGkgY2xhc3M9ImZhIGZhLXVzZXIiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgUPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVlVPVE8fAgUlPGkgY2xhc3M9ImZhIGZhLXVzZXJzIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIZD2QWAmYPDxYCHwFoZGQCGg8PFgIfKAUCMTJkFg5mDw8WAh8BaGRkAgEPDxYEHwIFBiZuYnNwOx8BaGRkAgIPDxYCHwJlZBYCAgEPDxYCHwQFAjIwFgIfKQU4Z29TaXRvTWFya2VyKGFsbE1hcmtlcnMuaWQyMCxhbGxJbmZvLmlkMjApO3JldHVybiBmYWxzZTtkAgMPDxYCHwIFB0NBRy0wMDdkZAIEDw8WAh8CZWQWAgIBDw8WBB8EBQIyMB8CBSNDZW50cm8gYWdyaWNvbG8gIENhdGFuaWEgIC0gZXggOTU3M2RkAgUPDxYCHwJlZBYCAgEPDxYCHwIFAkNUZGQCBg8PFgIfAmVkFgYCAQ8PFggfFgVJYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLWFjcXVpc2l0byByZWQtdG9vbHRpcB8qBQlBY3F1aXNpdG8fAgUkPGkgY2xhc3M9ImZhIGZhLWZsYWciPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgMPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVnVvdG8fAgUkPGkgY2xhc3M9ImZhIGZhLXVzZXIiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgUPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVlVPVE8fAgUlPGkgY2xhc3M9ImZhIGZhLXVzZXJzIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIbD2QWAmYPDxYCHwFoZGQCHA8PFgIfKAUCMTNkFg5mDw8WAh8BaGRkAgEPDxYEHwIFBiZuYnNwOx8BaGRkAgIPDxYCHwJlZBYCAgEPDxYCHwQFATUWAh8pBTZnb1NpdG9NYXJrZXIoYWxsTWFya2Vycy5pZDUsYWxsSW5mby5pZDUpO3JldHVybiBmYWxzZTtkAgMPDxYCHwIFB1BWRS0wMDFkZAIEDw8WAh8CZWQWAgIBDw8WBB8EBQE1HwIFKkV4IHBhbGF6emluYSAiUG9sZmVyIiAtIFN0YXppb25lIFRpYnVydGluYWRkAgUPDxYCHwJlZBYCAgEPDxYCHwIFAlJNZGQCBg8PFgIfAmVkFgYCAQ8PFggfFgVJYnRuIGJ0bi14cyBidXR0b24tbGluay13IGdpc3JpX2J1dHRvbl93cyBsYWJlbC1zaXRvLWFjcXVpc2l0byByZWQtdG9vbHRpcB8qBQlBQ1FVSVNJVE8fAgUkPGkgY2xhc3M9ImZhIGZhLWZsYWciPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgMPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVnVvdG8fAgUkPGkgY2xhc3M9ImZhIGZhLXVzZXIiPjwvaT4mbmJzcDs8L2k+HxcCAmRkAgUPDxYIHxYFRmJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hcGVydG8gcmVkLXRvb2x0aXAfKgUIRFQgVlVPVE8fAgUlPGkgY2xhc3M9ImZhIGZhLXVzZXJzIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIdD2QWAmYPDxYCHwFoZGQCHg8PFgIfKAUCMTRkFg5mDw8WAh8BaGRkAgEPDxYEHwIFBiZuYnNwOx8BaGRkAgIPDxYCHwJlZBYCAgEPDxYCHwQFAjExFgIfKQU4Z29TaXRvTWFya2VyKGFsbE1hcmtlcnMuaWQxMSxhbGxJbmZvLmlkMTEpO3JldHVybiBmYWxzZTtkAgMPDxYCHwIFB0RFUC0wMDFkZAIEDw8WAh8CZWQWAgIBDw8WBB8EBQIxMR8CBRtEZXBvc2l0byBTYW4gRG9uw6AgZGkgUGlhdmVkZAIFDw8WAh8CZWQWAgIBDw8WAh8CBQJWRWRkAgYPDxYCHwJlZBYGAgEPDxYIHxYFSWJ0biBidG4teHMgYnV0dG9uLWxpbmstdyBnaXNyaV9idXR0b25fd3MgbGFiZWwtc2l0by1hY3F1aXNpdG8gcmVkLXRvb2x0aXAfKgUJQWNxdWlzaXRvHwIFJDxpIGNsYXNzPSJmYSBmYS1mbGFnIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIDDw8WCB8WBUZidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tYXBlcnRvIHJlZC10b29sdGlwHyoFCERUIFZ1b3RvHwIFJDxpIGNsYXNzPSJmYSBmYS11c2VyIj48L2k+Jm5ic3A7PC9pPh8XAgJkZAIFDw8WCB8WBUZidG4gYnRuLXhzIGJ1dHRvbi1saW5rLXcgZ2lzcmlfYnV0dG9uX3dzIGxhYmVsLXNpdG8tYXBlcnRvIHJlZC10b29sdGlwHyoFCERUIFZVT1RPHwIFJTxpIGNsYXNzPSJmYSBmYS11c2VycyI+PC9pPiZuYnNwOzwvaT4fFwICZGQCHw9kFgJmDw8WAh8BaGRkAgEPFgIfAWhkAgIPFCsAAhQrAAIUKwACDxYKHwhoHgRTa2luBQxNeUN1c3RvbVNraW4fCWcfC2ceElJlc29sdmVkUmVuZGVyTW9kZQspc1RlbGVyaWsuV2ViLlVJLlJlbmRlck1vZGUsIFRlbGVyaWsuV2ViLlVJLCBWZXJzaW9uPTIwMTQuMy4xMDI0LjQwLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDQBZBAWEmYCAQICAgMCBAIFAgYCBwIIAgkCCgILAgwCDQIOAg8CEAIRFhIUKwACD2QWBB4QY29sdW1uVW5pcXVlTmFtZWUeB3RhYmxlSURlZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZBQrAAIPZBYEHy1lHy5lZA8WEmZmZmZmZmZmZmZmZmZmZmZmZhYBBXRUZWxlcmlrLldlYi5VSS5SYWRNZW51SXRlbSwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAxNC4zLjEwMjQuNDAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49MTIxZmFlNzgxNjViYTNkNGRkFiRmDw9kFgQfLWUfLmVkAgEPD2QWBB8tZR8uZWQCAg8PZBYEHy1lHy5lZAIDDw9kFgQfLWUfLmVkAgQPD2QWBB8tZR8uZWQCBQ8PZBYEHy1lHy5lZAIGDw9kFgQfLWUfLmVkAgcPD2QWBB8tZR8uZWQCCA8PZBYEHy1lHy5lZAIJDw9kFgQfLWUfLmVkAgoPD2QWBB8tZR8uZWQCCw8PZBYEHy1lHy5lZAIMDw9kFgQfLWUfLmVkAg0PD2QWBB8tZR8uZWQCDg8PZBYEHy1lHy5lZAIPDw9kFgQfLWUfLmVkAhAPD2QWBB8tZR8uZWQCEQ8PZBYEHy1lHy5lZAIHDxYCHwIFKVNJVFVBWklPTkUgUkVMQVRJVkEgQUxMRSBTT0NJRVRBIFRJVE9MQVJJZBgDBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAgURY3RsMDAkYm9keSRSR1NpdGkFGmN0bDAwJGJvZHkkUkdTaXRpJHJmbHRNZW51BTRjdGwwMCRib2R5JFJHU2l0aSRjdGwwMCRjdGwwMyRjdGwwMSRQYWdlU2l6ZUNvbWJvQm94DxQrAAIFAjI1BQIyNWQFNGN0bDAwJGJvZHkkUkdTaXRpJGN0bDAwJGN0bDAyJGN0bDAwJFBhZ2VTaXplQ29tYm9Cb3gPFCsAAgUCMjUFAjI1ZDVPrufGNi5YpyJupEDwPcNYp2lu5K3ZHENaBjI1fvuU" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    var theForm = document.forms['aspnetForm'];
+    if (!theForm) {
+        theForm = document.aspnetForm;
+    }
+    function __doPostBack(eventTarget, eventArgument) {
+        if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+            theForm.__EVENTTARGET.value = eventTarget;
+            theForm.__EVENTARGUMENT.value = eventArgument;
+            theForm.submit();
+        }
+    }
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=z3aQ8jDgd_mPhwpQp8B8F9UbRyfc8pNUyhK72hQyasCgTjSmyzfWBadcfHE-yMrglUvNwTVIFi0L1dCDQGxVFpAtQYZ0xXT575dLmzC-yzc1&amp;t=635793099765829480" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+    var __cultureInfo = { "name": "it-IT", "numberFormat": { "CurrencyDecimalDigits": 2, "CurrencyDecimalSeparator": ",", "IsReadOnly": true, "CurrencyGroupSizes": [3], "NumberGroupSizes": [3], "PercentGroupSizes": [3], "CurrencyGroupSeparator": ".", "CurrencySymbol": "€", "NaNSymbol": "Non un numero", "CurrencyNegativePattern": 9, "NumberNegativePattern": 1, "PercentPositivePattern": 1, "PercentNegativePattern": 1, "NegativeInfinitySymbol": "-Infinito", "NegativeSign": "-", "NumberDecimalDigits": 2, "NumberDecimalSeparator": ",", "NumberGroupSeparator": ".", "CurrencyPositivePattern": 2, "PositiveInfinitySymbol": "+Infinito", "PositiveSign": "+", "PercentDecimalDigits": 2, "PercentDecimalSeparator": ",", "PercentGroupSeparator": ".", "PercentSymbol": "%", "PerMilleSymbol": "‰", "NativeDigits": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], "DigitSubstitution": 1 }, "dateTimeFormat": { "AMDesignator": "", "Calendar": { "MinSupportedDateTime": "\/Date(-62135596800000)\/", "MaxSupportedDateTime": "\/Date(253402297199999)\/", "AlgorithmType": 1, "CalendarType": 1, "Eras": [1], "TwoDigitYearMax": 2029, "IsReadOnly": true }, "DateSeparator": "/", "FirstDayOfWeek": 1, "CalendarWeekRule": 2, "FullDateTimePattern": "dddd d MMMM yyyy HH:mm:ss", "LongDatePattern": "dddd d MMMM yyyy", "LongTimePattern": "HH:mm:ss", "MonthDayPattern": "d MMMM", "PMDesignator": "", "RFC1123Pattern": "ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027", "ShortDatePattern": "dd/MM/yyyy", "ShortTimePattern": "HH:mm", "SortableDateTimePattern": "yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss", "TimeSeparator": ":", "UniversalSortableDateTimePattern": "yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027", "YearMonthPattern": "MMMM yyyy", "AbbreviatedDayNames": ["dom", "lun", "mar", "mer", "gio", "ven", "sab"], "ShortestDayNames": ["do", "lu", "ma", "me", "gi", "ve", "sa"], "DayNames": ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"], "AbbreviatedMonthNames": ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic", ""], "MonthNames": ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre", ""], "IsReadOnly": true, "NativeCalendarName": "calendario gregoriano", "AbbreviatedMonthGenitiveNames": ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic", ""], "MonthGenitiveNames": ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre", ""] }, "eras": [1, "d.C.", null, 0] };//]]>
+</script>
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl00_RadScriptManager1_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d4.1.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3ait-IT%3a44981e4a-f654-4c69-b806-cb922fc13d56%3aea597d4b%3ab25378d2%3bTelerik.Web.UI%2c+Version%3d2014.3.1024.40%2c+Culture%3dneutral%2c+PublicKeyToken%3d121fae78165ba3d4%3ait-IT%3a6787bbbd-e7bc-4076-9645-eb04b617eea2%3a16e4e7cd%3a58366029%3af7645509%3a24ee1bba%3ae330518b%3a2003d0b8%3ac128760b%3a1e771326%3a88144a7a%3ac8618e41%3ae4f8f289%3a1a73651d%3a333f8d94%3bAjaxControls%3ait-IT%3abdea955f-1865-4076-8ce7-179c1a241c9d%3a41d96481" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    if (typeof (Sys) === 'undefined') throw new Error('Impossibile caricare il framework lato client di ASP.NET Ajax.');
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+    var PageMethods = function () {
+        PageMethods.initializeBase(this);
+        this._timeout = 0;
+        this._userContext = null;
+        this._succeeded = null;
+        this._failed = null;
+    }
+    PageMethods.prototype = {
+        _get_path: function () {
+            var p = this.get_path();
+            if (p) return p;
+            else return PageMethods._staticInstance.get_path();
+        },
+        ElencoCER: function (valore, id, succeededCallback, failedCallback, userContext) {
+            /// <param name="valore" type="String">System.String</param>
+            /// <param name="id" type="String">System.String</param>
+            /// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+            /// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+            /// <param name="userContext" optional="true" mayBeNull="true"></param>
+            return this._invoke(this._get_path(), 'ElencoCER', false, { valore: valore, id: id }, succeededCallback, failedCallback, userContext);
+        },
+        SalvaCoordinateSito: function (Lat, Lon, succeededCallback, failedCallback, userContext) {
+            /// <param name="Lat" type="String">System.String</param>
+            /// <param name="Lon" type="String">System.String</param>
+            /// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+            /// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+            /// <param name="userContext" optional="true" mayBeNull="true"></param>
+            return this._invoke(this._get_path(), 'SalvaCoordinateSito', false, { Lat: Lat, Lon: Lon }, succeededCallback, failedCallback, userContext);
+        },
+        SalvaCoordinateSitoDestinazione: function (Lat, Lon, succeededCallback, failedCallback, userContext) {
+            /// <param name="Lat" type="String">System.String</param>
+            /// <param name="Lon" type="String">System.String</param>
+            /// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+            /// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+            /// <param name="userContext" optional="true" mayBeNull="true"></param>
+            return this._invoke(this._get_path(), 'SalvaCoordinateSitoDestinazione', false, { Lat: Lat, Lon: Lon }, succeededCallback, failedCallback, userContext);
+        },
+        SalvaSelect2MultipleValues: function (values, succeededCallback, failedCallback, userContext) {
+            /// <param name="values" type="Array">System.String[]</param>
+            /// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+            /// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+            /// <param name="userContext" optional="true" mayBeNull="true"></param>
+            return this._invoke(this._get_path(), 'SalvaSelect2MultipleValues', false, { values: values }, succeededCallback, failedCallback, userContext);
+        }
+    }
+    PageMethods.registerClass('PageMethods', Sys.Net.WebServiceProxy);
+    PageMethods._staticInstance = new PageMethods();
+    PageMethods.set_path = function (value) {
+        PageMethods._staticInstance.set_path(value);
+    }
+    PageMethods.get_path = function () {
+        /// <value type="String" mayBeNull="true">The service url.</value>
+        return PageMethods._staticInstance.get_path();
+    }
+    PageMethods.set_timeout = function (value) {
+        PageMethods._staticInstance.set_timeout(value);
+    }
+    PageMethods.get_timeout = function () {
+        /// <value type="Number">The service timeout.</value>
+        return PageMethods._staticInstance.get_timeout();
+    }
+    PageMethods.set_defaultUserContext = function (value) {
+        PageMethods._staticInstance.set_defaultUserContext(value);
+    }
+    PageMethods.get_defaultUserContext = function () {
+        /// <value mayBeNull="true">The service default user context.</value>
+        return PageMethods._staticInstance.get_defaultUserContext();
+    }
+    PageMethods.set_defaultSucceededCallback = function (value) {
+        PageMethods._staticInstance.set_defaultSucceededCallback(value);
+    }
+    PageMethods.get_defaultSucceededCallback = function () {
+        /// <value type="Function" mayBeNull="true">The service default succeeded callback.</value>
+        return PageMethods._staticInstance.get_defaultSucceededCallback();
+    }
+    PageMethods.set_defaultFailedCallback = function (value) {
+        PageMethods._staticInstance.set_defaultFailedCallback(value);
+    }
+    PageMethods.get_defaultFailedCallback = function () {
+        /// <value type="Function" mayBeNull="true">The service default failed callback.</value>
+        return PageMethods._staticInstance.get_defaultFailedCallback();
+    }
+    PageMethods.set_enableJsonp = function (value) { PageMethods._staticInstance.set_enableJsonp(value); }
+    PageMethods.get_enableJsonp = function () {
+        /// <value type="Boolean">Specifies whether the service supports JSONP for cross domain calling.</value>
+        return PageMethods._staticInstance.get_enableJsonp();
+    }
+    PageMethods.set_jsonpCallbackParameter = function (value) { PageMethods._staticInstance.set_jsonpCallbackParameter(value); }
+    PageMethods.get_jsonpCallbackParameter = function () {
+        /// <value type="String">Specifies the parameter name that contains the callback function name for a JSONP request.</value>
+        return PageMethods._staticInstance.get_jsonpCallbackParameter();
+    }
+    PageMethods.set_path("Home.aspx");
+    PageMethods.ElencoCER = function (valore, id, onSuccess, onFailed, userContext) {
+        /// <param name="valore" type="String">System.String</param>
+        /// <param name="id" type="String">System.String</param>
+        /// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+        /// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+        /// <param name="userContext" optional="true" mayBeNull="true"></param>
+        PageMethods._staticInstance.ElencoCER(valore, id, onSuccess, onFailed, userContext);
+    }
+    PageMethods.SalvaCoordinateSito = function (Lat, Lon, onSuccess, onFailed, userContext) {
+        /// <param name="Lat" type="String">System.String</param>
+        /// <param name="Lon" type="String">System.String</param>
+        /// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+        /// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+        /// <param name="userContext" optional="true" mayBeNull="true"></param>
+        PageMethods._staticInstance.SalvaCoordinateSito(Lat, Lon, onSuccess, onFailed, userContext);
+    }
+    PageMethods.SalvaCoordinateSitoDestinazione = function (Lat, Lon, onSuccess, onFailed, userContext) {
+        /// <param name="Lat" type="String">System.String</param>
+        /// <param name="Lon" type="String">System.String</param>
+        /// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+        /// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+        /// <param name="userContext" optional="true" mayBeNull="true"></param>
+        PageMethods._staticInstance.SalvaCoordinateSitoDestinazione(Lat, Lon, onSuccess, onFailed, userContext);
+    }
+    PageMethods.SalvaSelect2MultipleValues = function (values, onSuccess, onFailed, userContext) {
+        /// <param name="values" type="Array">System.String[]</param>
+        /// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+        /// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+        /// <param name="userContext" optional="true" mayBeNull="true"></param>
+        PageMethods._staticInstance.SalvaSelect2MultipleValues(values, onSuccess, onFailed, userContext);
+    }
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="694E65F7" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+            Sys.WebForms.PageRequestManager._initialize('ctl00$RadScriptManager1', 'aspnetForm', ['tctl00$pnl_support', '', 'tctl00$body$upd_filtri', '', 'tctl00$body$upd_master', '', 'tctl00$upd_master', ''], [], [], 3600, 'ctl00');
+//]]>
+</script>
+
+
+        <section id="container" >
+            <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+            <!--header start-->
+            <header class="header black-bg navbar-fixed-top">
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Abilta/Disabilita menu" style="color:#000;"></div>
+                </div>
+                <!--logo start-->
+                <a class="logo" href="http://www.ambientesc.it" target="_blank"><img src="/assets/img/ambiente.png"
+				style="margin:4px 7px 5px 5px;">
+                </a>
+
+				<a href="http://www.ambientesc.it"  target="_blank" class="logo" style="color:#000;"><b>Ri.-C.O.R.D.A.</b> </a>
+                <!--logo end-->
+                <div class="nav notify-row" id="top_menu">
+                    <!--  notification start -->
+                    <ul id="ctl00_ul_messaggi" class="nav top-menu">
+                        <!-- inbox dropdown start-->
+                        <li id="header_inbox_bar" class="dropdown" style="display:;">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="index.aspx#" style="height:28px!Important;">
+                                <i class="fa fa-envelope-o" style="padding-top:3px;"></i>
+                                <span class="badge gisri_span_alert">
+                                    3
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu extended inbox">
+                                <div class="notify-arrow notify-arrow-green"></div>
+                                <li>
+                                    <p class="green">Hai 3 nuovi messaggi</p>
+                                </li>
+
+                                        <li>
+                                            <a id="ctl00_rpt_messaggi_ctl00_btn_messaggio" href="javascript:__doPostBack(&#39;ctl00$rpt_messaggi$ctl00$btn_messaggio&#39;,&#39;&#39;)">
+                                                <span class="photo">
+                                                    <img id="ctl00_rpt_messaggi_ctl00_img_dipendente" src="../assets/img/ui-sam.jpg" style="border-width:0px;" />
+                                                </span>
+                                                <span class="subject">
+                                                    <span class="time">06/07/2015 12:47</span>
+                                                    <br />
+                                                    <span class="from" style="white-space:normal;">Massimiliano Sani</span>
+                                                </span>
+                                                <span class="message">
+                                                    sss
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a id="ctl00_rpt_messaggi_ctl01_btn_messaggio" href="javascript:__doPostBack(&#39;ctl00$rpt_messaggi$ctl01$btn_messaggio&#39;,&#39;&#39;)">
+                                                <span class="photo">
+                                                    <img id="ctl00_rpt_messaggi_ctl01_img_dipendente" src="../assets/img/ui-sam.jpg" style="border-width:0px;" />
+                                                </span>
+                                                <span class="subject">
+                                                    <span class="time">06/07/2015 12:47</span>
+                                                    <br />
+                                                    <span class="from" style="white-space:normal;">Massimiliano Sani</span>
+                                                </span>
+                                                <span class="message">
+                                                    sss
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a id="ctl00_rpt_messaggi_ctl02_btn_messaggio" href="javascript:__doPostBack(&#39;ctl00$rpt_messaggi$ctl02$btn_messaggio&#39;,&#39;&#39;)">
+                                                <span class="photo">
+                                                    <img id="ctl00_rpt_messaggi_ctl02_img_dipendente" src="../assets/img/ui-sam.jpg" style="border-width:0px;" />
+                                                </span>
+                                                <span class="subject">
+                                                    <span class="time">02/07/2015 16:17</span>
+                                                    <br />
+                                                    <span class="from" style="white-space:normal;">Massimiliano Sani</span>
+                                                </span>
+                                                <span class="message">
+                                                    PROVA
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                <li>
+                                    <a href="../Messaggi/Mailbox.aspx">Vedi tutti i messaggi</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- inbox dropdown end -->
+                    </ul>
+                    <!--  notification end -->
+                </div>
+                <div id="ctl00_pnl_support">
+
+                <div class="top-menu">
+                    <ul class="nav pull-right top-menu">
+                        <li>
+                            <a onclick="NewWindows(&#39;../Messaggi/Supporto.aspx&#39;,&#39;_Supporto&#39;,600,800,&#39;no&#39;); return false;" id="ctl00_lnk_supporto" title="Supporto on line" class="help" href="javascript:__doPostBack(&#39;ctl00$lnk_supporto&#39;,&#39;&#39;)"><i class="fa fa-life-ring"></i></a>
+                        </li>
+                        <li class="visible-xs-inline"><a class="logout" href="../Start/Logout.aspx"><i class="fa fa-sign-out"></i></a></li>
+                        <li class="hidden-xs"><a class="logout" href="../Start/Logout.aspx">Esci</a></li>
+                    </ul>
+                </div>
+
+</div>
+            </header>
+            <!--header end-->
+
+            <!-- **********************************************************************************************************************************************************
+            MAIN SIDEBAR MENU
+            *********************************************************************************************************************************************************** -->
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar"  class="nav-collapse ">
+                    <!-- sidebar menu start-->
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <div class="centered img-circle" style="width:60px;height:60px;overflow:hidden; margin: 0 auto;">
+                            <a href="../Start/Profile.aspx">
+                                <img id="ctl00_img_user" class=" img-responsive" src="../assets/img/ui-sam.jpg" style="width:60px;border-width:0px;" />
+                            </a>
+                        </div>
+                        <h5 class="centered">Amministratore</h5>
+
+                                <li class="sub-menu">
+                                    <a id="ctl00_rpt_menu_padre_ctl00_btn_funzione" class="active" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl00$btn_funzione&#39;,&#39;&#39;)"><i class="fa fa-dashboard"></i><span>Workspace</span></a>
+
+
+                                </li>
+
+                                <li class="sub-menu">
+
+                                    <a id="ctl00_rpt_menu_padre_ctl01_lnk_funzione" href="javascript:;"><i class="fa fa-cogs"></i><span>Configurazioni</span></a>
+
+                                            <ul class="sub">
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl01_rpt_menu_figlio_ctl01_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl01$rpt_menu_figlio$ctl01$btn_funzione&#39;,&#39;&#39;)"><span>Profili di accesso</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl01_rpt_menu_figlio_ctl02_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl01$rpt_menu_figlio$ctl02$btn_funzione&#39;,&#39;&#39;)"><span>Permessi di accesso</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl01_rpt_menu_figlio_ctl03_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl01$rpt_menu_figlio$ctl03$btn_funzione&#39;,&#39;&#39;)"><span>Tabelle di supporto</span></a>
+                                            </li>
+
+                                            </ul>
+
+                                </li>
+
+                                <li class="sub-menu">
+
+                                    <a id="ctl00_rpt_menu_padre_ctl02_lnk_funzione" href="javascript:;"><i class="fa fa-archive "></i><span>Anagrafiche</span></a>
+
+                                            <ul class="sub">
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl02_rpt_menu_figlio_ctl01_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl02$rpt_menu_figlio$ctl01$btn_funzione&#39;,&#39;&#39;)"><span>Società di Gestione</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl02_rpt_menu_figlio_ctl02_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl02$rpt_menu_figlio$ctl02$btn_funzione&#39;,&#39;&#39;)"><span>Società</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl02_rpt_menu_figlio_ctl03_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl02$rpt_menu_figlio$ctl03$btn_funzione&#39;,&#39;&#39;)"><span>Siti</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl02_rpt_menu_figlio_ctl04_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl02$rpt_menu_figlio$ctl04$btn_funzione&#39;,&#39;&#39;)"><span>Ditte operatrici</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl02_rpt_menu_figlio_ctl05_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl02$rpt_menu_figlio$ctl05$btn_funzione&#39;,&#39;&#39;)"><span>Siti destinazione</span></a>
+                                            </li>
+
+                                            </ul>
+
+                                </li>
+
+                                <li class="sub-menu">
+
+                                    <a id="ctl00_rpt_menu_padre_ctl03_lnk_funzione" href="javascript:;"><i class="fa fa-envelope"></i><span>Messaggi</span></a>
+
+                                            <ul class="sub">
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl03_rpt_menu_figlio_ctl01_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl03$rpt_menu_figlio$ctl01$btn_funzione&#39;,&#39;&#39;)"><span>Nuovo messaggio</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl03_rpt_menu_figlio_ctl02_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl03$rpt_menu_figlio$ctl02$btn_funzione&#39;,&#39;&#39;)"><span>Ricevuti</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl03_rpt_menu_figlio_ctl03_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl03$rpt_menu_figlio$ctl03$btn_funzione&#39;,&#39;&#39;)"><span>Inviati</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl03_rpt_menu_figlio_ctl04_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl03$rpt_menu_figlio$ctl04$btn_funzione&#39;,&#39;&#39;)"><span>Cancellati</span></a>
+                                            </li>
+
+                                            </ul>
+
+                                </li>
+
+                                <li class="sub-menu">
+
+                                    <a id="ctl00_rpt_menu_padre_ctl04_lnk_funzione" href="javascript:;"><i class=" fa fa-bar-chart-o"></i><span>Report</span></a>
+
+                                            <ul class="sub">
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl04_rpt_menu_figlio_ctl01_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl04$rpt_menu_figlio$ctl01$btn_funzione&#39;,&#39;&#39;)"><span>Rifiuti in scadenza</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl04_rpt_menu_figlio_ctl02_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl04$rpt_menu_figlio$ctl02$btn_funzione&#39;,&#39;&#39;)"><span>Situazione depositi</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl04_rpt_menu_figlio_ctl03_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl04$rpt_menu_figlio$ctl03$btn_funzione&#39;,&#39;&#39;)"><span>Evoluzione depositi</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl04_rpt_menu_figlio_ctl04_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl04$rpt_menu_figlio$ctl04$btn_funzione&#39;,&#39;&#39;)"><span>Rientro quarta copia</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl04_rpt_menu_figlio_ctl05_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl04$rpt_menu_figlio$ctl05$btn_funzione&#39;,&#39;&#39;)"><span>Elenco movimenti</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl04_rpt_menu_figlio_ctl06_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl04$rpt_menu_figlio$ctl06$btn_funzione&#39;,&#39;&#39;)"><span>Caricamenti da verificare</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl04_rpt_menu_figlio_ctl07_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl04$rpt_menu_figlio$ctl07$btn_funzione&#39;,&#39;&#39;)"><span>Verifiche effettuate</span></a>
+                                            </li>
+
+                                            </ul>
+
+                                </li>
+
+                                <li class="sub-menu">
+
+                                    <a id="ctl00_rpt_menu_padre_ctl05_lnk_funzione" href="javascript:;"><i class=" fa fa-book"></i><span>Documenti</span></a>
+
+                                            <ul class="sub">
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl05_rpt_menu_figlio_ctl01_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl05$rpt_menu_figlio$ctl01$btn_funzione&#39;,&#39;&#39;)"><span>Elenco Mud</span></a>
+                                            </li>
+
+                                            <li>
+                                                <a id="ctl00_rpt_menu_padre_ctl05_rpt_menu_figlio_ctl02_btn_funzione" href="javascript:__doPostBack(&#39;ctl00$rpt_menu_padre$ctl05$rpt_menu_figlio$ctl02$btn_funzione&#39;,&#39;&#39;)"><span>Manualistica</span></a>
+                                            </li>
+
+                                            </ul>
+
+                                </li>
+
+                    </ul>
+                    <!-- sidebar menu end-->
+                </div>
+            </aside>
+            <!--sidebar end-->
+          <!-- **********************************************************************************************************************************************************
+          MAIN CONTENT
+          *********************************************************************************************************************************************************** -->
+          <!--main content start-->
+          <section id="main-content">
+              <section class="wrapper site-min-height">
+
+    <a id="ctl00_body_btn_scheda" href="javascript:__doPostBack(&#39;ctl00$body$btn_scheda&#39;,&#39;&#39;)" style="display:;"></a>
+    <div style="height:10px;">
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-lg-6-home">
+            <div class="content-panel" style="padding:10px!Important;">
+                <div style="width:100%;">
+                    <div id="ctl00_body_upd_filtri">
+
+                            <div class="row" style="height:30px!Important;">
+                                <div class="gisri_title_margin_lr">
+                                    <div class="gisri_button_left">
+                                        <a id="ctl00_body_btn_filtri" title="Visualizza i filtri" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$btn_filtri&#39;,&#39;&#39;)" style="display:inline-block;height:25px;padding-top:6px; padding-left:1px;">
+                                            <i class="fa fa-filter"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gisri_button_left">
+                                        <a id="ctl00_body_btn_legenda" title="Visualizza la legenda" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$btn_legenda&#39;,&#39;&#39;)" style="display:inline-block;height:25px;padding-top:6px; padding-left:1px;">
+                                            <i class="fa fa-question"></i>
+                                        </a>
+                                    </div>
+                                    <div class="gisri_title_left" style="font-size:14px;">
+                                        ELENCO DEI SITI ACQUISITI ED IN ATTIVITA'
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+</div>
+                </div>
+                <div id="ctl00_body_upd_master">
+
+                        <div id="ctl00_body_RGSiti" class="RadGrid RadGrid_MyCustomSkin" style="width:100%;" tabindex="-1">
+
+	<!-- 2014.3.1024.40 --><table class="rgMasterTable" border="0" id="ctl00_body_RGSiti_ctl00" style="width:100%;table-layout:auto;empty-cells:show;">
+		<colgroup>
+		<col style="width:1%" />
+		<col style="width:5%" />
+		<col style="width:90%" />
+		<col style="width:5%" />
+		<col style="width:1%" />
+	</colgroup>
+<thead>
+			<tr>
+				<th scope="col" class="rgHeader">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl02_ctl01_lbl_mappa" title="Permette lo zoom sulla mappa del sito selezionato" class="btn btn-xs button-link-w gisri_button_ws label-sito-header red-tooltip" data-toggle="tooltip" data-placement="right" style="display:inline-block;height:22px;cursor:default;">
+                                                <i class="fa fa-map-marker"></i>&nbsp;
+                                            </span>
+                                        </th><th scope="col" class="rgHeader"><a onclick="Telerik.Web.UI.Grid.Sort($find(&#39;ctl00_body_RGSiti_ctl00&#39;), &#39;st_codice_interno&#39;); return false;" title="Clicca qui per ordinare" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl02$ctl01$ctl00&#39;,&#39;&#39;)">Codice</a></th><th scope="col" class="rgHeader"><a onclick="Telerik.Web.UI.Grid.Sort($find(&#39;ctl00_body_RGSiti_ctl00&#39;), &#39;st_denominazione&#39;); return false;" title="Clicca qui per ordinare" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl02$ctl01$ctl01&#39;,&#39;&#39;)">Sito</a></th><th scope="col" class="additionalColumn rgHeader"><a onclick="Telerik.Web.UI.Grid.Sort($find(&#39;ctl00_body_RGSiti_ctl00&#39;), &#39;st_provincia_desc&#39;); return false;" title="Clicca qui per ordinare" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl02$ctl01$ctl02&#39;,&#39;&#39;)">Prov.</a></th><th scope="col" class="rgHeader" style="white-space:nowrap;text-align:right;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl02_ctl01_lbl_stato" title="Indica lo stato operativo del sito" class="btn btn-xs button-link-w gisri_button_ws label-sito-header red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="display:inline-block;height:23px;cursor:default;">
+                                                <i class="fa fa-flag"></i>&nbsp;
+                                            </span>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl02_ctl01_btn_scheda" title="Identifica sulla mappa i Siti con lo stato del Deposito Temporaneo della Società Titolare" class="btn btn-primary btn-xs button-link-w gisri_button_ws red-tooltip" data-toggle="" data-placement="top" title="" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl02$ctl01$btn_scheda&#39;,&#39;&#39;)" style="display:inline-block;height:23px;cursor:pointer;">
+                                                <i class=" fa fa-user"></i>&nbsp;
+                                            </a>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl02_ctl01_btn_scheda_ext" title="Identifica sulla mappa i Siti con lo stato del Deposito Temporaneo delle Ditte Esecutrici" class="btn btn-default btn-xs gisri_button_ws red-tooltip" data-toggle="" data-placement="top" title="" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl02$ctl01$btn_scheda_ext&#39;,&#39;&#39;)" style="display:inline-block;height:23px;cursor:pointer;">
+                                                <i class="fa fa-users"></i>&nbsp;
+                                            </a>
+                                        </th>
+			</tr><tr class="rgFilterRow" style="height:0px;text-align:left;">
+				<td>&nbsp;</td><td style="white-space:nowrap;"><input name="ctl00$body$RGSiti$ctl00$ctl02$ctl02$FilterTextBox_st_codice_interno" type="text" size="10" id="ctl00_body_RGSiti_ctl00_ctl02_ctl02_FilterTextBox_st_codice_interno" class="rgFilterBox" alt="Filter st_codice_interno column" onkeypress="if((event.keyCode == 13)) return false;" /></td><td style="white-space:nowrap;"><input name="ctl00$body$RGSiti$ctl00$ctl02$ctl02$FilterTextBox_st_denominazione" type="text" size="10" id="ctl00_body_RGSiti_ctl00_ctl02_ctl02_FilterTextBox_st_denominazione" class="rgFilterBox" alt="Filter st_denominazione column" onkeypress="if((event.keyCode == 13)) return false;" /><input type="submit" name="ctl00$body$RGSiti$ctl00$ctl02$ctl02$Filter_st_denominazione" value=" " onclick="$find(&quot;ctl00_body_RGSiti&quot;)._showFilterMenu(&quot;ctl00_body_RGSiti_ctl00&quot;, &quot;st_denominazione&quot;, event); return false;" id="ctl00_body_RGSiti_ctl00_ctl02_ctl02_Filter_st_denominazione" title="Filtra" class="rgFilter" /></td><td style="white-space:nowrap;"><input name="ctl00$body$RGSiti$ctl00$ctl02$ctl02$FilterTextBox_st_provincia_desc" type="text" size="10" id="ctl00_body_RGSiti_ctl00_ctl02_ctl02_FilterTextBox_st_provincia_desc" class="rgFilterBox" alt="Filter st_provincia_desc column" onkeypress="if((event.keyCode == 13)) return false;" /><input type="submit" name="ctl00$body$RGSiti$ctl00$ctl02$ctl02$Filter_st_provincia_desc" value=" " onclick="$find(&quot;ctl00_body_RGSiti&quot;)._showFilterMenu(&quot;ctl00_body_RGSiti_ctl00&quot;, &quot;st_provincia_desc&quot;, event); return false;" id="ctl00_body_RGSiti_ctl00_ctl02_ctl02_Filter_st_provincia_desc" title="Filtra" class="rgFilter" /></td><td>&nbsp;</td>
+			</tr>
+		</thead><tbody>
+		<tr class="rgRow" id="ctl00_body_RGSiti_ctl00__0" style="text-align:left;">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id6,allInfo.id6);return false;" id="ctl00_body_RGSiti_ctl00_ctl04_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl04$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">CAG-001</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl04_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl04$btn_st_denominazione&#39;,&#39;&#39;)">Castelnuovo berardenga</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl04_lblst_provincia_desc">SI</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl04_lbl_stato" title="Decommissioning" class="btn btn-xs button-link-w gisri_button_ws label-sito-decommisioning red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl04_lbl_sito_s" title="DT > 3 Mesi" class="btn btn-xs button-link-w gisri_button_ws label-sito-scaduto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl04_lbl_sito_d" title="DT > 3 mesi" class="btn btn-xs button-link-w gisri_button_ws label-sito-scaduto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgAltRow" id="ctl00_body_RGSiti_ctl00__1">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id8,allInfo.id8);return false;" id="ctl00_body_RGSiti_ctl00_ctl06_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl06$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">DEP-001</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl06_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl06$btn_st_denominazione&#39;,&#39;&#39;)">Deposito Linate Aeroporto</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl06_lblst_provincia_desc">MI</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl06_lbl_stato" title="ACQUISITO" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl06_lbl_sito_s" title="DT > 3 Mesi" class="btn btn-xs button-link-w gisri_button_ws label-sito-scaduto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl06_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgRow" id="ctl00_body_RGSiti_ctl00__2" style="text-align:left;">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id7,allInfo.id7);return false;" id="ctl00_body_RGSiti_ctl00_ctl08_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl08$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">DEP-001</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl08_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl08$btn_st_denominazione&#39;,&#39;&#39;)">Deposito nazionale idrocarburi</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl08_lblst_provincia_desc">LI</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl08_lbl_stato" title="ACQUISITO" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl08_lbl_sito_s" title="DT > 3 Mesi" class="btn btn-xs button-link-w gisri_button_ws label-sito-scaduto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl08_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgAltRow" id="ctl00_body_RGSiti_ctl00__3">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id3,allInfo.id3);return false;" id="ctl00_body_RGSiti_ctl00_ctl10_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl10$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">RAF-MAX</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl10_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl10$btn_st_denominazione&#39;,&#39;&#39;)">ADS 5416 TIRRENO OVEST</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl10_lblst_provincia_desc">RM</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl10_lbl_stato" title="Mantenimento" class="btn btn-xs button-link-w gisri_button_ws label-sito-manutanzione red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl10_lbl_sito_s" title="DT > 3 Mesi" class="btn btn-xs button-link-w gisri_button_ws label-sito-scaduto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl10_lbl_sito_d" title="DT > 3 mesi" class="btn btn-xs button-link-w gisri_button_ws label-sito-scaduto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgRow" id="ctl00_body_RGSiti_ctl00__4" style="text-align:left;">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id2,allInfo.id2);return false;" id="ctl00_body_RGSiti_ctl00_ctl12_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl12$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">DEP-001</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl12_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl12$btn_st_denominazione&#39;,&#39;&#39;)">"Ex dente Piaggio"</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl12_lblst_provincia_desc">PI</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl12_lbl_stato" title="Decommissioning" class="btn btn-xs button-link-w gisri_button_ws label-sito-decommisioning red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl12_lbl_sito_s" title="DT > 3 Mesi" class="btn btn-xs button-link-w gisri_button_ws label-sito-scaduto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl12_lbl_sito_d" title="DT > 3 mesi" class="btn btn-xs button-link-w gisri_button_ws label-sito-scaduto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgAltRow" id="ctl00_body_RGSiti_ctl00__5">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id10,allInfo.id10);return false;" id="ctl00_body_RGSiti_ctl00_ctl14_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl14$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">CAG-001</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl14_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl14$btn_st_denominazione&#39;,&#39;&#39;)">Campo agricolo Loc.Branzolino</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl14_lblst_provincia_desc">FC</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl14_lbl_stato" title="Alienato" class="btn btn-xs button-link-w gisri_button_ws label-sito-alienato red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl14_lbl_sito_s" title="DT > 3 Mesi" class="btn btn-xs button-link-w gisri_button_ws label-sito-scaduto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl14_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgRow" id="ctl00_body_RGSiti_ctl00__6" style="text-align:left;">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id9,allInfo.id9);return false;" id="ctl00_body_RGSiti_ctl00_ctl16_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl16$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">PVE-001</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl16_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl16$btn_st_denominazione&#39;,&#39;&#39;)">PVE Faenza</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl16_lblst_provincia_desc">RA</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl16_lbl_stato" title="ACQUISITO" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl16_lbl_sito_s" title="DT Vuoto" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl16_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgAltRow" id="ctl00_body_RGSiti_ctl00__7">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id15,allInfo.id15);return false;" id="ctl00_body_RGSiti_ctl00_ctl18_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl18$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">PPP</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl18_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl18$btn_st_denominazione&#39;,&#39;&#39;)">PROVA</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl18_lblst_provincia_desc">AQ</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl18_lbl_stato" title="ACQUISITO" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl18_lbl_sito_s" title="DT Vuoto" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl18_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgRow" id="ctl00_body_RGSiti_ctl00__8" style="text-align:left;">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id12,allInfo.id12);return false;" id="ctl00_body_RGSiti_ctl00_ctl20_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl20$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">CPR-001</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl20_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl20$btn_st_denominazione&#39;,&#39;&#39;)">Stabilimento Castel Maggiore</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl20_lblst_provincia_desc">BO</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl20_lbl_stato" title="ACQUISITO" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl20_lbl_sito_s" title="DT Vuoto" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl20_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgAltRow" id="ctl00_body_RGSiti_ctl00__9">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id4,allInfo.id4);return false;" id="ctl00_body_RGSiti_ctl00_ctl22_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl22$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">&nbsp;</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl22_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl22$btn_st_denominazione&#39;,&#39;&#39;)">Sito Produttivo di prova</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl22_lblst_provincia_desc">VE</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl22_lbl_stato" title="ACQUISITO" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl22_lbl_sito_s" title="DT Vuoto" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl22_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgRow" id="ctl00_body_RGSiti_ctl00__10" style="text-align:left;">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id1,allInfo.id1);return false;" id="ctl00_body_RGSiti_ctl00_ctl24_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl24$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">CAG-001</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl24_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl24$btn_st_denominazione&#39;,&#39;&#39;)">Ex Pv Repsol (Costa Bissara)</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl24_lblst_provincia_desc">VI</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl24_lbl_stato" title="Acquisito" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl24_lbl_sito_s" title="DT Vuoto" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl24_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgAltRow" id="ctl00_body_RGSiti_ctl00__11">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id16,allInfo.id16);return false;" id="ctl00_body_RGSiti_ctl00_ctl26_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl26$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">DAV-006</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl26_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl26$btn_st_denominazione&#39;,&#39;&#39;)">Deposito Avio Agip Forlì</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl26_lblst_provincia_desc">FC</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl26_lbl_stato" title="Acquisito" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl26_lbl_sito_s" title="DT Vuoto" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl26_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgRow" id="ctl00_body_RGSiti_ctl00__12" style="text-align:left;">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id20,allInfo.id20);return false;" id="ctl00_body_RGSiti_ctl00_ctl28_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl28$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">CAG-007</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl28_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl28$btn_st_denominazione&#39;,&#39;&#39;)">Centro agricolo  Catania  - ex 9573</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl28_lblst_provincia_desc">CT</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl28_lbl_stato" title="Acquisito" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl28_lbl_sito_s" title="DT Vuoto" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl28_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgAltRow" id="ctl00_body_RGSiti_ctl00__13">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id5,allInfo.id5);return false;" id="ctl00_body_RGSiti_ctl00_ctl30_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl30$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">PVE-001</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl30_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl30$btn_st_denominazione&#39;,&#39;&#39;)">Ex palazzina "Polfer" - Stazione Tiburtina</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl30_lblst_provincia_desc">RM</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl30_lbl_stato" title="ACQUISITO" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl30_lbl_sito_s" title="DT Vuoto" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl30_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr><tr class="rgRow" id="ctl00_body_RGSiti_ctl00__14" style="text-align:left;">
+			<td align="left" style="white-space:nowrap;">
+                                            <a onclick="goSitoMarker(allMarkers.id11,allInfo.id11);return false;" id="ctl00_body_RGSiti_ctl00_ctl32_btn_mappa" title="Esegue lo zoom sulla mappa" class="btn btn-default btn-xs gisri_button_ws" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl32$btn_mappa&#39;,&#39;&#39;)">
+                                                <i class=" fa fa-map-marker"></i>&nbsp;
+                                            </a>
+                                        </td><td style="white-space:nowrap;">DEP-001</td><td>
+                                            <a id="ctl00_body_RGSiti_ctl00_ctl32_btn_st_denominazione" class="button-link-b" href="javascript:__doPostBack(&#39;ctl00$body$RGSiti$ctl00$ctl32$btn_st_denominazione&#39;,&#39;&#39;)">Deposito San Donà di Piave</a>
+                                        </td><td class="additionalColumn">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl32_lblst_provincia_desc">VE</span>
+                                        </td><td align="right" style="white-space:nowrap;">
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl32_lbl_stato" title="Acquisito" class="btn btn-xs button-link-w gisri_button_ws label-sito-acquisito red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-flag"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl32_lbl_sito_s" title="DT Vuoto" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-user"></i>&nbsp;</i></span>
+                                            <span id="ctl00_body_RGSiti_ctl00_ctl32_lbl_sito_d" title="DT VUOTO" class="btn btn-xs button-link-w gisri_button_ws label-sito-aperto red-tooltip" data-toggle="tooltip" data-placement="left" title="" style="cursor:default;"><i class="fa fa-users"></i>&nbsp;</i></span>
+                                        </td>
+		</tr>
+		</tbody>
+
+	</table><div id="ctl00_body_RGSiti_rfltMenu">
+		<div class="RadMenu RadMenu_MyCustomSkin RadMenu_Context RadMenu_MyCustomSkin_Context">
+			<ul class="rmActive rmVertical rmGroup rmLevel1">
+				<li class="rmItem rmFirst"><a class="rmLink" href="#"><span class="rmText">NoFilter</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">Contiene</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">Non contiene</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">StartsWith</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">FineCon</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">UgualeA</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">NotEqualTo</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">GreaterThan</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">LessThan</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">GreaterThanOrEqualTo</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">LessThanOrEqualTo</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">Tra</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">NotBetween</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">IsEmpty</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">NotIsEmpty</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">IsNull</span></a></li><li class="rmItem "><a class="rmLink" href="#"><span class="rmText">NotIsNull</span></a></li><li class="rmItem rmLast"><a class="rmLink" href="#"><span class="rmText">Custom</span></a></li>
+			</ul>
+		</div><input id="ctl00_body_RGSiti_rfltMenu_ClientState" name="ctl00_body_RGSiti_rfltMenu_ClientState" type="hidden" />
+	</div><input id="ctl00_body_RGSiti_ClientState" name="ctl00_body_RGSiti_ClientState" type="hidden" />	</div>
+
+
+</div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="content-panel map_container_height" style="padding:10px!Important;">
+                <div style="width:100%; text-align:center; font-size:14px;">
+                    SITUAZIONE RELATIVA ALLE SOCIETA TITOLARI
+                </div>
+                <div class="map_container col-lg-6">
+                    <div id="googlemaps" class="map_canvas map_height">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function goSite(obj, id) {
+            //alert(id);
+            javascript: __doPostBack(obj, id);
+        }
+    </script>
+
+                <div id="ctl00_upd_master">
+
+
+
+
+</div>
+                <div id="ctl00_ModalUpdateProgress1" style="display:none;">
+
+                        <table style="width: 320px; height: 100px; border-style: solid; border-width:5px;
+                            border-color: #1265ab; background-color: White;">
+                            <tr>
+                                <td style="width:10px;">&nbsp;
+                                </td>
+                                <td style="padding-left:10px; padding-right:10px;">
+                                    <img id="ctl00_imgLogo" src="..\Favicon\apple-icon-72x72.png" align="absmiddle" style="width:32px;border-width:0px;" />
+                                </td>
+                                <td align="center" valign="middle">
+                                    <img id="ctl00_imgWait" src="..\Images\wait.gif" align="absmiddle" style="width:32px;border-width:0px;" />
+                                </td>
+                                <td align="center" valign="middle" style="padding-left:10px; padding-right:10px;" >
+                                    Attendere, richiesta in corso...
+                                </td>
+                            </tr>
+                        </table>
+
+</div>
+		    </section><! --/wrapper -->
+          </section><!-- /MAIN CONTENT -->
+          <!--footer start-->
+          <div style="padding:15px 0;">		  </div>
+          <footer class="site-footer">
+                <div class="text-center">
+                    <a href="http://www.ambientesc.it" style="color:#FFF;">ambiente s.c.</a> | Via Frassina, 21 | 54033 Carrara (MS) |
+					Tel. 0585 855632 | fax 0585 855617 - P. IVA n�: 00262540453
+                    <a href="#" class="go-top" style="margin: 0 20px;">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+          </footer>
+          <!--footer end-->
+        </section>
+
+        <input type="hidden" name="ctl00$hidden_session" id="ctl00_hidden_session" />
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+    Init_ToolTips(); Sys.Application.add_init(function () {
+        $create(Telerik.Web.UI.RadContextMenu, { "_childListElementCssClass": null, "_skin": "MyCustomSkin", "clickToOpen": true, "clientStateFieldID": "ctl00_body_RGSiti_rfltMenu_ClientState", "collapseAnimation": "{\"duration\":450}", "expandAnimation": "{\"duration\":450}", "itemData": [{ "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "NoFilter" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "Contains" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "DoesNotContain" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "StartsWith" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "EndsWith" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "EqualTo" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "NotEqualTo" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "GreaterThan" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "LessThan" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "GreaterThanOrEqualTo" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "LessThanOrEqualTo" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "Between" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "NotBetween" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "IsEmpty" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "NotIsEmpty" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "IsNull" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "NotIsNull" }, { "attributes": { "columnUniqueName": "", "tableID": "" }, "postBack": 0, "value": "Custom"}], "targets": [] }, null, null, $get("ctl00_body_RGSiti_rfltMenu"));
+    });
+    Sys.Application.add_init(function () {
+        $create(Telerik.Web.UI.RadGrid, { "ClientID": "ctl00_body_RGSiti", "ClientSettings": { "AllowAutoScrollOnDragDrop": true, "ShouldCreateRows": true, "DataBinding": {}, "Selecting": { "CellSelectionMode": 0 }, "Scrolling": {}, "Resizing": {}, "ClientMessages": { "DragToGroupOrReorder": "Trascina un gruppo o riordina", "DragToResize": "Trasfina per ridimensionare", "DropHereToReorder": "Trascina qui per riordinare", "PagerTooltipFormatString": "Pagina \u003cstrong\u003e{0}\u003c/strong\u003e di \u003cstrong\u003e{1}\u003c/strong\u003e", "ColumnResizeTooltipFormatString": "Larg.: \u003cstrong\u003e{0}\u003c/strong\u003e \u003cem\u003epixels\u003c/em\u003e" }, "KeyboardNavigationSettings": { "AllowActiveRowCycle": false, "EnableKeyboardShortcuts": true, "FocusKey": 89, "InitInsertKey": 73, "RebindKey": 82, "ExitEditInsertModeKey": 27, "UpdateInsertItemKey": 13, "DeleteActiveRow": 127, "ExpandDetailTableKey": 39, "CollapseDetailTableKey": 37, "SaveChangesKey": 85, "CancelChangesKey": 67 }, "Animation": {}, "Virtualization": {} }, "Skin": "MyCustomSkin", "UniqueID": "ctl00$body$RGSiti", "_activeRowIndex": "", "_clientKeyValues": { "0": { "sito_key": "6" }, "1": { "sito_key": "8" }, "2": { "sito_key": "7" }, "3": { "sito_key": "3" }, "4": { "sito_key": "2" }, "5": { "sito_key": "10" }, "6": { "sito_key": "9" }, "7": { "sito_key": "15" }, "8": { "sito_key": "12" }, "9": { "sito_key": "4" }, "10": { "sito_key": "1" }, "11": { "sito_key": "16" }, "12": { "sito_key": "20" }, "13": { "sito_key": "5" }, "14": { "sito_key": "11"} }, "_controlToFocus": "", "_currentPageIndex": 0, "_defaultDateTimeFormat": "dd/MM/yyyy HH:mm:ss", "_editIndexes": "[]", "_embeddedSkin": false, "_gridTableViewsData": "[{\"ClientID\":\"ctl00_body_RGSiti_ctl00\",\"UniqueID\":\"ctl00$body$RGSiti$ctl00\",\"PageSize\":25,\"PageCount\":1,\"EditMode\":\"EditForms\",\"AllowPaging\":true,\"CurrentPageIndex\":0,\"VirtualItemCount\":0,\"AllowMultiColumnSorting\":true,\"AllowNaturalSort\":true,\"AllowFilteringByColumn\":true,\"PageButtonCount\":10,\"HasDetailTables\":false,\"HasMultiHeaders\":false,\"CheckListWebServicePath\":\"\",\"GroupLoadMode\":\"Server\",\"PagerAlwaysVisible\":false,\"IsItemInserted\":false,\"clientDataKeyNames\":[\"sito_key\"],\"hasDetailItemTemplate\":false,\"_dataBindTemplates\":false,\"_selectedItemStyle\":\"\",\"_selectedItemStyleClass\":\"rgSelectedRow\",\"isFilterItemExpanded\":true,\"_columnsData\":[{\"UniqueName\":\"TemplateColumnPin\",\"Resizable\":true,\"Reorderable\":true,\"Selectable\":true,\"Groupable\":false,\"ColumnType\":\"GridTemplateColumn\",\"ColumnGroupName\":\"\",\"Editable\":false,\"DataTypeName\":\"System.String\",\"FilterListOptions\":0,\"CurrentFilterFunction\":0,\"CurrentFilterValue\":\"\",\"AndCurrnetFilterFunction\":0,\"AndCurrentFilterValue\":\"\",\"Acff\":1,\"CurrentFilterFunctionName\":\"NoFilter\",\"AndCurrentFilterFunctionName\":\"NoFilter\",\"DataField\":\"\",\"Display\":true},{\"UniqueName\":\"st_codice_interno\",\"Resizable\":true,\"Reorderable\":true,\"Selectable\":true,\"Groupable\":true,\"ColumnType\":\"GridBoundColumn\",\"ColumnGroupName\":\"\",\"Editable\":true,\"SortExpression\":\"st_codice_interno\",\"DataTypeName\":\"System.String\",\"FilterListOptions\":0,\"CurrentFilterFunction\":0,\"CurrentFilterValue\":\"\",\"AndCurrnetFilterFunction\":0,\"AndCurrentFilterValue\":\"\",\"Acff\":1,\"CurrentFilterFunctionName\":\"NoFilter\",\"AndCurrentFilterFunctionName\":\"NoFilter\",\"DataField\":\"st_codice_interno\",\"Display\":true},{\"UniqueName\":\"st_denominazione\",\"Resizable\":true,\"Reorderable\":true,\"Selectable\":true,\"Groupable\":true,\"ColumnType\":\"GridTemplateColumn\",\"ColumnGroupName\":\"\",\"Editable\":false,\"SortExpression\":\"st_denominazione\",\"DataTypeName\":\"System.String\",\"FilterListOptions\":0,\"CurrentFilterFunction\":0,\"CurrentFilterValue\":\"\",\"AndCurrnetFilterFunction\":0,\"AndCurrentFilterValue\":\"\",\"Acff\":1,\"CurrentFilterFunctionName\":\"NoFilter\",\"AndCurrentFilterFunctionName\":\"NoFilter\",\"DataField\":\"st_denominazione\",\"Display\":true},{\"UniqueName\":\"st_provincia_desc\",\"Resizable\":true,\"Reorderable\":true,\"Selectable\":true,\"Groupable\":true,\"ColumnType\":\"GridTemplateColumn\",\"ColumnGroupName\":\"\",\"Editable\":false,\"SortExpression\":\"st_provincia_desc\",\"DataTypeName\":\"System.String\",\"FilterListOptions\":0,\"CurrentFilterFunction\":0,\"CurrentFilterValue\":\"\",\"AndCurrnetFilterFunction\":0,\"AndCurrentFilterValue\":\"\",\"Acff\":1,\"CurrentFilterFunctionName\":\"NoFilter\",\"AndCurrentFilterFunctionName\":\"NoFilter\",\"DataField\":\"st_provincia_desc\",\"Display\":true},{\"UniqueName\":\"TemplateColumnSc\",\"Resizable\":true,\"Reorderable\":true,\"Selectable\":true,\"Groupable\":false,\"ColumnType\":\"GridTemplateColumn\",\"ColumnGroupName\":\"\",\"Editable\":false,\"DataTypeName\":\"System.String\",\"FilterListOptions\":0,\"CurrentFilterFunction\":0,\"CurrentFilterValue\":\"\",\"AndCurrnetFilterFunction\":0,\"AndCurrentFilterValue\":\"\",\"Acff\":1,\"CurrentFilterFunctionName\":\"NoFilter\",\"AndCurrentFilterFunctionName\":\"NoFilter\",\"DataField\":\"\",\"Display\":true}]}]", "_masterClientID": "ctl00_body_RGSiti_ctl00", "_shouldFocusOnPage": false, "allowMultiRowSelection": true, "clientStateFieldID": "ctl00_body_RGSiti_ClientState", "expandItems": {}, "renderMode": 1 }, { "rowDblClick": RowDblClick }, null, $get("ctl00_body_RGSiti"));
+    });
+    Sys.Application.add_init(function () {
+        $create(Sys.UI._ModalUpdateProgress, { "associatedUpdatePanelId": "ctl00_upd_master", "backgroundCssClass": "modalProgressGreyBackground", "cancelControlID": null, "displayAfter": 0, "dynamicLayout": true }, null, null, $get("ctl00_ModalUpdateProgress1"));
+    });
+//]]>
+</script>
+</form>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+
+    <script src="../assets/js/jquery.dcjqaccordion.2.7.js" class="include" type="text/javascript" ></script>
+    <script src="../assets/js/jquery.scrollTo.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.sparkline.js" type="text/javascript"></script>
+
+
+    <!--common script for all pages-->
+    <script src="../assets/js/common-scripts.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+
+    <script type="text/javascript" src="../assets/js/google-maps/google-map.js"></script>
+
+    <script type="text/javascript" src="../assets/plugins/smoke/smoke.js"></script>
+    <script type="text/javascript" src="../assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="../assets/plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.it.js"></script>
+
+    <!--script for this page-->
+	<script type="text/javascript" src="../assets/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+	<script type="text/javascript" >
+	    $("header.navbar-fixed-top").autoHidingNavbar();
+    </script>
+
+    <script type="text/javascript">
+
+        function pageLoad(sender, args) {
+            $('.date-picker').datepicker({
+                isRTL: false,
+                orientation: "left",
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                language: 'it'
+            });
+        }
+
+        $(document).ready(function () {
+            initSelect2();
+            initMultipleSelect2();
+            //alert(history.length);
+			$(".RadGrid").removeAttr( "tabindex" );
+        });
+
+        function SaveResetScrollPosition(div_ok) {
+            setTimeout("window.scrollTo(0,0)", 0);
+            $("#" + div_ok).effect("pulsate", { times: 5 }, 3000);
+        }
+
+        function BottomScrollPosition(div_ok) {
+            $("html, body").animate({
+                scrollTop:
+                $("#" + div_ok).offset().top
+            }, 1000);
+        }
+
+        jQuery(function ($) {
+            var focusedElementId = "";
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+            prm.add_beginRequest(function (source, args) {
+                var fe = document.activeElement;
+                if (fe != null) {
+                    focusedElementId = fe.id;
+                } else {
+                    focusedElementId = "";
+                }
+                //alert(focusedElementId);
+            });
+
+            prm.add_endRequest(function (source, args) {
+                if (focusedElementId != "") {
+                    $("#" + focusedElementId).focus();
+                    //alert($("#" + focusedElementId));
+                }
+            });
+        });
+    </script>
+
+
+
+
+</body>
+</html>

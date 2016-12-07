@@ -404,7 +404,7 @@
                                             </asp:Label>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="btn_mappa" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws"
+                                            <asp:LinkButton ID="btn_mappa" runat="server" CssClass="jumper btn btn-default btn-xs gisri_button_ws"
                                                 CommandName="MAPPA" ToolTip="Esegue lo zoom sulla mappa">
                                                 <i class=" fa fa-map-marker"></i>&nbsp;
                                             </asp:LinkButton>
@@ -473,7 +473,7 @@
                     <asp:Literal ID="ltl_titolo_mappa" runat="server"></asp:Literal>
                 </div>
                 <div class="map_container col-lg-6">
-                    <div id="googlemaps" class="map_canvas map_height">
+                    <div id="googlemaps" class="map map_canvas map_height">
                     </div>
                 </div>
             </div>
@@ -484,5 +484,17 @@
             //alert(id);
             javascript: __doPostBack(obj, id);
         }
+        $(document).ready(function() {
+            $(".jumper").on("click", function( e ) {
+
+                e.preventDefault();
+
+                $("body, html").animate({
+                    scrollTop: $('.map').offset().top
+                    // scrollTop: $( $(this).attr('href') ).offset().top
+                }, 600);
+
+            });
+        });
     </script>
 </asp:Content>

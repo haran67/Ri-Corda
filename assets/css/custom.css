@@ -1,3 +1,6 @@
+/*body, html {
+  -ms-overflow-style: none !important;
+}*/
 .tab-font {
     font-size: 16px !important;
 }
