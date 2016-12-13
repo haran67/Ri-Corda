@@ -135,128 +135,130 @@
                     <strong>
                         <asp:Literal ID="ltl_messaggio_ok" runat="server"></asp:Literal></strong>
                 </div>
-                <telerik:RadGrid ID="RGSmaltimenti" AutoGenerateColumns="False" CssClass="overflow" style="width: 100% !important" runat="server"
-                    ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
-                    Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
-                    AllowFilteringByColumn="true" Culture="it-IT">
-                    <GroupingSettings CaseSensitive="false" />
-                    <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
-                    <HeaderStyle CssClass=""></HeaderStyle>
-                    <ItemStyle HorizontalAlign="Left"></ItemStyle>
-                    <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
-                    <FilterItemStyle HorizontalAlign="Left" />
-                    <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="rifiuto_smaltimento_key" AllowMultiColumnSorting="True">
-                        <Columns>
-                            <telerik:GridTemplateColumn SortExpression="cer_confermato" UniqueName="cer_confermato"
-                                HeaderText="CER" DataField="cer_confermato" HeaderStyle-Width="5%" AllowFiltering="true"
-                                ShowFilterIcon="false" FilterControlWidth="50px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains" >
-                                <ItemStyle Wrap="false"  Font-Bold="true" />
-                                <ItemTemplate>
-                                    <asp:Label ID="lblrs_codici_cer_cod" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
-                                HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
-                                ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn SortExpression="rs_proprietario_desc" UniqueName="rs_proprietario_desc"
-                                HeaderText="Prodotto Da" DataField="rs_proprietario_desc" HeaderStyle-Width="17%" AllowFiltering="true"
-                                ShowFilterIcon="false" FilterControlWidth="120px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblrs_produttore_desc" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn SortExpression="rs_data_trasporto" UniqueName="rs_data_trasporto"
-                                HeaderText="Trasporto" DataField="rs_data_trasporto" HeaderStyle-Width="10%" AllowFiltering="false">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblrs_data_trasporto" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn SortExpression="rs_data_rientro" UniqueName="rs_data_rientro"
-                                HeaderText="Rientro" DataField="rs_data_rientro" HeaderStyle-Width="10%" AllowFiltering="false"
-                                ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" Visible="false">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblrs_data_rientro" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn SortExpression="rs_formulario_numero" UniqueName="rs_formulario_numero"
-                                HeaderText="FIR Num/Del" DataField="rs_formulario_numero" HeaderStyle-Width="10%" AllowFiltering="true"
-                                ShowFilterIcon="false" FilterControlWidth="50px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblformulario_data" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn SortExpression="destinatario_desc" UniqueName="destinatario_desc"
-                                HeaderText="Smaltitore" DataField="destinatario_desc" HeaderStyle-Width="20%" AllowFiltering="true"
-                                ShowFilterIcon="false" FilterControlWidth="100px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains"
-                                ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
-                                <ItemTemplate>
-                                    <asp:Label ID="lblrs_destinatario_desc" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn SortExpression="trasportatore_desc" UniqueName="trasportatore_desc"
-                                HeaderText="Trasportatore" DataField="trasportatore_desc" HeaderStyle-Width="20%" AllowFiltering="true"
-                                ShowFilterIcon="false" FilterControlWidth="100px" AutoPostBackOnFilter="true"
-                                CurrentFilterFunction="Contains">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblrs_trasportatore_desc" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn SortExpression="" UniqueName="rs_peso_volume_iniziale"
-                                HeaderText="Peso e Volume" DataField="rs_peso_volume_iniziale" HeaderStyle-Width="10%" AllowFiltering="false"
-                                ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
-                                <ItemStyle Wrap="false" />
-                                <ItemTemplate>
-                                    <asp:Label ID="lblrs_peso_volume" runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="rf_stato_allegati" SortExpression="" DataField=""
-                                InitializeTemplatesFirst="false" HeaderStyle-Width="1%" HeaderText="" AllowFiltering="false" >
-                                <ItemTemplate>
-                                    <asp:Label ID="ltl_stato_allegati" runat="server" Style="width: 100%; height: 100%;">
-                                    </asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="rs_stato_attuale" SortExpression="rs_stato_attuale" InitializeTemplatesFirst="false"
-                                HeaderStyle-Width="1%" DataField="rs_stato_attuale" HeaderText="Stato" AllowFiltering="true" >
-                                <ItemTemplate>
-                                    <asp:Label ID="ltl_stato" runat="server" Style="width: 100%; height: 100%;">
-                                        <span class="label label-sito-acquisito label-full-width"></span>
-                                    </asp:Label>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                            <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
-                                HeaderStyle-Width="1%" AllowFiltering="false">
-                                <ItemStyle HorizontalAlign="Right"  />
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="btn_trasporto" runat="server" CssClass="btn btn-fir btn-xs button-link-w gisri_button_list"
-                                        CommandName="TRASPORTO">
-                                                <i class=" fa fa-edit"></i>&nbsp;DETTAGLIO FIR</i>
-                                    </asp:LinkButton>
-                                    <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-quarta btn-xs button-link-w gisri_button_list"
-                                        CommandName="SCHEDA">
-                                                <i class=" fa fa-edit"></i>&nbsp;DETTAGLIO 4° COPIA</i>
-                                    </asp:LinkButton>
-                                    <asp:LinkButton ID="btn_commerciale" runat="server" CssClass="btn btn-primary btn-xs button-link-w gisri_button_list"
-                                        CommandName="COMMERCIALE">
-                                                <i class=" fa fa-edit"></i>&nbsp;ALTRI DATI</i>
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                            </telerik:GridTemplateColumn>
-                        </Columns>
-                    </MasterTableView>
-                    <ClientSettings EnableRowHoverStyle="true">
-                        <Selecting AllowRowSelect="false" />
-                    </ClientSettings>
-                </telerik:RadGrid>
+                <div class="table-container">
+                    <telerik:RadGrid ID="RGSmaltimenti" AutoGenerateColumns="False"  runat="server"
+                        ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
+                        Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
+                        AllowFilteringByColumn="true" Culture="it-IT">
+                        <GroupingSettings CaseSensitive="false" />
+                        <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
+                        <HeaderStyle CssClass=""></HeaderStyle>
+                        <ItemStyle HorizontalAlign="Left"></ItemStyle>
+                        <AlternatingItemStyle CssClass="" HorizontalAlign="Left"></AlternatingItemStyle>
+                        <FilterItemStyle HorizontalAlign="Left" />
+                        <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="rifiuto_smaltimento_key" AllowMultiColumnSorting="True">
+                            <Columns>
+                                <telerik:GridTemplateColumn SortExpression="cer_confermato" UniqueName="cer_confermato"
+                                    HeaderText="CER" DataField="cer_confermato" HeaderStyle-Width="5%" AllowFiltering="true"
+                                    ShowFilterIcon="false" FilterControlWidth="50px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains" >
+                                    <ItemStyle Wrap="false"  Font-Bold="true" />
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblrs_codici_cer_cod" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn SortExpression="rm_numero" UniqueName="rm_numero"
+                                    HeaderText="Num" DataField="rm_numero" HeaderStyle-Width="3%" AllowFiltering="true"
+                                    ShowFilterIcon="false" FilterControlWidth="150px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblrm_numero" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn SortExpression="rs_proprietario_desc" UniqueName="rs_proprietario_desc"
+                                    HeaderText="Prodotto Da" DataField="rs_proprietario_desc" HeaderStyle-Width="17%" AllowFiltering="true"
+                                    ShowFilterIcon="false" FilterControlWidth="120px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblrs_produttore_desc" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn SortExpression="rs_data_trasporto" UniqueName="rs_data_trasporto"
+                                    HeaderText="Trasporto" DataField="rs_data_trasporto" HeaderStyle-Width="10%" AllowFiltering="false">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblrs_data_trasporto" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn SortExpression="rs_data_rientro" UniqueName="rs_data_rientro"
+                                    HeaderText="Rientro" DataField="rs_data_rientro" HeaderStyle-Width="10%" AllowFiltering="false"
+                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" Visible="false">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblrs_data_rientro" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn SortExpression="rs_formulario_numero" UniqueName="rs_formulario_numero"
+                                    HeaderText="FIR Num/Del" DataField="rs_formulario_numero" HeaderStyle-Width="10%" AllowFiltering="true"
+                                    ShowFilterIcon="false" FilterControlWidth="50px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblformulario_data" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn SortExpression="destinatario_desc" UniqueName="destinatario_desc"
+                                    HeaderText="Smaltitore" DataField="destinatario_desc" HeaderStyle-Width="20%" AllowFiltering="true"
+                                    ShowFilterIcon="false" FilterControlWidth="100px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains"
+                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblrs_destinatario_desc" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn SortExpression="trasportatore_desc" UniqueName="trasportatore_desc"
+                                    HeaderText="Trasportatore" DataField="trasportatore_desc" HeaderStyle-Width="20%" AllowFiltering="true"
+                                    ShowFilterIcon="false" FilterControlWidth="100px" AutoPostBackOnFilter="true"
+                                    CurrentFilterFunction="Contains">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblrs_trasportatore_desc" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn SortExpression="" UniqueName="rs_peso_volume_iniziale"
+                                    HeaderText="Peso e Volume" DataField="rs_peso_volume_iniziale" HeaderStyle-Width="10%" AllowFiltering="false"
+                                    ItemStyle-CssClass="additionalColumn" HeaderStyle-CssClass="additionalColumn" >
+                                    <ItemStyle Wrap="false" />
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblrs_peso_volume" runat="server"></asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn UniqueName="rf_stato_allegati" SortExpression="" DataField=""
+                                    InitializeTemplatesFirst="false" HeaderStyle-Width="1%" HeaderText="" AllowFiltering="false" >
+                                    <ItemTemplate>
+                                        <asp:Label ID="ltl_stato_allegati" runat="server" Style="width: 100%; height: 100%;">
+                                        </asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn UniqueName="rs_stato_attuale" SortExpression="rs_stato_attuale" InitializeTemplatesFirst="false"
+                                    HeaderStyle-Width="1%" DataField="rs_stato_attuale" HeaderText="Stato" AllowFiltering="true" >
+                                    <ItemTemplate>
+                                        <asp:Label ID="ltl_stato" runat="server" Style="width: 100%; height: 100%;">
+                                            <span class="label label-sito-acquisito label-full-width"></span>
+                                        </asp:Label>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                                <telerik:GridTemplateColumn UniqueName="TemplateColumnGo" SortExpression="" InitializeTemplatesFirst="false"
+                                    HeaderStyle-Width="1%" AllowFiltering="false">
+                                    <ItemStyle HorizontalAlign="Right"  />
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="btn_trasporto" runat="server" CssClass="btn btn-fir btn-xs button-link-w gisri_button_list"
+                                            CommandName="TRASPORTO">
+                                                    <i class=" fa fa-edit"></i>&nbsp;DETTAGLIO FIR</i>
+                                        </asp:LinkButton>
+                                        <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-quarta btn-xs button-link-w gisri_button_list"
+                                            CommandName="SCHEDA">
+                                                    <i class=" fa fa-edit"></i>&nbsp;DETTAGLIO 4° COPIA</i>
+                                        </asp:LinkButton>
+                                        <asp:LinkButton ID="btn_commerciale" runat="server" CssClass="btn btn-primary btn-xs button-link-w gisri_button_list"
+                                            CommandName="COMMERCIALE">
+                                                    <i class=" fa fa-edit"></i>&nbsp;ALTRI DATI</i>
+                                        </asp:LinkButton>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+                            </Columns>
+                        </MasterTableView>
+                        <ClientSettings EnableRowHoverStyle="true">
+                            <Selecting AllowRowSelect="false" />
+                        </ClientSettings>
+                    </telerik:RadGrid>
+                </div>
             </div>
             <!-- /content-panel lista-->
         </div>
