@@ -71,17 +71,17 @@ var Script = function () {
     });
 
 // custom scrollbar
-var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|WPDesktop/i.test(navigator.userAgent) ? true : false;
-
-jQuery(document).ready(function($){
-    if(!isMobile) {
-        $("#sidebar").niceScroll({styler:"fb",cursorcolor:"#b3c7e5", cursorwidth: '3', cursorborderradius: '10px', background: '#404040', spacebarenabled:false, cursorborder: ''});
-
-        $("html").niceScroll({styler:"fb",cursorcolor:"#b3c7e5", cursorwidth: '6', cursorborderradius: '10px', background: '#404040', spacebarenabled:false,  cursorborder: '', zindex: '1000'});
-    } else {
-        // alert('mobile!!!!');
-    }
-});
+// var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|WPDesktop|SurfaceTablet/i.test(navigator.userAgent) ? true : false;
+//
+// jQuery(document).ready(function($){
+//     if(!isMobile) {
+//         $("#sidebar").niceScroll({styler:"fb",cursorcolor:"#b3c7e5", cursorwidth: '3', cursorborderradius: '10px', background: '#404040', spacebarenabled:false, cursorborder: ''});
+//
+//         $("html").niceScroll({styler:"fb",cursorcolor:"#b3c7e5", cursorwidth: '6', cursorborderradius: '10px', background: '#404040', spacebarenabled:false,  cursorborder: '', zindex: '1000'});
+//     } else {
+//         alert('mobile!!!!');
+//     }
+// });
 console.log(navigator.userAgent);
 // widget tools
 

@@ -380,91 +380,93 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
-                <asp:UpdatePanel ID="upd_master" runat="server">
-                    <ContentTemplate>
-                        <telerik:RadGrid ID="RGSiti" AutoGenerateColumns="False" CssClass="" runat="server"
-                            ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
-                            Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
-                            AllowFilteringByColumn="true" Culture="it-IT" Style="z-index:100;">
-                            <GroupingSettings CaseSensitive="false" />
-                            <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
-                            <FilterItemStyle HorizontalAlign="Left" Height="0" />
-                            <ItemStyle HorizontalAlign="Left" />
-                            <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="sito_key" ClientDataKeyNames="sito_key"
-                                AllowMultiColumnSorting="True" ShowHeadersWhenNoRecords="false">
-                                <Columns>
-                                    <telerik:GridTemplateColumn UniqueName="TemplateColumnPin" SortExpression="" InitializeTemplatesFirst="false"
-                                        HeaderStyle-Width="1%" AllowFiltering="false" Groupable="false">
-                                        <ItemStyle Wrap="false" HorizontalAlign="left" />
-                                        <HeaderTemplate>
-                                            <asp:Label ID="lbl_mappa" runat="server" CssClass="btn btn-xs button-link-w gisri_button_ws label-sito-header red-tooltip"
-                                                Style="cursor:default;" ToolTip="Permette lo zoom sulla mappa del sito selezionato"
-                                                data-toggle="tooltip" data-placement="right" Height="22">
-                                                <i class="fa fa-map-marker"></i>&nbsp;
-                                            </asp:Label>
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <asp:LinkButton ID="btn_mappa" runat="server" CssClass="jumper btn btn-default btn-xs gisri_button_ws"
-                                                CommandName="MAPPA" ToolTip="Esegue lo zoom sulla mappa">
-                                                <i class=" fa fa-map-marker"></i>&nbsp;
-                                            </asp:LinkButton>
-                                        </ItemTemplate>
-                                    </telerik:GridTemplateColumn>
-                                    <telerik:GridBoundColumn SortExpression="st_codice_interno" UniqueName="st_codice_interno"
-                                        HeaderText="Codice" DataField="st_codice_interno" HeaderStyle-Width="5%" AllowFiltering="true"
-                                        ShowFilterIcon="false" FilterListOptions="VaryByDataType" ItemStyle-Wrap="false" />
-                                    <telerik:GridTemplateColumn UniqueName="st_denominazione" SortExpression="st_denominazione"
-                                        InitializeTemplatesFirst="false" HeaderStyle-Width="90%" HeaderText="Sito" DataField="st_denominazione"
-                                        AllowFiltering="true">
-                                        <ItemTemplate>
-                                            <asp:LinkButton ID="btn_st_denominazione" runat="server" CommandName="SCHEDA" CssClass="button-link-b"></asp:LinkButton>
-                                        </ItemTemplate>
-                                    </telerik:GridTemplateColumn>
-                                    <telerik:GridTemplateColumn UniqueName="st_provincia_desc" SortExpression="st_provincia_desc"
-                                        InitializeTemplatesFirst="false" HeaderStyle-Width="5%" HeaderText="Prov."
-                                        DataField="st_provincia_desc" AllowFiltering="true" >
-                                        <HeaderStyle CssClass="additionalColumn" />
-                                        <ItemStyle CssClass="additionalColumn" />
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblst_provincia_desc" runat="server"></asp:Label>
-                                        </ItemTemplate>
-                                    </telerik:GridTemplateColumn>
-                                    <telerik:GridTemplateColumn UniqueName="TemplateColumnSc" SortExpression="" InitializeTemplatesFirst="true"
-                                        HeaderStyle-Width="1%" AllowFiltering="false" Groupable="false">
-                                        <ItemStyle Wrap="false" HorizontalAlign="Right" />
-                                        <Headerstyle Wrap="false" HorizontalAlign="Right" />
-                                        <HeaderTemplate>
-                                            <asp:Label ID="lbl_stato" runat="server" CssClass="btn btn-xs button-link-w gisri_button_ws label-sito-header red-tooltip"
-                                                Style="cursor:default;" ToolTip="Indica lo stato operativo del sito"
-                                                data-toggle="tooltip" data-placement="left" title="" Height="23">
-                                                <i class="fa fa-flag"></i>&nbsp;
-                                            </asp:Label>
-                                            <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w gisri_button_ws red-tooltip"
-                                                Style="cursor:pointer;" CommandName="PINS_INT" ToolTip="Identifica sulla mappa i Siti con lo stato del Deposito Temporaneo della Società Titolare"
-                                                data-toggle="" data-placement="top" title="" Height="23">
-                                                <i class=" fa fa-user"></i>&nbsp;
-                                            </asp:LinkButton>
-                                            <asp:LinkButton ID="btn_scheda_ext" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws red-tooltip"
-                                                Style="cursor:pointer;" CommandName="PINS_OUT" ToolTip="Identifica sulla mappa i Siti con lo stato del Deposito Temporaneo delle Ditte Esecutrici"
-                                                data-toggle="" data-placement="top" title="" Height="23">
-                                                <i class="fa fa-users"></i>&nbsp;
-                                            </asp:LinkButton>
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <asp:Label ID="lbl_stato" runat="server" Style="cursor:default;" data-toggle="tooltip" data-placement="left" title=""></asp:Label>
-                                            <asp:Label ID="lbl_sito_s" runat="server" Style="cursor:default;" data-toggle="tooltip" data-placement="left" title=""></asp:Label>
-                                            <asp:Label ID="lbl_sito_d" runat="server" Style="cursor:default;" data-toggle="tooltip" data-placement="left" title=""></asp:Label>
-                                        </ItemTemplate>
-                                    </telerik:GridTemplateColumn>
-                                </Columns>
-                            </MasterTableView>
-                            <ClientSettings>
-                                <Selecting AllowRowSelect="false" />
-                                <ClientEvents OnRowDblClick="RowDblClick" />
-                            </ClientSettings>
-                        </telerik:RadGrid>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                <div class="table-container">
+                    <asp:UpdatePanel ID="upd_master" runat="server">
+                        <ContentTemplate>
+                            <telerik:RadGrid ID="RGSiti" AutoGenerateColumns="False" CssClass="" runat="server"
+                                ShowFooter="false" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="25"
+                                Width="100%" AllowMultiRowSelection="true" Skin="MyCustomSkin" EnableEmbeddedSkins="false"
+                                AllowFilteringByColumn="true" Culture="it-IT" Style="z-index:100;">
+                                <GroupingSettings CaseSensitive="false" />
+                                <PagerStyle Mode="NextPrevAndNumeric" CssClass=""></PagerStyle>
+                                <FilterItemStyle HorizontalAlign="Left" Height="0" />
+                                <ItemStyle HorizontalAlign="Left" />
+                                <MasterTableView ShowFooter="false" Width="100%" DataKeyNames="sito_key" ClientDataKeyNames="sito_key"
+                                    AllowMultiColumnSorting="True" ShowHeadersWhenNoRecords="false">
+                                    <Columns>
+                                        <telerik:GridTemplateColumn UniqueName="TemplateColumnPin" SortExpression="" InitializeTemplatesFirst="false"
+                                            HeaderStyle-Width="1%" AllowFiltering="false" Groupable="false">
+                                            <ItemStyle Wrap="false" HorizontalAlign="left" />
+                                            <HeaderTemplate>
+                                                <asp:Label ID="lbl_mappa" runat="server" CssClass="btn btn-xs button-link-w gisri_button_ws label-sito-header red-tooltip"
+                                                    Style="cursor:default;" ToolTip="Permette lo zoom sulla mappa del sito selezionato"
+                                                    data-toggle="tooltip" data-placement="right" Height="22">
+                                                    <i class="fa fa-map-marker"></i>&nbsp;
+                                                </asp:Label>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="btn_mappa" runat="server" CssClass="jumper btn btn-default btn-xs gisri_button_ws"
+                                                    CommandName="MAPPA" ToolTip="Esegue lo zoom sulla mappa">
+                                                    <i class=" fa fa-map-marker"></i>&nbsp;
+                                                </asp:LinkButton>
+                                            </ItemTemplate>
+                                        </telerik:GridTemplateColumn>
+                                        <telerik:GridBoundColumn SortExpression="st_codice_interno" UniqueName="st_codice_interno"
+                                            HeaderText="Codice" DataField="st_codice_interno" HeaderStyle-Width="5%" AllowFiltering="true"
+                                            ShowFilterIcon="false" FilterListOptions="VaryByDataType" ItemStyle-Wrap="false" />
+                                        <telerik:GridTemplateColumn UniqueName="st_denominazione" SortExpression="st_denominazione"
+                                            InitializeTemplatesFirst="false" HeaderStyle-Width="90%" HeaderText="Sito" DataField="st_denominazione"
+                                            AllowFiltering="true">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="btn_st_denominazione" runat="server" CommandName="SCHEDA" CssClass="button-link-b"></asp:LinkButton>
+                                            </ItemTemplate>
+                                        </telerik:GridTemplateColumn>
+                                        <telerik:GridTemplateColumn UniqueName="st_provincia_desc" SortExpression="st_provincia_desc"
+                                            InitializeTemplatesFirst="false" HeaderStyle-Width="5%" HeaderText="Prov."
+                                            DataField="st_provincia_desc" AllowFiltering="true" >
+                                            <HeaderStyle CssClass="additionalColumn" />
+                                            <ItemStyle CssClass="additionalColumn" />
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblst_provincia_desc" runat="server"></asp:Label>
+                                            </ItemTemplate>
+                                        </telerik:GridTemplateColumn>
+                                        <telerik:GridTemplateColumn UniqueName="TemplateColumnSc" SortExpression="" InitializeTemplatesFirst="true"
+                                            HeaderStyle-Width="1%" AllowFiltering="false" Groupable="false">
+                                            <ItemStyle Wrap="false" HorizontalAlign="Right" />
+                                            <Headerstyle Wrap="false" HorizontalAlign="Right" />
+                                            <HeaderTemplate>
+                                                <asp:Label ID="lbl_stato" runat="server" CssClass="btn btn-xs button-link-w gisri_button_ws label-sito-header red-tooltip"
+                                                    Style="cursor:default;" ToolTip="Indica lo stato operativo del sito"
+                                                    data-toggle="tooltip" data-placement="left" title="" Height="23">
+                                                    <i class="fa fa-flag"></i>&nbsp;
+                                                </asp:Label>
+                                                <asp:LinkButton ID="btn_scheda" runat="server" CssClass="btn btn-primary btn-xs button-link-w gisri_button_ws red-tooltip"
+                                                    Style="cursor:pointer;" CommandName="PINS_INT" ToolTip="Identifica sulla mappa i Siti con lo stato del Deposito Temporaneo della Società Titolare"
+                                                    data-toggle="" data-placement="top" title="" Height="23">
+                                                    <i class=" fa fa-user"></i>&nbsp;
+                                                </asp:LinkButton>
+                                                <asp:LinkButton ID="btn_scheda_ext" runat="server" CssClass="btn btn-default btn-xs gisri_button_ws red-tooltip"
+                                                    Style="cursor:pointer;" CommandName="PINS_OUT" ToolTip="Identifica sulla mappa i Siti con lo stato del Deposito Temporaneo delle Ditte Esecutrici"
+                                                    data-toggle="" data-placement="top" title="" Height="23">
+                                                    <i class="fa fa-users"></i>&nbsp;
+                                                </asp:LinkButton>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_stato" runat="server" Style="cursor:default;" data-toggle="tooltip" data-placement="left" title=""></asp:Label>
+                                                <asp:Label ID="lbl_sito_s" runat="server" Style="cursor:default;" data-toggle="tooltip" data-placement="left" title=""></asp:Label>
+                                                <asp:Label ID="lbl_sito_d" runat="server" Style="cursor:default;" data-toggle="tooltip" data-placement="left" title=""></asp:Label>
+                                            </ItemTemplate>
+                                        </telerik:GridTemplateColumn>
+                                    </Columns>
+                                </MasterTableView>
+                                <ClientSettings>
+                                    <Selecting AllowRowSelect="false" />
+                                    <ClientEvents OnRowDblClick="RowDblClick" />
+                                </ClientSettings>
+                            </telerik:RadGrid>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
             </div>
         </div>
         <div class="col-lg-6">
