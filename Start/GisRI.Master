@@ -234,7 +234,7 @@
                         <li>
                             <asp:LinkButton ID="lnk_supporto" CssClass="help" ToolTip="Supporto on line" runat="server" OnClientClick="NewWindows('../Messaggi/Supporto.aspx','_Supporto',600,800,'no'); return false;"><i class="fa fa-life-ring"></i></asp:LinkButton>
                         </li>
-                        <li class="visible-xs-inline"><a class="logout" href="../Start/Logout.aspx"><i class="fa fa-sign-out"></i></a></li>
+                        <li class="visible-xs-inline"><a class="logout" href="../Start/Logout.aspx" style="margin-left: 0 !important;"><i class="fa fa-sign-out"></i></a></li>
                         <li class="hidden-xs"><a class="logout" href="../Start/Logout.aspx">Esci</a></li>
                     </ul>
                 </div>

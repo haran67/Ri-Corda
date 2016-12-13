@@ -411,3 +411,7 @@
         padding-right: 0px;
     }
 }
+.logout, .help {
+    margin-right: 0 !important;
+    margin-left: 15px !important;
+}
